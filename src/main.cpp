@@ -6,11 +6,10 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(640, 480), "SFMLApplication");
-    sf::CircleShape shape;
-    shape.setRadius(40.f);
-    shape.setPosition(100.f, 100.f);
-    shape.setFillColor(sf::Color::Cyan);
+    sf::RenderWindow window(sf::VideoMode(500, 500), "SFMLApplication");
+    sf::RectangleShape shape1;
+    shape1.setSize({400,200});
+    shape1.setFillColor(sf::Color::Blue);
     while (window.isOpen())
     {
         sf::Event event;
@@ -20,7 +19,7 @@ int main()
                 window.close();
         }
         window.clear();
-        window.draw(shape);
+        window.draw(shape1);
         window.display();
     }
     return 0;
