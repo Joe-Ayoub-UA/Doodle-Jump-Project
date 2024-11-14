@@ -1,0 +1,14 @@
+//
+// Created by s0230501 on 14/11/24.
+//
+
+#ifndef INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
+#define INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
+
+
+class Player {
+
+};
+
+
+#endif //INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H

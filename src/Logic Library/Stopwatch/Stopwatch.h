@@ -1,0 +1,14 @@
+//
+// Created by Joe Ayoub on 14/11/24 at 15:21.
+//
+
+#ifndef INC_2024_PROJECT_JOE_AYOUB_UA_STOPWATCH_H
+#define INC_2024_PROJECT_JOE_AYOUB_UA_STOPWATCH_H
+
+
+class Stopwatch {
+
+};
+
+
+#endif //INC_2024_PROJECT_JOE_AYOUB_UA_STOPWATCH_H
