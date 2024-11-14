@@ -1,0 +1,14 @@
+//
+// Created by Joe Ayoub on 14/11/24 at 16:06.
+//
+
+#ifndef INC_2024_PROJECT_JOE_AYOUB_UA_ABSTRACT_FACTORY_H
+#define INC_2024_PROJECT_JOE_AYOUB_UA_ABSTRACT_FACTORY_H
+
+
+class Abstract_Factory {
+
+};
+
+
+#endif //INC_2024_PROJECT_JOE_AYOUB_UA_ABSTRACT_FACTORY_H
