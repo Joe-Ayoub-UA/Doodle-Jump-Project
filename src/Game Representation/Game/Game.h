@@ -8,6 +8,8 @@
 #include <SFML/Graphics.hpp>
 #include "../../Controller/Controller.h"
 #include <memory>
+#include "../../Logic Library/Stopwatch/Stopwatch.h"
+#include "../Player/Player.h"
 using namespace std;
 
 class Game {
@@ -19,9 +21,11 @@ private:
     shared_ptr<sf::CircleShape> mPlayer{};
 //    sf::CircleShape mPlayer;
 
+    shared_ptr<Stopwatch> mStopwatch{};
+
     void processEvents();
 
-    void update(sf::Time deltatime);
+    void update(float delta);
 
     void render();
 public:

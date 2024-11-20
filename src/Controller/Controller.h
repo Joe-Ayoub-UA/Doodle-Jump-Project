@@ -9,11 +9,14 @@
 
 class Controller {
 public:
+    Controller();
 
     void handleInputs(sf::Keyboard::Key key, bool isPressed);
 
     bool left{};
     bool right{};
+
+    virtual ~Controller();
 };
 
 

@@ -7,11 +7,17 @@
 Game::Game() : mWindow(new sf::RenderWindow(sf::VideoMode(600, 800), "Doodle Jump")), mPlayer()
 {
     mWindow = std::make_unique<sf::RenderWindow>(sf::VideoMode(600, 800),"Doodle Jump");
-    mPlayer = std::make_shared<sf::CircleShape>(40.f);
+
+//    sf::Texture texture;
+//    if (!texture.loadFromFile("/home/s0230501/CLionProjects/AP_Project_DoodleJump/2024-project-Joe-Ayoub-UA/textures/Doodle/NinjaDoodle.png")) {}
+    //mPlayer = std::make_shared<sf::CircleShape>(40.f);
     //mPlayer->setRadius(40.f);
+    mPlayer = std::make_shared<sf::CircleShape>(40.f);
     mPlayer->setPosition(100.f, 100.f);
     //mPlayer->setOrigin(120.f,100.f);
-    mPlayer->setFillColor(sf::Color::Yellow);
+    //mPlayer->setFillColor(sf::Color::Yellow);
+
+    mStopwatch = std::make_shared<Stopwatch>();
 
     //initgame();
 }
@@ -72,22 +78,28 @@ void Game::processEvents() {
     }
 }
 
-void Game::update(sf::Time deltatime) {
+void Game::update(float delta) {
     sf::Vector2f movement(0.f, 0.f);
     if (controller->left) {
-        movement.x -= 400.f;
+        movement.x -= 2.f;
     }
     if (controller->right) {
-        movement.x += 400.f;
+        movement.x += 2.f;
     }
-    cout << mPlayer->getPosition().x << endl;
+    //cout << mPlayer->getPosition().x << endl;
     if (mPlayer->getPosition().x < mPlayer->getRadius()*(-2)) {
         mPlayer->setPosition((float)mWindow->getSize().x+mPlayer->getRadius(),mPlayer->getPosition().y);
     }
     if (mPlayer->getPosition().x > (float)mWindow->getSize().x+mPlayer->getRadius()) {
         mPlayer->setPosition(-mPlayer->getRadius(),mPlayer->getPosition().y);
     }
-    mPlayer->move(movement * deltatime.asSeconds());
+//    if (mPlayer->getPosition().x < 0) {
+//        mPlayer->setPosition((float)mWindow->getSize().x-1,mPlayer->getPosition().y);
+//    }
+//    if (mPlayer->getPosition().x > (float)mWindow->getSize().x) {
+//        mPlayer->setPosition(1,mPlayer->getPosition().y);
+//    }
+    mPlayer->move(movement * delta);
 }
 
 void Game::render() {
@@ -96,12 +108,19 @@ void Game::render() {
     mWindow->display();
 }
 
+
+///
+///@brief This function runs the game and makes sure the needed events are processed, also stops the game when the window is closed or the program is stopped.
 void Game::run() {
     sf::Clock clock;
     while (mWindow->isOpen()) {
         sf::Time deltatime = clock.restart();
+        mStopwatch->startStopwatch();
         processEvents();
-        update(deltatime);
+        mStopwatch->stopStopwatch();
+//        cout << "mStopwatch: " << mStopwatch->getDelta() << endl;
+//        cout << "deltatime: " << deltatime.asSeconds() << endl;
+        update(mStopwatch->getDelta());
         render();
     }
 }

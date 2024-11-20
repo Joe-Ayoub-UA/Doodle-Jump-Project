@@ -13,3 +13,9 @@ void Controller::handleInputs(sf::Keyboard::Key key, bool isPressed) {
         left = isPressed;
     }
 }
+
+Controller::Controller() {}
+
+Controller::~Controller() {
+
+}

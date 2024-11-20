@@ -10,9 +10,13 @@
 namespace Game_Repr {
     class Player {
     private:
-        std::unique_ptr<sf::CircleShape> mPlayer;
+        std::shared_ptr<sf::CircleShape> mPlayer;
     public:
         Player();
+
+        const std::shared_ptr<sf::CircleShape> &getMPlayer() const;
+
+        void setMPlayer(const std::shared_ptr<sf::CircleShape> &mPlayer);
     };
 }
 
