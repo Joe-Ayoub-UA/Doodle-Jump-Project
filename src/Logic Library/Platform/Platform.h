@@ -5,10 +5,13 @@
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_PLATFORM_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_PLATFORM_H
 
+#include "../Entity Model/Entity_Model.h"
+namespace Logic_Library {
+    class Platform : Entity_Model {
 
-class Platform {
+    };
+}
 
-};
 
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_PLATFORM_H

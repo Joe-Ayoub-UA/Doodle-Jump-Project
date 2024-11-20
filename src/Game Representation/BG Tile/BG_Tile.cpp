@@ -5,4 +5,7 @@
 #include "BG_Tile.h"
 
 namespace Game_Repr {
+    BG_Tile::BG_Tile() {
+
+    }
 } // Game_Repr

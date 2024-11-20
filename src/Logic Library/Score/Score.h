@@ -5,8 +5,9 @@
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_SCORE_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_SCORE_H
 
+#include "../Observer/Observer.h"
 
-class Score {
+class Score : public Observer {
 
 };
 

@@ -9,7 +9,28 @@ ENDIF()
 FIND_PACKAGE(SFML 2 COMPONENTS system window graphics)
 
 # The source files to compile
-SET(SRC src/main.cpp)
+SET(SRC src/main.cpp
+        "src/Logic Library/Subject/Subject.cpp"
+        "src/Logic Library/Entity Model/Entity_Model.cpp"
+        "src/Logic Library/Player/Player.h"
+        "src/Logic Library/Platform/Platform.cpp"
+        "src/Logic Library/BG Tile/BG_Tile.cpp"
+        "src/Logic Library/Bonus/Bonus.cpp"
+        "src/Logic Library/Camera/Camera.cpp"
+        "src/Logic Library/Random/Random.cpp"
+        "src/Logic Library/Stopwatch/Stopwatch.cpp"
+        "src/Logic Library/_World/World.cpp"
+        "src/Logic Library/Observer/Observer.cpp"
+        "src/Logic Library/Score/Score.cpp"
+        "src/Game Representation/Entity View/Entity_View.cpp"
+        "src/Game Representation/Game/Game.cpp"
+        "src/Logic Library/Abstract Factory/Abstract_Factory.cpp"
+        "src/Game Representation/Concrete Factory/Concrete_Factory.cpp"
+        "src/Game Representation/Player/Player.cpp"
+        "src/Game Representation/Platform/Platform.cpp"
+        "src/Game Representation/BG Tile/BG_Tile.cpp"
+        "src/Game Representation/Bonus/Bonus.cpp"
+        src/Controller/Controller.cpp)
 
 # Add include dirs for SFML
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})

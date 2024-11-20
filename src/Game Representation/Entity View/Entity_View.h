@@ -5,8 +5,9 @@
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_ENTITY_VIEW_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_ENTITY_VIEW_H
 
+#include "../../Logic Library/Observer/Observer.h"
 
-class Entity_View {
+class Entity_View : public Observer {
 
 };
 

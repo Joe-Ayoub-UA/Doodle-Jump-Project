@@ -4,11 +4,18 @@
 
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
+#include <SFML/Graphics.hpp>µ
+#include <memory>
 
+namespace Game_Repr {
+    class Player {
+    private:
+        std::unique_ptr<sf::CircleShape> mPlayer;
+    public:
+        Player();
+    };
+}
 
-class Player {
-
-};
 
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H

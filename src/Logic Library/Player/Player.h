@@ -5,10 +5,14 @@
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
 
+#include "../Entity Model/Entity_Model.h"
 
-class Player {
+namespace Logic_Library {
+    class Player : public Entity_Model {
 
-};
+    };
+}
+
 
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
