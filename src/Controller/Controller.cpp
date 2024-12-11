@@ -14,7 +14,7 @@ void Controller::handleInputs(sf::Keyboard::Key key, bool isPressed) {
     }
 }
 
-Controller::Controller() {}
+Controller::Controller() {std::make_shared<Controller>(*this);}
 
 Controller::~Controller() {
 

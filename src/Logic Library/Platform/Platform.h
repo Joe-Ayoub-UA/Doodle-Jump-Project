@@ -8,7 +8,11 @@
 #include "../Entity Model/Entity_Model.h"
 namespace Logic_Library {
     class Platform : Entity_Model {
-
+    private:
+        int x;
+        int y;
+    public:
+        Platform(int x, int y);
     };
 }
 

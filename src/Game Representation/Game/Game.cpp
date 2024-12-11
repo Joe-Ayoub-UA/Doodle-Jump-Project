@@ -3,18 +3,22 @@
 //
 
 #include "Game.h"
+#include <unistd.h>
+#include <thread>
 
-Game::Game() : mWindow(new sf::RenderWindow(sf::VideoMode(600, 800), "Doodle Jump")), mPlayer()
+Game::Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(600, 800), "Doodle Jump"))
 {
-    mWindow = std::make_unique<sf::RenderWindow>(sf::VideoMode(600, 800),"Doodle Jump");
+    //mWindow = std::make_unique<sf::RenderWindow>(sf::VideoMode(600, 800),"Doodle Jump");
 
 //    sf::Texture texture;
 //    if (!texture.loadFromFile("/home/s0230501/CLionProjects/AP_Project_DoodleJump/2024-project-Joe-Ayoub-UA/textures/Doodle/NinjaDoodle.png")) {}
     //mPlayer = std::make_shared<sf::CircleShape>(40.f);
     //mPlayer->setRadius(40.f);
-    mPlayer = std::make_shared<sf::CircleShape>(40.f);
-    mPlayer->setPosition(100.f, 100.f);
-    //mPlayer->setOrigin(120.f,100.f);
+    mPlayer->getMPlayer()->setOrigin(mPlayer->getMPlayer()->getRadius(),mPlayer->getMPlayer()->getRadius());
+    //mPlayer->setPosition(100.f, 100.f);
+    float posX = static_cast<float>((float)mWindow->getSize().x / 2);
+    float posY = static_cast<float>((float)mWindow->getSize().y / 2);
+    mPlayer->getMPlayer()->setPosition(posX, posY);
     //mPlayer->setFillColor(sf::Color::Yellow);
 
     mStopwatch = std::make_shared<Stopwatch>();
@@ -62,7 +66,7 @@ void Game::initgame() {
 }
 
 void Game::processEvents() {
-    sf::Event event;
+    sf::Event event{};
     while (mWindow->pollEvent(event)) {
         switch (event.type) {
             case sf::Event::KeyPressed:
@@ -78,20 +82,20 @@ void Game::processEvents() {
     }
 }
 
-void Game::update(float delta) {
+void Game::update(sf::Time delta) {
     sf::Vector2f movement(0.f, 0.f);
     if (controller->left) {
-        movement.x -= 2.f;
+        movement.x -= 350.f;
     }
     if (controller->right) {
-        movement.x += 2.f;
+        movement.x += 350.f;
     }
     //cout << mPlayer->getPosition().x << endl;
-    if (mPlayer->getPosition().x < mPlayer->getRadius()*(-2)) {
-        mPlayer->setPosition((float)mWindow->getSize().x+mPlayer->getRadius(),mPlayer->getPosition().y);
+    if (mPlayer->getMPlayer()->getPosition().x < mPlayer->getMPlayer()->getRadius()*(-2)) {
+        mPlayer->getMPlayer()->setPosition((float)mWindow->getSize().x+mPlayer->getMPlayer()->getRadius(),mPlayer->getMPlayer()->getPosition().y);
     }
-    if (mPlayer->getPosition().x > (float)mWindow->getSize().x+mPlayer->getRadius()) {
-        mPlayer->setPosition(-mPlayer->getRadius(),mPlayer->getPosition().y);
+    if (mPlayer->getMPlayer()->getPosition().x > (float)mWindow->getSize().x+mPlayer->getMPlayer()->getRadius()) {
+        mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getRadius()*(-2),mPlayer->getMPlayer()->getPosition().y);
     }
 //    if (mPlayer->getPosition().x < 0) {
 //        mPlayer->setPosition((float)mWindow->getSize().x-1,mPlayer->getPosition().y);
@@ -99,28 +103,77 @@ void Game::update(float delta) {
 //    if (mPlayer->getPosition().x > (float)mWindow->getSize().x) {
 //        mPlayer->setPosition(1,mPlayer->getPosition().y);
 //    }
-    mPlayer->move(movement * delta);
+    mPlayer->getMPlayer()->move(movement * delta.asSeconds());
 }
-
+/**
+ * @brief This funcition makes sure the window keeps updating to the new position of the entities
+ */
 void Game::render() {
     mWindow->clear();
-    mWindow->draw(*mPlayer);
+    mWindow->draw(*mPlayer->getMPlayer());
     mWindow->display();
 }
 
 
-///
-///@brief This function runs the game and makes sure the needed events are processed, also stops the game when the window is closed or the program is stopped.
+/**
+ * @brief This function runs the game and makes sure the needed events are processed, also stops the game when the window is closed or the program is stopped.
+ * @attention Need to fix the stopwatch, make maybe use of the sleep(int) method to make sure it consistently updates.
+ * @todo Stopwatch to work the same way as the sf::Clock and sf::Time: da kan ik doen door gebruik van sleep en dan
+ *       update het ÉÉN keer per 1/60 second, dus gwn alles uitvoeren en dan wachten tot dat het genoeg is voor 1/60 seconde
+ */
+
+/*
+ *     Stopwatch stopwatch;
+
+    // Simulate a workload
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+    float delta = stopwatch.restart(); // Get elapsed time and restart the stopwatch
+    std::cout << "Elapsed time: " << delta << " seconds\n";
+
+    // Simulate another workload
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+    delta = stopwatch.restart(); // Get the new elapsed time
+    std::cout << "Elapsed time: " << delta << " seconds\n";
+
+ */
 void Game::run() {
+//    mStopwatch->startStopwatch;
     sf::Clock clock;
     while (mWindow->isOpen()) {
+
         sf::Time deltatime = clock.restart();
-        mStopwatch->startStopwatch();
         processEvents();
-        mStopwatch->stopStopwatch();
-//        cout << "mStopwatch: " << mStopwatch->getDelta() << endl;
-//        cout << "deltatime: " << deltatime.asSeconds() << endl;
-        update(mStopwatch->getDelta());
+        update(deltatime);
         render();
+
+        //mStopwatch->stopStopwatch();
+//        float elapsedTime = mStopwatch->getElapsedTime();
+////        cout << "mStopwatch 1: " << elapsedTime << endl;
+//        //cout << "deltatime: " << deltatime.asMilliseconds() << endl;
+////        cout << "1/60 = " << 1.f/60.f << endl;
+//
+//        if (mStopwatch->getElapsedTime() < 1.f/60.f) {
+//            auto now = std::chrono::high_resolution_clock::now();
+//            auto sleepUntil = now + std::chrono::duration<float>(1.f / 60.f - elapsedTime);
+//
+//            std::this_thread::sleep_until(sleepUntil);
+//        }
+//        if (mStopwatch->getElapsedTime() >= 1.f/60.f) {
+//            float deltaTime = mStopwatch->getElapsedTime(); // Time since last frame
+////            mStopwatch->startStopwatch();
+//            update(deltaTime);
+////            deltatime = clock.restart();
+//            render();
+//        }
+//        mStopwatch->continueStopwatch();
+//        mStopwatch->setBeginning(
+//                mStopwatch->getBeginning() + std::chrono::duration_cast<std::chrono::high_resolution_clock::duration>(
+//                        std::chrono::duration<float>(mStopwatch->getDelta())
+//                )
+//        );
+//        cout << "mStopwatch 2: " << mStopwatch->getDelta() << endl;
+
     }
 }

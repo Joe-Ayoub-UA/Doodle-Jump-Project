@@ -3,3 +3,5 @@
 //
 
 #include "Platform.h"
+
+Logic_Library::Platform::Platform(int x, int y) : x(x), y(y) {}

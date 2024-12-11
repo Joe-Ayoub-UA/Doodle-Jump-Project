@@ -3,3 +3,7 @@
 //
 
 #include "World.h"
+
+World::World() {
+    auto AF = std::make_shared<Concrete_Factory>();
+}

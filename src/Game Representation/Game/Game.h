@@ -10,22 +10,22 @@
 #include <memory>
 #include "../../Logic Library/Stopwatch/Stopwatch.h"
 #include "../Player/Player.h"
-using namespace std;
+using namespace Game_Repr;
 
 class Game {
 private:
-    shared_ptr<Controller> controller = std::make_shared<Controller>();
+    std::shared_ptr<Controller> controller{new Controller()};
 
-    unique_ptr<sf::RenderWindow> mWindow{};
+    std::unique_ptr<sf::RenderWindow> mWindow{};
 
-    shared_ptr<sf::CircleShape> mPlayer{};
+    std::shared_ptr<Game_Repr::Player> mPlayer{new Game_Repr::Player()};
 //    sf::CircleShape mPlayer;
 
-    shared_ptr<Stopwatch> mStopwatch{};
+    std::shared_ptr<Stopwatch> mStopwatch{};
 
     void processEvents();
 
-    void update(float delta);
+    void update(sf::Time delta);
 
     void render();
 public:

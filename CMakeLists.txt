@@ -10,7 +10,6 @@ FIND_PACKAGE(SFML 2 COMPONENTS system window graphics)
 
 # The source files to compile
 SET(SRC src/main.cpp
-        "src/Logic Library/Subject/Subject.cpp"
         "src/Logic Library/Entity Model/Entity_Model.cpp"
         "src/Logic Library/Player/Player.h"
         "src/Logic Library/Platform/Platform.cpp"
@@ -30,7 +29,8 @@ SET(SRC src/main.cpp
         "src/Game Representation/Platform/Platform.cpp"
         "src/Game Representation/BG Tile/BG_Tile.cpp"
         "src/Game Representation/Bonus/Bonus.cpp"
-        src/Controller/Controller.cpp)
+        "src/Controller/Controller.cpp"
+        "src/Logic Library/Subject/Subject.cpp")
 
 # Add include dirs for SFML
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})

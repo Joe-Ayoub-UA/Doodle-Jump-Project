@@ -4,7 +4,7 @@
 
 #include "Player.h"
 
-Game_Repr::Player::Player() {
+Game_Repr::Player::Player() : mPlayer(std::make_shared<sf::CircleShape>(40.f)) {
     mPlayer->setRadius(40.f);
     mPlayer->setPosition(100.f, 100.f);
     mPlayer->setFillColor(sf::Color::Yellow);

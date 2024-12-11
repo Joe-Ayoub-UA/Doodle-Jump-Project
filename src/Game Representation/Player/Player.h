@@ -4,7 +4,7 @@
 
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
-#include <SFML/Graphics.hpp>µ
+#include <SFML/Graphics.hpp>
 #include <memory>
 
 namespace Game_Repr {
