@@ -7,3 +7,7 @@
 World::World() {
     auto AF = std::make_shared<Concrete_Factory>();
 }
+
+void World::createPlayer() {
+    //auto player = std::make_shared<Player>();
+}

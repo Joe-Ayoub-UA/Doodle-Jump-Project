@@ -10,7 +10,7 @@ std::shared_ptr<Game_Repr::Player> Concrete_Factory::createPlayer() {
     return player;
 }
 
-std::shared_ptr<Game_Repr::Platform> Concrete_Factory::createPLatform(int x, int y) {
+std::shared_ptr<Game_Repr::Platform> Concrete_Factory::createPLatform(std::string type, int x, int y) {
     std::shared_ptr<Game_Repr::Platform> platform = std::make_shared<Game_Repr::Platform>();
     return platform;
 }

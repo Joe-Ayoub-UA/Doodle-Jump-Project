@@ -4,11 +4,18 @@
 
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_SUBJECT_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_SUBJECT_H
+#include "../Observer/Observer.h"
+#include <vector>
+#include <memory>
 
 namespace Logic_Library {
 
     class Subject {
     private:
+        std::shared_ptr<Observer> observer;
+    public:
+
+        virtual void notifyObserver();
     };
 }
 

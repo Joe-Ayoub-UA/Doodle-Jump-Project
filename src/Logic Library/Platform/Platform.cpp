@@ -4,4 +4,6 @@
 
 #include "Platform.h"
 
-Logic_Library::Platform::Platform(int x, int y) : x(x), y(y) {}
+#include <utility>
+namespace Logic_Library {
+}

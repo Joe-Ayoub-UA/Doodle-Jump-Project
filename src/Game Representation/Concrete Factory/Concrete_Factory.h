@@ -8,6 +8,7 @@
 #include "../../Logic Library/Abstract Factory/Abstract_Factory.h"
 #include <iostream>
 #include <memory>
+#include <string>
 #include "../../Game Representation/Player/Player.h"
 #include "../../Game Representation/Platform/Platform.h"
 
@@ -15,7 +16,7 @@ class Concrete_Factory : public Abstract_Factory {
 public:
     std::shared_ptr<Game_Repr::Player> createPlayer() override;
 
-    std::shared_ptr<Game_Repr::Platform> createPLatform(int x, int y) override;
+    std::shared_ptr<Game_Repr::Platform> createPLatform(std::string type, int x, int y) override;
 };
 
 

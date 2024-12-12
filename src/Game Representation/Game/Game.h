@@ -23,6 +23,8 @@ private:
 
     std::shared_ptr<Stopwatch> mStopwatch{};
 
+    sf::Event mEvent{};
+
     void processEvents();
 
     void update(sf::Time delta);

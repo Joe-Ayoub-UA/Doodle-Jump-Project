@@ -14,6 +14,10 @@ using namespace std;
 class World {
 public:
     World();
+
+    void createPlayer();
+
+    void loadWorld();
 };
 
 

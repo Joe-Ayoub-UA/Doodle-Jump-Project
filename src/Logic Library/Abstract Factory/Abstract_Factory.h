@@ -6,6 +6,7 @@
 #define INC_2024_PROJECT_JOE_AYOUB_UA_ABSTRACT_FACTORY_H
 #include <iostream>
 #include <memory>
+#include <string>
 #include "../../Game Representation/Player/Player.h"
 #include "../../Game Representation/Platform/Platform.h"
 
@@ -18,7 +19,7 @@ class Abstract_Factory {
 public:
     virtual std::shared_ptr<Game_Repr::Player> createPlayer()=0;
 
-    virtual std::shared_ptr<Game_Repr::Platform> createPLatform(int x, int y)=0;
+    virtual std::shared_ptr<Game_Repr::Platform> createPLatform(std::string type, int x, int y)=0;
 };
 
 

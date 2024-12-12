@@ -52,9 +52,9 @@ void Game::initgame() {
 ////        else {
 ////            x++;
 ////        }
-//        sf::Event event;
-//        while (mWindow->pollEvent(event)) {
-//            if (event.type == sf::Event::Closed)
+//        sf::Event mEvent;
+//        while (mWindow->pollEvent(mEvent)) {
+//            if (mEvent.type == sf::Event::Closed)
 //                mWindow->close();
 //        }
 //        mWindow->clear();
@@ -66,14 +66,13 @@ void Game::initgame() {
 }
 
 void Game::processEvents() {
-    sf::Event event{};
-    while (mWindow->pollEvent(event)) {
-        switch (event.type) {
+    while (mWindow->pollEvent(mEvent)) {
+        switch (mEvent.type) {
             case sf::Event::KeyPressed:
-                controller->handleInputs(event.key.code, true);
+                controller->handleInputs(mEvent.key.code, true);
                 break;
             case sf::Event::KeyReleased:
-                controller->handleInputs(event.key.code,false);
+                controller->handleInputs(mEvent.key.code, false);
                 break;
             case sf::Event::Closed:
                 mWindow->close();

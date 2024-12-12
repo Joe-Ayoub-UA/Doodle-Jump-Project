@@ -3,3 +3,11 @@
 //
 
 #include "Subject.h"
+
+
+namespace Logic_Library {
+
+    void Subject::notifyObserver() {
+            observer->update();
+    }
+}

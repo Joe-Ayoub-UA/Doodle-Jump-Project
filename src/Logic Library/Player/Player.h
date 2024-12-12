@@ -11,6 +11,8 @@ namespace Logic_Library {
     class Player : public Entity_Model {
     private:
         float horizontalSpeed = 350.f;
+    public:
+        void notifyObserver() override;
     };
 }
 
