@@ -16,6 +16,7 @@ public:
 
     bool left{};
     bool right{};
+    bool jump{};
 
     virtual ~Controller();
 };

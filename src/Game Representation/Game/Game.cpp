@@ -81,6 +81,19 @@ void Game::processEvents() {
     }
 }
 
+//void Game::applyGravity() {
+//    // Apply gravity
+//    mPlayer->verticalSpeed += gravity;
+//    movement.y += mPlayer->verticalSpeed;
+//}
+//
+//void handleJump() {
+//    // Handle jumping
+//    if (controller->jump && mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
+//        mPlayer->verticalSpeed = -350.f; // Adjust this value for jump strength
+//    }
+//}
+
 void Game::update(sf::Time delta) {
     sf::Vector2f movement(0.f, 0.f);
     if (controller->left) {
@@ -89,21 +102,59 @@ void Game::update(sf::Time delta) {
     if (controller->right) {
         movement.x += 350.f;
     }
-    //cout << mPlayer->getPosition().x << endl;
-    if (mPlayer->getMPlayer()->getPosition().x < mPlayer->getMPlayer()->getRadius()*(-2)) {
-        mPlayer->getMPlayer()->setPosition((float)mWindow->getSize().x+mPlayer->getMPlayer()->getRadius(),mPlayer->getMPlayer()->getPosition().y);
+
+    // Apply gravity
+    //TODO: Fix gravity to work properly, it has to speed up the player when falling down
+//    mPlayer->verticalSpeed += gravity;
+    movement.y += Config::gravity;
+
+    // Handle jumping
+    //TODO: Fix jumping, it is not even working. But this is because I still have to save the vertical speed of the player
+    if (controller->jump && mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
+//        mPlayer->verticalSpeed = -350.f; // Adjust this value for jump strength
+        movement.y = -350.f; // Adjust this value for jump strength
     }
-    if (mPlayer->getMPlayer()->getPosition().x > (float)mWindow->getSize().x+mPlayer->getMPlayer()->getRadius()) {
-        mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getRadius()*(-2),mPlayer->getMPlayer()->getPosition().y);
+
+    // Check for ground collision
+    if (mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
+        mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getPosition().x, mWindow->getSize().y - mPlayer->getMPlayer()->getRadius());
+        movement.y = 0.f;
     }
-//    if (mPlayer->getPosition().x < 0) {
-//        mPlayer->setPosition((float)mWindow->getSize().x-1,mPlayer->getPosition().y);
-//    }
-//    if (mPlayer->getPosition().x > (float)mWindow->getSize().x) {
-//        mPlayer->setPosition(1,mPlayer->getPosition().y);
-//    }
+
+    // Wrap around horizontally
+    if (mPlayer->getMPlayer()->getPosition().x < mPlayer->getMPlayer()->getRadius() * (-2)) {
+        mPlayer->getMPlayer()->setPosition((float)mWindow->getSize().x + mPlayer->getMPlayer()->getRadius(), mPlayer->getMPlayer()->getPosition().y);
+    }
+    if (mPlayer->getMPlayer()->getPosition().x > (float)mWindow->getSize().x + mPlayer->getMPlayer()->getRadius()) {
+        mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getRadius() * (-2), mPlayer->getMPlayer()->getPosition().y);
+    }
+    std::cout << movement.y << std::endl;
     mPlayer->getMPlayer()->move(movement * delta.asSeconds());
 }
+
+//void Game::update(sf::Time delta) {
+//    sf::Vector2f movement(0.f, 0.f);
+//    if (controller->left) {
+//        movement.x -= 350.f;
+//    }
+//    if (controller->right) {
+//        movement.x += 350.f;
+//    }
+//    //cout << mPlayer->getPosition().x << endl;
+//    if (mPlayer->getMPlayer()->getPosition().x < mPlayer->getMPlayer()->getRadius()*(-2)) {
+//        mPlayer->getMPlayer()->setPosition((float)mWindow->getSize().x+mPlayer->getMPlayer()->getRadius(),mPlayer->getMPlayer()->getPosition().y);
+//    }
+//    if (mPlayer->getMPlayer()->getPosition().x > (float)mWindow->getSize().x+mPlayer->getMPlayer()->getRadius()) {
+//        mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getRadius()*(-2),mPlayer->getMPlayer()->getPosition().y);
+//    }
+////    if (mPlayer->getPosition().x < 0) {
+////        mPlayer->setPosition((float)mWindow->getSize().x-1,mPlayer->getPosition().y);
+////    }
+////    if (mPlayer->getPosition().x > (float)mWindow->getSize().x) {
+////        mPlayer->setPosition(1,mPlayer->getPosition().y);
+////    }
+//    mPlayer->getMPlayer()->move(movement * delta.asSeconds());
+//}
 /**
  * @brief This funcition makes sure the window keeps updating to the new position of the entities
  */

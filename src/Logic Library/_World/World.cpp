@@ -9,5 +9,6 @@ World::World() {
 }
 
 void World::createPlayer() {
-    //auto player = std::make_shared<Player>();
+    std::shared_ptr<Logic_Library::Player> player_subject = std::make_shared<Logic_Library::Player>();
+//    std::shared_ptr<Game_Repr::Player> player_observer = std::make_shared<Game_Repr::Player>();
 }

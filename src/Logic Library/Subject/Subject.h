@@ -8,12 +8,16 @@
 #include <vector>
 #include <memory>
 
-namespace Logic_Library {
-
+namespace Logic_Library{
     class Subject {
     private:
         std::shared_ptr<Observer> observer;
     public:
+        Subject() = default;
+
+        virtual void assignObserver(std::shared_ptr<Observer> observer);
+
+        virtual void deleteObserver();
 
         virtual void notifyObserver();
     };

@@ -10,6 +10,7 @@
 #include <memory>
 #include "../../Logic Library/Stopwatch/Stopwatch.h"
 #include "../Player/Player.h"
+#include "../../Config.h"
 using namespace Game_Repr;
 
 class Game {
@@ -26,6 +27,8 @@ private:
     sf::Event mEvent{};
 
     void processEvents();
+
+    void applyGravity();
 
     void update(sf::Time delta);
 

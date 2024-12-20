@@ -7,8 +7,9 @@
 
 
 class Observer {
-private:
 public:
+    Observer() = default;
+
     virtual void update() = 0;
 };
 

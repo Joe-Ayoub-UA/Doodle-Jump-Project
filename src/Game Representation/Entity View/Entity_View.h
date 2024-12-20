@@ -8,6 +8,10 @@
 #include "../../Logic Library/Observer/Observer.h"
 
 class Entity_View : public Observer {
+public:
+    Entity_View() = default;
+
+    void update() override = 0;
 
 };
 

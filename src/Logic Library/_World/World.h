@@ -7,7 +7,15 @@
 #include <iostream>
 using namespace std;
 #include "../Entity Model/Entity_Model.h"
-#include "../Player/Player.h"
+#include "../../Game Representation/Entity View/Entity_View.h"
+
+#include "../../Logic Library/Observer/Observer.h"
+#include "../../Logic Library/Subject/Subject.h"
+
+#include "../../Logic Library/Player/Player.h"
+#include "../../Game Representation/Player/Player.h"
+
+
 #include "../Abstract Factory/Abstract_Factory.h"
 #include "../../Game Representation/Concrete Factory/Concrete_Factory.h"
 
