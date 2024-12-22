@@ -2,17 +2,25 @@
 // Created by Joe Ayoub on 14/11/24 at 15:16.
 //
 
-#ifndef INC_2024_PROJECT_JOE_AYOUB_UA_BONUS_H
-#define INC_2024_PROJECT_JOE_AYOUB_UA_BONUS_H
+#ifndef INC_2024_PROJECT_JOE_AYOUB_UA_BONUS_LOGIC_H
+#define INC_2024_PROJECT_JOE_AYOUB_UA_BONUS_LOGIC_H
 
 #include "../Entity Model/Entity_Model.h"
 
 namespace Logic_Library {
     class Bonus : public Entity_Model{
+    public:
 
+
+
+        void assignObserver(std::shared_ptr<Observer> newObserver) override;
+
+        void deleteObserver() override;
+
+        void notifyObserver() override;
     };
 }
 
 
 
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_BONUS_H
+#endif //INC_2024_PROJECT_JOE_AYOUB_UA_BONUS_LOGIC_H

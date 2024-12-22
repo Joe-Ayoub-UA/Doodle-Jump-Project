@@ -4,13 +4,24 @@
 
 #include "Concrete_Factory.h"
 
-
-std::shared_ptr<Game_Repr::Player> Concrete_Factory::createPlayer() {
-    std::shared_ptr<Game_Repr::Player> player = std::make_shared<Game_Repr::Player>();
+std::shared_ptr<Logic_Library::Player> Concrete_Factory::createPlayer() {
+    std::shared_ptr<Logic_Library::Player> player = std::make_shared<Logic_Library::Player>();
+    std::shared_ptr<Game_Repr::Player> player_view = std::make_shared<Game_Repr::Player>();
+    player->assignObserver(player_view);
     return player;
 }
 
-std::shared_ptr<Game_Repr::Platform> Concrete_Factory::createPLatform(std::string type, int x, int y) {
-    std::shared_ptr<Game_Repr::Platform> platform = std::make_shared<Game_Repr::Platform>();
+std::shared_ptr<Logic_Library::Platform> Concrete_Factory::createPLatform(std::string type, float x, float y) {
+    std::shared_ptr<Logic_Library::Platform> platform = std::make_shared<Logic_Library::Platform>();
+    std::shared_ptr<Game_Repr::Platform> platform_view = std::make_shared<Game_Repr::Platform>();
+    platform->assignObserver(platform_view);
     return platform;
+}
+
+std::shared_ptr<Logic_Library::BG_Tile> Concrete_Factory::createBG_Tile() {
+    return nullptr;
+}
+
+std::shared_ptr<Logic_Library::Bonus> Concrete_Factory::createBonus() {
+    return nullptr;
 }

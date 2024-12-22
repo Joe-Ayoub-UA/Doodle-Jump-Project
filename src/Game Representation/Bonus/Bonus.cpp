@@ -5,4 +5,4 @@
 #include "Bonus.h"
 
 namespace Game_Repr {
-} // Game_Repr
+} // Logic_Library

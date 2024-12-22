@@ -30,12 +30,18 @@
 //    const std::chrono::time_point<std::chrono::high_resolution_clock> &getBeginning() const;
 //
 //};
-
+/**
+ * @brief Stopwatch class
+ */
 class Stopwatch {
 private:
+    /// Time point when the stopwatch was started
     std::chrono::time_point<std::chrono::high_resolution_clock> startTime;
 
 public:
+    /***
+     * @brief Default constructor for Stopwatch class
+     */
     Stopwatch();
 
     // Restarts the stopwatch and returns the elapsed time in seconds

@@ -15,6 +15,6 @@ namespace Game_Repr {
         BG_Tile();
     };
 
-} // Game_Repr
+} // Logic_Library
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_BG_TILE_H

@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <thread>
 
-Game::Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(600, 800), "Doodle Jump"))
+Game::Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Doodle Jump"))
 {
     //mWindow = std::make_unique<sf::RenderWindow>(sf::VideoMode(600, 800),"Doodle Jump");
 
@@ -81,7 +81,7 @@ void Game::processEvents() {
     }
 }
 
-//void Game::applyGravity() {
+//void _Game::applyGravity() {
 //    // Apply gravity
 //    mPlayer->verticalSpeed += gravity;
 //    movement.y += mPlayer->verticalSpeed;
@@ -132,7 +132,7 @@ void Game::update(sf::Time delta) {
     mPlayer->getMPlayer()->move(movement * delta.asSeconds());
 }
 
-//void Game::update(sf::Time delta) {
+//void _Game::update(sf::Time delta) {
 //    sf::Vector2f movement(0.f, 0.f);
 //    if (controller->left) {
 //        movement.x -= 350.f;

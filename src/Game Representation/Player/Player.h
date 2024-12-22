@@ -11,17 +11,24 @@
 namespace Game_Repr {
     class Player : public Entity_View {
     private:
+        int radius;
+        std::pair<float, float> position;
+        sf::Color color;
         std::shared_ptr<sf::CircleShape> mPlayer;
     public:
         Player();
 
-        const std::shared_ptr<sf::CircleShape> &getMPlayer() const;
+        Player(int radius, const std::pair<float, float> &position, const sf::Color &color);
+
+        [[nodiscard]] const std::shared_ptr<sf::CircleShape> &getMPlayer() const;
 
         void setMPlayer(const std::shared_ptr<sf::CircleShape> &mPlayer);
 
         void update() override {
             //mPlayer->move(0.f, 0.f);
         }
+
+        virtual ~Player();
     };
 }
 

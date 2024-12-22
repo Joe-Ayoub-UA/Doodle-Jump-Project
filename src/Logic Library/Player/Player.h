@@ -2,8 +2,8 @@
 // Created by s0230501 on 14/11/24.
 //
 
-#ifndef INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
-#define INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
+#ifndef INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_LOGIC_H
+#define INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_LOGIC_H
 
 #include "../Entity Model/Entity_Model.h"
 #include "../../Config.h"
@@ -29,4 +29,4 @@ namespace Logic_Library {
 
 
 
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_H
+#endif //INC_2024_PROJECT_JOE_AYOUB_UA_PLAYER_LOGIC_H

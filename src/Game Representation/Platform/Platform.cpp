@@ -9,4 +9,4 @@ namespace Game_Repr {
         mPlatform->setPosition(100.f, 100.f);
         mPlatform->setFillColor(sf::Color::Red);
     }
-} // Game_Repr
+} // Logic_Library

@@ -16,14 +16,14 @@ SET(SRC src/main.cpp
         "src/Logic Library/BG Tile/BG_Tile.cpp"
         "src/Logic Library/Bonus/Bonus.cpp"
         "src/Logic Library/Camera/Camera.cpp"
-        "src/Logic Library/Random/Random.cpp"
-        "src/Logic Library/Stopwatch/Stopwatch.cpp"
+        "src/Utilities/Random/Random.cpp"
+        "src/Utilities/Stopwatch/Stopwatch.cpp"
         "src/Logic Library/_World/World.cpp"
         "src/Logic Library/Observer/Observer.cpp"
         "src/Logic Library/Score/Score.cpp"
         "src/Logic Library/Abstract Factory/Abstract_Factory.cpp"
         "src/Game Representation/Entity View/Entity_View.cpp"
-        "src/Game Representation/Game/Game.cpp"
+        "src/Game Representation/_Game/Game.cpp"
         "src/Game Representation/Concrete Factory/Concrete_Factory.cpp"
         "src/Game Representation/Player/Player.cpp"
         "src/Game Representation/Platform/Platform.cpp"
@@ -31,7 +31,8 @@ SET(SRC src/main.cpp
         "src/Game Representation/Bonus/Bonus.cpp"
         "src/Controller/Controller.cpp"
         "src/Logic Library/Subject/Subject.cpp"
-        src/Config.h)
+        "src/Config.h"
+        src/Utilities/Coordinates/Coordinates.h)
 
 # Add include dirs for SFML
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})

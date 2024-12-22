@@ -8,10 +8,10 @@
 #include <SFML/Graphics.hpp>
 #include "../../Controller/Controller.h"
 #include <memory>
-#include "../../Logic Library/Stopwatch/Stopwatch.h"
+#include "../../Utilities/Stopwatch/Stopwatch.h"
 #include "../Player/Player.h"
 #include "../../Config.h"
-using namespace Game_Repr;
+//using namespace Logic_Library;
 
 class Game {
 private:

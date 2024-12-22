@@ -7,19 +7,23 @@
 #include <iostream>
 #include <memory>
 #include <string>
-#include "../../Game Representation/Player/Player.h"
-#include "../../Game Representation/Platform/Platform.h"
 
-namespace Game_Repr {
-    class Player;   // Forward declaration
-    class Platform; // Forward declaration (if needed)
-}
+
+#include "../../Logic Library/Player/Player.h"
+#include "../../Logic Library/Platform/Platform.h"
+#include "../../Logic Library/BG Tile/BG_Tile.h"
+#include "../../Logic Library/Bonus/Bonus.h"
+
 
 class Abstract_Factory {
 public:
-    virtual std::shared_ptr<Game_Repr::Player> createPlayer()=0;
+    virtual std::shared_ptr<Logic_Library::Player> createPlayer()=0;
 
-    virtual std::shared_ptr<Game_Repr::Platform> createPLatform(std::string type, int x, int y)=0;
+    virtual std::shared_ptr<Logic_Library::Platform> createPLatform(std::string type, float x, float y)=0;
+
+    virtual std::shared_ptr<Logic_Library::BG_Tile> createBG_Tile()=0;
+
+    virtual std::shared_ptr<Logic_Library::Bonus> createBonus()=0;
 };
 
 

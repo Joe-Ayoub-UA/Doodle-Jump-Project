@@ -4,7 +4,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-#include "Game Representation/Game/Game.h"
+#include "Game Representation/_Game/Game.h"
 
 
 

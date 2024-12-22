@@ -11,6 +11,6 @@ namespace Game_Repr {
 
     };
 
-} // Game_Repr
+} // Logic_Library
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_BONUS_H
