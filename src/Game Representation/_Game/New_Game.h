@@ -28,10 +28,12 @@ private:
 
     /// @brief Player of the game
     std::shared_ptr<Game_Repr::Player> mPlayer{new Game_Repr::Player()};
-//    sf::CircleShape mPlayer;
 
     /// @brief Stopwatch of the game
     std::shared_ptr<Stopwatch> mStopwatch{};
+
+    /// @brief Platforms of the game
+    std::vector<std::shared_ptr<Logic_Library::Platform>> mPlatforms{};
 
     void gameInit();
 

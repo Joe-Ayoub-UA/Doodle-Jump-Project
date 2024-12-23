@@ -7,7 +7,7 @@
 New_Game::New_Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Doodle Jump")) {
     this->gameInit();
 }
-
+//TODO implement this in the right way
 void New_Game::gameInit() {
     Concrete_Factory CF;
 
