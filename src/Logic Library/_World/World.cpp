@@ -15,7 +15,7 @@ void World::createPlayer() {
 
 void World::createPlatform() {
     Coordinates coordinates = Random::getInstance().generateCoor();
-    mPlatforms.push_back(CF->createPLatform("normal", coordinates.getX(), coordinates.getY()));
+    mPlatforms.push_back(CF->createPlatform(coordinates.getX(), coordinates.getY()));
 }
 
 Logic_Library::Platform World::findLowestPlatform() {
@@ -44,6 +44,10 @@ Logic_Library::Platform World::findHighestPlatform() {
 
 void World::removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform) {
     mPlatforms.erase(std::remove(mPlatforms.begin(), mPlatforms.end(), platform), mPlatforms.end());
+}
+
+bool World::isPlatformNeeded() {
+    return this->findHighestPlatform().getY() < Config::windowHeight;
 }
 
 void World::setupWorld() {

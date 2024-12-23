@@ -27,6 +27,10 @@ using namespace std;
 #include "../Abstract Factory/Abstract_Factory.h"
 #include "../../Game Representation/Concrete Factory/Concrete_Factory.h"
 
+
+/**
+ * @brief Class that represents the world of the game
+ */
 class World {
 private:
     std::shared_ptr<Concrete_Factory> CF;
@@ -48,6 +52,8 @@ public:
     Logic_Library::Platform findLowestPlatform();
 
     Logic_Library::Platform findHighestPlatform();
+
+    bool isPlatformNeeded();
 
     void removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform);
 

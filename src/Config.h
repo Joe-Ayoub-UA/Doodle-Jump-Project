@@ -20,7 +20,7 @@ public:
     /**
      * @brief Horizontal speed of the player
      */
-    static constexpr float horizontalSpeed = 350.f;
+    static constexpr float horizontalSpeed = 500.f;
     /**
      * @brief Gravity of the game
      */
@@ -38,6 +38,14 @@ public:
      * @brief Offset for window size
      */
     static constexpr float sizeOffset = 1.f; // Offset for window size
+    /**
+     * @brief Platform's horizontal speed
+     */
+    static constexpr float platformHorizontalSpeed = 100.f;
+    /**
+     * @brief Platform's vertical speed
+     */
+    static constexpr float platformVerticalSpeed = 100.f;
 };
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_CONFIG_H

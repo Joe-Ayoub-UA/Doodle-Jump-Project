@@ -108,7 +108,7 @@ int mains() {
     random->setXRange(std::make_pair(0, 600));
     random->setYRange(std::make_pair(0, 800));
     for (int i=0;i<10;i++) {
-        std::cout << 1 + random->generateCoor().getX() << ", " << 1 + random->generateCoor().getY() << std::endl;
+        std::cout << random->randomInt(random->getXRange().first,random->getXRange().second) << ", " << random->randomInt(random->getYRange().first,random->getYRange().second) << std::endl;
     }
 
 //    for (int i=0;i<10;i++) {

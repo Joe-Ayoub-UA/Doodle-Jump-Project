@@ -32,7 +32,9 @@ SET(SRC src/main.cpp
         "src/Controller/Controller.cpp"
         "src/Logic Library/Subject/Subject.cpp"
         "src/Config.h"
-        src/Utilities/Coordinates/Coordinates.h)
+        "src/Utilities/Coordinates/Coordinates.h"
+        "src/Game Representation/_Game/New_Game.cpp"
+        "src/Utilities/Enums/Enums.h")
 
 # Add include dirs for SFML
 INCLUDE_DIRECTORIES(${SFML_INCLUDE_DIR})

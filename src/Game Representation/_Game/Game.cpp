@@ -61,7 +61,7 @@ void Game::initgame() {
 //        mWindow->draw(sprite);
 //        //mWindow.draw(shape1);
 //        mWindow->display();
-//        controller->handleInputs();
+//        mController->handleInputs();
 //    }
 }
 
@@ -69,10 +69,10 @@ void Game::processEvents() {
     while (mWindow->pollEvent(mEvent)) {
         switch (mEvent.type) {
             case sf::Event::KeyPressed:
-                controller->handleInputs(mEvent.key.code, true);
+                mController->handleInputs(mEvent.key.code, true);
                 break;
             case sf::Event::KeyReleased:
-                controller->handleInputs(mEvent.key.code, false);
+                mController->handleInputs(mEvent.key.code, false);
                 break;
             case sf::Event::Closed:
                 mWindow->close();
@@ -89,18 +89,18 @@ void Game::processEvents() {
 //
 //void handleJump() {
 //    // Handle jumping
-//    if (controller->jump && mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
+//    if (mController->jump && mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
 //        mPlayer->verticalSpeed = -350.f; // Adjust this value for jump strength
 //    }
 //}
 
 void Game::update(sf::Time delta) {
     sf::Vector2f movement(0.f, 0.f);
-    if (controller->left) {
-        movement.x -= 350.f;
+    if (mController->left) {
+        movement.x -= Config::horizontalSpeed;
     }
-    if (controller->right) {
-        movement.x += 350.f;
+    if (mController->right) {
+        movement.x += Config::horizontalSpeed;
     }
 
     // Apply gravity
@@ -110,7 +110,7 @@ void Game::update(sf::Time delta) {
 
     // Handle jumping
     //TODO: Fix jumping, it is not even working. But this is because I still have to save the vertical speed of the player
-    if (controller->jump && mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
+    if (mController->jump && mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
 //        mPlayer->verticalSpeed = -350.f; // Adjust this value for jump strength
         movement.y = -350.f; // Adjust this value for jump strength
     }
@@ -134,10 +134,10 @@ void Game::update(sf::Time delta) {
 
 //void _Game::update(sf::Time delta) {
 //    sf::Vector2f movement(0.f, 0.f);
-//    if (controller->left) {
+//    if (mController->left) {
 //        movement.x -= 350.f;
 //    }
-//    if (controller->right) {
+//    if (mController->right) {
 //        movement.x += 350.f;
 //    }
 //    //cout << mPlayer->getPosition().x << endl;

@@ -12,10 +12,12 @@
 #include "../Player/Player.h"
 #include "../../Config.h"
 //using namespace Logic_Library;
-
+/**
+ * @brief The Game class is the main class of the game. It is responsible of setting up the game, running the game and updating the game.
+ */
 class Game {
 private:
-    std::shared_ptr<Controller> controller{new Controller()};
+    std::shared_ptr<Controller> mController{new Controller()};
 
     std::unique_ptr<sf::RenderWindow> mWindow{};
 
