@@ -20,6 +20,9 @@
 
 class New_Game {
 private:
+    /// @brief Factory of the game
+    std::shared_ptr<Concrete_Factory> CF{new Concrete_Factory()};
+
     /// @brief Controller of the game
     std::shared_ptr<Controller> mController{new Controller()};
 
@@ -27,13 +30,13 @@ private:
     std::unique_ptr<sf::RenderWindow> mWindow{};
 
     /// @brief Player of the game
-    std::shared_ptr<Game_Repr::Player> mPlayer{new Game_Repr::Player()};
+    std::shared_ptr<Game_Repr::Player> mPlayer{};
 
     /// @brief Stopwatch of the game
     std::shared_ptr<Stopwatch> mStopwatch{};
 
     /// @brief Platforms of the game
-    std::vector<std::shared_ptr<Logic_Library::Platform>> mPlatforms{};
+    std::vector<std::shared_ptr<Game_Repr::Platform>> mPlatforms{};
 
     void gameInit();
 

@@ -7,23 +7,34 @@
 
 #include "../Entity Model/Entity_Model.h"
 #include "../../Config.h"
+#include "../../Game Representation/Player/Player.h"
 
 
 namespace Logic_Library {
     class Player : public Entity_Model {
     private:
-        std::shared_ptr<Observer> observer;
+        std::shared_ptr<Game_Repr::Player> observer;
         float horizontalSpeed = Config::horizontalSpeed;
         float verticalSpeed = 0.f; // Add this line
         const float gravity = Config::gravity; // Add this line
+
+        std::shared_ptr<Logic_Library::Player> mPlayer;
     public:
         Player() = default;
 
-        void assignObserver(std::shared_ptr<Observer> newObserver) override;
+        void moveLeft();
+
+        void moveRight();
+
+        void assignObserver(std::shared_ptr<Game_Repr::Player> newObserver);
 
         void deleteObserver() override;
 
         void notifyObserver() override;
+
+        void notifyPosition(const Coordinates& coordinates) override;
+
+        std::shared_ptr<Game_Repr::Player> getObserver();
     };
 }
 

@@ -13,11 +13,14 @@ namespace Logic_Library {
     public:
         Entity_Model() = default;
 
-        void assignObserver(std::shared_ptr<Observer> observer) override =0;
-
+//        void assignObserver(std::shared_ptr<Observer> observer) override =0;
+//
         void deleteObserver() override =0;
 
         void notifyObserver() override =0;
+
+        void notifyPosition(const Coordinates& coordinates) override =0;
+
     };
 
 }

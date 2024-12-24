@@ -13,6 +13,8 @@ public:
 
     void update() override = 0;
 
+    void notifyPosition(const Coordinates& coordinates) override = 0;
+
 };
 
 

@@ -13,6 +13,8 @@
 //}
 
 Random::Random(){
+    this->setXRange(std::make_pair(0, Config::windowWidth));
+    this->setYRange(std::make_pair(0, Config::windowHeight));
     static bool isSeeded = false;
     if (!isSeeded) {
         srand(static_cast<unsigned int>(time(nullptr)));
@@ -63,24 +65,26 @@ float Random::randomFloat(float min, float max) {
     return distribution(mersenne);
 }
 
-Coordinates Random::generateCoor() const {
+Coordinates Random::generateCoor() {
     Coordinates coordinates{};
-    if (prevX == -1) {
-        coordinates.setX(rand() % x_range.second);
-    }
-    else {
-        int minX = std::max(0, prevX - (x_range.second/2));
-        int maxX = std::min(x_range.second -1, prevX + (x_range.second/2));
-        coordinates.setX(minX + (rand() % (maxX - minX + 1)));
-    }
-    if (prevY == -1) {
-        coordinates.setY(rand() % y_range.second);
-    }
-    else {
-        int minY = std::max(0, prevY - (y_range.second/2));
-        int maxY = std::min(y_range.second - 1, prevY + (y_range.second/2));
-        coordinates.setY(minY + (rand() % (maxY - minY + 1)));
-    }
+//    if (prevX == -1) {
+//        coordinates.setX(rand() % x_range.second);
+//    }
+//    else {
+//        int minX = std::max(0, prevX - (x_range.second/2));
+//        int maxX = std::min(x_range.second -1, prevX + (x_range.second/2));
+//        coordinates.setX(minX + (rand() % (maxX - minX + 1)));
+//    }
+//    if (prevY == -1) {
+//        coordinates.setY(rand() % y_range.second);
+//    }
+//    else {
+//        int minY = std::max(0, prevY - (y_range.second/2));
+//        int maxY = std::min(y_range.second - 1, prevY + (y_range.second/2));
+//        coordinates.setY(minY + (rand() % (maxY - minY + 1)));
+//    }
+    coordinates.setX(randomFloat((float)x_range.first, (float)x_range.second));
+    coordinates.setY(randomFloat((float)y_range.first, (float)y_range.second));
     return coordinates;
 }
 

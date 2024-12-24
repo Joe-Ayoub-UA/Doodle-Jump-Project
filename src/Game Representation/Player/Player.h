@@ -7,18 +7,24 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include "../Entity View/Entity_View.h"
+#include "../../Config.h"
+#include "../../Utilities/Coordinates/Coordinates.h"
 
 namespace Game_Repr {
     class Player : public Entity_View {
     private:
         int radius;
-        std::pair<float, float> position;
+        Coordinates position;
         sf::Color color;
         std::shared_ptr<sf::CircleShape> mPlayer;
+
+
+        void setPosition(const Coordinates &n_position);
     public:
+
         Player();
 
-        Player(int radius, const std::pair<float, float> &position, const sf::Color &color);
+        Player(int radius, const Coordinates &position, const sf::Color &color);
 
         [[nodiscard]] const std::shared_ptr<sf::CircleShape> &getMPlayer() const;
 
@@ -27,6 +33,10 @@ namespace Game_Repr {
         void update() override {
             //mPlayer->move(0.f, 0.f);
         }
+
+        const Coordinates &getPosition() const;
+
+        void notifyPosition(const Coordinates& coordinates) override;
 
         virtual ~Player();
     };

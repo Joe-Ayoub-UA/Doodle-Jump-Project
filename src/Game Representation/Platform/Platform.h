@@ -9,19 +9,38 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include "../Entity View/Entity_View.h"
-
+#include "../../Config.h"
+#include "../../Utilities/Enums/Enums.h"
 
 namespace Game_Repr {
 
     class Platform : public Entity_View{
     private:
         std::shared_ptr<sf::RectangleShape> mPlatform;
+
+        std::pair<float, float> position;
+
+        Enums::PlatformType type;
     public:
         Platform();
 
         void update() override {
             //mPlayer->move(0.f, 0.f);
         }
+
+        const std::shared_ptr<sf::RectangleShape> &getMPlatform() const;
+
+        void setMPlatform(const std::shared_ptr<sf::RectangleShape> &mPlatform);
+
+        const std::pair<float, float> &getPosition() const;
+
+        void setPosition(const std::pair<float, float> &n_position);
+
+        void setPlatformPos(float x, float y);
+
+        void notifyPosition(const Coordinates& coordinates) override;
+
+        virtual ~Platform();
 
     };
 

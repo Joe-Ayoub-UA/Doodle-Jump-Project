@@ -6,7 +6,6 @@
 #define INC_2024_PROJECT_JOE_AYOUB_UA_WORLD_H
 #include <iostream>
 #include <vector>
-using namespace std;
 #include "../../Config.h"
 
 #include "../Entity Model/Entity_Model.h"
@@ -47,7 +46,9 @@ public:
 
     void createPlayer();
 
-    void createPlatform();
+    bool createPlatform();
+
+    bool checkValidPlatform(const Coordinates& coordinate);
 
     Logic_Library::Platform findLowestPlatform();
 
@@ -58,6 +59,28 @@ public:
     void removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform);
 
     void setupWorld();
+
+    void updateWorld();
+
+    const std::shared_ptr<Concrete_Factory> &getCf() const;
+
+    void setCf(const std::shared_ptr<Concrete_Factory> &cf);
+
+    const std::shared_ptr<Logic_Library::Player> &getMPlayer() const;
+
+    void setMPlayer(const std::shared_ptr<Logic_Library::Player> &mPlayer);
+
+    const std::vector<std::shared_ptr<Logic_Library::Platform>> &getMPlatforms() const;
+
+    void setMPlatforms(const std::vector<std::shared_ptr<Logic_Library::Platform>> &mPlatforms);
+
+    const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &getMbgTiles() const;
+
+    void setMbgTiles(const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &mBgTiles);
+
+    const std::vector<std::shared_ptr<Logic_Library::Bonus>> &getMBonuses() const;
+
+    void setMBonuses(const std::vector<std::shared_ptr<Logic_Library::Bonus>> &mBonuses);
 };
 
 

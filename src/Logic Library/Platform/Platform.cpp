@@ -50,22 +50,34 @@ namespace Logic_Library {
     }
 
     void Platform::moveUp() {
-        this->setPosition(this->getX(), this->getY() - 1.f);
+        float newX = observer->getMPlatform()->getPosition().x;
+        float newY = observer->getMPlatform()->getPosition().y - verticalSpeed * Config::frameDuration;
+        Coordinates newCoordinates(newX, newY);
+        observer->notifyPosition(newCoordinates);
     }
 
     void Platform::moveDown() {
-        this->setPosition(this->getX(), this->getY() + 1.f);
+        float newX = observer->getMPlatform()->getPosition().x;
+        float newY = observer->getMPlatform()->getPosition().y + verticalSpeed * Config::frameDuration;
+        Coordinates newCoordinates(newX, newY);
+        observer->notifyPosition(newCoordinates);
     }
 
     void Platform::moveLeft() {
-        this->setPosition(this->getX() - 1.f, this->getY());
+        float newX = observer->getMPlatform()->getPosition().x - horizontalSpeed * Config::frameDuration;
+        float newY = observer->getMPlatform()->getPosition().y;
+        Coordinates newCoordinates(newX, newY);
+        observer->notifyPosition(newCoordinates);
     }
 
     void Platform::moveRight() {
-        this->setPosition(this->getX() + 1.f, this->getY());
+        float newX = observer->getMPlatform()->getPosition().x + horizontalSpeed * Config::frameDuration;
+        float newY = observer->getMPlatform()->getPosition().y;
+        Coordinates newCoordinates(newX, newY);
+        observer->notifyPosition(newCoordinates);
     }
 
-    void Platform::assignObserver(std::shared_ptr<Observer> newObserver) {
+    void Platform::assignObserver(std::shared_ptr<Game_Repr::Platform> newObserver) {
         this->observer = std::move(newObserver);
     }
 
@@ -75,5 +87,9 @@ namespace Logic_Library {
 
     void Platform::notifyObserver() {
         observer->update();
+    }
+
+    void Platform::notifyPosition(const Coordinates& coordinates) {
+        observer->notifyPosition(coordinates);
     }
 }

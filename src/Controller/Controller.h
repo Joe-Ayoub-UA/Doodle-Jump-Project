@@ -8,11 +8,15 @@
 #include <iostream>
 #include <memory>
 
+
+/**
+ * @brief Class that is responsible of handling changes
+ */
 class Controller {
 public:
     Controller();
 
-    void handleInputs(sf::Keyboard::Key key, bool isPressed);
+    void handlePlayerInputs(sf::Keyboard::Key key, bool isPressed);
 
     bool left{};
     bool right{};

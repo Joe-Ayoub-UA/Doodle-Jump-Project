@@ -6,15 +6,18 @@
 #define INC_2024_PROJECT_JOE_AYOUB_UA_BG_TILE_LOGIC_H
 
 #include "../Entity Model/Entity_Model.h"
+#include "../../Game Representation/BG Tile/BG_Tile.h"
 
 
 namespace Logic_Library {
     class BG_Tile : public Entity_Model {
+    private:
+        std::shared_ptr<Game_Repr::BG_Tile> observer;
     public:
 
 
 
-        void assignObserver(std::shared_ptr<Observer> newObserver) override;
+        void assignObserver(std::shared_ptr<Game_Repr::BG_Tile> newObserver);
 
         void deleteObserver() override;
 

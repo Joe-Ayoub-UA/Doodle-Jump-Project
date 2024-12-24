@@ -4,7 +4,7 @@
 
 #include "Controller.h"
 
-void Controller::handleInputs(sf::Keyboard::Key key, bool isPressed) {
+void Controller::handlePlayerInputs(sf::Keyboard::Key key, bool isPressed) {
     if (key == sf::Keyboard::D or key == sf::Keyboard::Right) {
         right = isPressed;
     }

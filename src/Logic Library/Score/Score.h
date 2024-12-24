@@ -54,6 +54,12 @@ public:
      * @brief Function that updates the score
      */
     void update() override;
+
+    /**
+     * @brief Function that notifies the position of the player
+     * @param coordinates the coordinates of the player
+     */
+    void notifyPosition(const Coordinates& coordinates) override;
 };
 
 

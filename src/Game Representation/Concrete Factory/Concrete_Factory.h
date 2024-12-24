@@ -19,7 +19,11 @@
  */
 class Concrete_Factory : public Abstract_Factory {
 private:
+    /// @brief Shared pointer to the observer
     std::shared_ptr<Observer> observer;
+
+    /// @brief Handles the color of the platform depending on its type
+    sf::Color handleColor(Enums::PlatformType type);
 public:
     /**
      * @brief Default constructor for the Concrete Factory class

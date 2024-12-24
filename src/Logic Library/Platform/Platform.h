@@ -8,6 +8,7 @@
 #include "../Entity Model/Entity_Model.h"
 #include "../../Utilities/Random/Random.h"
 #include "../../Utilities/Enums/Enums.h"
+#include "../../Game Representation/Platform/Platform.h"
 #include <string>
 
 namespace Logic_Library {
@@ -27,7 +28,13 @@ namespace Logic_Library {
         Enums::PlatformType pType{};
 
         /// @brief Observer of the platform
-        std::shared_ptr<Observer> observer;
+        std::shared_ptr<Game_Repr::Platform> observer;
+
+        /// @brief Horizontal speed of the platform
+        float horizontalSpeed = Config::platformHorizontalSpeed;
+
+        /// @brief Vertical speed of the platform
+        float verticalSpeed = Config::platformVerticalSpeed;
 
         /**
          * @brief This function creates a platform with a random type.
@@ -96,7 +103,7 @@ namespace Logic_Library {
          * @brief Function to assign an observer to the platform.
          * @param newObserver: std::shared_ptr<Observer>, which is the new observer of the platform.
          */
-        void assignObserver(std::shared_ptr<Observer> newObserver) override;
+        void assignObserver(std::shared_ptr<Game_Repr::Platform> newObserver);
         /**
          * @brief Function to delete the observer of the platform.
          */
@@ -105,6 +112,10 @@ namespace Logic_Library {
          * @brief Function to notify the observer of the platform.
          */
         void notifyObserver() override;
+
+        std::shared_ptr<Game_Repr::Platform> getObserver() { return observer; }
+
+        void notifyPosition(const Coordinates& coordinates) override;
         /**
          * @brief Destructor for the platform class.
          */

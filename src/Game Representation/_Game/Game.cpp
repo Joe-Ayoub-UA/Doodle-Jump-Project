@@ -61,7 +61,7 @@ void Game::initgame() {
 //        mWindow->draw(sprite);
 //        //mWindow.draw(shape1);
 //        mWindow->display();
-//        mController->handleInputs();
+//        mController->handlePlayerInputs();
 //    }
 }
 
@@ -69,10 +69,10 @@ void Game::processEvents() {
     while (mWindow->pollEvent(mEvent)) {
         switch (mEvent.type) {
             case sf::Event::KeyPressed:
-                mController->handleInputs(mEvent.key.code, true);
+                mController->handlePlayerInputs(mEvent.key.code, true);
                 break;
             case sf::Event::KeyReleased:
-                mController->handleInputs(mEvent.key.code, false);
+                mController->handlePlayerInputs(mEvent.key.code, false);
                 break;
             case sf::Event::Closed:
                 mWindow->close();

@@ -7,6 +7,7 @@
 #include "../Observer/Observer.h"
 #include <vector>
 #include <memory>
+#include "../../Utilities/Coordinates/Coordinates.h"
 
 namespace Logic_Library{
     class Subject {
@@ -15,11 +16,14 @@ namespace Logic_Library{
     public:
         Subject() = default;
 
-        virtual void assignObserver(std::shared_ptr<Observer> observer);
-
+//        virtual void assignObserver(std::shared_ptr<Observer> observer);
+//
         virtual void deleteObserver();
 
         virtual void notifyObserver();
+
+        virtual void notifyPosition(const Coordinates& coordinates)=0;
+
     };
 }
 

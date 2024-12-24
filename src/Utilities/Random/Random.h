@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <memory>
 #include "../Coordinates/Coordinates.h"
+#include "../../Config.h"
 #include <random>
 
 
@@ -34,9 +35,9 @@ public:
 
     int randomInt(int min,int max);
 
-    float randomFloat(float min, float max);
+    float randomFloat(float min, float max) ;
 
-    Coordinates generateCoor() const;
+    Coordinates generateCoor();
 
     const std::pair<int, int> &getXRange() const;
 

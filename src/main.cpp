@@ -4,13 +4,14 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-#include "Game Representation/_Game/Game.h"
+//#include "Game Representation/_Game/Game.h"
+#include "Game Representation/_Game//New_Game.h"
 
 
 
 int main()
 {
-    Game game{};
+    New_Game game{};
     game.run();
     return 0;
 }

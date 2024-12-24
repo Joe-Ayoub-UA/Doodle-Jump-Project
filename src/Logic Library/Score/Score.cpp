@@ -33,3 +33,5 @@ void Score::setMScore(int n_mScore) {
     Score::mScore = n_mScore;
 }
 
+void Score::notifyPosition(const Coordinates &coordinates) {}
+

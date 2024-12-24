@@ -6,7 +6,21 @@
 
 namespace Logic_Library {
 
-    void Player::assignObserver(std::shared_ptr<Observer> newObserver) {
+    void Player::moveLeft() {
+        float newX = observer->getMPlayer()->getPosition().x - horizontalSpeed * Config::frameDuration;
+        float newY = observer->getMPlayer()->getPosition().y;
+        Coordinates newCoordinates(newX, newY);
+        observer->notifyPosition(newCoordinates);
+    }
+
+    void Player::moveRight() {
+        float newX = observer->getMPlayer()->getPosition().x + horizontalSpeed * Config::frameDuration;
+        float newY = observer->getMPlayer()->getPosition().y;
+        Coordinates newCoordinates(newX, newY);
+        observer->notifyPosition(newCoordinates);
+    }
+
+    void Player::assignObserver(std::shared_ptr<Game_Repr::Player> newObserver) {
         this->observer = std::move(newObserver);
     }
 
@@ -16,5 +30,13 @@ namespace Logic_Library {
 
     void Player::notifyObserver() {
         observer->update();
+    }
+
+    void Player::notifyPosition(const Coordinates& coordinates) {
+        observer->notifyPosition(coordinates);
+    }
+
+    std::shared_ptr<Game_Repr::Player> Player::getObserver() {
+        return this->observer;
     }
 }

@@ -9,10 +9,6 @@
 
 namespace Logic_Library {
 
-    void Subject::assignObserver(std::shared_ptr<Observer> observerr) {
-        this->observer = std::move(observerr);
-    }
-
     void Subject::deleteObserver() {
         observer = nullptr;
     }
