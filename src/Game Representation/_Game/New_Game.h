@@ -7,6 +7,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include <thread>
 
 #include "../../Logic Library/_World/World.h" // World
 #include "../../Controller/Controller.h" // Controller
@@ -17,14 +18,16 @@
 
 #include "../../Config.h"
 
-
+/**
+ * @brief Class to represent the game
+ */
 class New_Game {
 private:
+    /// @brief Controller of the game
+    std::shared_ptr<Controller> mController{};
+
     /// @brief Factory of the game
     std::shared_ptr<Concrete_Factory> CF{new Concrete_Factory()};
-
-    /// @brief Controller of the game
-    std::shared_ptr<Controller> mController{new Controller()};
 
     /// @brief Window of the game
     std::unique_ptr<sf::RenderWindow> mWindow{};
@@ -32,25 +35,48 @@ private:
     /// @brief Player of the game
     std::shared_ptr<Game_Repr::Player> mPlayer{};
 
-    /// @brief Stopwatch of the game
-    std::shared_ptr<Stopwatch> mStopwatch{};
-
     /// @brief Platforms of the game
     std::vector<std::shared_ptr<Game_Repr::Platform>> mPlatforms{};
 
+    /// @brief unordered_map of the states of the keys
+    std::unordered_map<sf::Keyboard::Key, bool> mKeyStates{};
+
+    /**
+     * @brief This functions handles the player inputs to move the player
+     * @param key
+     */
+    void handlePlayerInputs(sf::Keyboard::Key key, bool isPressed);
+
+    /**
+     * @brief This function initializes the game
+     */
     void gameInit();
 
+    /**
+     * @brief This function processes the events of the game
+     */
     void processEvents();
 
-    void applyGravity();
+    /**
+     * @brief This function updates the game
+     * @param delta
+     */
+    void update();
 
-    void update(sf::Time delta);
-
+    /**
+     * @brief This function renders the game
+     */
     void render();
 
 public:
+    /**
+     * @brief Default constructor for the New_Game class
+     */
     New_Game();
 
+    /**
+     * @brief This function runs the game
+     */
     void run();
 };
 

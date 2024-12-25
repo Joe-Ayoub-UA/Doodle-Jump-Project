@@ -4,13 +4,14 @@
 
 #include "New_Game.h"
 
-New_Game::New_Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Doodle Jump")) {
+New_Game::New_Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Doodle Jump")), mController(std::make_shared<Controller>()) {
     this->gameInit();
     this->render();
 }
 //TODO implement this in the right way
 void New_Game::gameInit() {
     std::shared_ptr<World> world = CF->createWorld();
+    mController->setWorld(world);
     mPlayer = world->getMPlayer()->getObserver();
 
     // Create the platforms: een beetje gelijkaardig aan die van boven, de vector van platforms komt van de world
@@ -20,25 +21,52 @@ void New_Game::gameInit() {
 }
 
 void New_Game::render() {
+    // Clear the window
     mWindow->clear();
-    mWindow->draw(*mPlayer->getMPlayer());
+
+    // Draw the entities (player, platforms, BG_Tiles, bonuses)
     for (const std::shared_ptr<Game_Repr::Platform>& i: mPlatforms) {
         mWindow->draw(*i->getMPlatform());
     }
+    mWindow->draw(*mPlayer->getMPlayer());
+
     mWindow->display();
 }
 
 void New_Game::processEvents() {
-    sf::Event event;
-    while (mWindow->pollEvent(event)) {
-        if (event.type == sf::Event::Closed) {
-            mWindow->close();
+    sf::Event mEvent{};
+    while (mWindow->pollEvent(mEvent)) {
+        switch (mEvent.type) {
+            case sf::Event::KeyPressed:
+                handlePlayerInputs(mEvent.key.code,true);
+                break;
+            case sf::Event::KeyReleased:
+                handlePlayerInputs(mEvent.key.code,false);
+                break;
+            case sf::Event::Closed:
+                mWindow->close();
+                break;
         }
+
     }
 }
 
-void New_Game::update(sf::Time deltatime) {
-    // Update game state here
+void New_Game::update() {
+    mController->applyGravity();
+    if (mKeyStates[sf::Keyboard::D] || mKeyStates[sf::Keyboard::Right]) {
+
+        mController->movePlayerRight();
+    }
+    if (mKeyStates[sf::Keyboard::A] || mKeyStates[sf::Keyboard::Left]) {
+        mController->movePlayerLeft();
+    }
+    if (mKeyStates[sf::Keyboard::Space] || mKeyStates[sf::Keyboard::Up]) {
+        mController->jumpPlayer();
+    }
+}
+
+void New_Game::handlePlayerInputs(sf::Keyboard::Key key, bool isPressed) {
+    mKeyStates[key] = isPressed;
 }
 
 void New_Game::run() {
@@ -46,9 +74,13 @@ void New_Game::run() {
     sf::Clock clock;
     while (mWindow->isOpen()) {
 
-        sf::Time deltatime = clock.restart();
+        Stopwatch::getInstance().start();
+//        sf::Time deltatime = clock.restart();
         processEvents();
-//        update(deltatime);
+//        std::cout << "Player position: " << mPlayer->getPosition().getX() << ", " << mPlayer->getPosition().getY() << std::endl;
+        update();
         render();
-    }
+        Stopwatch::getInstance().stop();
+        auto timeLeft = (1.f/60.f) - Stopwatch::getInstance().getElapsedTime();
+        std::this_thread::sleep_for(std::chrono::duration<float>(timeLeft));    }
 }

@@ -46,7 +46,7 @@ public:
      * @brief Creates a background tile
      * @return a shared pointer to the background tile
      */
-    std::shared_ptr<Logic_Library::BG_Tile> createBG_Tile() override;
+    std::shared_ptr<Logic_Library::BG_Tile> createBGTile() override;
 
     /**
      * @brief Creates a bonus

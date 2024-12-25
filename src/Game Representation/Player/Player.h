@@ -19,9 +19,7 @@ namespace Game_Repr {
         std::shared_ptr<sf::CircleShape> mPlayer;
 
 
-        void setPosition(const Coordinates &n_position);
     public:
-
         Player();
 
         Player(int radius, const Coordinates &position, const sf::Color &color);
@@ -35,6 +33,8 @@ namespace Game_Repr {
         }
 
         const Coordinates &getPosition() const;
+
+        void setPosition(const Coordinates &n_position);
 
         void notifyPosition(const Coordinates& coordinates) override;
 

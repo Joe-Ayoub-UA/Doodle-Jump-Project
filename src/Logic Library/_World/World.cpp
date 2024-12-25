@@ -25,6 +25,15 @@ const std::vector<std::shared_ptr<Logic_Library::Platform>> &World::getMPlatform
     return mPlatforms;
 }
 
+std::shared_ptr<Logic_Library::Platform> World::getMPlatform(std::shared_ptr<Logic_Library::Platform> &platform) {
+    for (const auto &i:mPlatforms) {
+        if (platform == i) {
+            return i;
+        }
+    }
+    return nullptr;
+}
+
 void World::setMPlatforms(const std::vector<std::shared_ptr<Logic_Library::Platform>> &mPlatforms) {
     World::mPlatforms = mPlatforms;
 }
@@ -35,6 +44,15 @@ const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &World::getMbgTiles()
 
 void World::setMbgTiles(const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &mBgTiles) {
     mBG_Tiles = mBgTiles;
+}
+
+std::shared_ptr<Logic_Library::BG_Tile> World::getMBGTile(std::shared_ptr<Logic_Library::BG_Tile> &bgTile) {
+    for (const auto &i:mBG_Tiles) {
+        if (bgTile == i) {
+            return i;
+        }
+    }
+    return nullptr;
 }
 
 const std::vector<std::shared_ptr<Logic_Library::Bonus>> &World::getMBonuses() const {
@@ -54,11 +72,6 @@ void World::createPlayer() {
 }
 
 bool World::createPlatform() {
-//    Coordinates coordinates = Random::getInstance().generateCoor();
-//    auto rand1 = (float)Random::getInstance().randomInt(-20,20);
-//    auto rand2 = (float)Random::getInstance().randomInt(-20,20);
-//    Random::getInstance().setXRange(std::make_pair(coordinates.getX() + rand1, coordinates.getX() + rand2));
-//    Random::getInstance().setYRange(std::make_pair(coordinates.getY() + rand1, coordinates.getY() + rand2));
     Coordinates coordinates = Random::getInstance().generateCoor();
     std::cout << "Left: " << coordinates.getX()-Config::platformWidth/2.f << "\tRight: " << coordinates.getX()+Config::platformWidth/2.f << std::endl;
     if (checkValidPlatform(coordinates)) {
@@ -66,6 +79,14 @@ bool World::createPlatform() {
         return true;
     }
     return false;
+}
+
+void World::createBGTile() {
+    mBG_Tiles.push_back(CF->createBGTile());
+}
+
+void World::createBonus() {
+    mBonuses.push_back(CF->createBonus());
 }
 
 Logic_Library::Platform World::findLowestPlatform() {
@@ -134,6 +155,16 @@ bool World::checkValidPlatform(const Coordinates& coordinate) {
         }
     } while (!validPosition);
     return true;
+}
+
+bool World::checkCollision() {
+    //TODO: Implement collision detection
+//    for (const auto& platform : mPlatforms) {
+//        if (mPlayer->getMPlayer()->getGlobalBounds().intersects(platform->getMPlatform()->getGlobalBounds())) {
+//            return true;
+//        }
+//    }
+    return false;
 }
 
 void World::removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform) {

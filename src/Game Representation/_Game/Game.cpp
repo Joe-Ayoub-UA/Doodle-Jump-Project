@@ -66,19 +66,19 @@ void Game::initgame() {
 }
 
 void Game::processEvents() {
-    while (mWindow->pollEvent(mEvent)) {
-        switch (mEvent.type) {
-            case sf::Event::KeyPressed:
-                mController->handlePlayerInputs(mEvent.key.code, true);
-                break;
-            case sf::Event::KeyReleased:
-                mController->handlePlayerInputs(mEvent.key.code, false);
-                break;
-            case sf::Event::Closed:
-                mWindow->close();
-                break;
-        }
-    }
+//    while (mWindow->pollEvent(mEvent)) {
+//        switch (mEvent.type) {
+//            case sf::Event::KeyPressed:
+//                mController->handlePlayerInputs(mEvent.key.code, true);
+//                break;
+//            case sf::Event::KeyReleased:
+//                mController->handlePlayerInputs(mEvent.key.code, false);
+//                break;
+//            case sf::Event::Closed:
+//                mWindow->close();
+//                break;
+//        }
+//    }
 }
 
 //void _Game::applyGravity() {
@@ -96,12 +96,12 @@ void Game::processEvents() {
 
 void Game::update(sf::Time delta) {
     sf::Vector2f movement(0.f, 0.f);
-    if (mController->left) {
-        movement.x -= Config::horizontalSpeed;
-    }
-    if (mController->right) {
-        movement.x += Config::horizontalSpeed;
-    }
+//    if (mController->left) {
+//        movement.x -= Config::horizontalSpeed;
+//    }
+//    if (mController->right) {
+//        movement.x += Config::horizontalSpeed;
+//    }
 
     // Apply gravity
     //TODO: Fix gravity to work properly, it has to speed up the player when falling down
@@ -110,10 +110,10 @@ void Game::update(sf::Time delta) {
 
     // Handle jumping
     //TODO: Fix jumping, it is not even working. But this is because I still have to save the vertical speed of the player
-    if (mController->jump && mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
-//        mPlayer->verticalSpeed = -350.f; // Adjust this value for jump strength
-        movement.y = -350.f; // Adjust this value for jump strength
-    }
+//    if (mController->jump && mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
+////        mPlayer->verticalSpeed = -350.f; // Adjust this value for jump strength
+//        movement.y = -350.f; // Adjust this value for jump strength
+//    }
 
     // Check for ground collision
     if (mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {

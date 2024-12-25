@@ -41,6 +41,26 @@ Stopwatch::Stopwatch() {
     startTime = std::chrono::high_resolution_clock::now();
 }
 
+Stopwatch& Stopwatch::getInstance() {
+    static Stopwatch instance;
+    return instance;
+}
+
+void Stopwatch::start() {
+    startTime = std::chrono::high_resolution_clock::now();
+}
+
+void Stopwatch::stop() {
+    stopTime = std::chrono::high_resolution_clock::now();
+}
+
+float Stopwatch::getElapsedTime() const {
+    auto elapsed = std::chrono::duration<float>(stopTime - startTime).count();
+    return elapsed;
+}
+
+
+
 float Stopwatch::restart() {
     auto now = std::chrono::high_resolution_clock::now();
     auto elapsed = std::chrono::duration<float>(now - startTime).count();
@@ -48,8 +68,10 @@ float Stopwatch::restart() {
     return elapsed;
 }
 
-float Stopwatch::getElapsedTime() const {
-    auto now = std::chrono::high_resolution_clock::now();
-    return std::chrono::duration<float>(now - startTime).count();
-}
+//float Stopwatch::getElapsedTime() const {
+//    auto now = std::chrono::high_resolution_clock::now();
+//    return std::chrono::duration<float>(now - startTime).count();
+//}
+
+Stopwatch::~Stopwatch() = default;
 

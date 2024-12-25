@@ -38,7 +38,7 @@ std::shared_ptr<Logic_Library::Platform> Concrete_Factory::createPlatform(float 
     return platform;
 }
 
-std::shared_ptr<Logic_Library::BG_Tile> Concrete_Factory::createBG_Tile() {
+std::shared_ptr<Logic_Library::BG_Tile> Concrete_Factory::createBGTile() {
     return nullptr;
 }
 

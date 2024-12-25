@@ -38,9 +38,15 @@ public:
     /**
      * @brief Gravity of the game
      */
-//    static constexpr float gravity = 9.8f;
-    static constexpr float gravity = 90.8f;
+//    static constexpr float gravity = 9.81;
+//    static constexpr float gravity = 90.8f;
+    static constexpr float gravity = 250.f;
+//    static constexpr float gravity = 0.028f;
 
+    /**
+     * @brief Jump force of the player
+     */
+    static constexpr float jumpForce = 350.f;
     // =================================================================================================================
 
     // Frame

@@ -38,11 +38,35 @@ private:
     /// Time point when the stopwatch was started
     std::chrono::time_point<std::chrono::high_resolution_clock> startTime;
 
+    /// Time point when the stopwatch was stopped
+    std::chrono::time_point<std::chrono::high_resolution_clock> stopTime;
+
 public:
     /***
      * @brief Default constructor for Stopwatch class
      */
     Stopwatch();
+
+    /**
+     * @brief Instance of the Stopwatch class
+     */
+     static Stopwatch& getInstance();
+
+    /**
+    * @brief Starts the stopwatch
+    */
+    void start();
+
+    /**
+     * @brief Stops the stopwatch and returns the elapsed time in seconds
+     * @return Elapsed time in seconds
+     */
+    void stop();
+
+    /***
+     * @brief Destructor for Stopwatch class
+     */
+    virtual ~Stopwatch();
 
     // Restarts the stopwatch and returns the elapsed time in seconds
     float restart();

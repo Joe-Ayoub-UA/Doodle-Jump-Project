@@ -32,54 +32,166 @@
  */
 class World {
 private:
+    /// @brief Concrete Factory of the World
     std::shared_ptr<Concrete_Factory> CF;
 
+    /// @brief Player of the game
     std::shared_ptr<Logic_Library::Player> mPlayer;
 
+    /// @brief Platforms of the game
     std::vector<std::shared_ptr<Logic_Library::Platform>> mPlatforms;
 
+    /// @brief Background tiles of the game
     std::vector<std::shared_ptr<Logic_Library::BG_Tile>> mBG_Tiles;
 
+    /// @brief Bonuses of the game
     std::vector<std::shared_ptr<Logic_Library::Bonus>> mBonuses;
 public:
+    /**
+     * @brief Default constructor for the World class
+     */
     World();
 
+    /**
+     * @brief Destructor for the World class
+     */
+    ~World()=default;
+
+    /**
+     * @brief Function to create the player
+     */
     void createPlayer();
 
+    /**
+     * @brief Function to create a platform
+     */
     bool createPlatform();
 
+    /**
+     * @brief Function to create a background tile
+     */
+    void createBGTile();
+
+    /**
+     * @brief Function to create a bonus
+     */
+    void createBonus();
+
+    /**
+     * @brief Function to check if a platform's position is valid. Called before a platform is officially created
+     * @param coordinate
+     * @return true or false depending on the validity of the platform's positioning
+     */
     bool checkValidPlatform(const Coordinates& coordinate);
 
+    bool checkCollision();
+
+    /**
+     * @brief Function to find the lowest platform
+     * @return shared pointer to the lowest platform
+     */
     Logic_Library::Platform findLowestPlatform();
 
+    /**
+     * @brief Function to find the highest platform
+     * @return shared pointer to the highest platform
+     */
     Logic_Library::Platform findHighestPlatform();
 
+    /**
+     * @brief Function to check if a new platform is needed
+     * @return true or false depending on the necessity of a new platform
+     */
     bool isPlatformNeeded();
 
+    /**
+     * @brief Function to remove a platform
+     * @param platform
+     */
     void removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform);
 
+    /**
+     * @brief Function to setup the world
+     */
     void setupWorld();
 
+    /**
+     * @brief Function to update the world
+     */
     void updateWorld();
 
+    /**
+     * @brief Function to get the concrete factory
+     * @return shared pointer to the concrete factory
+     */
     const std::shared_ptr<Concrete_Factory> &getCf() const;
 
+    /**
+     * @brief Function to set the concrete factory
+     * @param cf
+     */
     void setCf(const std::shared_ptr<Concrete_Factory> &cf);
 
+    /**
+     * @brief Function to get the player
+     * @return shared pointer to the player
+     */
     const std::shared_ptr<Logic_Library::Player> &getMPlayer() const;
 
+    /**
+     * @brief Function to set the player
+     * @param mPlayer
+     */
     void setMPlayer(const std::shared_ptr<Logic_Library::Player> &mPlayer);
 
+    /**
+     * @brief Function to get the platforms
+     * @return vector of shared pointers to the platforms
+     */
     const std::vector<std::shared_ptr<Logic_Library::Platform>> &getMPlatforms() const;
 
+    /**
+     * @brief Function to set the platforms
+     * @param mPlatforms
+     */
     void setMPlatforms(const std::vector<std::shared_ptr<Logic_Library::Platform>> &mPlatforms);
 
+    /**
+     * @brief Function to get the platform
+     * @param platform
+     * @return shared pointer to the platform
+     */
+    std::shared_ptr<Logic_Library::Platform> getMPlatform(std::shared_ptr<Logic_Library::Platform>& platform);
+
+    /**
+     * @brief Function to get the background tiles
+     * @return vector of shared pointers to the background tiles
+     */
     const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &getMbgTiles() const;
 
+    /**
+     * @brief Function to set the background tiles
+     * @param mBgTiles
+     */
     void setMbgTiles(const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &mBgTiles);
 
+    /**
+     * @brief Function to get the background tile
+     * @param bgTile
+     * @return shared pointer to the background tile
+     */
+    std::shared_ptr<Logic_Library::BG_Tile> getMBGTile(std::shared_ptr<Logic_Library::BG_Tile>& bgTile);
+
+    /**
+     * @brief Function to get the bonuses
+     * @return vector of shared pointers to the bonuses
+     */
     const std::vector<std::shared_ptr<Logic_Library::Bonus>> &getMBonuses() const;
 
+    /**
+     * @brief Function to set the bonuses
+     * @param mBonuses
+     */
     void setMBonuses(const std::vector<std::shared_ptr<Logic_Library::Bonus>> &mBonuses);
 };
 
