@@ -54,7 +54,6 @@ void New_Game::processEvents() {
 void New_Game::update() {
     mController->applyGravity();
     if (mKeyStates[sf::Keyboard::D] || mKeyStates[sf::Keyboard::Right]) {
-
         mController->movePlayerRight();
     }
     if (mKeyStates[sf::Keyboard::A] || mKeyStates[sf::Keyboard::Left]) {
@@ -63,6 +62,11 @@ void New_Game::update() {
     if (mKeyStates[sf::Keyboard::Space] || mKeyStates[sf::Keyboard::Up]) {
         mController->jumpPlayer();
     }
+    mController->outOfBounds();
+    if (mController->checkCollision()) {
+        mController->jumpPlayer();
+    }
+//    if ()
 }
 
 void New_Game::handlePlayerInputs(sf::Keyboard::Key key, bool isPressed) {

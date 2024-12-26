@@ -40,7 +40,7 @@ public:
      */
 //    static constexpr float gravity = 9.81;
 //    static constexpr float gravity = 90.8f;
-    static constexpr float gravity = 250.f;
+    static constexpr float gravity = 350.f;
 //    static constexpr float gravity = 0.028f;
 
     /**

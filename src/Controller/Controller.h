@@ -42,7 +42,13 @@ public:
     /**
      * @brief Function to handle the situation when the player is out of bounds
      */
-    void outOfBounds() {world->getMPlayer()->teleportPlayer();}
+    void outOfBounds() {world->getMPlayer()->teleportPlayer(world->getMPlayer()->getObserver()->getPosition());}
+
+    /**
+     * @brief Function to check if there is a collision
+     * @return true if there is a collision, false otherwise
+     */
+    bool checkCollision() {return world->checkCollision();}
 
     /**
      * @brief Function to make the player jump

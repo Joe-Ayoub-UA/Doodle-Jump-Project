@@ -23,12 +23,10 @@ Controller::Controller() {std::make_shared<Controller>(*this);}
 
 void Controller::movePlayerRight() {
     world->getMPlayer()->moveRight();
-    world->getMPlayer()->teleportPlayer();
 }
 
 void Controller::movePlayerLeft() {
     world->getMPlayer()->moveLeft();
-    world->getMPlayer()->teleportPlayer();
 }
 
 void Controller::jumpPlayer() {

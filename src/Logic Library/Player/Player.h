@@ -53,7 +53,7 @@ namespace Logic_Library {
          * @param coordinates
          * @return New coordinates if the player is out of bounds, same coordinates otherwise
          */
-        Coordinates teleportPlayer();
+        Coordinates teleportPlayer(const Coordinates& coordinate);
 
         /**
          * @brief Function to check if the player is out of bounds
@@ -99,6 +99,10 @@ namespace Logic_Library {
          * @return shared pointer to the observer of the player
          */
         std::shared_ptr<Game_Repr::Player> getObserver();
+
+        float getVerticalSpeed() const;
+
+        void setVerticalSpeed(float n_verticalSpeed);
     };
 }
 

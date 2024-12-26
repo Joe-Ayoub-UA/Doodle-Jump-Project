@@ -158,7 +158,23 @@ bool World::checkValidPlatform(const Coordinates& coordinate) {
 }
 
 bool World::checkCollision() {
-    //TODO: Implement collision detection
+    ///@todo: Implement collision detection
+    if (this->getMPlayer()->getVerticalSpeed() < 0) {
+        std::cout << "Vertical Speed is negative, no collision" << std::endl;
+        return false;
+    }
+    else {
+        for (const auto& platform : mPlatforms) {
+            if (this->getMPlayer()->getObserver()->getGlobalBounds().intersects(platform->getObserver()->getGlobalBounds())) {
+                float playerBottom = this->getMPlayer()->getObserver()->getGlobalBounds().top + this->getMPlayer()->getObserver()->getGlobalBounds().height;
+                float platformTop = platform->getObserver()->getGlobalBounds().top;
+                std::cout << "Collision detected" << std::endl;
+                if (playerBottom >= platformTop) {
+                    return true;
+                }
+            }
+        }
+    }
 //    for (const auto& platform : mPlatforms) {
 //        if (mPlayer->getMPlayer()->getGlobalBounds().intersects(platform->getMPlatform()->getGlobalBounds())) {
 //            return true;

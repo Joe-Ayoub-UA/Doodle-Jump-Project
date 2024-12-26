@@ -9,7 +9,8 @@ namespace Logic_Library {
     void Player::moveLeft() {
         float newX = observer->getMPlayer()->getPosition().x - horizontalSpeed * Config::frameDuration;
         float newY = observer->getMPlayer()->getPosition().y;
-        Coordinates newCoordinates(newX, newY);
+//        Coordinates newCoordinates(newX, newY);
+        Coordinates newCoordinates(teleportPlayer(Coordinates(newX, newY)));
 //        std::cout << "New coordinates: " << newCoordinates.getX() << " " << newCoordinates.getY() << std::endl;
         observer->notifyPosition(newCoordinates);
     }
@@ -17,17 +18,18 @@ namespace Logic_Library {
     void Player::moveRight() {
         float newX = observer->getMPlayer()->getPosition().x + horizontalSpeed * Config::frameDuration;
         float newY = observer->getMPlayer()->getPosition().y;
-        Coordinates newCoordinates(newX, newY);
+//        Coordinates newCoordinates(newX, newY);
+        Coordinates newCoordinates(teleportPlayer(Coordinates(newX, newY)));
 //        std::cout << "New coordinates: " << newCoordinates.getX() << " " << newCoordinates.getY() << std::endl;
         observer->notifyPosition(newCoordinates);
     }
 
-    Coordinates Player::teleportPlayer() {
+    Coordinates Player::teleportPlayer(const Coordinates& coordinate) {
         Coordinates coordinates = Coordinates(observer->getMPlayer()->getPosition().x, observer->getMPlayer()->getPosition().y);
-        float x = coordinates.getX();
-        float y = coordinates.getY();
+        float x = coordinate.getX();
+        float y = coordinate.getY();
         if (checkOutOfBounds(coordinates)) {
-//            std::cout << "Out of bounds" << std::endl;
+            std::cout << "Out of bounds" << std::endl;
 //            if (mPlayer->getMPlayer()->getPosition().x < mPlayer->getMPlayer()->getRadius()*(-2)) {
 //                mPlayer->getMPlayer()->setPosition((float)mWindow->getSize().x+mPlayer->getMPlayer()->getRadius(),mPlayer->getMPlayer()->getPosition().y);
 //            }
@@ -86,5 +88,13 @@ namespace Logic_Library {
 
     std::shared_ptr<Game_Repr::Player> Player::getObserver() {
         return this->observer;
+    }
+
+    float Player::getVerticalSpeed() const {
+        return verticalSpeed;
+    }
+
+    void Player::setVerticalSpeed(float n_verticalSpeed) {
+        Player::verticalSpeed = n_verticalSpeed;
     }
 }

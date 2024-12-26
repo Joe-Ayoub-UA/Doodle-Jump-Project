@@ -15,6 +15,8 @@ public:
 
     void notifyPosition(const Coordinates& coordinates) override = 0;
 
+    virtual sf::FloatRect getGlobalBounds() const = 0;
+
 };
 
 

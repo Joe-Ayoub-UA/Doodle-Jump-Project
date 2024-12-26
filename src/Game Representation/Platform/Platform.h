@@ -40,6 +40,8 @@ namespace Game_Repr {
 
         void notifyPosition(const Coordinates& coordinates) override;
 
+        sf::FloatRect getGlobalBounds() const override {return mPlatform->getGlobalBounds();}
+
         virtual ~Platform();
 
     };

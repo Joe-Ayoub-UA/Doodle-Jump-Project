@@ -32,6 +32,8 @@ namespace Game_Repr {
             //mPlayer->move(0.f, 0.f);
         }
 
+        sf::FloatRect getGlobalBounds() const override {return mPlayer->getGlobalBounds();}
+
         const Coordinates &getPosition() const;
 
         void setPosition(const Coordinates &n_position);

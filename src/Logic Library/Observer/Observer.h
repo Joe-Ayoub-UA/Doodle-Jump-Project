@@ -5,6 +5,7 @@
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_OBSERVER_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_OBSERVER_H
 #include "../../Utilities/Coordinates/Coordinates.h"
+#include "../../SFML/Graphics.hpp"
 
 class Observer {
 public:
@@ -13,6 +14,7 @@ public:
     virtual void update() = 0;
 
     virtual void notifyPosition(const Coordinates& coordinates) = 0;
+
 };
 
 
