@@ -158,9 +158,10 @@ bool World::checkValidPlatform(const Coordinates& coordinate) {
 }
 
 bool World::checkCollision() {
-    ///@todo: Implement collision detection
-    if (this->getMPlayer()->getVerticalSpeed() < 0) {
-        std::cout << "Vertical Speed is negative, no collision" << std::endl;
+    ///@todo: Fix collision detection, because now the jump is happening when the top of the player is colliding with the platform, which is not correct
+//    std::cout << "Player Position: " << this->getMPlayer()->getObserver()->getMPlayer()->getPosition().x << std:: endl;
+    if (this->getMPlayer()->getVerticalSpeed() <= 0) {
+//        std::cout << "Vertical Speed is negative, no collision" << std::endl;
         return false;
     }
     else {
@@ -168,8 +169,8 @@ bool World::checkCollision() {
             if (this->getMPlayer()->getObserver()->getGlobalBounds().intersects(platform->getObserver()->getGlobalBounds())) {
                 float playerBottom = this->getMPlayer()->getObserver()->getGlobalBounds().top + this->getMPlayer()->getObserver()->getGlobalBounds().height;
                 float platformTop = platform->getObserver()->getGlobalBounds().top;
-                std::cout << "Collision detected" << std::endl;
                 if (playerBottom >= platformTop) {
+                    std::cout << "Collision detected" << std::endl;
                     return true;
                 }
             }

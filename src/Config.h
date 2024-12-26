@@ -46,6 +46,7 @@ public:
     /**
      * @brief Jump force of the player
      */
+//    static constexpr float jumpForce = 350.f;
     static constexpr float jumpForce = 350.f;
     // =================================================================================================================
 
@@ -97,8 +98,8 @@ public:
      * @return A pair representing the minimum distance range
      */
     static std::pair<float, float> getMinPlatformDistance() {
-        float minDistance = 50.f + (15 - amountOfPlatforms) * 10.f;
-        float maxDistance = 100.f + (15 - amountOfPlatforms) * 20.f;
+        float minDistance = 100.f + (15 - amountOfPlatforms) * 10.f;
+        float maxDistance = 150.f + (15 - amountOfPlatforms) * 20.f;
         return std::make_pair(minDistance, maxDistance);
     }
 //    static constexpr int amountOfPlatforms = 15;

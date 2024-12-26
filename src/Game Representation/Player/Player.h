@@ -13,10 +13,11 @@
 namespace Game_Repr {
     class Player : public Entity_View {
     private:
+        sf::Vector2<float> mDimensions = {50.f, 50.f};
         int radius;
         Coordinates position;
         sf::Color color;
-        std::shared_ptr<sf::CircleShape> mPlayer;
+        std::shared_ptr<sf::RectangleShape> mPlayer;
 
 
     public:
@@ -24,13 +25,15 @@ namespace Game_Repr {
 
         Player(int radius, const Coordinates &position, const sf::Color &color);
 
-        [[nodiscard]] const std::shared_ptr<sf::CircleShape> &getMPlayer() const;
+        [[nodiscard]] const std::shared_ptr<sf::RectangleShape> &getMPlayer() const;
 
-        void setMPlayer(const std::shared_ptr<sf::CircleShape> &mPlayer);
+        void setMPlayer(const std::shared_ptr<sf::RectangleShape> &mPlayer);
 
         void update() override {
             //mPlayer->move(0.f, 0.f);
         }
+
+        std::pair<float,float> getMDimensions() const;
 
         sf::FloatRect getGlobalBounds() const override {return mPlayer->getGlobalBounds();}
 

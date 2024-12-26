@@ -14,7 +14,7 @@ Game::Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(Config::
 //    if (!texture.loadFromFile("/home/s0230501/CLionProjects/AP_Project_DoodleJump/2024-project-Joe-Ayoub-UA/textures/Doodle/NinjaDoodle.png")) {}
     //mPlayer = std::make_shared<sf::CircleShape>(40.f);
     //mPlayer->setRadius(40.f);
-    mPlayer->getMPlayer()->setOrigin(mPlayer->getMPlayer()->getRadius(),mPlayer->getMPlayer()->getRadius());
+//    mPlayer->getMPlayer()->setOrigin(mPlayer->getMPlayer()->getRadius(),mPlayer->getMPlayer()->getRadius());
     //mPlayer->setPosition(100.f, 100.f);
     float posX = static_cast<float>((float)mWindow->getSize().x / 2);
     float posY = static_cast<float>((float)mWindow->getSize().y / 2);
@@ -116,18 +116,18 @@ void Game::update(sf::Time delta) {
 //    }
 
     // Check for ground collision
-    if (mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
-        mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getPosition().x, mWindow->getSize().y - mPlayer->getMPlayer()->getRadius());
-        movement.y = 0.f;
-    }
-
-    // Wrap around horizontally
-    if (mPlayer->getMPlayer()->getPosition().x < mPlayer->getMPlayer()->getRadius() * (-2)) {
-        mPlayer->getMPlayer()->setPosition((float)mWindow->getSize().x + mPlayer->getMPlayer()->getRadius(), mPlayer->getMPlayer()->getPosition().y);
-    }
-    if (mPlayer->getMPlayer()->getPosition().x > (float)mWindow->getSize().x + mPlayer->getMPlayer()->getRadius()) {
-        mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getRadius() * (-2), mPlayer->getMPlayer()->getPosition().y);
-    }
+//    if (mPlayer->getMPlayer()->getPosition().y >= mWindow->getSize().y - mPlayer->getMPlayer()->getRadius()) {
+//        mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getPosition().x, mWindow->getSize().y - mPlayer->getMPlayer()->getRadius());
+//        movement.y = 0.f;
+//    }
+//
+//    // Wrap around horizontally
+//    if (mPlayer->getMPlayer()->getPosition().x < mPlayer->getMPlayer()->getRadius() * (-2)) {
+//        mPlayer->getMPlayer()->setPosition((float)mWindow->getSize().x + mPlayer->getMPlayer()->getRadius(), mPlayer->getMPlayer()->getPosition().y);
+//    }
+//    if (mPlayer->getMPlayer()->getPosition().x > (float)mWindow->getSize().x + mPlayer->getMPlayer()->getRadius()) {
+//        mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getRadius() * (-2), mPlayer->getMPlayer()->getPosition().y);
+//    }
     std::cout << movement.y << std::endl;
     mPlayer->getMPlayer()->move(movement * delta.asSeconds());
 }
