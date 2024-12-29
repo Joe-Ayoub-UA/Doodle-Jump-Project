@@ -18,11 +18,11 @@ namespace Game_Repr {
         Platform::mPlatform = std::make_shared<sf::RectangleShape>();
     }
 
-    const std::pair<float, float> &Platform::getPosition() const {
+    const Coordinates &Platform::getPosition() const {
         return position;
     }
 
-    void Platform::setPosition(const std::pair<float, float> &n_position) {
+    void Platform::setPosition(const Coordinates &n_position) {
         Platform::position = n_position;
     }
 
@@ -31,6 +31,7 @@ namespace Game_Repr {
     }
 
     void Platform::notifyPosition(const Coordinates& coordinates) {
+        this->setPosition(coordinates);
         mPlatform->setPosition(coordinates.getX(), coordinates.getY());
     }
 

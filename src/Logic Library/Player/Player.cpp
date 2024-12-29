@@ -37,12 +37,13 @@ namespace Logic_Library {
 //                mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getRadius()*(-2),mPlayer->getMPlayer()->getPosition().y);
 //            }
 
-            std::pair<float,float> dimensions = this->getObserver()->getMDimensions();
-            if (x < dimensions.first * (-2)) {
+            Coordinates position = this->getObserver()->getPosition();
+            std::pair<float, float> dimensions = this->getObserver()->getMDimensions();
+            if (x < position.getX()-dimensions.first) {
                 x = Config::windowWidth;
             }
-            if (x > Config::windowWidth + dimensions.first) {
-                x = dimensions.first * (-2);
+            if (x > Config::windowWidth) {
+                x = position.getX()-dimensions.first;
             }
         }
         return {x,y};

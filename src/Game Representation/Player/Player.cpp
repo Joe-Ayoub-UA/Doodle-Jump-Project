@@ -6,11 +6,11 @@
 namespace Game_Repr {
     Game_Repr::Player::Player() : mPlayer(std::make_shared<sf::RectangleShape>(mDimensions)) {
         mPlayer->setOrigin({mDimensions.x/2.f, mDimensions.y/2.f});
-        mPlayer->setPosition((float)Config::windowWidth/2, (float)Config::windowHeight/2);
+        mPlayer->setPosition((float)Config::windowWidth/2, (float)Config::windowHeight);
         mPlayer->setFillColor(sf::Color::Yellow);
 //        mPlayer->setOrigin(mPlayer->getRadius(),mPlayer->getRadius());
         auto posX = static_cast<float>((float)Config::windowWidth/2);
-        auto posY = static_cast<float>((float)Config::windowHeight/2);
+        auto posY = static_cast<float>((float)Config::windowHeight);
         mPlayer->setPosition(posX, posY);
         mPlayer->setFillColor(sf::Color::Yellow);
     }
@@ -44,6 +44,7 @@ namespace Game_Repr {
     }
 
     void Player::notifyPosition(const Coordinates& coordinates) {
+        this->setPosition(coordinates);
         mPlayer->setPosition(coordinates.getX(), coordinates.getY());
     }
 

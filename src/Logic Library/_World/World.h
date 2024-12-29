@@ -6,6 +6,7 @@
 #define INC_2024_PROJECT_JOE_AYOUB_UA_WORLD_H
 #include <iostream>
 #include <vector>
+#include <optional>
 #include "../../Config.h"
 
 #include "../Entity Model/Entity_Model.h"
@@ -65,8 +66,7 @@ public:
     /**
      * @brief Function to create a platform
      */
-    bool createPlatform();
-
+    bool createPlatform(const std::optional<Coordinates>& coordinate = std::nullopt);
     /**
      * @brief Function to create a background tile
      */
@@ -104,6 +104,8 @@ public:
      */
     bool isPlatformNeeded();
 
+    bool isPlatformNotNeeded();
+
     /**
      * @brief Function to remove a platform
      * @param platform
@@ -119,6 +121,8 @@ public:
      * @brief Function to update the world
      */
     void updateWorld();
+
+    void MovePlatformsDown(float moveDownDistance);
 
     /**
      * @brief Function to get the concrete factory

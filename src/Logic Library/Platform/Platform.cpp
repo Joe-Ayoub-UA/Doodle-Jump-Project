@@ -28,26 +28,9 @@ namespace Logic_Library {
 
     }
 
-    float Platform::getX() const {
-        return x;
-    }
-
-    void Platform::setX(float n_x) {
-        Platform::x = n_x;
-    }
-
-    float Platform::getY() const {
-        return y;
-    }
-
-    void Platform::setY(float n_y) {
-        Platform::y = n_y;
-    }
-
-    void Platform::setPosition(float n_x, float n_y) {
-        this->setX(n_x);
-        this->setY(n_y);
-    }
+//    void Platform::setPosition(Coordinates &coordinates) {
+//        this->pCoordinates = coordinates;
+//    }
 
     void Platform::moveUp() {
         float newX = observer->getMPlatform()->getPosition().x;
@@ -74,6 +57,14 @@ namespace Logic_Library {
         float newX = observer->getMPlatform()->getPosition().x + horizontalSpeed * Config::frameDuration;
         float newY = observer->getMPlatform()->getPosition().y;
         Coordinates newCoordinates(newX, newY);
+        observer->notifyPosition(newCoordinates);
+    }
+
+    void Platform::fixTooHigh(float moveDownDistance) {
+        float newX = observer->getMPlatform()->getPosition().x;
+        float newY = observer->getMPlatform()->getPosition().y + moveDownDistance;
+        Coordinates newCoordinates(newX, newY);
+        this->setPosition(newCoordinates);
         observer->notifyPosition(newCoordinates);
     }
 

@@ -10,6 +10,7 @@
 #include "../../Utilities/Enums/Enums.h"
 #include "../../Game Representation/Platform/Platform.h"
 #include <string>
+#include <optional>
 
 namespace Logic_Library {
     /// @brief Enum for the type of the platform
@@ -18,11 +19,8 @@ namespace Logic_Library {
      */
     class Platform : public Entity_Model {
     private:
-        /// @brief x-coordinate of the platform
-        float x{};
-
-        /// @brief y-coordinate of the platform
-        float y{};
+        /// @brief Coordinates of the platform
+        Coordinates pCoordinates;
 
         /// @brief Type of the platform
         Enums::PlatformType pType{};
@@ -46,33 +44,18 @@ namespace Logic_Library {
          * @param x: x-coordinate of the platform.
          * @param y: y-coordinate of the platform.
          */
-        explicit Platform(float x=0.f, float y=0.f) : x(x), y(y) {createPlatform();}
-        /**
-         * @brief Getter for the x-coordinate of the platform.
-         * @return float, which is the x-coordinate of the platform.
-         */
-        float getX() const;
-        /**
-         * @brief Setter for the x-coordinate of the platform.
-         * @param n_x: float, which is the new x-coordinate of the platform.
-         */
-        void setX(float n_x);
-        /**
-         * @brief Getter for the y-coordinate of the platform.
-         * @return float, which is the y-coordinate of the platform.
-         */
-        float getY() const;
-        /**
-         * @brief Setter for the y-coordinate of the platform.
-         * @param n_y: float, which is the new y-coordinate of the platform.
-         */
-        void setY(float n_y);
+        explicit Platform() {createPlatform();}
         /**
          * @brief Setter for the position of the platform.
-         * @param n_x: float, which is the new x-coordinate of the platform.
-         * @param n_y: float, which is the new y-coordinate of the platform.
+         * @param: coordinates: Coordinates, which is the new position of the platform.oo
          */
-        void setPosition(float n_x, float n_y);
+        void setPosition(Coordinates &coordinates) { pCoordinates = coordinates; };
+
+        /**
+         * @brief Getter for the position of the platform.
+         * @return Coordinates, which is the position of the platform.
+         */
+        const Coordinates &getPosition() const { return pCoordinates; }
         /**
          * @brief Getter for the type of the platform.
          * @return PlatformType, which is the type of the platform.
@@ -99,6 +82,8 @@ namespace Logic_Library {
          * @brief Function to move the platform right.
          */
         void moveRight();
+
+        void fixTooHigh(float moveDownDistance);
         /**
          * @brief Function to assign an observer to the platform.
          * @param newObserver: std::shared_ptr<Observer>, which is the new observer of the platform.

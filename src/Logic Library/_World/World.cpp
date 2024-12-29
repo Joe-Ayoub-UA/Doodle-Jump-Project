@@ -71,9 +71,15 @@ void World::createPlayer() {
     mPlayer = CF->createPlayer();
 }
 
-bool World::createPlatform() {
-    Coordinates coordinates = Random::getInstance().generateCoor();
-    std::cout << "Left: " << coordinates.getX()-Config::platformWidth/2.f << "\tRight: " << coordinates.getX()+Config::platformWidth/2.f << std::endl;
+bool World::createPlatform(const std::optional<Coordinates>& coordinate) {
+    Coordinates coordinates;
+    if (coordinate.has_value()) {
+        coordinates = coordinate.value();
+    }
+    else {
+        coordinates = Random::getInstance().generateCoor();
+    }
+//    std::cout << "Left: " << coordinates.getX()-Config::platformWidth/2.f << "\tRight: " << coordinates.getX()+Config::platformWidth/2.f << std::endl;
     if (checkValidPlatform(coordinates)) {
         mPlatforms.push_back(CF->createPlatform(coordinates.getX(), coordinates.getY()));
         return true;
@@ -90,13 +96,13 @@ void World::createBonus() {
 }
 
 Logic_Library::Platform World::findLowestPlatform() {
-    Logic_Library::Platform lowestPlatform;
+    Logic_Library::Platform lowestPlatform = *mPlatforms[0];
 //    Logic_Library::Platform lowestPlatform = *mPlatforms[0];
     for (auto &platform : mPlatforms) {
 //        if (platform->getPosition().second > lowestPlatform.getPosition().second) {
 //            lowestPlatform = *platform;
 //        }
-        if (platform->getY() > lowestPlatform.getY()) {
+        if (platform->getPosition().getY() > lowestPlatform.getPosition().getY()) {
             lowestPlatform = *platform;
         }
     }
@@ -104,9 +110,9 @@ Logic_Library::Platform World::findLowestPlatform() {
 }
 
 Logic_Library::Platform World::findHighestPlatform() {
-    Logic_Library::Platform highestPlatform;
+    Logic_Library::Platform highestPlatform = *mPlatforms[0];
     for (auto &platform : mPlatforms) {
-        if (platform->getY() < highestPlatform.getY()) {
+        if (platform->getPosition().getY() < highestPlatform.getPosition().getY()) {
             highestPlatform = *platform;
         }
     }
@@ -118,42 +124,35 @@ bool World::checkValidPlatform(const Coordinates& coordinate) {
     const float minDistance = Random::getInstance().randomFloat(Config::minPlatformDistance.first, Config::minPlatformDistance.second);
 
 // Try generating coordinate until a valid position is found
-    do {
 //        float x = std::clamp(coordinate.getX(), Config::platformWidth / 2.0f, Config::windowWidth - Config::platformWidth / 2.0f);
 //        float y = std::clamp(coordinate.getY(), Config::platformHeight / 2.0f, Config::windowHeight - Config::platformHeight / 2.0f);
-        if (coordinate.getX() + Config::platformWidth / 2 > Config::windowWidth or coordinate.getX() - Config::platformWidth / 2 < 0) {
-            return false;
+    if (coordinate.getX() + Config::platformWidth > Config::windowWidth or coordinate.getX() < 0) {
+        return false;
 //            coordinate.setX(Config::windowWidth - Config::platformWidth / 2);
-        }
-        if (coordinate.getY() + Config::platformHeight / 2 > Config::windowHeight or coordinate.getY() - Config::platformHeight / 2 < 0) {
-            return false;
-        }
-
+    }
+    if (coordinate.getY() + Config::platformHeight / 2 > Config::windowHeight or coordinate.getY() - Config::platformHeight / 2 < 0) {
+        return false;
+    }
 //        coordinate.setX(x);
 //        coordinate.setY(y);
 
-        validPosition = true;
 
-        // Check if the new platform overlaps or is too close to existing platforms
-        for (const auto& platform : mPlatforms) {
-            float dx = platform->getX() - coordinate.getX();
-            float dy = platform->getY() - coordinate.getY();
-            float distance = std::sqrt(dx * dx + dy * dy);
+    // Check if the new platform overlaps or is too close to existing platforms
+    for (const auto& platform : mPlatforms) {
+        float dx = platform->getPosition().getX() - coordinate.getX();
+        float dy = platform->getPosition().getY() - coordinate.getY();
+        float distance = std::sqrt(dx * dx + dy * dy);
 
-            if (distance < minDistance) {
-                return false;
-                validPosition = false;
-                break;
-            }
-
-            // Check for overlap considering platform dimensions
-            if (std::abs(dx) < Config::platformWidth && std::abs(dy) < Config::platformHeight) {
-                return false;
-                validPosition = false;
-                break;
-            }
+        if (distance < minDistance) {
+            return false;
+            validPosition = false;
+            break;
         }
-    } while (!validPosition);
+        // Check for overlap considering platform dimensions
+        if (std::abs(dx) < Config::platformWidth && std::abs(dy) < Config::platformHeight) {
+            return false;
+        }
+    }
     return true;
 }
 
@@ -165,6 +164,9 @@ bool World::checkCollision() {
         return false;
     }
     else {
+        Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
+        std::pair<float, float> playerDimensions = this->getMPlayer()->getObserver()->getMDimensions();
+        playerCoordinates.setY(playerCoordinates.getY() + playerDimensions.second);
         for (const auto& platform : mPlatforms) {
             if (this->getMPlayer()->getObserver()->getGlobalBounds().intersects(platform->getObserver()->getGlobalBounds())) {
                 float playerBottom = this->getMPlayer()->getObserver()->getGlobalBounds().top + this->getMPlayer()->getObserver()->getGlobalBounds().height;
@@ -174,6 +176,19 @@ bool World::checkCollision() {
                     return true;
                 }
             }
+//            Coordinates platformCoordinates = platform->getObserver()->getPosition();
+//            if (playerCoordinates.getX() + playerDimensions.first > platformCoordinates.getX() or playerCoordinates.getX() < platformCoordinates.getX() + Config::platformWidth) {
+//                std::cout << "Player bottom: " << playerCoordinates.getY() + playerDimensions.second << "\tPlatform top: " << platformCoordinates.getY() << std::endl;
+//                if ((playerCoordinates.getY() + playerDimensions.second) < playerCoordinates.getY()) {
+//                    return true;
+//                }
+//            }
+//            if (playerCoordinates.getX() > platformCoordinates.getX() and playerCoordinates.getX() < platformCoordinates.getX() + Config::platformWidth) {
+//                std::cout << "Player bottom: " << playerCoordinates.getY() + playerDimensions.second << "\tPlatform top: " << platformCoordinates.getY() << std::endl;
+//                if ((playerCoordinates.getY() + playerDimensions.second) < playerCoordinates.getY()) {
+//                    return true;
+//                }
+//            }
         }
     }
 //    for (const auto& platform : mPlatforms) {
@@ -185,11 +200,37 @@ bool World::checkCollision() {
 }
 
 void World::removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform) {
-    mPlatforms.erase(std::remove(mPlatforms.begin(), mPlatforms.end(), platform), mPlatforms.end());
+    std::cout << mPlatforms.size() << std::endl;
+    mPlatforms.erase(std::find(mPlatforms.begin(), mPlatforms.end(), platform));
+    std::cout << mPlatforms.size() << std::endl;
+}
+
+void World::MovePlatformsDown(float moveDownDistance) {
+    for (auto &platform : mPlatforms) {
+//        std::cout << "Before move down: " << platform->getPosition().getY() << std::endl;
+        platform->fixTooHigh(moveDownDistance);
+//        std::cout << "After move down: " << platform->getPosition().getY() << std::endl;
+    }
 }
 
 bool World::isPlatformNeeded() {
-    return this->findHighestPlatform().getY() < Config::windowHeight;
+//    return this->findHighestPlatform().getY() < Config::windowHeight;
+    Logic_Library::Platform highestPlatform = this->findHighestPlatform();
+    Coordinates newPlatformCoordinates = Coordinates(highestPlatform.getPosition().getX(), highestPlatform.getPosition().getY() - 200);
+    highestPlatform.setPosition(newPlatformCoordinates);
+    if (highestPlatform.getPosition().getY() < 0) {
+        return true;
+    }
+    return false;}
+
+bool World::isPlatformNotNeeded() {
+    Logic_Library::Platform lowestPlatform = this->findLowestPlatform();
+    Coordinates newPlatformCoordinates = Coordinates(lowestPlatform.getPosition().getX(), lowestPlatform.getPosition().getY() + 200);
+    lowestPlatform.setPosition(newPlatformCoordinates);
+    if (lowestPlatform.getPosition().getY() > Config::windowHeight) {
+        return true;
+    }
+    return false;
 }
 
 void World::setupWorld() {
@@ -205,7 +246,26 @@ void World::setupWorld() {
 }
 
 void World::updateWorld() {
-//    if (isPlatformNeeded()) {
-//        createPlatform();
+    if (isPlatformNeeded()) {
+//        std::cout << "Platform needed" << std::endl;
+        float x = Random::getInstance().randomFloat(0, Config::windowWidth);
+        float y = Random::getInstance().randomFloat(-Config::platformPositionOffset, 0);
+        Coordinates coordinates(x, y);
+        std::optional<Coordinates> optCoordinates = std::make_optional<Coordinates>(coordinates);
+        createPlatform(optCoordinates);
+    }
+//    if (isPlatformNotNeeded()) {
+////        std::cout << "Platform not needed" << std::endl;
+//        removePlatform(std::make_shared<Logic_Library::Platform>(findLowestPlatform()));
 //    }
+    Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
+//    std::cout << "Player coordinates: " << playerCoordinates.getX() << " " << playerCoordinates.getY() << std::endl;
+    // Check if player is too high
+    if (playerCoordinates.getY() < (float)Config::windowHeight / 2) {
+//        std::cout << "Player is too high" << std::endl;
+        float moveDownDistance = (float)Config::windowHeight / 2 - playerCoordinates.getY();
+        Coordinates newCoordinates(playerCoordinates.getX(), (float)Config::windowHeight / 2);
+        this->getMPlayer()->getObserver()->notifyPosition(newCoordinates);
+        this->MovePlatformsDown(moveDownDistance);
+    }
 }

@@ -98,9 +98,45 @@ public:
 
 //    void handlePlayerInputs(sf::Keyboard::Key key, bool isPressed);
 
+    /**
+     * @brief Getter for the world
+     * @return the world
+     */
+    const std::shared_ptr<World>& getWorld() const {return world;}
 
+    /**
+     * @brief Setter for the world
+     * @param n_world
+     */
     void setWorld(const std::shared_ptr<World>& n_world) {Controller::world = n_world;}
 
+    /**
+     * @brief Function to remove a platform
+     * @param platform
+     */
+    void removePlatform(std::shared_ptr<Logic_Library::Platform>& platform) {world->removePlatform(platform);}
+
+
+    /**
+     * @brief Function to update the world
+     */
+    void updateWorld() {world->updateWorld();}
+
+//    /**
+//     * @brief Function to check if a platform is needed
+//     * @return true if a platform is needed, false otherwise
+//     */
+//    bool isPlatformNeeded() {return world->isPlatformNeeded();}
+//
+//    /**
+//     * @brief Function to check if a platform is not needed
+//     * @return true if a platform is not needed, false otherwise
+//     */
+//    bool isPlatformNotNeeded() {return world->isPlatformNotNeeded();}
+
+    /**
+     * @brief Default destructor for the Controller class
+     */
     virtual ~Controller();
 };
 

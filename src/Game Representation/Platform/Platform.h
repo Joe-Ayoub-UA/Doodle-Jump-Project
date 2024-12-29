@@ -18,7 +18,7 @@ namespace Game_Repr {
     private:
         std::shared_ptr<sf::RectangleShape> mPlatform;
 
-        std::pair<float, float> position;
+        Coordinates position;
 
         Enums::PlatformType type;
     public:
@@ -32,9 +32,9 @@ namespace Game_Repr {
 
         void setMPlatform(const std::shared_ptr<sf::RectangleShape> &mPlatform);
 
-        const std::pair<float, float> &getPosition() const;
+        const Coordinates &getPosition() const;
 
-        void setPosition(const std::pair<float, float> &n_position);
+        void setPosition(const Coordinates &n_position);
 
         void setPlatformPos(float x, float y);
 

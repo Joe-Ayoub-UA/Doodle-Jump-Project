@@ -48,6 +48,7 @@ public:
      */
 //    static constexpr float jumpForce = 350.f;
     static constexpr float jumpForce = 350.f;
+//    static constexpr float jumpForce = 30.f;
     // =================================================================================================================
 
     // Frame
@@ -111,6 +112,8 @@ public:
 
 
     static const std::map<Enums::PlatformType, std::string> platformColor;
+
+    static constexpr float platformPositionOffset = 200.f;
 };
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_CONFIG_H

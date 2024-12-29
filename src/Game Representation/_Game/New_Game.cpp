@@ -16,8 +16,11 @@ void New_Game::gameInit() {
 
     // Create the platforms: een beetje gelijkaardig aan die van boven, de vector van platforms komt van de world
     for (const std::shared_ptr<Logic_Library::Platform>& i: world->getMPlatforms()) {
+        std::cout << i->getPosition().getX() << " " << i->getPosition().getY() << std::endl;
         mPlatforms.push_back(i->getObserver());
     }
+    mController->jumpPlayer();
+    mController->jumpPlayer();
 }
 
 void New_Game::render() {
@@ -66,7 +69,11 @@ void New_Game::update() {
     if (mController->checkCollision()) {
         mController->jumpPlayer();
     }
-//    if ()
+    mController->updateWorld();
+    mPlatforms.clear();
+    for (const std::shared_ptr<Logic_Library::Platform>& i: mController->getWorld()->getMPlatforms()) {
+        mPlatforms.push_back(i->getObserver());
+    }
 }
 
 void New_Game::handlePlayerInputs(sf::Keyboard::Key key, bool isPressed) {
@@ -86,5 +93,5 @@ void New_Game::run() {
         render();
         Stopwatch::getInstance().stop();
         auto timeLeft = (1.f/60.f) - Stopwatch::getInstance().getElapsedTime();
-        std::this_thread::sleep_for(std::chrono::duration<float>(timeLeft));    }
+        std::this_thread::sleep_for(std::chrono::duration<float>(timeLeft));}
 }
