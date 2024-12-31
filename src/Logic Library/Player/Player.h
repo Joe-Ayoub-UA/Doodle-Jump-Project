@@ -60,7 +60,7 @@ namespace Logic_Library {
          * @param coordinates
          * @return true if the player is out of bounds, false otherwise
          */
-        static bool checkOutOfBounds(const Coordinates& coordinates);
+        bool checkOutOfBounds(const Coordinates& coordinates);
 
         /**
          * @brief Function to make the player jump

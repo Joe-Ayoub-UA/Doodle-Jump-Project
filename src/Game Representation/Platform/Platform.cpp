@@ -27,6 +27,7 @@ namespace Game_Repr {
     }
 
     void Platform::setPlatformPos(float x, float y) {
+        this->setPosition(Coordinates(x,y));
         mPlatform->setPosition(x, y);
     }
 

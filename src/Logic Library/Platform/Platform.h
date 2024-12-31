@@ -34,6 +34,12 @@ namespace Logic_Library {
         /// @brief Vertical speed of the platform
         float verticalSpeed = Config::platformVerticalSpeed;
 
+        /// @brief Boolean to check if the platform is going left
+        bool goingLeft{};
+
+        /// @brief Boolean to check if the platform is going right
+        bool goingUp{};
+
         /**
          * @brief This function creates a platform with a random type.
          */
@@ -44,7 +50,7 @@ namespace Logic_Library {
          * @param x: x-coordinate of the platform.
          * @param y: y-coordinate of the platform.
          */
-        explicit Platform() {createPlatform();}
+        explicit Platform() : goingLeft(false), goingUp(false) {createPlatform();}
         /**
          * @brief Setter for the position of the platform.
          * @param: coordinates: Coordinates, which is the new position of the platform.oo
@@ -66,6 +72,15 @@ namespace Logic_Library {
          * @param newType: PlatformType, which is the new type of the platform.
          */
         void setPType(Enums::PlatformType newType) { pType = newType; }
+
+        bool isGoingLeft() const;
+
+        void setGoingLeft(bool n_goingLeft);
+
+        bool isGoingUp() const;
+
+        void setGoingUp(bool n_goingUp);
+
         /**
          * @brief Function to move the platform up.
          */
@@ -82,7 +97,10 @@ namespace Logic_Library {
          * @brief Function to move the platform right.
          */
         void moveRight();
-
+        /**
+         * @brief Function to move the platforms down when the player reaches the half of the window
+         * @param moveDownDistance
+         */
         void fixTooHigh(float moveDownDistance);
         /**
          * @brief Function to assign an observer to the platform.

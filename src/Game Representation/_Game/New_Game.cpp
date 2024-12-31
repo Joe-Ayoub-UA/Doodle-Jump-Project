@@ -19,6 +19,27 @@ void New_Game::gameInit() {
         std::cout << i->getPosition().getX() << " " << i->getPosition().getY() << std::endl;
         mPlatforms.push_back(i->getObserver());
     }
+
+    // Generating the text for the score
+    if (!mFont.loadFromFile("/home/s0230501/CLionProjects/AP_Project_DoodleJump/2024-project-Joe-Ayoub-UA/textures/Fonts/Arial.ttf")) {
+        std::cout << "Font not loaded" << std::endl;
+    }
+    mText.setFont(mFont);
+    mText.setString("Score: ");
+    mText.setCharacterSize(24);
+    mText.setFillColor(sf::Color::White);
+    mText.setStyle(sf::Text::Bold);
+
+    if (!mHighScoreFont.loadFromFile("/home/s0230501/CLionProjects/AP_Project_DoodleJump/2024-project-Joe-Ayoub-UA/textures/Fonts/Arial.ttf")) {
+        std::cout << "Font not loaded" << std::endl;
+    }
+    mHighScoreText.setFont(mHighScoreFont);
+    mHighScoreText.setString("Highscore: ");
+    mHighScoreText.setCharacterSize(24);
+    mHighScoreText.setFillColor(sf::Color::White);
+    mHighScoreText.setStyle(sf::Text::Bold);
+    mHighScoreText.setPosition(0, 30);
+
     mController->jumpPlayer();
     mController->jumpPlayer();
 }
@@ -32,7 +53,8 @@ void New_Game::render() {
         mWindow->draw(*i->getMPlatform());
     }
     mWindow->draw(*mPlayer->getMPlayer());
-
+    mWindow->draw(mText);
+    mWindow->draw(mHighScoreText);
     mWindow->display();
 }
 
@@ -74,6 +96,8 @@ void New_Game::update() {
     for (const std::shared_ptr<Logic_Library::Platform>& i: mController->getWorld()->getMPlatforms()) {
         mPlatforms.push_back(i->getObserver());
     }
+    mText.setString("Score: "+std::to_string(Score::getInstance().getMScore()));
+    mHighScoreText.setString("Highscore: "+std::to_string(Score::getInstance().getHighScore()));
 }
 
 void New_Game::handlePlayerInputs(sf::Keyboard::Key key, bool isPressed) {

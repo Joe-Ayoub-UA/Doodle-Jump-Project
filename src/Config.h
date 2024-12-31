@@ -40,14 +40,16 @@ public:
      */
 //    static constexpr float gravity = 9.81;
 //    static constexpr float gravity = 90.8f;
-    static constexpr float gravity = 350.f;
+//    static constexpr float gravity = 350.f;
+    static constexpr float gravity = 550.f;
 //    static constexpr float gravity = 0.028f;
 
     /**
      * @brief Jump force of the player
      */
 //    static constexpr float jumpForce = 350.f;
-    static constexpr float jumpForce = 350.f;
+//    static constexpr float jumpForce = 350.f;
+    static constexpr float jumpForce = 400.f;
 //    static constexpr float jumpForce = 30.f;
     // =================================================================================================================
 
@@ -73,7 +75,8 @@ public:
     /**
      * @brief Platform's width
      */
-    static constexpr float platformWidth = 150.f;
+//    static constexpr float platformWidth = 150.f;
+    static constexpr float platformWidth = 100.f;
 
     /**
      * @brief Platform's height
@@ -83,12 +86,12 @@ public:
     /**
      * @brief Platform's horizontal speed
      */
-    static constexpr float platformHorizontalSpeed = 100.f;
+    static constexpr float platformHorizontalSpeed = 50.f;
 
     /**
      * @brief Platform's vertical speed
      */
-    static constexpr float platformVerticalSpeed = 100.f;
+    static constexpr float platformVerticalSpeed = 50.f;
 
     /**
      * @brief Amount of platforms
@@ -99,8 +102,8 @@ public:
      * @return A pair representing the minimum distance range
      */
     static std::pair<float, float> getMinPlatformDistance() {
-        float minDistance = 100.f + (15 - amountOfPlatforms) * 10.f;
-        float maxDistance = 150.f + (15 - amountOfPlatforms) * 20.f;
+        float minDistance = 75.f + (15 - amountOfPlatforms) * 1.5;
+        float maxDistance = 125.f + (15 - amountOfPlatforms) * 2.5;
         return std::make_pair(minDistance, maxDistance);
     }
 //    static constexpr int amountOfPlatforms = 15;
@@ -113,7 +116,7 @@ public:
 
     static const std::map<Enums::PlatformType, std::string> platformColor;
 
-    static constexpr float platformPositionOffset = 200.f;
+    static constexpr float platformPositionOffset = 100.f;
 };
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_CONFIG_H

@@ -79,7 +79,6 @@ bool World::createPlatform(const std::optional<Coordinates>& coordinate) {
     else {
         coordinates = Random::getInstance().generateCoor();
     }
-//    std::cout << "Left: " << coordinates.getX()-Config::platformWidth/2.f << "\tRight: " << coordinates.getX()+Config::platformWidth/2.f << std::endl;
     if (checkValidPlatform(coordinates)) {
         mPlatforms.push_back(CF->createPlatform(coordinates.getX(), coordinates.getY()));
         return true;
@@ -97,12 +96,8 @@ void World::createBonus() {
 
 Logic_Library::Platform World::findLowestPlatform() {
     Logic_Library::Platform lowestPlatform = *mPlatforms[0];
-//    Logic_Library::Platform lowestPlatform = *mPlatforms[0];
     for (auto &platform : mPlatforms) {
-//        if (platform->getPosition().second > lowestPlatform.getPosition().second) {
-//            lowestPlatform = *platform;
-//        }
-        if (platform->getPosition().getY() > lowestPlatform.getPosition().getY()) {
+        if (platform->getObserver()->getPosition().getY() > lowestPlatform.getObserver()->getPosition().getY()) {
             lowestPlatform = *platform;
         }
     }
@@ -112,7 +107,7 @@ Logic_Library::Platform World::findLowestPlatform() {
 Logic_Library::Platform World::findHighestPlatform() {
     Logic_Library::Platform highestPlatform = *mPlatforms[0];
     for (auto &platform : mPlatforms) {
-        if (platform->getPosition().getY() < highestPlatform.getPosition().getY()) {
+        if (platform->getObserver()->getPosition().getY() < highestPlatform.getObserver()->getPosition().getY()) {
             highestPlatform = *platform;
         }
     }
@@ -120,33 +115,23 @@ Logic_Library::Platform World::findHighestPlatform() {
 }
 
 bool World::checkValidPlatform(const Coordinates& coordinate) {
-    bool validPosition = false;
+    ///@todo FIX THIS, PROBLEM LIES SOMEWHERE HERE
     const float minDistance = Random::getInstance().randomFloat(Config::minPlatformDistance.first, Config::minPlatformDistance.second);
-
-// Try generating coordinate until a valid position is found
-//        float x = std::clamp(coordinate.getX(), Config::platformWidth / 2.0f, Config::windowWidth - Config::platformWidth / 2.0f);
-//        float y = std::clamp(coordinate.getY(), Config::platformHeight / 2.0f, Config::windowHeight - Config::platformHeight / 2.0f);
-    if (coordinate.getX() + Config::platformWidth > Config::windowWidth or coordinate.getX() < 0) {
-        return false;
-//            coordinate.setX(Config::windowWidth - Config::platformWidth / 2);
-    }
-    if (coordinate.getY() + Config::platformHeight / 2 > Config::windowHeight or coordinate.getY() - Config::platformHeight / 2 < 0) {
+    if (coordinate.getX() + Config::platformWidth/2 > Config::windowWidth or coordinate.getX() < 0) {
         return false;
     }
-//        coordinate.setX(x);
-//        coordinate.setY(y);
-
+    if (coordinate.getY() + Config::platformHeight / 2 > Config::windowHeight or coordinate.getY() - Config::platformHeight / 2 < -Config::platformPositionOffset) {
+        return false;
+    }
 
     // Check if the new platform overlaps or is too close to existing platforms
     for (const auto& platform : mPlatforms) {
-        float dx = platform->getPosition().getX() - coordinate.getX();
-        float dy = platform->getPosition().getY() - coordinate.getY();
-        float distance = std::sqrt(dx * dx + dy * dy);
+        float dx = platform->getObserver()->getPosition().getX() - coordinate.getX();
+        float dy = platform->getObserver()->getPosition().getY() - coordinate.getY();
+        float distance = std::sqrt((dx * dx) + (dy * dy));
 
         if (distance < minDistance) {
             return false;
-            validPosition = false;
-            break;
         }
         // Check for overlap considering platform dimensions
         if (std::abs(dx) < Config::platformWidth && std::abs(dy) < Config::platformHeight) {
@@ -158,9 +143,7 @@ bool World::checkValidPlatform(const Coordinates& coordinate) {
 
 bool World::checkCollision() {
     ///@todo: Fix collision detection, because now the jump is happening when the top of the player is colliding with the platform, which is not correct
-//    std::cout << "Player Position: " << this->getMPlayer()->getObserver()->getMPlayer()->getPosition().x << std:: endl;
     if (this->getMPlayer()->getVerticalSpeed() <= 0) {
-//        std::cout << "Vertical Speed is negative, no collision" << std::endl;
         return false;
     }
     else {
@@ -172,7 +155,10 @@ bool World::checkCollision() {
                 float playerBottom = this->getMPlayer()->getObserver()->getGlobalBounds().top + this->getMPlayer()->getObserver()->getGlobalBounds().height;
                 float platformTop = platform->getObserver()->getGlobalBounds().top;
                 if (playerBottom >= platformTop) {
-                    std::cout << "Collision detected" << std::endl;
+//                    std::cout << "Collision detected" << std::endl;
+                    if (platform->getPType() == Enums::TEMPORARY) {
+                        removePlatform(platform);
+                    }
                     return true;
                 }
             }
@@ -200,33 +186,54 @@ bool World::checkCollision() {
 }
 
 void World::removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform) {
-    std::cout << mPlatforms.size() << std::endl;
-    mPlatforms.erase(std::find(mPlatforms.begin(), mPlatforms.end(), platform));
-    std::cout << mPlatforms.size() << std::endl;
+    std::vector<std::shared_ptr<Logic_Library::Platform>> newPlatforms{};
+    for (auto &i:mPlatforms) {
+        if (i->getPosition() == platform->getPosition()) {continue;}
+        else {
+            newPlatforms.push_back(i);
+        }
+    }
+    mPlatforms = newPlatforms;
 }
 
-void World::MovePlatformsDown(float moveDownDistance) {
+void World::movePlatformsDown(float moveDownDistance) {
     for (auto &platform : mPlatforms) {
-//        std::cout << "Before move down: " << platform->getPosition().getY() << std::endl;
         platform->fixTooHigh(moveDownDistance);
-//        std::cout << "After move down: " << platform->getPosition().getY() << std::endl;
+    }
+}
+
+void World::updatePlatforms() {
+    for (auto &platform : mPlatforms) {
+        if (platform->getPType() == Enums::STATIC) {continue;}
+        else if (platform->getPType() == Enums::HORIZONTAL) {
+            if (platform->isGoingLeft()) {
+                platform->moveLeft();
+            }
+            else {
+                platform->moveRight();
+            }
+        }
+        else if (platform->getPType() == Enums::VERTICAL) {
+            if (platform->isGoingUp()) {
+                platform->moveUp();
+            }
+            else {
+                platform->moveDown();
+            }
+        }
     }
 }
 
 bool World::isPlatformNeeded() {
-//    return this->findHighestPlatform().getY() < Config::windowHeight;
     Logic_Library::Platform highestPlatform = this->findHighestPlatform();
-    Coordinates newPlatformCoordinates = Coordinates(highestPlatform.getPosition().getX(), highestPlatform.getPosition().getY() - 200);
-    highestPlatform.setPosition(newPlatformCoordinates);
-    if (highestPlatform.getPosition().getY() < 0) {
+    if (highestPlatform.getObserver()->getPosition().getY() >= 0) {
         return true;
     }
-    return false;}
+    return false;
+}
 
 bool World::isPlatformNotNeeded() {
     Logic_Library::Platform lowestPlatform = this->findLowestPlatform();
-    Coordinates newPlatformCoordinates = Coordinates(lowestPlatform.getPosition().getX(), lowestPlatform.getPosition().getY() + 200);
-    lowestPlatform.setPosition(newPlatformCoordinates);
     if (lowestPlatform.getPosition().getY() > Config::windowHeight) {
         return true;
     }
@@ -247,25 +254,35 @@ void World::setupWorld() {
 
 void World::updateWorld() {
     if (isPlatformNeeded()) {
-//        std::cout << "Platform needed" << std::endl;
+//        std::cout << mPlatforms.size() << std::endl;
         float x = Random::getInstance().randomFloat(0, Config::windowWidth);
-        float y = Random::getInstance().randomFloat(-Config::platformPositionOffset, 0);
-        Coordinates coordinates(x, y);
-        std::optional<Coordinates> optCoordinates = std::make_optional<Coordinates>(coordinates);
-        createPlatform(optCoordinates);
+        if (mPlatforms.size()+1<=Config::amountOfPlatforms) {
+            float y = Random::getInstance().randomFloat(-Config::platformPositionOffset, 0);
+            Coordinates coordinates(x, y);
+            std::optional<Coordinates> optCoordinates = std::make_optional<Coordinates>(coordinates);
+            createPlatform(optCoordinates);
+        }
     }
-//    if (isPlatformNotNeeded()) {
-////        std::cout << "Platform not needed" << std::endl;
-//        removePlatform(std::make_shared<Logic_Library::Platform>(findLowestPlatform()));
-//    }
-    Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
-//    std::cout << "Player coordinates: " << playerCoordinates.getX() << " " << playerCoordinates.getY() << std::endl;
+    ///@todo checkValidPlatform()
+    if (isPlatformNotNeeded()) {
+        removePlatform(std::make_shared<Logic_Library::Platform>(findLowestPlatform()));
+    }
+
+
     // Check if player is too high
+    Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
     if (playerCoordinates.getY() < (float)Config::windowHeight / 2) {
 //        std::cout << "Player is too high" << std::endl;
         float moveDownDistance = (float)Config::windowHeight / 2 - playerCoordinates.getY();
         Coordinates newCoordinates(playerCoordinates.getX(), (float)Config::windowHeight / 2);
         this->getMPlayer()->getObserver()->notifyPosition(newCoordinates);
-        this->MovePlatformsDown(moveDownDistance);
+        this->movePlatformsDown(moveDownDistance);
+        int score = std::floor((float)Score::getInstance().getMScore() + moveDownDistance);
+        Score::getInstance().setMScore(score);
+        Score::getInstance().updateHighScore(score);
+        std::cout << "Score: " << Score::getInstance().getMScore() << std::endl;
     }
+    this->updatePlatforms();
+
+
 }

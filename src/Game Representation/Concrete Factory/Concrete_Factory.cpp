@@ -33,6 +33,8 @@ std::shared_ptr<Logic_Library::Platform> Concrete_Factory::createPlatform(float 
     std::shared_ptr<Logic_Library::Platform> platform = std::make_shared<Logic_Library::Platform>();
     std::shared_ptr<Game_Repr::Platform> platform_view = std::make_shared<Game_Repr::Platform>();
     platform_view->setPlatformPos(x,y);
+    if (platform->getPType() == Enums::HORIZONTAL and x <= (float)Config::windowWidth/2) {platform->setGoingLeft(true);}
+    if (platform->getPType() == Enums::VERTICAL and y >= (float)Config::windowHeight/2) {platform->setGoingUp(true);}
     platform_view->getMPlatform()->setFillColor(handleColor(platform->getPType()));
     platform->assignObserver(platform_view);
     return platform;

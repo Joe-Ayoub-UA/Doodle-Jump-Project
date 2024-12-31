@@ -33,30 +33,30 @@ public:
      * @brief Getter for x
      * @return float : x
      */
-    float getX() const {
-        return x;
-    }
+    float getX() const {return x;}
     /**
      * @brief Setter for x
      * @param n_x : new x
      */
-    void setX(float n_x) {
-        Coordinates::x = n_x;
-    }
+    void setX(float n_x) {Coordinates::x = n_x;}
     /**
      * @brief Getter for y
      * @return float : y
      */
-    float getY() const {
-        return y;
-    }
+    float getY() const {return y;}
     /**
      * @brief Setter for y
      * @param n_y : new y
      */
-    void setY(float n_y) {
-        Coordinates::y = n_y;
-    }
+    void setY(float n_y) {Coordinates::y = n_y;}
+
+    /**
+     * @brief Overload of the == operator
+     * @param lhs
+     * @param rhs
+     * @return
+     */
+    friend bool operator==(const Coordinates& lhs, const Coordinates& rhs) {return lhs.getX() == rhs.getX() && lhs.getY() == rhs.getY();}
     /**
      * @brief Destructor for Coordinates class
      */

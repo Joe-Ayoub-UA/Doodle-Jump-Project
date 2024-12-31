@@ -4,6 +4,12 @@
 
 #include "Score.h"
 
+int Score::highScore = 0;
+
+Score::Score() : mScore(0) {
+    loadHighScore();
+}
+
 void Score::update() {}
 
 Score &Score::getInstance() {
@@ -12,17 +18,21 @@ Score &Score::getInstance() {
 }
 
 void Score::updateHighScore(int newScore) {
-    // Read the highscore from the file
-    std::ifstream fileIn("highscore.txt");
-    int highScore;
-    fileIn >> highScore;
-    fileIn.close();
-    // Update the highscore if the new score is higher
-    if (newScore > highScore) {
-        std::ofstream file("highscore.txt");
-        file << newScore;
-        file.close();
+    if (highScore < newScore) {
+        highScore = newScore;
+        saveHighScore();
     }
+    // Read the highscore from the file
+//    std::ifstream fileIn("highscore.txt");
+//    int highScore;
+//    fileIn >> highScore;
+//    fileIn.close();
+//    // Update the highscore if the new score is higher
+//    if (newScore > highScore) {
+//        std::ofstream file("highscore.txt");
+//        file << newScore;
+//        file.close();
+//    }
 }
 
 int Score::getMScore() const {
@@ -31,6 +41,37 @@ int Score::getMScore() const {
 
 void Score::setMScore(int n_mScore) {
     Score::mScore = n_mScore;
+}
+
+void Score::saveHighScore() {
+    std::ofstream file(highScoreFile);
+    if (file.is_open()) {
+        file << highScore;
+        file.close();
+    }
+    else {
+        std::cerr << "Unable to open file for writing high score." << std::endl;
+    }
+}
+
+void Score::loadHighScore() {
+    std::ifstream fileIn("highscore.txt");
+    if (fileIn.is_open()) {
+        fileIn >> highScore;
+        fileIn.close();
+    }
+    else {
+        highScore = 0;
+    }
+}
+
+int Score::getHighScore() {
+    return highScore;
+//    std::ifstream fileIn("highscore.txt");
+//    int highScore;
+//    fileIn >> highScore;
+//    fileIn.close();
+//    return highScore;
 }
 
 void Score::notifyPosition(const Coordinates &coordinates) {}

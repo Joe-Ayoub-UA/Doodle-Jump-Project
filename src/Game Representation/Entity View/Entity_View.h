@@ -17,6 +17,7 @@ public:
 
     virtual sf::FloatRect getGlobalBounds() const = 0;
 
+
 };
 
 

@@ -27,6 +27,8 @@
 #include "../Abstract Factory/Abstract_Factory.h"
 #include "../../Game Representation/Concrete Factory/Concrete_Factory.h"
 
+#include "../../Logic Library/Score/Score.h"
+
 
 /**
  * @brief Class that represents the world of the game
@@ -122,7 +124,16 @@ public:
      */
     void updateWorld();
 
-    void MovePlatformsDown(float moveDownDistance);
+    /**
+     * @brief Function to move the platforms down when the player reaches the half of the window
+     * @param moveDownDistance
+     */
+    void movePlatformsDown(float moveDownDistance);
+
+    /**
+     * @brief Function to update the platforms depending on their type
+     */
+    void updatePlatforms();
 
     /**
      * @brief Function to get the concrete factory
@@ -197,6 +208,16 @@ public:
      * @param mBonuses
      */
     void setMBonuses(const std::vector<std::shared_ptr<Logic_Library::Bonus>> &mBonuses);
+
+    /**
+     * @brief Function to get the score
+     * @return shared pointer to the score
+     */
+
+    /**
+     * @brief Function to set the score
+     * @param mScore
+     */
 };
 
 

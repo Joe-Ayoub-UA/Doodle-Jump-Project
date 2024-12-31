@@ -41,6 +41,18 @@ private:
     /// @brief unordered_map of the states of the keys
     std::unordered_map<sf::Keyboard::Key, bool> mKeyStates{};
 
+    /// @brief Text for the score
+    sf::Text mText{};
+
+    /// @brief Font for the text
+    sf::Font mFont{};
+
+    /// @brief Text for the highscore
+    sf::Text mHighScoreText{};
+
+    /// @brief Font for the highscore
+    sf::Font mHighScoreFont{};
+
     /**
      * @brief This functions handles the player inputs to move the player
      * @param key

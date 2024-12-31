@@ -7,6 +7,8 @@
 
 #include "../Observer/Observer.h"
 #include <fstream>
+#include <memory>
+#include <iostream>
 
 /**
  * @brief Class that keeps track of the score and updates the highscore
@@ -15,11 +17,13 @@ class Score : public Observer {
 private:
     /// @brief The score of the player
     int mScore;
+    static int highScore;
+    const std::string highScoreFile = "highscore.txt";
 public:
     /**
      * @brief Default constructor for the Score class
      */
-    Score()=default;
+    Score();
 
     /**
      * @brief Default destructor for the Score class
@@ -44,11 +48,21 @@ public:
      */
     static Score& getInstance();
 
+    void saveHighScore();
+
+    void loadHighScore();
+
     /**
      * @brief Function that updates the highscore
      * @param newScore the new score to be compared with the highscore
      */
     void updateHighScore(int newScore);
+
+    /**
+     * @brief Function that returns the highscore
+     * @return the highscore
+     */
+    static int getHighScore() ;
 
     /**
      * @brief Function that updates the score
@@ -62,5 +76,5 @@ public:
     void notifyPosition(const Coordinates& coordinates) override;
 };
 
-
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_SCORE_H
+

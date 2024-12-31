@@ -39,18 +39,18 @@ namespace Logic_Library {
 
             Coordinates position = this->getObserver()->getPosition();
             std::pair<float, float> dimensions = this->getObserver()->getMDimensions();
-            if (x < position.getX()-dimensions.first) {
+            if (x < -dimensions.first) {
                 x = Config::windowWidth;
             }
             if (x > Config::windowWidth) {
-                x = position.getX()-dimensions.first;
+                x = -dimensions.first;
             }
         }
         return {x,y};
     }
 
     bool Player::checkOutOfBounds(const Coordinates& coordinates) {
-        return coordinates.getX() < 0 or coordinates.getX() > Config::windowWidth;
+        return coordinates.getX()+getObserver()->getMDimensions().first < 0 or coordinates.getX() > Config::windowWidth;
     }
 
     void Player::jump() {
