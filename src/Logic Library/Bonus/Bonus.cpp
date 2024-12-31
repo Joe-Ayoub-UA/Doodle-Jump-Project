@@ -14,11 +14,11 @@ namespace Logic_Library {
     }
 
     void Bonus::notifyObserver() {
-        observer->update();
+//        observer->update();
     }
 
     void Bonus::notifyPosition(const Coordinates &coordinates) {
-        observer->notifyPosition(coordinates);
+//        observer->notifyPosition(coordinates);
     }
 
 }
