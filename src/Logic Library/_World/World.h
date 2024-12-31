@@ -49,6 +49,9 @@ private:
 
     /// @brief Bonuses of the game
     std::vector<std::shared_ptr<Logic_Library::Bonus>> mBonuses;
+
+    /// @brief State of the game
+    bool isFrozen = false;
 public:
     /**
      * @brief Default constructor for the World class
@@ -86,6 +89,11 @@ public:
      */
     bool checkValidPlatform(const Coordinates& coordinate);
 
+
+    /**
+     * @brief Function to check if the player collided with a platform
+     * @return true or false depending on the player's and platform's positions
+     */
     bool checkCollision();
 
     /**
@@ -106,6 +114,10 @@ public:
      */
     bool isPlatformNeeded();
 
+    /**
+     * @brief Function to check if a platform is not needed
+     * @return true or false depending on the necessity of a platform
+     */
     bool isPlatformNotNeeded();
 
     /**
@@ -118,6 +130,12 @@ public:
      * @brief Function to setup the world
      */
     void setupWorld();
+
+    void freezePlayer();
+
+    void freezePlatforms();
+
+    void freezeWorld();
 
     /**
      * @brief Function to update the world

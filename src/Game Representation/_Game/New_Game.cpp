@@ -16,7 +16,7 @@ void New_Game::gameInit() {
 
     // Create the platforms: een beetje gelijkaardig aan die van boven, de vector van platforms komt van de world
     for (const std::shared_ptr<Logic_Library::Platform>& i: world->getMPlatforms()) {
-        std::cout << i->getPosition().getX() << " " << i->getPosition().getY() << std::endl;
+        std::cout << i->getObserver()->getPosition().getX() << " " << i->getObserver()->getPosition().getY() << std::endl;
         mPlatforms.push_back(i->getObserver());
     }
 
@@ -77,7 +77,6 @@ void New_Game::processEvents() {
 }
 
 void New_Game::update() {
-    mController->applyGravity();
     if (mKeyStates[sf::Keyboard::D] || mKeyStates[sf::Keyboard::Right]) {
         mController->movePlayerRight();
     }
@@ -86,6 +85,9 @@ void New_Game::update() {
     }
     if (mKeyStates[sf::Keyboard::Space] || mKeyStates[sf::Keyboard::Up]) {
         mController->jumpPlayer();
+    }
+    if (mKeyStates[sf::Keyboard::F]) {
+        mController->freezeWorld();
     }
     mController->outOfBounds();
     if (mController->checkCollision()) {
@@ -97,11 +99,33 @@ void New_Game::update() {
         mPlatforms.push_back(i->getObserver());
     }
     mText.setString("Score: "+std::to_string(Score::getInstance().getMScore()));
+
+    static bool checkpointReached = false;
+    if (Score::getInstance().getMScore() > 0 and Score::getInstance().getMScore() % 5000 < 60 and !checkpointReached) {
+        Config::amountOfPlatforms--;
+        std::cout << "Checkpoint reached" << std::endl;
+        checkpointReached = true;
+    } else if (Score::getInstance().getMScore() % 5000 >= 60) {checkpointReached = false;}
+
     mHighScoreText.setString("Highscore: "+std::to_string(Score::getInstance().getHighScore()));
 }
 
 void New_Game::handlePlayerInputs(sf::Keyboard::Key key, bool isPressed) {
     mKeyStates[key] = isPressed;
+}
+
+void New_Game::sleep(float time) {
+    Stopwatch& stopwatch = Stopwatch::getInstance();
+    stopwatch.start();
+    while (true) {
+        auto elapsedTime = stopwatch.getElapsedTime();
+        if (elapsedTime >= time) {
+            stopwatch.stop();
+            break;
+        }
+    }
+    std::this_thread::sleep_for(std::chrono::nanoseconds(1));
+
 }
 
 void New_Game::run() {
@@ -116,6 +140,8 @@ void New_Game::run() {
         update();
         render();
         Stopwatch::getInstance().stop();
-        auto timeLeft = (1.f/60.f) - Stopwatch::getInstance().getElapsedTime();
-        std::this_thread::sleep_for(std::chrono::duration<float>(timeLeft));}
+        auto timeLeft = (1.f / 60.f) - Stopwatch::getInstance().getElapsedTime();
+//        std::this_thread::sleep_for(std::chrono::duration<float>(timeLeft));}
+        sleep(timeLeft);
+    }
 }

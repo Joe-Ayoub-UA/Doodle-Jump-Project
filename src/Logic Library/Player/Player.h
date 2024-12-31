@@ -100,9 +100,29 @@ namespace Logic_Library {
          */
         std::shared_ptr<Game_Repr::Player> getObserver();
 
+        /**
+         * @brief Function to get the horizontal speed of the player
+         * @return horizontal speed of the player
+         */
         float getVerticalSpeed() const;
 
+        /**
+         * @brief Function to set the vertical speed of the player
+         * @param n_verticalSpeed
+         */
         void setVerticalSpeed(float n_verticalSpeed);
+
+        /**
+         * @brief Function to get the horizontal speed of the player
+         * @return horizontal speed of the player
+         */
+        float getHorizontalSpeed() const;
+
+        /**
+         * @brief Function to set the horizontal speed of the player
+         * @param n_horizontalSpeed
+         */
+        void setHorizontalSpeed(float n_horizontalSpeed);
     };
 }
 

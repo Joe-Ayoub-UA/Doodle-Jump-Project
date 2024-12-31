@@ -77,7 +77,7 @@ namespace Logic_Library {
         float newX = observer->getMPlatform()->getPosition().x;
         float newY = observer->getMPlatform()->getPosition().y + moveDownDistance;
         Coordinates newCoordinates(newX, newY);
-        this->setPosition(newCoordinates);
+        this->getObserver()->setPosition(newCoordinates);
         observer->notifyPosition(newCoordinates);
     }
 

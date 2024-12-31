@@ -55,7 +55,8 @@ void Stopwatch::stop() {
 }
 
 float Stopwatch::getElapsedTime() const {
-    auto elapsed = std::chrono::duration<float>(stopTime - startTime).count();
+    auto now = std::chrono::high_resolution_clock::now();
+    auto elapsed = std::chrono::duration<float>((stopTime > startTime ? stopTime : now) - startTime).count();
     return elapsed;
 }
 

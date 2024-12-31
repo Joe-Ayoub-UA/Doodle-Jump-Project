@@ -99,4 +99,12 @@ namespace Logic_Library {
     void Player::setVerticalSpeed(float n_verticalSpeed) {
         Player::verticalSpeed = n_verticalSpeed;
     }
+
+    float Player::getHorizontalSpeed() const {
+        return horizontalSpeed;
+    }
+
+    void Player::setHorizontalSpeed(float n_horizontalSpeed) {
+        Player::horizontalSpeed = n_horizontalSpeed;
+    }
 }

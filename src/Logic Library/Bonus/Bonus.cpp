@@ -3,3 +3,22 @@
 //
 
 #include "Bonus.h"
+
+namespace Logic_Library {
+    void Bonus::assignObserver(std::shared_ptr<Game_Repr::Bonus> newObserver) {
+        this->observer = std::move(newObserver);
+    }
+
+    void Bonus::deleteObserver() {
+        this->observer = nullptr;
+    }
+
+    void Bonus::notifyObserver() {
+        observer->update();
+    }
+
+    void Bonus::notifyPosition(const Coordinates &coordinates) {
+        observer->notifyPosition(coordinates);
+    }
+
+}

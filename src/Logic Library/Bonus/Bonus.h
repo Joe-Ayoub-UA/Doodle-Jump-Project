@@ -21,6 +21,8 @@ namespace Logic_Library {
         void deleteObserver() override;
 
         void notifyObserver() override;
+
+        void notifyPosition(const Coordinates& coordinates) override;
     };
 }
 

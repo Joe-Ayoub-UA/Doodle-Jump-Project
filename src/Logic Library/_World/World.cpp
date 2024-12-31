@@ -143,52 +143,41 @@ bool World::checkValidPlatform(const Coordinates& coordinate) {
 
 bool World::checkCollision() {
     ///@todo: Fix collision detection, because now the jump is happening when the top of the player is colliding with the platform, which is not correct
+    /// @todo problem found, the player is going fast because of gravity so this loop doesnt have the players position at all times so it is not accurate
     if (this->getMPlayer()->getVerticalSpeed() <= 0) {
         return false;
     }
     else {
         Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
         std::pair<float, float> playerDimensions = this->getMPlayer()->getObserver()->getMDimensions();
-        playerCoordinates.setY(playerCoordinates.getY() + playerDimensions.second);
-        for (const auto& platform : mPlatforms) {
-            if (this->getMPlayer()->getObserver()->getGlobalBounds().intersects(platform->getObserver()->getGlobalBounds())) {
-                float playerBottom = this->getMPlayer()->getObserver()->getGlobalBounds().top + this->getMPlayer()->getObserver()->getGlobalBounds().height;
-                float platformTop = platform->getObserver()->getGlobalBounds().top;
-                if (playerBottom >= platformTop) {
-//                    std::cout << "Collision detected" << std::endl;
+        playerCoordinates.setX(playerCoordinates.getX() - playerDimensions.first / 2);
+        playerCoordinates.setY(playerCoordinates.getY() + playerDimensions.second / 2);
+        for (const auto &platform: mPlatforms) {
+            Coordinates platformCoordinates = platform->getObserver()->getPosition();
+            std::pair<float, float> platformXrange = {platformCoordinates.getX(),
+                                                      platformCoordinates.getX() + Config::platformWidth};
+            float tolerance = 15.f;
+            if (playerCoordinates.getX() + playerDimensions.first >= platformXrange.first and
+                playerCoordinates.getX() <= platformXrange.second) {
+//                    std::cout << "Platform in range coor: " << platformCoordinates.getX() << " " << platformCoordinates.getY() << std::endl;
+                float toleratedYplat = platformCoordinates.getY() + tolerance;
+                if (playerCoordinates.getY() <= toleratedYplat and
+                    playerCoordinates.getY() >= platformCoordinates.getY()) {
                     if (platform->getPType() == Enums::TEMPORARY) {
                         removePlatform(platform);
                     }
                     return true;
                 }
             }
-//            Coordinates platformCoordinates = platform->getObserver()->getPosition();
-//            if (playerCoordinates.getX() + playerDimensions.first > platformCoordinates.getX() or playerCoordinates.getX() < platformCoordinates.getX() + Config::platformWidth) {
-//                std::cout << "Player bottom: " << playerCoordinates.getY() + playerDimensions.second << "\tPlatform top: " << platformCoordinates.getY() << std::endl;
-//                if ((playerCoordinates.getY() + playerDimensions.second) < playerCoordinates.getY()) {
-//                    return true;
-//                }
-//            }
-//            if (playerCoordinates.getX() > platformCoordinates.getX() and playerCoordinates.getX() < platformCoordinates.getX() + Config::platformWidth) {
-//                std::cout << "Player bottom: " << playerCoordinates.getY() + playerDimensions.second << "\tPlatform top: " << platformCoordinates.getY() << std::endl;
-//                if ((playerCoordinates.getY() + playerDimensions.second) < playerCoordinates.getY()) {
-//                    return true;
-//                }
-//            }
         }
     }
-//    for (const auto& platform : mPlatforms) {
-//        if (mPlayer->getMPlayer()->getGlobalBounds().intersects(platform->getMPlatform()->getGlobalBounds())) {
-//            return true;
-//        }
-//    }
     return false;
 }
 
 void World::removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform) {
     std::vector<std::shared_ptr<Logic_Library::Platform>> newPlatforms{};
     for (auto &i:mPlatforms) {
-        if (i->getPosition() == platform->getPosition()) {continue;}
+        if (i->getObserver()->getPosition() == platform->getObserver()->getPosition()) {continue;}
         else {
             newPlatforms.push_back(i);
         }
@@ -234,7 +223,7 @@ bool World::isPlatformNeeded() {
 
 bool World::isPlatformNotNeeded() {
     Logic_Library::Platform lowestPlatform = this->findLowestPlatform();
-    if (lowestPlatform.getPosition().getY() > Config::windowHeight) {
+    if (lowestPlatform.getObserver()->getPosition().getY() > Config::windowHeight) {
         return true;
     }
     return false;
@@ -252,22 +241,39 @@ void World::setupWorld() {
 
 }
 
-void World::updateWorld() {
-    if (isPlatformNeeded()) {
-//        std::cout << mPlatforms.size() << std::endl;
-        float x = Random::getInstance().randomFloat(0, Config::windowWidth);
-        if (mPlatforms.size()+1<=Config::amountOfPlatforms) {
-            float y = Random::getInstance().randomFloat(-Config::platformPositionOffset, 0);
-            Coordinates coordinates(x, y);
-            std::optional<Coordinates> optCoordinates = std::make_optional<Coordinates>(coordinates);
-            createPlatform(optCoordinates);
-        }
+void World::freezePlayer() {
+    mPlayer->setVerticalSpeed(0);
+    mPlayer->setHorizontalSpeed(0);
+}
+
+void World::freezePlatforms() {
+    for (auto &i:mPlatforms) {
+        i->setHorizontalSpeed(0);
+        i->setVerticalSpeed(0);
     }
-    ///@todo checkValidPlatform()
-    if (isPlatformNotNeeded()) {
-        removePlatform(std::make_shared<Logic_Library::Platform>(findLowestPlatform()));
+}
+
+void World::freezeWorld() {
+    this->freezePlayer();
+    this->freezePlatforms();
+    isFrozen = true;
+}
+
+void World::updateWorld() {
+    // Check if the world is frozen
+    if (isFrozen) {return;}
+
+    // Check if a new platform is needed
+    if (isPlatformNeeded() and mPlatforms.size()+1 <= Config::amountOfPlatforms) {
+        float x = Random::getInstance().randomFloat(0, Config::windowWidth);
+        float y = Random::getInstance().randomFloat(-Config::platformPositionOffset, 0);
+        Coordinates coordinates(x, y);
+        std::optional<Coordinates> optCoordinates = std::make_optional<Coordinates>(coordinates);
+        createPlatform(optCoordinates);
     }
 
+    // Check if a platform has gone below the window and needs to be removed
+    if (isPlatformNotNeeded()) {removePlatform(std::make_shared<Logic_Library::Platform>(findLowestPlatform()));}
 
     // Check if player is too high
     Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
@@ -280,8 +286,9 @@ void World::updateWorld() {
         int score = std::floor((float)Score::getInstance().getMScore() + moveDownDistance);
         Score::getInstance().setMScore(score);
         Score::getInstance().updateHighScore(score);
-        std::cout << "Score: " << Score::getInstance().getMScore() << std::endl;
+//        std::cout << "Score: " << Score::getInstance().getMScore() << std::endl;
     }
+    this->mPlayer->applyGravity();
     this->updatePlatforms();
 
 

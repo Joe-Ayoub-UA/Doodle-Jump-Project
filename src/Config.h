@@ -49,7 +49,7 @@ public:
      */
 //    static constexpr float jumpForce = 350.f;
 //    static constexpr float jumpForce = 350.f;
-    static constexpr float jumpForce = 400.f;
+    static constexpr float jumpForce = 450.f;
 //    static constexpr float jumpForce = 30.f;
     // =================================================================================================================
 
@@ -96,15 +96,26 @@ public:
     /**
      * @brief Amount of platforms
      */
-    static constexpr int amountOfPlatforms = 15;
+    static int amountOfPlatforms;
     /**
      * @brief Gets the minimum distance range between platforms based on the amount of platforms
      * @return A pair representing the minimum distance range
      */
     static std::pair<float, float> getMinPlatformDistance() {
-        float minDistance = 75.f + (15 - amountOfPlatforms) * 1.5;
-        float maxDistance = 125.f + (15 - amountOfPlatforms) * 2.5;
-        return std::make_pair(minDistance, maxDistance);
+        float xDistance = 75.f + (15 - amountOfPlatforms) * 1.5;
+        float yDistance = 125.f + (15 - amountOfPlatforms) * 2.5;
+        return std::make_pair(xDistance, yDistance);
+    }
+
+
+    /**
+     * @brief Gets the maximum distance range between platforms based on the amount of platforms
+     * @return A pair representing the maximum distance range
+     */
+    static std::pair<float, float> getMaxPlatformDistance() {
+        float xDistance = 100.f + (15 - amountOfPlatforms) * 2;
+        float yDistance = 150.f + (15 - amountOfPlatforms) * 3;
+        return std::make_pair(xDistance, yDistance);
     }
 //    static constexpr int amountOfPlatforms = 15;
 
@@ -112,6 +123,8 @@ public:
      * @brief Minimum distance range between platforms
      */
     static const std::pair<float,float> minPlatformDistance;
+
+    static const std::pair<float,float> maxPlatformDistance;
 
 
     static const std::map<Enums::PlatformType, std::string> platformColor;

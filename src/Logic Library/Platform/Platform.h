@@ -13,15 +13,11 @@
 #include <optional>
 
 namespace Logic_Library {
-    /// @brief Enum for the type of the platform
     /**
      * @brief Platform class: This class is responsible for the logic of the platform, it has the movement of the platform and the type of the platform.
      */
     class Platform : public Entity_Model {
     private:
-        /// @brief Coordinates of the platform
-        Coordinates pCoordinates;
-
         /// @brief Type of the platform
         Enums::PlatformType pType{};
 
@@ -52,17 +48,6 @@ namespace Logic_Library {
          */
         explicit Platform() : goingLeft(false), goingUp(false) {createPlatform();}
         /**
-         * @brief Setter for the position of the platform.
-         * @param: coordinates: Coordinates, which is the new position of the platform.oo
-         */
-        void setPosition(Coordinates &coordinates) { pCoordinates = coordinates; };
-
-        /**
-         * @brief Getter for the position of the platform.
-         * @return Coordinates, which is the position of the platform.
-         */
-        const Coordinates &getPosition() const { return pCoordinates; }
-        /**
          * @brief Getter for the type of the platform.
          * @return PlatformType, which is the type of the platform.
          */
@@ -72,15 +57,46 @@ namespace Logic_Library {
          * @param newType: PlatformType, which is the new type of the platform.
          */
         void setPType(Enums::PlatformType newType) { pType = newType; }
-
+        /**
+         * @brief Getter for the horizontal speed of the platform.
+         * @return horizontalSpeed, which is the horizontal speed of the platform.
+         */
+        float getHorizontalSpeed() const { return horizontalSpeed; }
+        /**
+         * @brief Setter for the horizontal speed of the platform.
+         * @param n_horizontalSpeed: float, which is the new horizontal speed of the platform.
+         */
+        void setHorizontalSpeed(float n_horizontalSpeed) { horizontalSpeed = n_horizontalSpeed; }
+        /**
+         * @brief Getter for the vertical speed of the platform.
+         * @return verticalSpeed, which is the vertical speed of the platform.
+         */
+        float getVerticalSpeed() const { return verticalSpeed; }
+        /**
+         * @brief Setter for the vertical speed of the platform.
+         * @param n_verticalSpeed: float, which is the new vertical speed of the platform.
+         */
+        void setVerticalSpeed(float n_verticalSpeed) { verticalSpeed = n_verticalSpeed; }
+        /**
+         * @brief Getter for the boolean goingLeft.
+         * @return true if the platform is going left, false otherwise.
+         */
         bool isGoingLeft() const;
-
+        /**
+         * @brief Setter for the boolean goingLeft.
+         * @param n_goingLeft: bool, which is the new goingLeft.
+         */
         void setGoingLeft(bool n_goingLeft);
-
+        /**
+         * @brief Getter for the boolean goingUp.
+         * @return true if the platform is going up, false otherwise.
+         */
         bool isGoingUp() const;
-
+        /**
+         * @brief Setter for the boolean goingUp.
+         * @param n_goingUp: bool, which is the new goingUp.
+         */
         void setGoingUp(bool n_goingUp);
-
         /**
          * @brief Function to move the platform up.
          */

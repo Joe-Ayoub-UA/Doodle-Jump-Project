@@ -3,8 +3,11 @@
 //
 #include "Config.h"
 
+int Config::amountOfPlatforms = 15;
 
 const std::pair<float, float> Config::minPlatformDistance = getMinPlatformDistance();
+
+const std::pair<float, float> Config::maxPlatformDistance = getMaxPlatformDistance();
 
 const std::map<Enums::PlatformType, std::string> Config::platformColor = {
         {Enums::PlatformType::STATIC, "Red"},

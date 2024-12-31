@@ -116,6 +116,10 @@ public:
      */
     void removePlatform(std::shared_ptr<Logic_Library::Platform>& platform) {world->removePlatform(platform);}
 
+    /**
+     * @brief Function to freeze the world
+     */
+    void freezeWorld() {world->freezeWorld();}
 
     /**
      * @brief Function to update the world

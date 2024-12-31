@@ -53,6 +53,9 @@ private:
     /// @brief Font for the highscore
     sf::Font mHighScoreFont{};
 
+    /// @brief Last score
+    int lastScore = 0;
+
     /**
      * @brief This functions handles the player inputs to move the player
      * @param key
@@ -79,6 +82,12 @@ private:
      * @brief This function renders the game
      */
     void render();
+
+    /**
+     * @brief This function sleeps for a certain amount of time
+     * @param time
+     */
+    void sleep(float time);
 
 public:
     /**
