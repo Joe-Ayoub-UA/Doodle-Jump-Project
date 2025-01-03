@@ -77,37 +77,42 @@ void New_Game::processEvents() {
 }
 
 void New_Game::update() {
-    if (mKeyStates[sf::Keyboard::D] || mKeyStates[sf::Keyboard::Right]) {
-        mController->movePlayerRight();
-    }
-    if (mKeyStates[sf::Keyboard::A] || mKeyStates[sf::Keyboard::Left]) {
-        mController->movePlayerLeft();
-    }
-    if (mKeyStates[sf::Keyboard::Space] || mKeyStates[sf::Keyboard::Up]) {
-        mController->jumpPlayer();
-    }
-    if (mKeyStates[sf::Keyboard::F]) {
+    if (mController->checkEndGame()) {
         mController->freezeWorld();
     }
-    mController->outOfBounds();
-    if (mController->checkCollision()) {
-        mController->jumpPlayer();
-    }
-    mController->updateWorld();
-    mPlatforms.clear();
-    for (const std::shared_ptr<Logic_Library::Platform>& i: mController->getWorld()->getMPlatforms()) {
-        mPlatforms.push_back(i->getObserver());
-    }
-    mText.setString("Score: "+std::to_string(Score::getInstance().getMScore()));
+    else {
+        if (mKeyStates[sf::Keyboard::D] || mKeyStates[sf::Keyboard::Right]) {
+            mController->movePlayerRight();
+        }
+        if (mKeyStates[sf::Keyboard::A] || mKeyStates[sf::Keyboard::Left]) {
+            mController->movePlayerLeft();
+        }
+        if (mKeyStates[sf::Keyboard::Space] || mKeyStates[sf::Keyboard::Up]) {
+            mController->jumpPlayer();
+        }
+        if (mKeyStates[sf::Keyboard::F]) {
+            mController->freezeWorld();
+        }
+        mController->outOfBounds();
+        if (mController->checkCollision()) {
+            mController->jumpPlayer();
+        }
+        mController->updateWorld();
+        mPlatforms.clear();
+        for (const std::shared_ptr<Logic_Library::Platform>& i: mController->getWorld()->getMPlatforms()) {
+            mPlatforms.push_back(i->getObserver());
+        }
+        mText.setString("Score: "+std::to_string(Score::getInstance().getMScore()));
 
-    static bool checkpointReached = false;
-    if (Score::getInstance().getMScore() > 0 and Score::getInstance().getMScore() % 5000 < 60 and !checkpointReached) {
-        Config::amountOfPlatforms--;
-        std::cout << "Checkpoint reached" << std::endl;
-        checkpointReached = true;
-    } else if (Score::getInstance().getMScore() % 5000 >= 60) {checkpointReached = false;}
+        static bool checkpointReached = false;
+        if (Score::getInstance().getMScore() > 0 and Score::getInstance().getMScore() % 10000 < 60 and !checkpointReached) {
+            Config::amountOfPlatforms--;
+            std::cout << "Checkpoint reached" << std::endl;
+            checkpointReached = true;
+        } else if (Score::getInstance().getMScore() % 5000 >= 60) {checkpointReached = false;}
 
-    mHighScoreText.setString("Highscore: "+std::to_string(Score::getInstance().getHighScore()));
+        mHighScoreText.setString("Highscore: "+std::to_string(Score::getInstance().getHighScore()));
+    }
 }
 
 void New_Game::handlePlayerInputs(sf::Keyboard::Key key, bool isPressed) {

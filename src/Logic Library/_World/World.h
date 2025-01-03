@@ -97,6 +97,12 @@ public:
     bool checkCollision();
 
     /**
+     * @brief Function to check if the game has ended
+     * @return true if the player has gone below the window, false otherwise
+     */
+    bool checkEndGame();
+
+    /**
      * @brief Function to find the lowest platform
      * @return shared pointer to the lowest platform
      */

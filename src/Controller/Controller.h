@@ -117,6 +117,12 @@ public:
     void removePlatform(std::shared_ptr<Logic_Library::Platform>& platform) {world->removePlatform(platform);}
 
     /**
+     * @brief Function to check if the game has ended
+     * @return true if the game has ended, false otherwise
+     */
+    bool checkEndGame() {return world->checkEndGame();}
+
+    /**
      * @brief Function to freeze the world
      */
     void freezeWorld() {world->freezeWorld();}

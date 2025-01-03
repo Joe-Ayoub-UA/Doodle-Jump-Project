@@ -174,6 +174,13 @@ bool World::checkCollision() {
     return false;
 }
 
+bool World::checkEndGame() {
+    if (this->getMPlayer()->getObserver()->getPosition().getY() > Config::windowHeight) {
+        return true;
+    }
+    return false;
+}
+
 void World::removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform) {
     std::vector<std::shared_ptr<Logic_Library::Platform>> newPlatforms{};
     for (auto &i:mPlatforms) {
@@ -279,10 +286,14 @@ void World::updateWorld() {
     Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
     if (playerCoordinates.getY() < (float)Config::windowHeight / 2) {
 //        std::cout << "Player is too high" << std::endl;
+
+        // Move the platforms down depending on how much the player has moved up
         float moveDownDistance = (float)Config::windowHeight / 2 - playerCoordinates.getY();
         Coordinates newCoordinates(playerCoordinates.getX(), (float)Config::windowHeight / 2);
         this->getMPlayer()->getObserver()->notifyPosition(newCoordinates);
         this->movePlatformsDown(moveDownDistance);
+
+        // Update the score
         int score = std::floor((float)Score::getInstance().getMScore() + moveDownDistance);
         Score::getInstance().setMScore(score);
         Score::getInstance().updateHighScore(score);
