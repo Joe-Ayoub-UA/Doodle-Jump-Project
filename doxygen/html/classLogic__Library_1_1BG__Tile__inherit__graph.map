@@ -1,0 +1,5 @@
+<map id="Logic_Library::BG_Tile" name="Logic_Library::BG_Tile">
+<area shape="rect" id="node1" title="Class that is responsible for the logic of the background tile." alt="" coords="5,169,171,196"/>
+<area shape="rect" id="node2" href="$classLogic__Library_1_1Entity__Model.html" title="Class that is responsible for the model of the entity." alt="" coords="11,80,165,121"/>
+<area shape="rect" id="node3" href="$classLogic__Library_1_1Subject.html" title="Class that is responsible for the subject." alt="" coords="7,5,169,32"/>
+</map>

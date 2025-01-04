@@ -1,0 +1,7 @@
+<map id="Observer" name="Observer">
+<area shape="rect" id="node1" title="Class that is responsible for the observer." alt="" coords="186,5,267,32"/>
+<area shape="rect" id="node2" href="$classEntity__View.html" title="Class that is responsible for the view of the entity." alt="" coords="127,80,225,107"/>
+<area shape="rect" id="node5" href="$classScore.html" title="Class that keeps track of the score and updates the highscore." alt="" coords="249,80,308,107"/>
+<area shape="rect" id="node3" href="$classGame__Repr_1_1Platform.html" title="Class that is responsible for the view of the platform." alt="" coords="5,155,168,181"/>
+<area shape="rect" id="node4" href="$classGame__Repr_1_1Player.html" title="Class that is responsible for the view of the player." alt="" coords="192,155,339,181"/>
+</map>

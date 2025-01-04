@@ -1,0 +1,4 @@
+<map id="Entity_View" name="Entity_View">
+<area shape="rect" id="node1" title="Class that is responsible for the view of the entity." alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node2" href="$classObserver.html" title="Class that is responsible for the observer." alt="" coords="14,5,95,32"/>
+</map>
