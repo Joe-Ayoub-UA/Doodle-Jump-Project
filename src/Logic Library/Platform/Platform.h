@@ -132,8 +132,16 @@ namespace Logic_Library {
          */
         void notifyObserver() override;
 
+        /**
+         * @brief Function to get the observer of the platform.
+         * @return shared pointer to the observer of the platform.
+         */
         std::shared_ptr<Game_Repr::Platform> getObserver() { return observer; }
 
+        /**
+         * @brief Function to notify the observer of the platform.
+         * @param coordinates: Coordinates, which are the new coordinates of the platform.
+         */
         void notifyPosition(const Coordinates& coordinates) override;
         /**
          * @brief Destructor for the platform class.

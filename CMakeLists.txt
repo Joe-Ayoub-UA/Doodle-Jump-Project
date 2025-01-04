@@ -23,7 +23,6 @@ SET(SRC src/main.cpp
         "src/Logic Library/Score/Score.cpp"
         "src/Logic Library/Abstract Factory/Abstract_Factory.cpp"
         "src/Game Representation/Entity View/Entity_View.cpp"
-        "src/Game Representation/_Game/Game.cpp"
         "src/Game Representation/Concrete Factory/Concrete_Factory.cpp"
         "src/Game Representation/Player/Player.cpp"
         "src/Game Representation/Platform/Platform.cpp"
@@ -32,7 +31,7 @@ SET(SRC src/main.cpp
         "src/Controller/Controller.cpp"
         "src/Logic Library/Subject/Subject.cpp"
         "src/Utilities/Coordinates/Coordinates.h"
-        "src/Game Representation/_Game/New_Game.cpp"
+        "src/Game Representation/_Game/Game.cpp"
         "src/Utilities/Enums/Enums.h"
         "src/Config.cpp")
 

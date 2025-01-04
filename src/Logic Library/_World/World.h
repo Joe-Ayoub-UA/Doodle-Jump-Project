@@ -137,10 +137,19 @@ public:
      */
     void setupWorld();
 
+    /**
+     * @brief Function to freeze the player
+     */
     void freezePlayer();
 
+    /**
+     * @brief Function to freeze the platforms
+     */
     void freezePlatforms();
 
+    /**
+     * @brief Function to freeze the world
+     */
     void freezeWorld();
 
     /**
@@ -232,16 +241,6 @@ public:
      * @param mBonuses
      */
     void setMBonuses(const std::vector<std::shared_ptr<Logic_Library::Bonus>> &mBonuses);
-
-    /**
-     * @brief Function to get the score
-     * @return shared pointer to the score
-     */
-
-    /**
-     * @brief Function to set the score
-     * @param mScore
-     */
 };
 
 

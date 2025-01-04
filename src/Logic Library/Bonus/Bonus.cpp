@@ -5,6 +5,15 @@
 #include "Bonus.h"
 
 namespace Logic_Library {
+
+    Bonus::Bonus() {
+        createBonus();
+    }
+
+    void Bonus::createBonus() {
+
+    }
+
     void Bonus::assignObserver(std::shared_ptr<Game_Repr::Bonus> newObserver) {
         this->observer = std::move(newObserver);
     }

@@ -5,13 +5,13 @@
 #include <SFML/Graphics.hpp>
 
 //#include "Game Representation/_Game/Game.h"
-#include "Game Representation/_Game//New_Game.h"
+#include "Game Representation/_Game//Game.h"
 
 
 
 int main()
 {
-    New_Game game{};
+    Game game{};
     game.run();
     return 0;
 }

@@ -9,8 +9,14 @@
 
 namespace Logic_Library {
 
+    /**
+     * @brief Class that is responsible for the model of the entity
+     */
     class Entity_Model : public Subject {
     public:
+        /**
+         * @brief Default constructor for the Entity_Model class
+         */
         Entity_Model() = default;
 
 //        void assignObserver(std::shared_ptr<Observer> observer) override =0;

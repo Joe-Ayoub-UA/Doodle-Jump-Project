@@ -5,31 +5,6 @@
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_STOPWATCH_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_STOPWATCH_H
 #include <chrono>
-
-//class Stopwatch {
-//private:
-//    float delta;
-//
-//    std::chrono::time_point<std::chrono::high_resolution_clock> beginning{};
-//
-//public:
-//    Stopwatch();
-//
-//    virtual ~Stopwatch();
-//
-//    void startStopwatch();
-//
-//    void stopStopwatch();
-//
-//    void continueStopwatch();
-//
-//    float getDelta() const;
-//
-//    void setBeginning(const std::chrono::time_point<std::chrono::high_resolution_clock> &newBeginning);
-//
-//    const std::chrono::time_point<std::chrono::high_resolution_clock> &getBeginning() const;
-//
-//};
 /**
  * @brief Stopwatch class
  */
@@ -68,10 +43,10 @@ public:
      */
     virtual ~Stopwatch();
 
-    // Restarts the stopwatch and returns the elapsed time in seconds
-    float restart();
-
-    // Returns the elapsed time in seconds without restarting
+    /**
+     * @brief Function to get the elapsed time
+     * @return Elapsed time in seconds
+     */
     float getElapsedTime() const;
 };
 

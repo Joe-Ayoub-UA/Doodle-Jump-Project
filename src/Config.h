@@ -124,12 +124,29 @@ public:
      */
     static const std::pair<float,float> minPlatformDistance;
 
+    /**
+     * @brief Maximum distance range between platforms
+     */
     static const std::pair<float,float> maxPlatformDistance;
 
-
+    /**
+     * @brief Map of platform types and their respective colors
+     */
     static const std::map<Enums::PlatformType, std::string> platformColor;
 
+    /**
+     * @brief The offset of the platform's position, if needed
+     */
     static constexpr float platformPositionOffset = 100.f;
+
+    // =================================================================================================================
+
+    // ==================================================BONUS==========================================================
+
+    /**
+     * @brief Way to know which texture to use for each bonus
+     */
+    static const std::map<Enums::BonusType, std::string> bonusTexture;
 };
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_CONFIG_H

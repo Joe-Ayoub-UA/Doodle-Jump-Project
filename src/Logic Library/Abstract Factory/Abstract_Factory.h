@@ -48,10 +48,20 @@ public:
      */
     virtual std::shared_ptr<World> createWorld()=0;
 
+    /**
+     * @brief Function to assign an observer to the factory
+     * @param observer
+     */
     virtual void assignObserver(std::shared_ptr<Observer> observer)=0;
 
+    /**
+     * @brief Function to delete the observer of the factory
+     */
     virtual void deleteObserver()=0;
 
+    /**
+     * @brief Function to notify the observer of the factory
+     */
     virtual void notifyObserver()=0;
 };
 

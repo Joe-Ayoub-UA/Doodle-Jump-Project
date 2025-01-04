@@ -19,5 +19,10 @@ public:
         LEFT,
         RIGHT
     };
+
+    enum BonusType {
+        JETPACK,
+        SPRING,
+    };
 };
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_ENUMS_H

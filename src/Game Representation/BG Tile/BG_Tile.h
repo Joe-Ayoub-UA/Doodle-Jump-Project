@@ -7,11 +7,17 @@
 #include <memory>
 
 namespace Game_Repr {
-
+    /**
+     * @brief Class to represent the background tile
+     */
     class BG_Tile {
     private:
+        /// @brief Tile of the background
         std::unique_ptr<BG_Tile> tile;
     public:
+        /**
+         * @brief Constructor for the BG_Tile class
+         */
         BG_Tile();
     };
 

@@ -10,18 +10,39 @@
 
 
 namespace Logic_Library {
+    /**
+     * @brief Class that is responsible for the logic of the background tile
+     */
     class BG_Tile : public Entity_Model {
     private:
+        /// @brief Observer of the background tile
         std::shared_ptr<Game_Repr::BG_Tile> observer;
     public:
+        /**
+         * @brief Default constructor for the BG_Tile class
+         */
+        BG_Tile() = default;
 
-
-
+        /**
+         * @brief Function to assign an observer to the background tile
+         * @param newObserver
+         */
         void assignObserver(std::shared_ptr<Game_Repr::BG_Tile> newObserver);
 
+        /**
+         * @brief Function to delete the observer of the background tile
+         */
         void deleteObserver() override;
 
+        /**
+         * @brief Function to notify the observer of the background tile
+         */
         void notifyObserver() override;
+
+        /**
+         * @brief Virtual destructor for the BG_Tile class
+         */
+        virtual ~BG_Tile() = default;
     };
 }
 

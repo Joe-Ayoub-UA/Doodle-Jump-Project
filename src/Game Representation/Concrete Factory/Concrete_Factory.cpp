@@ -7,19 +7,19 @@
 // Created by Joe Ayoub on 14/11/24 at 16:06.
 
 sf::Color Concrete_Factory::handleColor(Enums::PlatformType type) {
-    if (Config::platformColor.at(type) == "Red") {
-        return sf::Color::Red;
-    }
-    else if (Config::platformColor.at(type) == "Green") {
+    if (Config::platformColor.at(type) == "Green") {
         return sf::Color::Green;
     }
     else if (Config::platformColor.at(type) == "Blue") {
-        return sf::Color::Blue;
+        return {2,204,255};
     }
     else if (Config::platformColor.at(type) == "Yellow") {
         return sf::Color::Yellow;
     }
-    return sf::Color::Red;
+    else if (Config::platformColor.at(type) == "White") {
+        return sf::Color::White;
+    }
+    return sf::Color::Green;
 }
 
 std::shared_ptr<Logic_Library::Player> Concrete_Factory::createPlayer() {

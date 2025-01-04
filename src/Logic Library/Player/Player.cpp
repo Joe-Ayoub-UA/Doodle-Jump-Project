@@ -30,11 +30,11 @@ namespace Logic_Library {
         float y = coordinate.getY();
         if (checkOutOfBounds(coordinates)) {
             std::cout << "Out of bounds" << std::endl;
-//            if (mPlayer->getMPlayer()->getPosition().x < mPlayer->getMPlayer()->getRadius()*(-2)) {
-//                mPlayer->getMPlayer()->setPosition((float)mWindow->getSize().x+mPlayer->getMPlayer()->getRadius(),mPlayer->getMPlayer()->getPosition().y);
+//            if (mBonus->getMPlayer()->getPosition().x < mBonus->getMPlayer()->getRadius()*(-2)) {
+//                mBonus->getMPlayer()->setPosition((float)mWindow->getSize().x+mBonus->getMPlayer()->getRadius(),mBonus->getMPlayer()->getPosition().y);
 //            }
-//            if (mPlayer->getMPlayer()->getPosition().x > (float)mWindow->getSize().x+mPlayer->getMPlayer()->getRadius()) {
-//                mPlayer->getMPlayer()->setPosition(mPlayer->getMPlayer()->getRadius()*(-2),mPlayer->getMPlayer()->getPosition().y);
+//            if (mBonus->getMPlayer()->getPosition().x > (float)mWindow->getSize().x+mBonus->getMPlayer()->getRadius()) {
+//                mBonus->getMPlayer()->setPosition(mBonus->getMPlayer()->getRadius()*(-2),mBonus->getMPlayer()->getPosition().y);
 //            }
 
             Coordinates position = this->getObserver()->getPosition();

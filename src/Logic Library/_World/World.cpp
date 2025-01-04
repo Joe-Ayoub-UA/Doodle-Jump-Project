@@ -150,8 +150,8 @@ bool World::checkCollision() {
     else {
         Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
         std::pair<float, float> playerDimensions = this->getMPlayer()->getObserver()->getMDimensions();
-        playerCoordinates.setX(playerCoordinates.getX() - playerDimensions.first / 2);
-        playerCoordinates.setY(playerCoordinates.getY() + playerDimensions.second / 2);
+        playerCoordinates.setX(playerCoordinates.getX());
+        playerCoordinates.setY(playerCoordinates.getY() + playerDimensions.second);
         for (const auto &platform: mPlatforms) {
             Coordinates platformCoordinates = platform->getObserver()->getPosition();
             std::pair<float, float> platformXrange = {platformCoordinates.getX(),

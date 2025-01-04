@@ -6,16 +6,16 @@
 
 namespace Game_Repr {
     Platform::Platform() : mPlatform(std::make_shared<sf::RectangleShape>(sf::Vector2f(Config::platformWidth, Config::platformHeight))) {
-        mPlatform->setOutlineThickness(1.f);
-            mPlatform->setOutlineColor(sf::Color::White);
+        mPlatform->setOutlineThickness(2.f);
+            mPlatform->setOutlineColor(sf::Color::Black);
     }
 
     const std::shared_ptr<sf::RectangleShape> &Platform::getMPlatform() const {
         return mPlatform;
     }
 
-    void Platform::setMPlatform(const std::shared_ptr<sf::RectangleShape> &mPlatform) {
-        Platform::mPlatform = std::make_shared<sf::RectangleShape>();
+    void Platform::setMPlatform(const std::shared_ptr<sf::RectangleShape> &n_mPlatform) {
+        Platform::mPlatform = n_mPlatform;
     }
 
     const Coordinates &Platform::getPosition() const {

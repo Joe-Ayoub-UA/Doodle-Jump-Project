@@ -10,8 +10,13 @@ const std::pair<float, float> Config::minPlatformDistance = getMinPlatformDistan
 const std::pair<float, float> Config::maxPlatformDistance = getMaxPlatformDistance();
 
 const std::map<Enums::PlatformType, std::string> Config::platformColor = {
-        {Enums::PlatformType::STATIC, "Red"},
-        {Enums::PlatformType::HORIZONTAL, "Green"},
-        {Enums::PlatformType::VERTICAL, "Blue"},
-        {Enums::PlatformType::TEMPORARY, "Yellow"}
+        {Enums::PlatformType::STATIC, "Green"},
+        {Enums::PlatformType::HORIZONTAL, "Blue"},
+        {Enums::PlatformType::VERTICAL, "Yellow"},
+        {Enums::PlatformType::TEMPORARY, "White"}
+};
+
+const std::map<Enums::BonusType, std::string> Config::bonusTexture = {
+        {Enums::BonusType::JETPACK, "textures/Bonus/Jetpack.png"},
+        {Enums::BonusType::SPRING, "textures/Bonus/Spring.png"}
 };

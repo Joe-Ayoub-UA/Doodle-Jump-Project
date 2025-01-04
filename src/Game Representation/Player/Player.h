@@ -11,38 +11,83 @@
 #include "../../Utilities/Coordinates/Coordinates.h"
 
 namespace Game_Repr {
+    /**
+     * @brief Class that is responsible for the view of the player
+     */
     class Player : public Entity_View {
     private:
+        /// @brief Dimensions of the player
         sf::Vector2<float> mDimensions = {50.f, 50.f};
-        int radius;
+
+        /// @brief Position of the player
         Coordinates position;
+
+        /// @brief Color of the player
         sf::Color color;
-        std::shared_ptr<sf::RectangleShape> mPlayer;
+
+        /// @brief Texture of the player
+        sf::Texture mTexture;
+
+        /// @brief Sprite of the player
+        std::shared_ptr<sf::Sprite> mPlayer;
 
 
     public:
+        /**
+         * @brief Constructor for the Player class
+         */
         Player();
 
-        Player(int radius, const Coordinates &position, const sf::Color &color);
+        /**
+         * @brief Getter for the player
+         * @return the player
+         */
+        [[nodiscard]] const std::shared_ptr<sf::Sprite> &getMPlayer() const;
 
-        [[nodiscard]] const std::shared_ptr<sf::RectangleShape> &getMPlayer() const;
+        /**
+         * @brief Setter for the player
+         * @param n_mPlayer: std::shared_ptr<sf::Sprite>, which is the new player
+         */
+        void setMPlayer(const std::shared_ptr<sf::Sprite> &n_mPlayer);
 
-        void setMPlayer(const std::shared_ptr<sf::RectangleShape> &mPlayer);
+        /**
+         * @brief Function to update the player
+         */
+        void update() override {}
 
-        void update() override {
-            //mPlayer->move(0.f, 0.f);
-        }
-
+        /**
+         * @brief Function to get the dimensions of the player
+         * @return std::pair<float, float>, which are the dimensions of the player
+         */
         std::pair<float,float> getMDimensions() const;
 
+        /**
+         * @brief Function to get the position of the player
+         * @return Coordinates, which are the position of the player
+         */
         sf::FloatRect getGlobalBounds() const override {return mPlayer->getGlobalBounds();}
 
+        /**
+         * @brief Function to get the position of the player
+         * @return
+         */
         const Coordinates &getPosition() const;
 
+        /**
+         * @brief Function to set the position of the player
+         * @param n_position: Coordinates, which are the new position of the player
+         */
         void setPosition(const Coordinates &n_position);
 
+        /**
+         * @brief Function to notify the position of the player
+         * @param coordinates: Coordinates, which are the new coordinates of the player
+         */
         void notifyPosition(const Coordinates& coordinates) override;
 
+        /**
+         * @brief Destructor for the Player class
+         */
         virtual ~Player();
     };
 }
