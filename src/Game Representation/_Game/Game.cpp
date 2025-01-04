@@ -8,7 +8,6 @@ Game::Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(Config::
     this->gameInit();
     this->render();
 }
-//TODO implement this in the right way
 void Game::gameInit() {
     std::shared_ptr<World> world = CF->createWorld();
     mController->setWorld(world);
