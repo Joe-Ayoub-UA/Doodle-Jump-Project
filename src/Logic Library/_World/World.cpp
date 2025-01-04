@@ -80,7 +80,7 @@ bool World::createPlatform(const std::optional<Coordinates>& coordinate) {
         coordinates = Random::getInstance().generateCoor();
     }
     if (checkValidPlatform(coordinates)) {
-        mPlatforms.push_back(CF->createPlatform(coordinates.getX(), coordinates.getY()));
+        mPlatforms.push_back(CF->createPlatform(coordinates));
         return true;
     }
     return false;

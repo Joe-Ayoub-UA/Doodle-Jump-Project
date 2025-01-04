@@ -6,7 +6,7 @@
 //
 // Created by Joe Ayoub on 14/11/24 at 16:06.
 
-sf::Color Concrete_Factory::handleColor(Enums::PlatformType type) {
+sf::Color Concrete_Factory::handlePlatformColor(Enums::PlatformType type) {
     if (Config::platformColor.at(type) == "Green") {
         return sf::Color::Green;
     }
@@ -29,13 +29,29 @@ std::shared_ptr<Logic_Library::Player> Concrete_Factory::createPlayer() {
     return player;
 }
 
-std::shared_ptr<Logic_Library::Platform> Concrete_Factory::createPlatform(float x, float y) {
+std::shared_ptr<Logic_Library::Platform> Concrete_Factory::createPlatform(Coordinates coordinate) {
     std::shared_ptr<Logic_Library::Platform> platform = std::make_shared<Logic_Library::Platform>();
     std::shared_ptr<Game_Repr::Platform> platform_view = std::make_shared<Game_Repr::Platform>();
-    platform_view->setPlatformPos(x,y);
-    if (platform->getPType() == Enums::HORIZONTAL and x <= (float)Config::windowWidth/2) {platform->setGoingLeft(true);}
-    if (platform->getPType() == Enums::VERTICAL and y >= (float)Config::windowHeight/2) {platform->setGoingUp(true);}
-    platform_view->getMPlatform()->setFillColor(handleColor(platform->getPType()));
+    platform_view->setPlatformPos(coordinate.getX(), coordinate.getY());
+    if (platform->getPType() == Enums::HORIZONTAL and coordinate.getX() <= (float)Config::windowWidth/2) {platform->setGoingLeft(true);}
+    if (platform->getPType() == Enums::VERTICAL and coordinate.getY() >= (float)Config::windowHeight/2) {platform->setGoingUp(true);}
+    platform_view->getMPlatform()->setFillColor(handlePlatformColor(platform->getPType()));
+
+    std::shared_ptr<Logic_Library::Bonus> bonus = createBonus();
+
+    if (bonus != nullptr) {
+        std::shared_ptr<Game_Repr::Bonus> bonus_view = std::make_shared<Game_Repr::Bonus>();
+        bonus_view->setPosition(Coordinates(coordinate.getX(), coordinate.getY() - bonus_view->getMBonus()->getRadius()));
+        bonus->assignObserver(bonus_view);
+        platform->setHasBonus(true);
+        platform->setBonus(bonus);
+        platform_view->setBonus(bonus_view);
+    }
+    else {
+        platform->setHasBonus(false);
+        platform->setBonus(nullptr);
+    }
+
     platform->assignObserver(platform_view);
     return platform;
 }
@@ -45,7 +61,20 @@ std::shared_ptr<Logic_Library::BG_Tile> Concrete_Factory::createBGTile() {
 }
 
 std::shared_ptr<Logic_Library::Bonus> Concrete_Factory::createBonus() {
-    return nullptr;
+    std::shared_ptr<Logic_Library::Bonus> bonus = std::make_shared<Logic_Library::Bonus>();
+    std::shared_ptr<Game_Repr::Bonus> bonus_view = std::make_shared<Game_Repr::Bonus>();
+
+    if (bonus->getBType() == Enums::BonusType::JETPACK) {
+        bonus_view->getMBonus()->setFillColor(sf::Color::Red);
+    }
+    else if (bonus->getBType() == Enums::BonusType::SPRING) {
+        bonus_view->getMBonus()->setFillColor(sf::Color::Black);
+    }
+    else if (bonus->getBType() == Enums::BonusType::NONE) {
+        return nullptr;
+    }
+    bonus->assignObserver(bonus_view);
+    return bonus;
 }
 
 std::shared_ptr<World> Concrete_Factory::createWorld() {

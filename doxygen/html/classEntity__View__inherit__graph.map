@@ -1,6 +1,0 @@
-<map id="Entity_View" name="Entity_View">
-<area shape="rect" id="node1" title="Class that is responsible for the view of the entity." alt="" coords="127,80,225,107"/>
-<area shape="rect" id="node3" href="$classGame__Repr_1_1Platform.html" title="Class that is responsible for the view of the platform." alt="" coords="5,155,168,181"/>
-<area shape="rect" id="node4" href="$classGame__Repr_1_1Player.html" title="Class that is responsible for the view of the player." alt="" coords="192,155,339,181"/>
-<area shape="rect" id="node2" href="$classObserver.html" title="Class that is responsible for the observer." alt="" coords="135,5,217,32"/>
-</map>

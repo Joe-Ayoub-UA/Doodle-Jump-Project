@@ -55,7 +55,7 @@ void Score::saveHighScore() {
 }
 
 void Score::loadHighScore() {
-    std::ifstream fileIn("highscore.txt");
+    std::ifstream fileIn("../src/Logic Library/Score/highscore.txt");
     if (fileIn.is_open()) {
         fileIn >> highScore;
         fileIn.close();

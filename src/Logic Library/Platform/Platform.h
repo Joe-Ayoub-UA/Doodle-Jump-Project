@@ -11,7 +11,12 @@
 #include "../../Game Representation/Platform/Platform.h"
 #include <string>
 #include <optional>
+#include <utility>
+#include "../../Logic Library/Bonus/Bonus.h"
 
+/**
+ * @brief Namespace Logic_Library: Contains the classes that are responsible for the logic of the game.
+ */
 namespace Logic_Library {
     /**
      * @brief Platform class: This class is responsible for the logic of the platform, it has the movement of the platform and the type of the platform.
@@ -35,6 +40,12 @@ namespace Logic_Library {
 
         /// @brief Boolean to check if the platform is going right
         bool goingUp{};
+
+        /// @brief Boolean to check if the platform has a bonus
+        bool hasBonus = false;
+
+        /// @brief Shared pointer to the bonus
+        std::shared_ptr<Logic_Library::Bonus> bonus;
 
         /**
          * @brief This function creates a platform with a random type.
@@ -97,6 +108,31 @@ namespace Logic_Library {
          * @param n_goingUp: bool, which is the new goingUp.
          */
         void setGoingUp(bool n_goingUp);
+
+        /**
+         * @brief Getter for the boolean hasBonus.
+         * @return true if the platform has a bonus, false otherwise.
+         */
+        bool getHasBonus() const;
+
+        /**
+         * @brief Setter for the boolean hasBonus.
+         * @param hasBonus: bool, which is the new hasBonus.
+         */
+        void setHasBonus(bool n_hasBonus);
+
+        /**
+         * @brief Getter for the bonus.
+         * @return shared pointer to the bonus.
+         */
+        std::shared_ptr<Logic_Library::Bonus> getBonus() { return bonus; }
+
+        /**
+         * @brief Setter for the bonus.
+         * @param newBonus: shared pointer to the bonus.
+         */
+        void setBonus(std::shared_ptr<Logic_Library::Bonus> newBonus) { bonus = std::move(newBonus); }
+
         /**
          * @brief Function to move the platform up.
          */

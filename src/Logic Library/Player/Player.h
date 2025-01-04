@@ -9,8 +9,13 @@
 #include "../../Config.h"
 #include "../../Game Representation/Player/Player.h"
 
-
+/**
+ * @brief Namespace Logic_Library: Contains the classes that are responsible for the logic of the game.
+ */
 namespace Logic_Library {
+    /**
+     * @brief Class that is responsible for the logic of the player
+     */
     class Player : public Entity_Model {
     private:
         /// @brief Observer of the player

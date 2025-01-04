@@ -1,8 +1,0 @@
-<map id="Logic_Library::Subject" name="Logic_Library::Subject">
-<area shape="rect" id="node1" title="Class that is responsible for the subject." alt="" coords="5,81,168,108"/>
-<area shape="rect" id="node2" href="$classLogic__Library_1_1Entity__Model.html" title="Class that is responsible for the model of the entity." alt="" coords="216,74,369,115"/>
-<area shape="rect" id="node3" href="$classLogic__Library_1_1BG__Tile.html" title="Class that is responsible for the logic of the background tile." alt="" coords="420,5,585,32"/>
-<area shape="rect" id="node4" href="$classLogic__Library_1_1Bonus.html" title="Bonus class: This class is responsible for the logic of the bonus, it has the type of the bonus and t..." alt="" coords="425,56,580,83"/>
-<area shape="rect" id="node5" href="$classLogic__Library_1_1Platform.html" title="Platform class: This class is responsible for the logic of the platform, it has the movement of the p..." alt="" coords="417,107,588,133"/>
-<area shape="rect" id="node6" href="$classLogic__Library_1_1Player.html" title=" " alt="" coords="425,157,581,184"/>
-</map>

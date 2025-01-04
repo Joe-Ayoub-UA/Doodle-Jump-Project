@@ -8,7 +8,9 @@
 #include "../Entity Model/Entity_Model.h"
 #include "../../Game Representation/BG Tile/BG_Tile.h"
 
-
+/**
+ * @brief Namespace Logic_Library: Contains the classes that are responsible for the logic of the game.
+ */
 namespace Logic_Library {
     /**
      * @brief Class that is responsible for the logic of the background tile

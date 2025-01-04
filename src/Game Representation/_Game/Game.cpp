@@ -52,6 +52,10 @@ void Game::render() {
     // Draw the entities (player, platforms, BG_Tiles, bonuses)
     for (const std::shared_ptr<Game_Repr::Platform>& i: mPlatforms) {
         mWindow->draw(*i->getMPlatform());
+        if (i->getBonus() != nullptr) {
+            mWindow->draw(*i->getBonus()->getMBonus());
+        }
+
     }
     mWindow->draw(*mPlayer->getMPlayer());
     mWindow->draw(mText);

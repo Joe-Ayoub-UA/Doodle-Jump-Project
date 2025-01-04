@@ -1,5 +1,0 @@
-<map id="Game_Repr::Platform" name="Game_Repr::Platform">
-<area shape="rect" id="node1" title="Class that is responsible for the view of the platform." alt="" coords="5,155,168,181"/>
-<area shape="rect" id="node2" href="$classEntity__View.html" title="Class that is responsible for the view of the entity." alt="" coords="37,80,136,107"/>
-<area shape="rect" id="node3" href="$classObserver.html" title="Class that is responsible for the observer." alt="" coords="46,5,127,32"/>
-</map>

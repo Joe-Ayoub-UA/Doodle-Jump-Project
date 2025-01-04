@@ -11,7 +11,11 @@
 #include "../Entity View/Entity_View.h"
 #include "../../Config.h"
 #include "../../Utilities/Enums/Enums.h"
+#include "../../Game Representation/Bonus/Bonus.h"
 
+/**
+ * @brief Namespace Game_Repr: Contains the classes that are responsible for the game representation.
+ */
 namespace Game_Repr {
 
     /**
@@ -27,6 +31,9 @@ namespace Game_Repr {
 
         /// @brief Type of the platform
         Enums::PlatformType type;
+
+        /// @brief Bonus of the platform
+        std::shared_ptr<Game_Repr::Bonus> bonus;
     public:
         /**
          * @brief Constructor for the Platform class
@@ -67,6 +74,18 @@ namespace Game_Repr {
          * @return PlatformType, which is the type of the platform
          */
         void setPlatformPos(float x, float y);
+
+        /**
+         * @brief Function to get the bonus of the platform
+         * @return shared pointer to the bonus
+         */
+        const std::shared_ptr<Bonus> &getBonus() const;
+
+        /**
+         * @brief Function to set the bonus of the platform
+         * @param bonus
+         */
+        void setBonus(const std::shared_ptr<Bonus> &n_bonus);
 
         /**
          * @brief Function to get the type of the platform

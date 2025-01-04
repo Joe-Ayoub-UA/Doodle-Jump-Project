@@ -7,18 +7,18 @@
 namespace Game_Repr {
 
     Bonus::Bonus() {
-        if (!mTexture.loadFromFile("textures/Bonus/Jetpack.png")) {
-            std::cerr << "Error loading bonus texture" << std::endl;
-        }
-        mBonus = std::make_shared<sf::Sprite>(mTexture);
+//        if (!mTexture.loadFromFile("textures/Bonus/Jetpack.png")) {
+//            std::cerr << "Error loading bonus texture" << std::endl;
+//        }
+        mBonus = std::make_shared<sf::CircleShape>(20.f);
         mBonus->setScale(0.1f, 0.1f);
     }
 
-    const std::shared_ptr<sf::Sprite> &Bonus::getMBonus() const {
+    const std::shared_ptr<sf::CircleShape> &Bonus::getMBonus() const {
         return mBonus;
     }
 
-    void Bonus::setMBonus(const std::shared_ptr<sf::Sprite> &n_Bonus) {
+    void Bonus::setMBonus(const std::shared_ptr<sf::CircleShape> &n_Bonus) {
         mBonus = n_Bonus;
     }
 

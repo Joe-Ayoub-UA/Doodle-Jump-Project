@@ -6,6 +6,9 @@
 #define INC_2024_PROJECT_JOE_AYOUB_UA_BG_TILE_H
 #include <memory>
 
+/**
+ * @brief Namespace Game_Repr: Contains the classes that are responsible for the game representation.
+ */
 namespace Game_Repr {
     /**
      * @brief Class to represent the background tile

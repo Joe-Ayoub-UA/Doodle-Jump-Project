@@ -23,7 +23,7 @@ private:
     std::shared_ptr<Observer> observer;
 
     /// @brief Handles the color of the platform depending on its type
-    sf::Color handleColor(Enums::PlatformType type);
+    static sf::Color handlePlatformColor(Enums::PlatformType type);
 public:
     /**
      * @brief Default constructor for the Concrete Factory class
@@ -40,7 +40,7 @@ public:
      * @brief Creates a platform
      * @return a shared pointer to the platform
      */
-    std::shared_ptr<Logic_Library::Platform> createPlatform(float x, float y) override;
+    std::shared_ptr<Logic_Library::Platform> createPlatform(Coordinates coordinate) override;
 
     /**
      * @brief Creates a background tile

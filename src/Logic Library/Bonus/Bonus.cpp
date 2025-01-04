@@ -7,7 +7,23 @@
 namespace Logic_Library {
 
     Bonus::Bonus() {
-        createBonus();
+        int random2 = Random::getInstance().randomInt(1,10);
+        if (random2 == 1) {
+            // 10% probability of a creating jetpack bonus
+
+            std::cout << "Creating jetpack bonus" << std::endl;
+            setBType(Enums::BonusType::JETPACK);
+        }
+        else if (random2 == 2) {
+            // 10% probability of a creating spring bonus
+
+            std::cout << "Creating spring bonus" << std::endl;
+            setBType(Enums::BonusType::SPRING);
+        }
+        else {
+            // 80% probability of no bonus
+            setBType(Enums::BonusType::NONE);
+        }
     }
 
     void Bonus::createBonus() {
@@ -28,6 +44,14 @@ namespace Logic_Library {
 
     void Bonus::notifyPosition(const Coordinates &coordinates) {
 //        observer->notifyPosition(coordinates);
+    }
+
+    Enums::BonusType Bonus::getBType() const {
+        return bType;
+    }
+
+    void Bonus::setBType(Enums::BonusType n_bType) {
+        Bonus::bType = n_bType;
     }
 
 }

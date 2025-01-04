@@ -1,5 +1,0 @@
-<map id="Logic_Library::Platform" name="Logic_Library::Platform">
-<area shape="rect" id="node1" title="Platform class: This class is responsible for the logic of the platform, it has the movement of the p..." alt="" coords="5,169,176,196"/>
-<area shape="rect" id="node2" href="$classLogic__Library_1_1Entity__Model.html" title="Class that is responsible for the model of the entity." alt="" coords="14,80,167,121"/>
-<area shape="rect" id="node3" href="$classLogic__Library_1_1Subject.html" title="Class that is responsible for the subject." alt="" coords="9,5,172,32"/>
-</map>

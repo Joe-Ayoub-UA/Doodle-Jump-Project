@@ -18,7 +18,7 @@ private:
     /// @brief The score of the player
     int mScore;
     static int highScore;
-    const std::string highScoreFile = "highscore.txt";
+    const std::string highScoreFile = "../src/Logic Library/Score/highscore.txt";
 public:
     /**
      * @brief Default constructor for the Score class

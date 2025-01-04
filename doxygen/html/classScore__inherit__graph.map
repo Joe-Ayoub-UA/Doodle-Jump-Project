@@ -1,4 +1,0 @@
-<map id="Score" name="Score">
-<area shape="rect" id="node1" title="Class that keeps track of the score and updates the highscore." alt="" coords="17,80,75,107"/>
-<area shape="rect" id="node2" href="$classObserver.html" title="Class that is responsible for the observer." alt="" coords="5,5,87,32"/>
-</map>

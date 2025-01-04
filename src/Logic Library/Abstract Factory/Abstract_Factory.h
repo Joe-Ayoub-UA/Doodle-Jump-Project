@@ -12,9 +12,13 @@
 #include "../../Logic Library/Platform/Platform.h"
 #include "../../Logic Library/BG Tile/BG_Tile.h"
 #include "../../Logic Library/Bonus/Bonus.h"
+#include "../../Utilities/Coordinates/Coordinates.h"
+
+/// Forward declaration of the World class
 class World;
+
 /**
- * Abstract Factory class that creates the player, platform, background tile, bonus etc...
+ * @brief Abstract Factory class that creates the player, platform, background tile, bonus etc...
  */
 class Abstract_Factory {
 public:
@@ -28,7 +32,7 @@ public:
      * @brief Creates a platform
      * @return a shared pointer to the platform
      */
-    virtual std::shared_ptr<Logic_Library::Platform> createPlatform(float x, float y)=0;
+    virtual std::shared_ptr<Logic_Library::Platform> createPlatform(Coordinates coordinate)=0;
 
     /**
      * @brief Creates a background tile

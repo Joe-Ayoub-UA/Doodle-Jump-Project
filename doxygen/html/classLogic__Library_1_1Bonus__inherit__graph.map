@@ -1,5 +1,0 @@
-<map id="Logic_Library::Bonus" name="Logic_Library::Bonus">
-<area shape="rect" id="node1" title="Bonus class: This class is responsible for the logic of the bonus, it has the type of the bonus and t..." alt="" coords="9,169,164,196"/>
-<area shape="rect" id="node2" href="$classLogic__Library_1_1Entity__Model.html" title="Class that is responsible for the model of the entity." alt="" coords="10,80,163,121"/>
-<area shape="rect" id="node3" href="$classLogic__Library_1_1Subject.html" title="Class that is responsible for the subject." alt="" coords="5,5,168,32"/>
-</map>

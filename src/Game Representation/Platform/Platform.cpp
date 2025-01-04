@@ -32,12 +32,25 @@ namespace Game_Repr {
     }
 
     void Platform::notifyPosition(const Coordinates& coordinates) {
+        if (bonus != nullptr) {
+            Coordinates bonusCoordinates = coordinates;
+            bonusCoordinates.setY(coordinates.getY() - bonus->getMBonus()->getRadius());
+            bonus->setPosition(bonusCoordinates);
+        }
         this->setPosition(coordinates);
         mPlatform->setPosition(coordinates.getX(), coordinates.getY());
     }
 
     Platform::~Platform() {
         mPlatform = nullptr;
+    }
+
+    const std::shared_ptr<Bonus> &Platform::getBonus() const {
+        return bonus;
+    }
+
+    void Platform::setBonus(const std::shared_ptr<Bonus> &n_bonus) {
+        Platform::bonus = n_bonus;
     }
 
 }

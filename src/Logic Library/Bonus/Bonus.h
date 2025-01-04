@@ -8,7 +8,11 @@
 #include "../Entity Model/Entity_Model.h"
 #include "../../Game Representation/Bonus/Bonus.h"
 #include "../../Utilities/Enums/Enums.h"
+#include "../../Utilities/Random/Random.h"
 
+/**
+ * @brief Namespace Logic_Library: Contains the classes that are responsible for the logic of the game.
+ */
 namespace Logic_Library {
     /**
      * @brief Bonus class: This class is responsible for the logic of the bonus, it has the type of the bonus and the creation of the bonus.
@@ -31,10 +35,23 @@ namespace Logic_Library {
         explicit Bonus();
 
         /**
+         * @brief Getter for the type of the bonus.
+         * @return BonusType, which is the type of the bonus.
+         */
+        Enums::BonusType getBType() const;
+
+        /**
+         * @brief Setter for the type of the bonus.
+         * @param n_bType: BonusType, which is the new type of the bonus.
+         */
+        void setBType(Enums::BonusType n_bType);
+
+        /**
          * @brief Function to assign an observer to the bonus.
          * @param newObserver: std::shared_ptr<Observer>, which is the new observer of the bonus.
          */
         void assignObserver(std::shared_ptr<Game_Repr::Bonus> newObserver);
+
 
         /**
          * @brief Function to delete the observer of the bonus.

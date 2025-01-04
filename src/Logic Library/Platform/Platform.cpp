@@ -25,7 +25,6 @@ namespace Logic_Library {
             // 10% probability of a creating temporary platform
             this->setPType(Enums::PlatformType::TEMPORARY);
         }
-
     }
 
 //    void Platform::setPosition(Coordinates &coordinates) {
@@ -111,5 +110,13 @@ namespace Logic_Library {
 
     void Platform::setGoingUp(bool n_goingUp) {
         Platform::goingUp = n_goingUp;
+    }
+
+    bool Platform::getHasBonus() const {
+        return hasBonus;
+    }
+
+    void Platform::setHasBonus(bool n_hasBonus) {
+        Platform::hasBonus = n_hasBonus;
     }
 }

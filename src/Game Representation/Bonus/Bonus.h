@@ -9,6 +9,9 @@
 #include "../SFML/Graphics.hpp"
 #include "../../Utilities/Coordinates/Coordinates.h"
 
+/**
+ * @brief Namespace Game_Repr: Contains the classes that are responsible for the game representation.
+ */
 namespace Game_Repr {
     /**
      * @brief Class to represent the bonus
@@ -16,7 +19,7 @@ namespace Game_Repr {
     class Bonus {
     private:
         /// @brief Dimensions of the bonus
-        sf::Vector2<float> mDimensions = {50.f, 50.f};
+        sf::Vector2<float> mDimensions = {20.f, 50.f};
 
         /// @brief Observer of the bonus
         Coordinates position;
@@ -25,7 +28,8 @@ namespace Game_Repr {
         sf::Texture mTexture;
 
         /// @brief Sprite of the bonus
-        std::shared_ptr<sf::Sprite> mBonus;
+        std::shared_ptr<sf::CircleShape> mBonus;
+
     public:
         /**
          * @brief Constructor for the Player class
@@ -36,13 +40,13 @@ namespace Game_Repr {
          * @brief Getter for the bonus
          * @return the bonus
          */
-        [[nodiscard]] const std::shared_ptr<sf::Sprite> &getMBonus() const;
+        [[nodiscard]] const std::shared_ptr<sf::CircleShape> &getMBonus() const;
 
         /**
          * @brief Setter for the bonus
          * @param n_mPlayer: std::shared_ptr<sf::Sprite>, which is the new bonus
          */
-        void setMBonus(const std::shared_ptr<sf::Sprite> &n_mPlayer);
+        void setMBonus(const std::shared_ptr<sf::CircleShape> &n_mPlayer);
 
         /**
          * @brief Function to update the bonus
@@ -62,16 +66,16 @@ namespace Game_Repr {
         sf::FloatRect getGlobalBounds() const {return mBonus->getGlobalBounds();}
 
         /**
-         * @brief Function to get the position of the bonus
-         * @return
-         */
-        const Coordinates &getPosition() const;
-
-        /**
          * @brief Function to set the position of the bonus
          * @param n_position: Coordinates, which are the new position of the bonus
          */
         void setPosition(const Coordinates &n_position);
+
+        /**
+         * @brief Function to get the position of the bonus
+         * @return
+         */
+        const Coordinates &getPosition() const;
 
         /**
          * @brief Function to notify the position of the bonus
