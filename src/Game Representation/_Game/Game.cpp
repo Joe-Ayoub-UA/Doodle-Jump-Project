@@ -20,8 +20,8 @@ void Game::gameInit() {
     }
 
     // Generating the text for the score
-    if (!mFont.loadFromFile("/home/s0230501/CLionProjects/AP_Project_DoodleJump/2024-project-Joe-Ayoub-UA/textures/Fonts/Arial.ttf")) {
-        std::cout << "Font not loaded" << std::endl;
+    if (!mFont.loadFromFile("../textures/Fonts/Arial.ttf")) {
+        std::cout << "Score font not loaded" << std::endl;
     }
     mText.setFont(mFont);
     mText.setString("Score: ");
@@ -30,8 +30,8 @@ void Game::gameInit() {
     mText.setStyle(sf::Text::Bold);
     mText.setColor(sf::Color::Black);
 
-    if (!mHighScoreFont.loadFromFile("/home/s0230501/CLionProjects/AP_Project_DoodleJump/2024-project-Joe-Ayoub-UA/textures/Fonts/Arial.ttf")) {
-        std::cout << "Font not loaded" << std::endl;
+    if (!mHighScoreFont.loadFromFile("../textures/Fonts/Arial.ttf")) {
+        std::cout << "Highscore font not loaded" << std::endl;
     }
     mHighScoreText.setFont(mHighScoreFont);
     mHighScoreText.setString("Highscore: ");
@@ -60,6 +60,9 @@ void Game::render() {
     mWindow->draw(*mPlayer->getMPlayer());
     mWindow->draw(mText);
     mWindow->draw(mHighScoreText);
+    if (mController->checkEndGame()) {
+        mWindow->draw(mGameOverText);
+    }
     mWindow->display();
 }
 
@@ -84,6 +87,17 @@ void Game::processEvents() {
 void Game::update() {
     if (mController->checkEndGame()) {
         mController->freezeWorld();
+        if (!mGameOverFont.loadFromFile("../textures/Fonts/Arial.ttf")) {
+            std::cout << "Game over font not loaded" << std::endl;
+        }
+        mGameOverText.setFont(mGameOverFont);
+        mGameOverText.setString("Game Over! Your score: " + std::to_string(Score::getInstance().getMScore()) + "\n Highscore: " + std::to_string(Score::getInstance().getHighScore()));
+        mGameOverText.setCharacterSize(35);
+        mGameOverText.setFillColor(sf::Color::White);
+        mGameOverText.setStyle(sf::Text::Bold);
+        mGameOverText.setOrigin(mGameOverText.getLocalBounds().width / 2, mGameOverText.getLocalBounds().height / 2);
+        mGameOverText.setPosition((float)Config::windowWidth / 2, (float)Config::windowHeight / 2);
+        mGameOverText.setColor(sf::Color::Black);
     }
     else {
         if (mKeyStates[sf::Keyboard::D] || mKeyStates[sf::Keyboard::Right]) {

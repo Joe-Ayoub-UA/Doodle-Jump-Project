@@ -53,6 +53,12 @@ private:
     /// @brief Font for the highscore
     sf::Font mHighScoreFont{};
 
+    /// @brief Text for the game over
+    sf::Text mGameOverText{};
+
+    /// @brief Font for the game over
+    sf::Font mGameOverFont{};
+
     /// @brief Last score
     int lastScore = 0;
 
