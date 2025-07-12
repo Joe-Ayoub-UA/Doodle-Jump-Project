@@ -115,7 +115,6 @@ Logic_Library::Platform World::findHighestPlatform() {
 }
 
 bool World::checkValidPlatform(const Coordinates& coordinate) {
-    ///@todo FIX THIS, PROBLEM LIES SOMEWHERE HERE
     const float minDistance = Random::getInstance().randomFloat(Config::minPlatformDistance.first, Config::minPlatformDistance.second);
     if (coordinate.getX() + Config::platformWidth/2 > Config::windowWidth or coordinate.getX() < 0) {
         return false;
@@ -123,6 +122,13 @@ bool World::checkValidPlatform(const Coordinates& coordinate) {
     if (coordinate.getY() + Config::platformHeight / 2 > Config::windowHeight or coordinate.getY() - Config::platformHeight / 2 < -Config::platformPositionOffset) {
         return false;
     }
+    if (!mPlatforms.empty()) {
+        Logic_Library::Platform highestPlatform = this->findHighestPlatform();
+        if (highestPlatform.getObserver()->getPosition().getY() - Config::maxJumpHeight > coordinate.getY()) {
+            return false;
+        }
+    }
+
 
     // Check if the new platform overlaps or is too close to existing platforms
     for (const auto& platform : mPlatforms) {
@@ -142,8 +148,6 @@ bool World::checkValidPlatform(const Coordinates& coordinate) {
 }
 
 bool World::checkCollision() {
-    ///@todo: Fix collision detection, because now the jump is happening when the top of the player is colliding with the platform, which is not correct
-    /// @todo problem found, the player is going fast because of gravity so this loop doesnt have the players position at all times so it is not accurate
     if (this->getMPlayer()->getVerticalSpeed() <= 0) {
         return false;
     }

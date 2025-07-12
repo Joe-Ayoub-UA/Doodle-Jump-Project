@@ -85,7 +85,7 @@ public:
     /**
      * @brief Function to check if a platform's position is valid. Called before a platform is officially created
      * @param coordinate
-     * @return true or false depending on the validity of the platform's positioning
+     * @return true or false depending on the validity of the platform's positioning, and whether it's reachable or not
      */
     bool checkValidPlatform(const Coordinates& coordinate);
 

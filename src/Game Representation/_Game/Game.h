@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <thread>
+#include <unordered_map>
 
 #include "../../Logic Library/_World/World.h" // World
 #include "../../Controller/Controller.h" // Controller

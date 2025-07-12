@@ -51,6 +51,12 @@ public:
 //    static constexpr float jumpForce = 350.f;
     static constexpr float jumpForce = 450.f;
 //    static constexpr float jumpForce = 30.f;
+
+
+    /**
+     * @brief Max jump height of the player
+     */
+     static constexpr float maxJumpHeight = (Config::jumpForce * Config::jumpForce) / (2.f * Config::gravity);
     // =================================================================================================================
 
     // Frame
