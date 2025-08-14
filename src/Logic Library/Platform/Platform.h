@@ -47,6 +47,15 @@ namespace Logic_Library {
         /// @brief Shared pointer to the bonus
         std::shared_ptr<Logic_Library::Bonus> bonus;
 
+        /// @brief Float value for the minimum vertical range of a platform if needed
+        float mVerticalMin;
+
+        /// @brief Float value for the maximum vertical range of a platform if needed
+        float mVerticalMax;
+
+        /// @brief Float value for the initial vertical position of the platform
+        float mInitialY;
+
         /**
          * @brief This function creates a platform with a random type.
          */
@@ -88,6 +97,29 @@ namespace Logic_Library {
          * @param n_verticalSpeed: float, which is the new vertical speed of the platform.
          */
         void setVerticalSpeed(float n_verticalSpeed) { verticalSpeed = n_verticalSpeed; }
+
+        /**
+         * @brief Setter for the vertical range of the platform.
+         * @param range: float, which is the new vertical range of the platform.
+         */
+         void setVerticalLimits(float range) {
+             mInitialY = observer->getPosition().getY();
+             mVerticalMin = mInitialY - range;
+             mVerticalMax = mInitialY + range;
+         };
+
+         /**
+          * @brief Getter for the vertical minimum range of the platform.
+          * @return float, which is the vertical minimum range of the platform.
+          */
+         float getVerticalMin() const {return mVerticalMin;}
+
+         /**
+          * @brief Getter for the vertical maximum range of the platform.
+          * @return float, which is the vertical maximum range of the platform.
+          */
+         float getVerticalMax() const {return mVerticalMax;}
+
         /**
          * @brief Getter for the boolean goingLeft.
          * @return true if the platform is going left, false otherwise.

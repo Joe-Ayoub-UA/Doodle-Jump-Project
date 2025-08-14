@@ -8,48 +8,93 @@
 namespace Logic_Library {
 
     void Platform::createPlatform() {
-        int random = Random::getInstance().randomInt(1,10);
-        if (random <= 7) {
+        int random = Random::getInstance().randomInt(1,20);
+        if (random <= 17) {
             // 70% probability of a creating static platform
             this->setPType(Enums::PlatformType::STATIC);
         }
-        else if (random == 8) {
+        else if (random == 18) {
             // 10% probability of a creating horizontal platform
             this->setPType(Enums::PlatformType::HORIZONTAL);
         }
-        else if (random == 9) {
+        else if (random == 19) {
             // 10% probability of a creating vertical platform
             this->setPType(Enums::PlatformType::VERTICAL);
         }
-        else if (random == 10) {
+        else if (random == 20) {
             // 10% probability of a creating temporary platform
             this->setPType(Enums::PlatformType::TEMPORARY);
         }
+
+
+        // Code for adding a bonus to a platform
+        int random2 = Random::getInstance().randomInt(1,10);
+        if (random2 == 1) {
+            // 10% probability of a creating jetpack bonus
+            setHasBonus(true);
+            setBonus(std::make_shared<Logic_Library::Bonus>(Enums::BonusType::JETPACK));
+        }
+        else if (random2 == 2) {
+            // 10% probability of a creating spring bonus
+            setHasBonus(true);
+            setBonus(std::make_shared<Logic_Library::Bonus>(Enums::BonusType::SPRING));
+        }
+        else {
+            // 80% probability of no bonus
+            setHasBonus(false);
+            setBonus(nullptr);
+        }
+
+//        std::cout << "Platform hasBonus: " << std::boolalpha << hasBonus << std::endl;
     }
 
 //    void Platform::setPosition(Coordinates &coordinates) {
 //        this->pCoordinates = coordinates;
 //    }
-///@todo Make sure the vertical platforms go over a fixed distance and not over the whole window, idea is that when i
-///  move the platforms down then the fixed distance also goes down so the platform doesnt for example go up forever.
     void Platform::moveUp() {
-        float newX = observer->getMPlatform()->getPosition().x;
-        float newY = observer->getMPlatform()->getPosition().y - verticalSpeed * Config::frameDuration;
-        Coordinates newCoordinates(newX, newY);
-        if (newY <= 0) {
-            this->setGoingUp(false);
+        Coordinates current = observer->getPosition();
+        current.setY(current.getY() - verticalSpeed * Config::frameDuration);
+
+        // Check if reached upper boundary
+        if (current.getY() <= mVerticalMin) {
+            current.setY(mVerticalMin);
+            goingUp = false; // change direction
         }
-        observer->notifyPosition(newCoordinates);
+
+        observer->notifyPosition(current);
+
+
+//        float newX = observer->getMPlatform()->getPosition().x;
+//        float newY = observer->getMPlatform()->getPosition().y - verticalSpeed * Config::frameDuration;
+//        Coordinates newCoordinates(newX, newY);
+//        ///@todo change this for it to be a fixed distance
+//        if (newY <= 0) {
+//            this->setGoingUp(false);
+//        }
+//        observer->notifyPosition(newCoordinates);
     }
 
     void Platform::moveDown() {
-        float newX = observer->getMPlatform()->getPosition().x;
-        float newY = observer->getMPlatform()->getPosition().y + verticalSpeed * Config::frameDuration;
-        Coordinates newCoordinates(newX, newY);
-        if (newY+Config::platformHeight >= Config::windowHeight) {
-            this->setGoingUp(true);
+        Coordinates current = observer->getPosition();
+        current.setY(current.getY() + verticalSpeed * Config::frameDuration);
+
+        // Check if reached lower boundary
+        if (current.getY() >= mVerticalMax) {
+            current.setY(mVerticalMax);
+            goingUp = true; // change direction
         }
-        observer->notifyPosition(newCoordinates);
+
+        observer->notifyPosition(current);
+
+
+//        float newX = observer->getMPlatform()->getPosition().x;
+//        float newY = observer->getMPlatform()->getPosition().y + verticalSpeed * Config::frameDuration;
+//        Coordinates newCoordinates(newX, newY);
+//        ///@todo change this for it to be a fixed distance
+//        if (newY+Config::platformHeight >= Config::windowHeight) {
+//            this->setGoingUp(true);
+//        }
+//        observer->notifyPosition(newCoordinates);
     }
 
     void Platform::moveLeft() {
@@ -78,6 +123,12 @@ namespace Logic_Library {
         Coordinates newCoordinates(newX, newY);
         this->getObserver()->setPosition(newCoordinates);
         observer->notifyPosition(newCoordinates);
+
+        // Update vertical movement range when platform moves down
+        if (this->getPType() == Enums::VERTICAL) {
+            mVerticalMin += moveDownDistance;
+            mVerticalMax += moveDownDistance;
+        }
     }
 
     void Platform::assignObserver(std::shared_ptr<Game_Repr::Platform> newObserver) {

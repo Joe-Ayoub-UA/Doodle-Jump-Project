@@ -32,6 +32,19 @@ namespace Logic_Library {
 
         /// @brief Player of the game
         std::shared_ptr<Logic_Library::Player> mPlayer;
+
+        /// @brief Jump force of the player
+        float jumpForce = Config::jumpForce;
+
+        /// @brief boolean to check if the jetpack is active
+        bool mJetpackActive = false;
+
+        /// @brief Time remaining for the jetpack
+        float mJetpackTimeRemaining = 0.0f;
+
+        /// @brief Constants for the jetpack
+        const float JETPACK_DURATION = Config::jetpackDuration; // 3 seconds of jetpack time
+        const float JETPACK_FORCE = Config::jetpackForce; // Upward force, negative because y-axis is inverted
     public:
         /**
          * @brief Default constructor for the Player class
@@ -78,6 +91,25 @@ namespace Logic_Library {
         void applyGravity();
 
         /**
+         * @brief Funtion to activate the jetpack
+         * This function sets the jetpack active state and initializes the time remaining.
+         */
+        void activateJetpack();
+
+        /**
+         * @brief Funtion to update the jetpack state
+         * This function applies the jetpack force and updates the time remaining.
+         * @param deltaTime
+         */
+        void updateJetpack(float deltaTime);
+
+        /**
+         * @brief Function to check if the jetpack is active
+         * @return true if the jetpack is active, false otherwise
+         */
+        bool isJetpackActive() const { return mJetpackActive; }
+
+        /**
          * @brief Function to assign an observer to the player
          * @param newObserver
          */
@@ -112,10 +144,22 @@ namespace Logic_Library {
         float getVerticalSpeed() const;
 
         /**
+         * @brief Function to get the jump force of the player
+         * @return jump force of the player
+         */
+        float getJumpForce() const;
+
+        /**
          * @brief Function to set the vertical speed of the player
          * @param n_verticalSpeed
          */
         void setVerticalSpeed(float n_verticalSpeed);
+
+        /**
+         * @brief Function to set the jump force of the player
+         * @param n_jumpForce
+         */
+         void setJumpForce(float n_jumpForce);
 
         /**
          * @brief Function to get the horizontal speed of the player

@@ -65,6 +65,14 @@ float Random::randomFloat(float min, float max) {
     return distribution(mersenne);
 }
 
+/**
+ * @brief Generates a random boolean.
+ * @return bool, which is a random boolean.
+ */
+ bool Random::randomBool() {
+     return randomInt(0, 1) == 1;
+ }
+
 Coordinates Random::generateCoor() {
     Coordinates coordinates{};
 //    if (prevX == -1) {

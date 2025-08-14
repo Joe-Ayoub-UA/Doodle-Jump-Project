@@ -51,6 +51,11 @@ public:
     bool checkCollision() {return world->checkCollision();}
 
     /**
+     * @brief Function to check if the player has collided with a bonus
+     */
+     void checkPlayerBonusCollision() {world->checkPlayerBonusCollision();}
+
+    /**
      * @brief Function to make the player jump
      */
     void jumpPlayer();

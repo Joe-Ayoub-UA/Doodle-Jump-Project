@@ -8,6 +8,8 @@ ENDIF()
 # Look for SFML >= 2.0, with the specific subcomponents listed below
 FIND_PACKAGE(SFML 2 COMPONENTS system window graphics)
 
+SET(CMAKE_C_FLAGS_DEBUG "-D_DEBUG")
+
 # The source files to compile
 SET(SRC src/main.cpp
         "src/Logic Library/Entity Model/Entity_Model.cpp"

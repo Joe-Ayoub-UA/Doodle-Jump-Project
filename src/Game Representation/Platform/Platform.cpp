@@ -7,7 +7,7 @@
 namespace Game_Repr {
     Platform::Platform() : mPlatform(std::make_shared<sf::RectangleShape>(sf::Vector2f(Config::platformWidth, Config::platformHeight))) {
         mPlatform->setOutlineThickness(2.f);
-            mPlatform->setOutlineColor(sf::Color::Black);
+        mPlatform->setOutlineColor(sf::Color::Black);
     }
 
     const std::shared_ptr<sf::RectangleShape> &Platform::getMPlatform() const {
@@ -33,9 +33,16 @@ namespace Game_Repr {
 
     void Platform::notifyPosition(const Coordinates& coordinates) {
         if (bonus != nullptr) {
-            Coordinates bonusCoordinates = coordinates;
-            bonusCoordinates.setY(coordinates.getY() - bonus->getMBonus()->getRadius());
-            bonus->setPosition(bonusCoordinates);
+            std::cout << "==================" << std::endl;
+            std::cout << "Bonus position: " << bonus->getPosition().getX() << ", " << bonus->getPosition().getY() << std::endl;
+            std::cout << "Bonus origin: " << bonus->getMBonus()->getOrigin().x << ", " << bonus->getMBonus()->getOrigin().y << std::endl;
+            std::cout << "Platform position: " << coordinates.getX() << ", " << coordinates.getY() << std::endl;
+            std::cout << "==================" << std::endl;
+            // Calculate center position for bonus
+            float bonusPosX = coordinates.getX() + (Config::platformWidth / 2);
+            float bonusPosY = coordinates.getY() - bonus->getMBonus()->getRadius();
+            // Position the bonus centered on the platform
+            bonus->setPosition(Coordinates(bonusPosX, bonusPosY));
         }
         this->setPosition(coordinates);
         mPlatform->setPosition(coordinates.getX(), coordinates.getY());
@@ -45,7 +52,7 @@ namespace Game_Repr {
         mPlatform = nullptr;
     }
 
-    const std::shared_ptr<Bonus> &Platform::getBonus() const {
+    const std::shared_ptr<Game_Repr::Bonus> &Platform::getBonus() const {
         return bonus;
     }
 

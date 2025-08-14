@@ -34,6 +34,9 @@ namespace Game_Repr {
         /// @brief Sprite of the player
         std::shared_ptr<sf::Sprite> mPlayer;
 
+        /// @brief Debug hitbox for the player
+        std::shared_ptr<sf::RectangleShape> mHitboxDebug;
+
 
     public:
         /**
@@ -75,6 +78,12 @@ namespace Game_Repr {
          * @return
          */
         const Coordinates &getPosition() const;
+
+        /**
+         * @brief Function to get the debug hitbox of the player
+         * @return shared pointer to the debug hitbox of the player
+         */
+        const std::shared_ptr<sf::RectangleShape> &getMHitboxDebug() const;
 
         /**
          * @brief Function to set the position of the player

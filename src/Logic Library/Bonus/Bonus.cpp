@@ -4,31 +4,39 @@
 
 #include "Bonus.h"
 
+const char* bonusTypeToString(Enums::BonusType type) {
+    switch(type) {
+        case Enums::BonusType::JETPACK: return "JETPACK";
+        case Enums::BonusType::SPRING: return "SPRING";
+        case Enums::BonusType::NONE: return "NONE";
+    }
+}
+
 namespace Logic_Library {
 
-    Bonus::Bonus() {
-        int random2 = Random::getInstance().randomInt(1,10);
-        if (random2 == 1) {
-            // 10% probability of a creating jetpack bonus
-
-            std::cout << "Creating jetpack bonus" << std::endl;
-            setBType(Enums::BonusType::JETPACK);
+    Bonus::Bonus(Enums::BonusType bonusType) {
+//        int random2 = Random::getInstance().randomInt(1,10);
+//        if (random2 == 1) {
+//            // 10% probability of a creating jetpack bonus
+//
+//            std::cout << "Creating jetpack bonus" << std::endl;
+//            setBType(Enums::BonusType::JETPACK);
+//        }
+//        else if (random2 == 2) {
+//            // 10% probability of a creating spring bonus
+//
+//            std::cout << "Creating spring bonus" << std::endl;
+//            setBType(Enums::BonusType::SPRING);
+//        }
+//        else {
+//            // 80% probability of no bonus
+//            setBType(Enums::BonusType::NONE);
+//        }
+        setBType(bonusType);
+//        std::cout << "creating bonus of type: " << bonusTypeToString(bType) << std::endl;
         }
-        else if (random2 == 2) {
-            // 10% probability of a creating spring bonus
 
-            std::cout << "Creating spring bonus" << std::endl;
-            setBType(Enums::BonusType::SPRING);
-        }
-        else {
-            // 80% probability of no bonus
-            setBType(Enums::BonusType::NONE);
-        }
-    }
-
-    void Bonus::createBonus() {
-
-    }
+    void Bonus::createBonus() {}
 
     void Bonus::assignObserver(std::shared_ptr<Game_Repr::Bonus> newObserver) {
         this->observer = std::move(newObserver);

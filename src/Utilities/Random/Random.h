@@ -71,6 +71,12 @@ public:
     float randomFloat(float min, float max) ;
 
     /**
+     * @brief Function to generate a random boolean
+     * @return the random boolean
+     */
+    bool randomBool();
+
+    /**
      * @brief Function to generate a random coordinates
      * @return the random coordinates
      */

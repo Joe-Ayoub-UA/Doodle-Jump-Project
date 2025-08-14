@@ -71,7 +71,7 @@ public:
     /**
      * @brief Function to create a platform
      */
-    bool createPlatform(const std::optional<Coordinates>& coordinate = std::nullopt);
+    bool createPlatform(const std::optional<Coordinates>& coordinate = std::nullopt, const std::optional<bool>& setup = std::nullopt);
     /**
      * @brief Function to create a background tile
      */
@@ -87,7 +87,7 @@ public:
      * @param coordinate
      * @return true or false depending on the validity of the platform's positioning, and whether it's reachable or not
      */
-    bool checkValidPlatform(const Coordinates& coordinate);
+    bool checkValidPlatform(const Coordinates& coordinate, const std::optional<bool>& setup = std::nullopt);
 
 
     /**
@@ -95,6 +95,11 @@ public:
      * @return true or false depending on the player's and platform's positions
      */
     bool checkCollision();
+
+    /**
+     * @brief Function to check if the player has collided with a bonus
+     */
+    void checkPlayerBonusCollision();
 
     /**
      * @brief Function to check if the game has ended

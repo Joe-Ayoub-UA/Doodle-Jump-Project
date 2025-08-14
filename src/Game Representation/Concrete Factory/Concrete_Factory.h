@@ -24,6 +24,9 @@ private:
 
     /// @brief Handles the color of the platform depending on its type
     static sf::Color handlePlatformColor(Enums::PlatformType type);
+
+    /// @brief Handles the color of the bonus depending on its type
+    static sf::Color handleBonusColor(Enums::BonusType type);
 public:
     /**
      * @brief Default constructor for the Concrete Factory class

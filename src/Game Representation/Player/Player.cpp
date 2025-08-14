@@ -4,7 +4,7 @@
 
 #include "Player.h"
 namespace Game_Repr {
-    Game_Repr::Player::Player() : mPlayer(std::make_shared<sf::Sprite>()) {
+    Game_Repr::Player::Player() : mPlayer(std::make_shared<sf::Sprite>()), mHitboxDebug(std::make_shared<sf::RectangleShape>()) {
         auto posX = static_cast<float>((float)Config::windowWidth/2);
         auto posY = static_cast<float>((float)Config::windowHeight);
         if (!mTexture.loadFromFile("../textures/Doodle/NinjaDoodle.png")) {
@@ -25,6 +25,10 @@ namespace Game_Repr {
             // Update mDimensions based on the texture size and scale
             mDimensions.x = (float)textureSize.x * mPlayer->getScale().x;
             mDimensions.y = (float)textureSize.y * mPlayer->getScale().y;
+
+            mHitboxDebug->setSize(sf::Vector2f(mDimensions.x, mDimensions.y));
+            mHitboxDebug->setFillColor(sf::Color(255, 0, 0, 128)); // Semi-transparent red for debugging
+            mHitboxDebug->setPosition(mPlayer->getPosition());
         }
     }
 
@@ -51,9 +55,14 @@ namespace Game_Repr {
     void Player::notifyPosition(const Coordinates& coordinates) {
         this->setPosition(coordinates);
         mPlayer->setPosition(coordinates.getX(), coordinates.getY());
+        mHitboxDebug->setPosition(coordinates.getX(), coordinates.getY());
     }
 
     std::pair<float,float> Player::getMDimensions() const {
         return std::make_pair(mDimensions.x, mDimensions.y);
+    }
+
+    const std::shared_ptr<sf::RectangleShape> &Player::getMHitboxDebug() const {
+        return mHitboxDebug;
     }
 }

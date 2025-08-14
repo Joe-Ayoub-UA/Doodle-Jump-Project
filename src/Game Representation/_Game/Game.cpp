@@ -5,6 +5,7 @@
 #include "Game.h"
 
 Game::Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Doodle Jump")), mController(std::make_shared<Controller>()) {
+    std::cout << Config::maxJumpHeight << std::endl;
     this->gameInit();
     this->render();
 }
@@ -53,10 +54,15 @@ void Game::render() {
     for (const std::shared_ptr<Game_Repr::Platform>& i: mPlatforms) {
         mWindow->draw(*i->getMPlatform());
         if (i->getBonus() != nullptr) {
-            mWindow->draw(*i->getBonus()->getMBonus());
+            mWindow->draw(*i->getBonus()->getMBonusSprite());
+
+            // For debugging purposes, draw debug hitbox of the bonus
+//            mWindow->draw(*i->getBonus()->getMBonus());
         }
 
     }
+    // For debugging, draw the debug hitbox of the player
+    mWindow->draw(*mPlayer->getMHitboxDebug());
     mWindow->draw(*mPlayer->getMPlayer());
     mWindow->draw(mText);
     mWindow->draw(mHighScoreText);
@@ -116,6 +122,7 @@ void Game::update() {
         if (mController->checkCollision()) {
             mController->jumpPlayer();
         }
+        mController->checkPlayerBonusCollision();
         mController->updateWorld();
         mPlatforms.clear();
         for (const std::shared_ptr<Logic_Library::Platform>& i: mController->getWorld()->getMPlatforms()) {
@@ -153,19 +160,13 @@ void Game::sleep(float time) {
 }
 
 void Game::run() {
-//    mStopwatch->startStopwatch;
-    sf::Clock clock;
     while (mWindow->isOpen()) {
-
         Stopwatch::getInstance().start();
-//        sf::Time deltatime = clock.restart();
         processEvents();
-//        std::cout << "Player position: " << mBonus->getPosition().getX() << ", " << mBonus->getPosition().getY() << std::endl;
         update();
         render();
         Stopwatch::getInstance().stop();
         auto timeLeft = (1.f / 60.f) - Stopwatch::getInstance().getElapsedTime();
-//        std::this_thread::sleep_for(std::chrono::duration<float>(timeLeft));}
         sleep(timeLeft);
     }
 }

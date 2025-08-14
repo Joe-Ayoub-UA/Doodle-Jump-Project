@@ -56,7 +56,7 @@ public:
     /**
      * @brief Max jump height of the player
      */
-     static constexpr float maxJumpHeight = (Config::jumpForce * Config::jumpForce) / (2.f * Config::gravity);
+     static constexpr float maxJumpHeight = ((Config::jumpForce * Config::jumpForce) / (2.f * Config::gravity)) - 40.f;
     // =================================================================================================================
 
     // Frame
@@ -97,7 +97,17 @@ public:
     /**
      * @brief Platform's vertical speed
      */
-    static constexpr float platformVerticalSpeed = 50.f;
+    static constexpr float platformVerticalSpeed = 30.f;
+
+    /**
+     * @brief Minimum vertical range of a platform
+     */
+     static constexpr float platformMinVerticalRange = 50.f;
+
+     /**
+      * @brief Maximum vertical range of a platform
+      */
+      static constexpr float platformMaxVerticalRange = 120.f;
 
     /**
      * @brief Amount of platforms
@@ -153,6 +163,16 @@ public:
      * @brief Way to know which texture to use for each bonus
      */
     static const std::map<Enums::BonusType, std::string> bonusTexture;
+
+    /**
+     * @brief Duration of the jetpack bonus in seconds
+     */
+    static constexpr float jetpackDuration = 3.f; // Duration of the jetpack bonus in seconds
+
+    /**
+     * @brief Force of the jetpack bonus
+     */
+     static constexpr float jetpackForce = -800.f; // Force of the jetpack bonus
 };
 
 #endif //INC_2024_PROJECT_JOE_AYOUB_UA_CONFIG_H

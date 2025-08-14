@@ -8,6 +8,7 @@
 #include <memory>
 #include "../SFML/Graphics.hpp"
 #include "../../Utilities/Coordinates/Coordinates.h"
+#include "../../Utilities/Enums/Enums.h"
 
 /**
  * @brief Namespace Game_Repr: Contains the classes that are responsible for the game representation.
@@ -24,17 +25,20 @@ namespace Game_Repr {
         /// @brief Observer of the bonus
         Coordinates position;
 
-        /// @brief Texture of the bonus
-        sf::Texture mTexture;
+        /// @brief Circle detection of the bonus
+        std::shared_ptr<sf::CircleShape> mBonus;
 
         /// @brief Sprite of the bonus
-        std::shared_ptr<sf::CircleShape> mBonus;
+        std::shared_ptr<sf::Sprite> mBonusSprite;
+
+        /// @brief Texture of the bonus sprite
+        std::shared_ptr<sf::Texture> mBonusTexture;
 
     public:
         /**
          * @brief Constructor for the Player class
          */
-        Bonus();
+        Bonus(Enums::BonusType bonusType);
 
         /**
          * @brief Getter for the bonus
@@ -64,6 +68,12 @@ namespace Game_Repr {
          * @return Coordinates, which are the position of the bonus
          */
         sf::FloatRect getGlobalBounds() const {return mBonus->getGlobalBounds();}
+
+        /**
+         * @brief Function to get the sprite of the bonus
+         * @return the sprite of the bonus
+         */
+        const std::shared_ptr<sf::Sprite> &getMBonusSprite() const;
 
         /**
          * @brief Function to set the position of the bonus

@@ -55,7 +55,7 @@ namespace Logic_Library {
 
     void Player::jump() {
 //        verticalSpeed = -gravity * Config::frameDuration;
-        verticalSpeed = -Config::jumpForce;
+        verticalSpeed = -jumpForce;
         float newX = observer->getMPlayer()->getPosition().x;
         float newY = observer->getMPlayer()->getPosition().y + verticalSpeed * Config::frameDuration;
         Coordinates newCoordinates(newX, newY);
@@ -70,6 +70,26 @@ namespace Logic_Library {
 //        std::cout << "Vertical speed: " << verticalSpeed << std::endl;
 
         observer->notifyPosition(newCoordinates);
+    }
+
+    void Player::activateJetpack() {
+        mJetpackActive = true;
+        mJetpackTimeRemaining = JETPACK_DURATION; // Reset the jetpack time
+    }
+
+    void Player::updateJetpack(float deltaTime) {
+        if (mJetpackActive) {
+            // Apply constant upward force
+            setVerticalSpeed(JETPACK_FORCE);
+
+            // Decrease remaining time
+            mJetpackTimeRemaining -= deltaTime;
+
+            // Deactivate jetpack when time runs out
+            if (mJetpackTimeRemaining <= 0) {
+                mJetpackActive = false;
+            }
+        }
     }
 
     void Player::assignObserver(std::shared_ptr<Game_Repr::Player> newObserver) {
@@ -106,5 +126,12 @@ namespace Logic_Library {
 
     void Player::setHorizontalSpeed(float n_horizontalSpeed) {
         Player::horizontalSpeed = n_horizontalSpeed;
+    }
+
+    float Player::getJumpForce() const {
+        return jumpForce;
+    }
+    void Player::setJumpForce(float n_jumpForce) {
+        Player::jumpForce = n_jumpForce;
     }
 }

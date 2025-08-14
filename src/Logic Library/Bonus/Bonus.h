@@ -32,7 +32,7 @@ namespace Logic_Library {
         /**
          * @brief Constructor for the bonus class.
          */
-        explicit Bonus();
+        explicit Bonus(Enums::BonusType bonusType);
 
         /**
          * @brief Getter for the type of the bonus.
@@ -45,6 +45,11 @@ namespace Logic_Library {
          * @param n_bType: BonusType, which is the new type of the bonus.
          */
         void setBType(Enums::BonusType n_bType);
+
+        /**
+         * @brief Function to get the observer of the bonus.
+         */
+        std::shared_ptr<Game_Repr::Bonus> getObserver() { return observer; }
 
         /**
          * @brief Function to assign an observer to the bonus.

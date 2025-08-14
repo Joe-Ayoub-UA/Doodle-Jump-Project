@@ -17,6 +17,8 @@ const std::map<Enums::PlatformType, std::string> Config::platformColor = {
 };
 
 const std::map<Enums::BonusType, std::string> Config::bonusTexture = {
-        {Enums::BonusType::JETPACK, "textures/Bonus/Jetpack.png"},
-        {Enums::BonusType::SPRING, "textures/Bonus/Spring.png"}
+//        {Enums::BonusType::JETPACK, "textures/Bonus/Jetpack.png"},
+//        {Enums::BonusType::SPRING, "textures/Bonus/Spring.png"}
+        {Enums::BonusType::JETPACK, "Red"},
+        {Enums::BonusType::SPRING, "Blue"}
 };

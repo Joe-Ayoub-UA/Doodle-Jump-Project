@@ -22,6 +22,18 @@ sf::Color Concrete_Factory::handlePlatformColor(Enums::PlatformType type) {
     return sf::Color::Green;
 }
 
+sf::Color Concrete_Factory::handleBonusColor(Enums::BonusType type) {
+    if (Config::bonusTexture.at(type) == "Red") {
+//        std::cout << "Red bonus" << std::endl;
+        return {255, 0, 0,128}; // Red color for Jetpack bonus
+    }
+    else if (Config::bonusTexture.at(type) == "Blue") {
+//        std::cout << "Blue bonus" << std::endl;
+        return {0, 0, 255, 128}; // Blue color for Spring bonus
+    }
+    return sf::Color::Transparent; // No bonus
+}
+
 std::shared_ptr<Logic_Library::Player> Concrete_Factory::createPlayer() {
     std::shared_ptr<Logic_Library::Player> player = std::make_shared<Logic_Library::Player>();
     std::shared_ptr<Game_Repr::Player> player_view = std::make_shared<Game_Repr::Player>();
@@ -30,29 +42,39 @@ std::shared_ptr<Logic_Library::Player> Concrete_Factory::createPlayer() {
 }
 
 std::shared_ptr<Logic_Library::Platform> Concrete_Factory::createPlatform(Coordinates coordinate) {
+//    std::cout << "Creating platform at coordinates: " << coordinate.getX() << ", " << coordinate.getY() << std::endl;
     std::shared_ptr<Logic_Library::Platform> platform = std::make_shared<Logic_Library::Platform>();
+
     std::shared_ptr<Game_Repr::Platform> platform_view = std::make_shared<Game_Repr::Platform>();
     platform_view->setPlatformPos(coordinate.getX(), coordinate.getY());
-    if (platform->getPType() == Enums::HORIZONTAL and coordinate.getX() <= (float)Config::windowWidth/2) {platform->setGoingLeft(true);}
-    if (platform->getPType() == Enums::VERTICAL and coordinate.getY() >= (float)Config::windowHeight/2) {platform->setGoingUp(true);}
+    if (platform->getPType() == Enums::HORIZONTAL and coordinate.getX() <= (float)Config::windowWidth/2) {platform->setGoingLeft(Random::getInstance().randomBool());}
+    if (platform->getPType() == Enums::VERTICAL and coordinate.getY() >= (float)Config::windowHeight/2) {platform->setGoingUp(Random::getInstance().randomBool());}
     platform_view->getMPlatform()->setFillColor(handlePlatformColor(platform->getPType()));
 
-    std::shared_ptr<Logic_Library::Bonus> bonus = createBonus();
+    if (platform->getHasBonus() and platform->getBonus() != nullptr) {
+        // Use the existing bonus
+        std::shared_ptr<Logic_Library::Bonus> bonus = platform->getBonus();
+        std::shared_ptr<Game_Repr::Bonus> bonus_view = std::make_shared<Game_Repr::Bonus>(bonus->getBType());
 
-    if (bonus != nullptr) {
-        std::shared_ptr<Game_Repr::Bonus> bonus_view = std::make_shared<Game_Repr::Bonus>();
-        bonus_view->setPosition(Coordinates(coordinate.getX(), coordinate.getY() - bonus_view->getMBonus()->getRadius()));
+        // Set color based on bonus type
+        bonus_view->getMBonus()->setFillColor(handleBonusColor(bonus->getBType()));
+
+        // Calculate the center position of the platform
+        float bonusPosX = coordinate.getX() + (Config::platformWidth / 2);
+        float bonusPosY = coordinate.getY() - bonus_view->getMBonus()->getRadius();
+        // Assign the bonus view to the bonus logic
         bonus->assignObserver(bonus_view);
-        platform->setHasBonus(true);
-        platform->setBonus(bonus);
+
+        // Position the bonus
+        bonus->notifyPosition(Coordinates(bonusPosX, bonusPosY));
+
+        bonus_view->setPosition(Coordinates(bonusPosX, bonusPosY));
+
         platform_view->setBonus(bonus_view);
-    }
-    else {
-        platform->setHasBonus(false);
-        platform->setBonus(nullptr);
     }
 
     platform->assignObserver(platform_view);
+//    std::cout << "Platform created at coordinates: " << coordinate.getX() << ", " << coordinate.getY() << std::endl << std::endl;
     return platform;
 }
 
@@ -60,22 +82,8 @@ std::shared_ptr<Logic_Library::BG_Tile> Concrete_Factory::createBGTile() {
     return nullptr;
 }
 
-std::shared_ptr<Logic_Library::Bonus> Concrete_Factory::createBonus() {
-    std::shared_ptr<Logic_Library::Bonus> bonus = std::make_shared<Logic_Library::Bonus>();
-    std::shared_ptr<Game_Repr::Bonus> bonus_view = std::make_shared<Game_Repr::Bonus>();
+std::shared_ptr<Logic_Library::Bonus> Concrete_Factory::createBonus() {return nullptr;}
 
-    if (bonus->getBType() == Enums::BonusType::JETPACK) {
-        bonus_view->getMBonus()->setFillColor(sf::Color::Red);
-    }
-    else if (bonus->getBType() == Enums::BonusType::SPRING) {
-        bonus_view->getMBonus()->setFillColor(sf::Color::Black);
-    }
-    else if (bonus->getBType() == Enums::BonusType::NONE) {
-        return nullptr;
-    }
-    bonus->assignObserver(bonus_view);
-    return bonus;
-}
 
 std::shared_ptr<World> Concrete_Factory::createWorld() {
     std::shared_ptr<World> world(new World());
