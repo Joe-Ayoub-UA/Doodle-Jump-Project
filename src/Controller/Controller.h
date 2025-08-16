@@ -7,7 +7,7 @@
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <memory>
-#include "../Logic Library/_World/World.h"
+#include "../logic/_World/World.h"
 
 
 /**

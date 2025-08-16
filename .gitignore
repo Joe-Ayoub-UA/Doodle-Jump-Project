@@ -1,0 +1,5 @@
+cmake-build-debug
+cmake-build-debug/**
+*.o
+tips.txt
+hitboxes_tips.png

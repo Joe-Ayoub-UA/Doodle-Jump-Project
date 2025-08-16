@@ -75,22 +75,6 @@ float Random::randomFloat(float min, float max) {
 
 Coordinates Random::generateCoor() {
     Coordinates coordinates{};
-//    if (prevX == -1) {
-//        coordinates.setX(rand() % x_range.second);
-//    }
-//    else {
-//        int minX = std::max(0, prevX - (x_range.second/2));
-//        int maxX = std::min(x_range.second -1, prevX + (x_range.second/2));
-//        coordinates.setX(minX + (rand() % (maxX - minX + 1)));
-//    }
-//    if (prevY == -1) {
-//        coordinates.setY(rand() % y_range.second);
-//    }
-//    else {
-//        int minY = std::max(0, prevY - (y_range.second/2));
-//        int maxY = std::min(y_range.second - 1, prevY + (y_range.second/2));
-//        coordinates.setY(minY + (rand() % (maxY - minY + 1)));
-//    }
     coordinates.setX(randomFloat((float)x_range.first, (float)x_range.second));
     coordinates.setY(randomFloat((float)y_range.first, (float)y_range.second));
     return coordinates;

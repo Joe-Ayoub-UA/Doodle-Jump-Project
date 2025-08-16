@@ -1,0 +1,248 @@
+//
+// Created by Joe Ayoub on 14/11/24 at 15:21.
+//
+
+#ifndef INC_2024_PROJECT_JOE_AYOUB_UA_WORLD_H
+#define INC_2024_PROJECT_JOE_AYOUB_UA_WORLD_H
+#include <iostream>
+#include <vector>
+#include <optional>
+#include "../../Config.h"
+
+#include "../Entity_Model/Entity_Model.h"
+
+#include "../../logic/Observer/Observer.h"
+#include "../../logic/Subject/Subject.h"
+
+#include "../../logic/Player/Player.h"
+
+#include "../../logic/BG_Tile/BG_Tile.h"
+
+#include "../../Utilities/Random/Random.h"
+#include "../../Utilities/Coordinates/Coordinates.h"
+
+#include "../../view/Concrete_Factory/Concrete_Factory.h"
+
+#include "../../logic/Score/Score.h"
+
+
+/**
+ * @brief Class that represents the world of the game
+ */
+class World {
+private:
+    /// @brief Concrete_Factory of the World
+    std::shared_ptr<Concrete_Factory> CF;
+
+    /// @brief Player of the game
+    std::shared_ptr<Logic_Library::Player> mPlayer;
+
+    /// @brief Platforms of the game
+    std::vector<std::shared_ptr<Logic_Library::Platform>> mPlatforms;
+
+    /// @brief Background tiles of the game
+    std::vector<std::shared_ptr<Logic_Library::BG_Tile>> mBG_Tiles;
+
+    /// @brief Bonuses of the game
+    std::vector<std::shared_ptr<Logic_Library::Bonus>> mBonuses;
+
+    /// @brief State of the game
+    bool isFrozen = false;
+public:
+    /**
+     * @brief Default constructor for the World class
+     */
+    World();
+
+    /**
+     * @brief Destructor for the World class
+     */
+    ~World()=default;
+
+    /**
+     * @brief Function to create the player
+     */
+    void createPlayer();
+
+    /**
+     * @brief Function to create a platform
+     */
+    bool createPlatform(const std::optional<Coordinates>& coordinate = std::nullopt, const std::optional<bool>& setup = std::nullopt);
+    /**
+     * @brief Function to create a background tile
+     */
+    void createBGTile();
+
+    /**
+     * @brief Function to create a bonus
+     */
+    void createBonus();
+
+    /**
+     * @brief Function to check if a platform's position is valid. Called before a platform is officially created
+     * @param coordinate
+     * @return true or false depending on the validity of the platform's positioning, and whether it's reachable or not
+     */
+    bool checkValidPlatform(const Coordinates& coordinate, const std::optional<bool>& setup = std::nullopt);
+
+
+    /**
+     * @brief Function to check if the player collided with a platform
+     * @return true or false depending on the player's and platform's positions
+     */
+    bool checkCollision();
+
+    /**
+     * @brief Function to check if the player has collided with a bonus
+     */
+    void checkPlayerBonusCollision();
+
+    /**
+     * @brief Function to check if the game has ended
+     * @return true if the player has gone below the window, false otherwise
+     */
+    bool checkEndGame();
+
+    /**
+     * @brief Function to find the lowest platform
+     * @return shared pointer to the lowest platform
+     */
+    Logic_Library::Platform findLowestPlatform();
+
+    /**
+     * @brief Function to find the highest platform
+     * @return shared pointer to the highest platform
+     */
+    Logic_Library::Platform findHighestPlatform();
+
+    /**
+     * @brief Function to check if a new platform is needed
+     * @return true or false depending on the necessity of a new platform
+     */
+    bool isPlatformNeeded();
+
+    /**
+     * @brief Function to check if a platform is not needed
+     * @return true or false depending on the necessity of a platform
+     */
+    bool isPlatformNotNeeded();
+
+    /**
+     * @brief Function to remove a platform
+     * @param platform
+     */
+    void removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform);
+
+    /**
+     * @brief Function to setup the world
+     */
+    void setupWorld();
+
+    /**
+     * @brief Function to freeze the player
+     */
+    void freezePlayer();
+
+    /**
+     * @brief Function to freeze the platforms
+     */
+    void freezePlatforms();
+
+    /**
+     * @brief Function to freeze the world
+     */
+    void freezeWorld();
+
+    /**
+     * @brief Function to update the world
+     */
+    void updateWorld();
+
+    /**
+     * @brief Function to move the platforms down when the player reaches the half of the window
+     * @param moveDownDistance
+     */
+    void movePlatformsDown(float moveDownDistance);
+
+    /**
+     * @brief Function to update the platforms depending on their type
+     */
+    void updatePlatforms();
+
+    /**
+     * @brief Function to get the concrete factory
+     * @return shared pointer to the concrete factory
+     */
+    const std::shared_ptr<Concrete_Factory> &getCf() const;
+
+    /**
+     * @brief Function to set the concrete factory
+     * @param cf
+     */
+    void setCf(const std::shared_ptr<Concrete_Factory> &cf);
+
+    /**
+     * @brief Function to get the player
+     * @return shared pointer to the player
+     */
+    const std::shared_ptr<Logic_Library::Player> &getMPlayer() const;
+
+    /**
+     * @brief Function to set the player
+     * @param mPlayer
+     */
+    void setMPlayer(const std::shared_ptr<Logic_Library::Player> &mPlayer);
+
+    /**
+     * @brief Function to get the platforms
+     * @return vector of shared pointers to the platforms
+     */
+    const std::vector<std::shared_ptr<Logic_Library::Platform>> &getMPlatforms() const;
+
+    /**
+     * @brief Function to set the platforms
+     * @param mPlatforms
+     */
+    void setMPlatforms(const std::vector<std::shared_ptr<Logic_Library::Platform>> &mPlatforms);
+
+    /**
+     * @brief Function to get the platform
+     * @param platform
+     * @return shared pointer to the platform
+     */
+    std::shared_ptr<Logic_Library::Platform> getMPlatform(const std::shared_ptr<Logic_Library::Platform>& platform);
+
+    /**
+     * @brief Function to get the background tiles
+     * @return vector of shared pointers to the background tiles
+     */
+    const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &getMbgTiles() const;
+
+    /**
+     * @brief Function to set the background tiles
+     * @param mBgTiles
+     */
+    void setMbgTiles(const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &mBgTiles);
+
+    /**
+     * @brief Function to get the background tile
+     * @param bgTile
+     * @return shared pointer to the background tile
+     */
+    std::shared_ptr<Logic_Library::BG_Tile> getMBGTile(std::shared_ptr<Logic_Library::BG_Tile>& bgTile);
+
+    /**
+     * @brief Function to get the bonuses
+     * @return vector of shared pointers to the bonuses
+     */
+    const std::vector<std::shared_ptr<Logic_Library::Bonus>> &getMBonuses() const;
+
+    /**
+     * @brief Function to set the bonuses
+     * @param mBonuses
+     */
+    void setMBonuses(const std::vector<std::shared_ptr<Logic_Library::Bonus>> &mBonuses);
+};
+
+
+#endif //INC_2024_PROJECT_JOE_AYOUB_UA_WORLD_H

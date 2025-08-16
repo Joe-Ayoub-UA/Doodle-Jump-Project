@@ -1,0 +1,468 @@
+//
+
+#include "World.h"
+
+//
+// Created by Joe Ayoub on 14/11/24 at 15:21.
+const std::shared_ptr<Concrete_Factory> &World::getCf() const {
+    return CF;
+}
+
+void World::setCf(const std::shared_ptr<Concrete_Factory> &cf) {
+    CF = cf;
+}
+
+const std::shared_ptr<Logic_Library::Player> &World::getMPlayer() const {
+    return mPlayer;
+}
+
+void World::setMPlayer(const std::shared_ptr<Logic_Library::Player> &mPlayer) {
+    World::mPlayer = mPlayer;
+}
+
+const std::vector<std::shared_ptr<Logic_Library::Platform>> &World::getMPlatforms() const {
+    return mPlatforms;
+}
+
+std::shared_ptr<Logic_Library::Platform> World::getMPlatform(const std::shared_ptr<Logic_Library::Platform> &platform) {
+    for (const auto &i:mPlatforms) {
+        if (platform == i) {
+            return i;
+        }
+    }
+    return nullptr;
+}
+
+void World::setMPlatforms(const std::vector<std::shared_ptr<Logic_Library::Platform>> &mPlatforms) {
+    World::mPlatforms = mPlatforms;
+}
+
+const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &World::getMbgTiles() const {
+    return mBG_Tiles;
+}
+
+void World::setMbgTiles(const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &mBgTiles) {
+    mBG_Tiles = mBgTiles;
+}
+
+std::shared_ptr<Logic_Library::BG_Tile> World::getMBGTile(std::shared_ptr<Logic_Library::BG_Tile> &bgTile) {
+    for (const auto &i:mBG_Tiles) {
+        if (bgTile == i) {
+            return i;
+        }
+    }
+    return nullptr;
+}
+
+const std::vector<std::shared_ptr<Logic_Library::Bonus>> &World::getMBonuses() const {
+    return mBonuses;
+}
+
+void World::setMBonuses(const std::vector<std::shared_ptr<Logic_Library::Bonus>> &mBonuses) {
+    World::mBonuses = mBonuses;
+}
+
+World::World() : CF(std::make_shared<Concrete_Factory>()) {
+    setupWorld();
+}
+
+void World::createPlayer() {
+    mPlayer = CF->createPlayer();
+}
+
+bool World::createPlatform(const std::optional<Coordinates>& coordinate, const std::optional<bool>& setup) {
+    bool setupValue = setup.value_or(false);
+    Coordinates coordinates;
+    if (coordinate.has_value()) {
+        coordinates = coordinate.value();
+    }
+    else {
+        coordinates = Random::getInstance().generateCoor();
+    }
+    if (checkValidPlatform(coordinates, setupValue)) {
+        auto platform = CF->createPlatform(coordinates);
+        if (platform->getPType() == Enums::VERTICAL) {
+            float range = Random::getInstance().randomFloat(Config::platformMinVerticalRange, Config::platformMaxVerticalRange);
+            platform->setVerticalLimits(range);
+        }
+        mPlatforms.push_back(platform);
+        return true;
+    }
+    return false;
+}
+
+void World::createBGTile() {
+    mBG_Tiles.push_back(CF->createBGTile());
+}
+
+void World::createBonus() {
+    mBonuses.push_back(CF->createBonus());
+}
+
+Logic_Library::Platform World::findLowestPlatform() {
+    Logic_Library::Platform lowestPlatform = *mPlatforms[0];
+    for (auto &platform : mPlatforms) {
+        if (platform->getObserver()->getPosition().getY() > lowestPlatform.getObserver()->getPosition().getY()) {
+            lowestPlatform = *platform;
+        }
+    }
+    return lowestPlatform;
+}
+
+Logic_Library::Platform World::findHighestPlatform() {
+    Logic_Library::Platform highestPlatform = *mPlatforms[0];
+    for (auto &platform : mPlatforms) {
+        if (platform->getObserver()->getPosition().getY() < highestPlatform.getObserver()->getPosition().getY()) {
+            highestPlatform = *platform;
+        }
+    }
+    return highestPlatform;
+}
+
+bool World::checkValidPlatform(const Coordinates& coordinate, const std::optional<bool>& setup) {
+    const float minDistance = Random::getInstance().randomFloat(Config::minPlatformDistance.first, Config::minPlatformDistance.second);
+
+    // Check boundary conditions
+    if (coordinate.getX() + Config::platformWidth/2 > Config::windowWidth or coordinate.getX() < 0) {
+        return false;
+    }
+    if (coordinate.getY() + Config::platformHeight / 2 > Config::windowHeight or coordinate.getY()
+    - Config::platformHeight / 2 < -Config::platformPositionOffset) {
+        return false;
+    }
+
+    if (!mPlatforms.empty()) {
+        float bestReachableHeight = Config::windowHeight;
+        for (const auto& platform : mPlatforms) {
+            float platformY = platform->getObserver()->getPosition().getY();
+            if(platform->getPType() == Enums::VERTICAL) {
+                platformY = platform->getVerticalMin();
+            }
+
+            float reachableHeight = platformY - (Config::maxJumpHeight * 1.2f); // Allow some leeway for jump height
+
+            if (reachableHeight < bestReachableHeight) {
+                bestReachableHeight = reachableHeight;
+            }
+        }
+
+        if (coordinate.getY() < bestReachableHeight) {
+            // During gameplay, if we've failed to create platforms multiple times,
+            // allow less reachable platforms to prevent deadlock
+            static int failedAttempts = 0;
+            failedAttempts++;
+
+            if (failedAttempts < 3) {
+                return false;
+            } else if (coordinate.getY() > Config::maxJumpHeight / 1.5f) {
+                // Still maintain some reachability constraint
+                return false;
+            }
+            // Reset counter after successful placement
+            failedAttempts = 0;
+        }
+        // Check if the new platform overlaps or is too close to existing platforms
+        for (const auto& platform : mPlatforms) {
+            float dx = platform->getObserver()->getPosition().getX() - coordinate.getX();
+            float dy = platform->getObserver()->getPosition().getY() - coordinate.getY();
+            float distance = std::sqrt((dx * dx) + (dy * dy));
+
+            if (distance < minDistance) {
+                return false;
+            }
+            // Check for overlap considering platform dimensions
+            if (std::abs(dx) < Config::platformWidth && std::abs(dy) < Config::platformHeight) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    // Check if the new platform overlaps or is too close to existing platforms
+    for (const auto& platform : mPlatforms) {
+        float dx = platform->getObserver()->getPosition().getX() - coordinate.getX();
+        float dy = platform->getObserver()->getPosition().getY() - coordinate.getY();
+        float distance = std::sqrt((dx * dx) + (dy * dy));
+
+        if (distance < minDistance) {
+            return false;
+        }
+        // Check for overlap considering platform dimensions
+        if (std::abs(dx) < Config::platformWidth && std::abs(dy) < Config::platformHeight) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool World::checkCollision() {
+    if (this->getMPlayer()->getVerticalSpeed() <= 0) {
+        return false;
+    }
+    else {
+        Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
+        std::pair<float, float> playerDimensions = this->getMPlayer()->getObserver()->getMDimensions();
+        playerCoordinates.setX(playerCoordinates.getX());
+        playerCoordinates.setY(playerCoordinates.getY() + playerDimensions.second);
+        for (const auto &platform: mPlatforms) {
+            Coordinates platformCoordinates = platform->getObserver()->getPosition();
+            std::pair<float, float> platformXrange = {platformCoordinates.getX(),
+                                                      platformCoordinates.getX() + Config::platformWidth};
+            float tolerance = 15.f;
+            if (playerCoordinates.getX() + playerDimensions.first >= platformXrange.first and
+                playerCoordinates.getX() <= platformXrange.second) {
+//                    std::cout << "Platform in range coor: " << platformCoordinates.getX() << " " << platformCoordinates.getY() << std::endl;
+                float toleratedYplat = platformCoordinates.getY() + tolerance;
+                if (playerCoordinates.getY() <= toleratedYplat and
+                    playerCoordinates.getY() >= platformCoordinates.getY()) {
+                    if (platform->getPType() == Enums::TEMPORARY) {
+                        removePlatform(platform);
+                    }
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+void World::checkPlayerBonusCollision() {
+    Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
+    std::pair<float, float> playerDimensions = this->getMPlayer()->getObserver()->getMDimensions();
+    playerCoordinates.setX(playerCoordinates.getX());
+    playerCoordinates.setY(playerCoordinates.getY() + playerDimensions.second);
+
+    for (auto& platform : mPlatforms) {
+        if (platform->getHasBonus()) {
+            auto bonus = platform->getBonus();
+            auto bonusPos = bonus->getObserver()->getPosition();
+            auto bonusRadius = bonus->getObserver()->getMBonus()->getRadius();
+
+            // Check for collision between player and bonus
+            auto bonusType = bonus->getBType();
+
+            float playerLeft = playerCoordinates.getX();
+            float playerRight = playerCoordinates.getX() + playerDimensions.first;
+            float playerTop = playerCoordinates.getY() - playerDimensions.second;
+            float playerBottom = playerCoordinates.getY();
+
+            float bonusLeft = bonusPos.getX() - bonusRadius;
+            float bonusRight = bonusPos.getX() + bonusRadius;
+            float bonusTop = bonusPos.getY() - bonusRadius;
+            float bonusBottom = bonusPos.getY() + bonusRadius;
+
+            if (bonusType == Enums::BonusType::SPRING) {
+                // For spring: only activate if player is landing on it from above
+                if (mPlayer->getVerticalSpeed() > 0) {
+                    if (playerBottom >= bonusTop and playerBottom <= bonusPos.getY()+10.f
+                    and playerRight >= bonusLeft and playerLeft <= bonusRight) {
+                        // Apply spring effect (stronger jump)
+                        mPlayer->setJumpForce(1200.f);
+                        mPlayer->jump();
+                        mPlayer->setJumpForce(Config::jumpForce); // Reset to default jump force
+
+                        // Remove bonus from platform
+                        platform->setHasBonus(false);
+                        platform->setBonus(nullptr);
+                        if (platform->getPType() == Enums::TEMPORARY) {
+                            removePlatform(platform);
+                        }
+                    }
+                }
+            }
+            else if (bonusType == Enums::BonusType::JETPACK) {
+                // For jetpack: activate on collision
+                // Check for overlap
+                if ((playerRight >= bonusLeft and playerLeft <= bonusRight) and
+                        (playerBottom >= bonusTop and playerTop <= bonusBottom)) {
+
+                    // Activate jetpack
+                    if (!mPlayer->isJetpackActive()) {
+                        mPlayer->activateJetpack();
+                        platform->setHasBonus(false);
+                        platform->setBonus(nullptr);
+                        if (platform->getPType() == Enums::TEMPORARY) {
+                            removePlatform(platform);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+bool World::checkEndGame() {
+    if (this->getMPlayer()->getObserver()->getPosition().getY() > Config::windowHeight) {
+        return true;
+    }
+    return false;
+}
+
+void World::removePlatform(const std::shared_ptr<Logic_Library::Platform>& platform) {
+    std::vector<std::shared_ptr<Logic_Library::Platform>> newPlatforms{};
+    for (auto &i:mPlatforms) {
+        if (i->getObserver()->getPosition() == platform->getObserver()->getPosition()) {continue;}
+        else {
+            newPlatforms.push_back(i);
+        }
+    }
+    mPlatforms = newPlatforms;
+}
+
+void World::movePlatformsDown(float moveDownDistance) {
+    for (auto &platform : mPlatforms) {
+        platform->fixTooHigh(moveDownDistance);
+    }
+}
+
+void World::updatePlatforms() {
+    for (auto &platform : mPlatforms) {
+        if (platform->getPType() == Enums::STATIC) {continue;}
+        else if (platform->getPType() == Enums::HORIZONTAL) {
+            if (platform->isGoingLeft()) {
+                platform->moveLeft();
+            }
+            else {
+                platform->moveRight();
+            }
+        }
+        else if (platform->getPType() == Enums::VERTICAL) {
+            if (platform->isGoingUp()) {
+                platform->moveUp();
+            }
+            else {
+                platform->moveDown();
+            }
+        }
+    }
+}
+
+bool World::isPlatformNeeded() {
+    Logic_Library::Platform highestPlatform = this->findHighestPlatform();
+    if (highestPlatform.getObserver()->getPosition().getY() >= 0) {
+        return true;
+    }
+    return false;
+}
+
+bool World::isPlatformNotNeeded() {
+    Logic_Library::Platform lowestPlatform = this->findLowestPlatform();
+    // For vertical platforms, check the vertical limits
+    if (lowestPlatform.getPType() == Enums::VERTICAL) {
+        float minY = lowestPlatform.getVerticalMin();
+        if (lowestPlatform.getHasBonus()) {
+            // If the platform has a bonus, check the bonus position
+            float bonusOffset = lowestPlatform.getBonus()->getObserver()->getMBonus()->getRadius() * 2;
+            if (minY - bonusOffset > Config::windowHeight) {
+                return true;
+            }
+        }
+        else {
+            // For platforms without bonus, check if highest point is out of view
+            if (minY > Config::windowHeight) {
+                return true;
+            }
+        }
+    }
+    else {
+        if (lowestPlatform.getHasBonus()) {
+            if (lowestPlatform.getBonus()->getObserver()->getPosition().getY() > Config::windowHeight) {
+                return true;
+            }
+        } else {
+            if (lowestPlatform.getObserver()->getPosition().getY() > Config::windowHeight) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+void World::setupWorld() {
+    createPlayer();
+    mPlatforms.clear();
+
+    // Get player's starting position
+    float playerX = mPlayer->getObserver()->getPosition().getX();
+    float playerY = mPlayer->getObserver()->getPosition().getY();
+
+    // Calculate where player will land after initial jump
+    float platformY = playerY + Config::maxJumpHeight - Config::platformHeight/2;
+
+    // Place platform at a slightly random X position near the player
+    float platformX = playerX - Config::platformWidth/2 + Random::getInstance().randomFloat(-Config::platformWidth, Config::platformWidth);
+
+    // Ensure platform stays within screen bounds
+    platformX = std::max(0.0f, std::min(platformX, Config::windowWidth - Config::platformWidth));
+
+    // Create the guaranteed landing platform
+    Coordinates landingPlatformCoord(platformX, platformY);
+    createPlatform(std::make_optional(landingPlatformCoord), std::make_optional(true));
+
+    if (!mPlatforms.empty()) {
+        mPlatforms.back()->setPType(Enums::STATIC); // Set the first platform as static
+    }
+    // Create remaining platforms
+    for (int i = 0; i < Config::amountOfPlatforms-1; i++) {
+        if (!createPlatform(std::nullopt, std::make_optional(true))) {
+            i--; // retry if creation fails
+        }
+    }
+
+}
+
+void World::freezePlayer() {
+    mPlayer->setVerticalSpeed(0);
+    mPlayer->setHorizontalSpeed(0);
+}
+
+void World::freezePlatforms() {
+    for (auto &i:mPlatforms) {
+        i->setHorizontalSpeed(0);
+        i->setVerticalSpeed(0);
+    }
+}
+
+void World::freezeWorld() {
+    this->freezePlayer();
+    this->freezePlatforms();
+    isFrozen = true;
+}
+
+void World::updateWorld() {
+    // Check if the world is frozen
+    if (isFrozen) {return;}
+
+    // Check if a new platform is needed
+    if (isPlatformNeeded() and mPlatforms.size()+1 <= Config::amountOfPlatforms) {
+        float x = Random::getInstance().randomFloat(0, Config::windowWidth);
+        float y = Random::getInstance().randomFloat(-Config::platformPositionOffset, 0);
+        Coordinates coordinates(x, y);
+        std::optional<Coordinates> optCoordinates = std::make_optional<Coordinates>(coordinates);
+        createPlatform(optCoordinates);
+    }
+
+    // Check if a platform has gone below the window and needs to be removed
+    if (isPlatformNotNeeded()) {removePlatform(std::make_shared<Logic_Library::Platform>(findLowestPlatform()));}
+
+    // Check if player is too high
+    Coordinates playerCoordinates = this->getMPlayer()->getObserver()->getPosition();
+    if (playerCoordinates.getY() < (float)Config::windowHeight / 2) {
+
+        // Move the platforms down depending on how much the player has moved up
+        float moveDownDistance = (float)Config::windowHeight / 2 - playerCoordinates.getY();
+        Coordinates newCoordinates(playerCoordinates.getX(), (float)Config::windowHeight / 2);
+        this->getMPlayer()->getObserver()->notifyPosition(newCoordinates);
+        this->movePlatformsDown(moveDownDistance);
+
+        // Update the score
+        int score = std::floor((float)Score::getInstance().getMScore() + moveDownDistance);
+        Score::getInstance().setMScore(score);
+        Score::getInstance().updateHighScore(score);
+    }
+    this->mPlayer->applyGravity();
+    this->updatePlatforms();
+
+
+}
