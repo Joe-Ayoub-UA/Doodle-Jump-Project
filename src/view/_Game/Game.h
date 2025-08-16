@@ -4,19 +4,19 @@
 
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_GAME_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_GAME_H
-#include <iostream>
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include <memory>
 #include <thread>
 #include <unordered_map>
 
-#include "../../logic/_World/World.h" // World
-#include "../../Controller/Controller.h" // Controller
+#include "../../Controller/Controller.h"         // Controller
 #include "../../Utilities/Stopwatch/Stopwatch.h" // Stopwatch, singleton
-#include "../../view/Player/Player.h" // Class to view the player
-#include "../../view/Platform/Platform.h" // Class to view the platform
-#include "../../view/BG_Tile/BG_Tile.h" // Class to view the background tile
+#include "../../logic/_World/World.h"            // World
+#include "../../view/BG_Tile/BG_Tile.h"          // Class to view the background tile
 #include "../../view/Concrete_Factory/Concrete_Factory.h"
+#include "../../view/Platform/Platform.h" // Class to view the platform
+#include "../../view/Player/Player.h"     // Class to view the player
 
 #include "../../Config.h"
 
@@ -111,5 +111,4 @@ public:
     void run();
 };
 
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_GAME_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_GAME_H

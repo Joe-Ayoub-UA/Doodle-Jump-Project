@@ -4,14 +4,13 @@
 
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_RANDOM_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_RANDOM_H
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include <memory>
-#include "../Coordinates/Coordinates.h"
 #include "../../Config.h"
+#include "../Coordinates/Coordinates.h"
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+#include <memory>
 #include <random>
-
 
 /**
  * @brief class to generate random digits.
@@ -19,18 +18,18 @@
 class Random {
 private:
     /// @brief x_range: pair of integers, which is the range of the x coordinate.
-    std::pair<int,int> x_range;
+    std::pair<int, int> x_range;
 
     /// @brief y_range: pair of integers, which is the range of the y coordinate.
-    std::pair<int,int> y_range;
+    std::pair<int, int> y_range;
 
     /// @brief mersenne: mt19937, which is the random number generator.
     std::mt19937 mersenne;
 
     /// @brief rd: random_device, which is the random device.
     std::random_device rd{};
-public:
 
+public:
     /**
      * @brief Default constructor for the Random class
      */
@@ -41,7 +40,7 @@ public:
      * @param xRange: pair of integers, which is the range of the x coordinate.
      * @param yRange: pair of integers, which is the range of the y coordinate.
      */
-    Random(const std::pair<int, int> &xRange, const std::pair<int, int> &yRange);
+    Random(const std::pair<int, int>& xRange, const std::pair<int, int>& yRange);
 
     /**
      * @brief Destructor for the Random class
@@ -60,7 +59,7 @@ public:
      * @param max: int, which is the maximum value of the random integer.
      * @return the random integer
      */
-    int randomInt(int min,int max);
+    int randomInt(int min, int max);
 
     /**
      * @brief Function to generate a random float
@@ -68,7 +67,7 @@ public:
      * @param max: float, which is the maximum value of the random float.
      * @return the random float
      */
-    float randomFloat(float min, float max) ;
+    float randomFloat(float min, float max);
 
     /**
      * @brief Function to generate a random boolean
@@ -86,27 +85,25 @@ public:
      * @brief Function to get the range of the x coordinate
      * @return the range of the x coordinate
      */
-    const std::pair<int, int> &getXRange() const;
+    const std::pair<int, int>& getXRange() const;
 
     /**
      * @brief Function to set the range of the x coordinate
      * @param xRange: pair of integers, which is the new range of the x coordinate.
      */
-    void setXRange(const std::pair<int, int> &xRange);
+    void setXRange(const std::pair<int, int>& xRange);
 
     /**
      * @brief Function to get the range of the y coordinate
      * @return the range of the y coordinate
      */
-    const std::pair<int, int> &getYRange() const;
+    const std::pair<int, int>& getYRange() const;
 
     /**
      * @brief Function to set the range of the y coordinate
      * @param yRange: pair of integers, which is the new range of the y coordinate.
      */
-    void setYRange(const std::pair<int, int> &yRange);
-
+    void setYRange(const std::pair<int, int>& yRange);
 };
 
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_RANDOM_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_RANDOM_H

@@ -13,12 +13,7 @@ public:
     /**
      * @brief Enum that contains the different types of platforms
      */
-    enum PlatformType {
-        STATIC,
-        HORIZONTAL,
-        VERTICAL,
-        TEMPORARY
-    };
+    enum PlatformType { STATIC, HORIZONTAL, VERTICAL, TEMPORARY };
 
     /**
      * @brief Enum that contains the different types of bonuses
@@ -29,4 +24,4 @@ public:
         SPRING,
     };
 };
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_ENUMS_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_ENUMS_H

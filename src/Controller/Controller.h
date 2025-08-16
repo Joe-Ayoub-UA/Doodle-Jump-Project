@@ -4,11 +4,10 @@
 
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_CONTROLLER_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_CONTROLLER_H
+#include "../logic/_World/World.h"
 #include "SFML/Graphics.hpp"
 #include <iostream>
 #include <memory>
-#include "../logic/_World/World.h"
-
 
 /**
  * @brief Class that is responsible of handling changes
@@ -17,6 +16,7 @@ class Controller {
 private:
     ///@brief World of the game
     std::shared_ptr<World> world;
+
 public:
     /**
      * @brief Default constructor for the Controller class
@@ -42,18 +42,18 @@ public:
     /**
      * @brief Function to handle the situation when the player is out of bounds
      */
-    void outOfBounds() {world->getMPlayer()->teleportPlayer(world->getMPlayer()->getObserver()->getPosition());}
+    void outOfBounds() { world->getMPlayer()->teleportPlayer(world->getMPlayer()->getObserver()->getPosition()); }
 
     /**
      * @brief Function to check if there is a collision
      * @return true if there is a collision, false otherwise
      */
-    bool checkCollision() {return world->checkCollision();}
+    bool checkCollision() { return world->checkCollision(); }
 
     /**
      * @brief Function to check if the player has collided with a bonus
      */
-     void checkPlayerBonusCollision() {world->checkPlayerBonusCollision();}
+    void checkPlayerBonusCollision() { world->checkPlayerBonusCollision(); }
 
     /**
      * @brief Function to make the player jump
@@ -64,41 +64,41 @@ public:
      * @brief Getter for the world
      * @return the world
      */
-    const std::shared_ptr<World>& getWorld() const {return world;}
+    const std::shared_ptr<World>& getWorld() const { return world; }
 
     /**
      * @brief Setter for the world
      * @param n_world
      */
-    void setWorld(const std::shared_ptr<World>& n_world) {Controller::world = n_world;}
+    void setWorld(const std::shared_ptr<World>& n_world) { Controller::world = n_world; }
 
     /**
      * @brief Function to check if the game has ended
      * @return true if the game has ended, false otherwise
      */
-    bool checkEndGame() {return world->checkEndGame();}
+    bool checkEndGame() { return world->checkEndGame(); }
 
     /**
      * @brief Function to freeze the world
      */
-    void freezeWorld() {world->freezeWorld();}
+    void freezeWorld() { world->freezeWorld(); }
 
     /**
      * @brief Function to update the world
      */
-    void updateWorld() {world->updateWorld();}
+    void updateWorld() { world->updateWorld(); }
 
-//    /**
-//     * @brief Function to check if a platform is needed
-//     * @return true if a platform is needed, false otherwise
-//     */
-//    bool isPlatformNeeded() {return world->isPlatformNeeded();}
-//
-//    /**
-//     * @brief Function to check if a platform is not needed
-//     * @return true if a platform is not needed, false otherwise
-//     */
-//    bool isPlatformNotNeeded() {return world->isPlatformNotNeeded();}
+    //    /**
+    //     * @brief Function to check if a platform is needed
+    //     * @return true if a platform is needed, false otherwise
+    //     */
+    //    bool isPlatformNeeded() {return world->isPlatformNeeded();}
+    //
+    //    /**
+    //     * @brief Function to check if a platform is not needed
+    //     * @return true if a platform is not needed, false otherwise
+    //     */
+    //    bool isPlatformNotNeeded() {return world->isPlatformNotNeeded();}
 
     /**
      * @brief Default destructor for the Controller class
@@ -106,5 +106,4 @@ public:
     virtual ~Controller();
 };
 
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_CONTROLLER_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_CONTROLLER_H

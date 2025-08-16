@@ -7,8 +7,8 @@
 
 #include "../Observer/Observer.h"
 #include <fstream>
-#include <memory>
 #include <iostream>
+#include <memory>
 
 /**
  * @brief Class that keeps track of the score and updates the highscore
@@ -19,6 +19,7 @@ private:
     int mScore;
     static int highScore;
     const std::string highScoreFile = "../src/logic/Score/highscore.txt";
+
 public:
     /**
      * @brief Default constructor for the Score class
@@ -28,7 +29,7 @@ public:
     /**
      * @brief Default destructor for the Score class
      */
-    virtual ~Score()=default;
+    virtual ~Score() = default;
 
     /**
      * @brief Function that returns the score of the player
@@ -62,7 +63,7 @@ public:
      * @brief Function that returns the highscore
      * @return the highscore
      */
-    static int getHighScore() ;
+    static int getHighScore();
 
     /**
      * @brief Function that updates the score
@@ -76,5 +77,4 @@ public:
     void notifyPosition(const Coordinates& coordinates) override;
 };
 
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_SCORE_H
-
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_SCORE_H

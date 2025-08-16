@@ -6,14 +6,9 @@
 
 #include <utility>
 
-
 namespace Logic_Library {
 
-    void Subject::deleteObserver() {
-        observer = nullptr;
-    }
+void Subject::deleteObserver() { observer = nullptr; }
 
-    void Subject::notifyObserver() {
-            observer->update();
-    }
-}
+void Subject::notifyObserver() { observer->update(); }
+} // namespace Logic_Library

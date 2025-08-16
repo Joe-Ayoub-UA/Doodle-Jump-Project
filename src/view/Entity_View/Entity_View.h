@@ -41,5 +41,4 @@ public:
     virtual ~Entity_View() = default;
 };
 
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_ENTITY_VIEW_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_ENTITY_VIEW_H

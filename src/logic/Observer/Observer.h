@@ -30,8 +30,6 @@ public:
      * @brief Virtual destructor for the Observer class
      */
     virtual ~Observer() = default;
-
 };
 
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_OBSERVER_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_OBSERVER_H

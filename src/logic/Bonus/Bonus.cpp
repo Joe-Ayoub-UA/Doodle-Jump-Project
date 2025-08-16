@@ -5,43 +5,36 @@
 #include "Bonus.h"
 
 const char* bonusTypeToString(Enums::BonusType type) {
-    switch(type) {
-        case Enums::BonusType::JETPACK: return "JETPACK";
-        case Enums::BonusType::SPRING: return "SPRING";
-        default: return "NONE";
+    switch (type) {
+    case Enums::BonusType::JETPACK:
+        return "JETPACK";
+    case Enums::BonusType::SPRING:
+        return "SPRING";
+    default:
+        return "NONE";
     }
 }
 
 namespace Logic_Library {
 
-    Bonus::Bonus(Enums::BonusType bonusType) {
-        setBType(bonusType);
-    }
+Bonus::Bonus(Enums::BonusType bonusType) { setBType(bonusType); }
 
-    void Bonus::createBonus() {}
+void Bonus::createBonus() {}
 
-    void Bonus::assignObserver(std::shared_ptr<Game_Repr::Bonus> newObserver) {
-        this->observer = std::move(newObserver);
-    }
+void Bonus::assignObserver(std::shared_ptr<Game_Repr::Bonus> newObserver) { this->observer = std::move(newObserver); }
 
-    void Bonus::deleteObserver() {
-        this->observer = nullptr;
-    }
+void Bonus::deleteObserver() { this->observer = nullptr; }
 
-    void Bonus::notifyObserver() {
-//        observer->update();
-    }
-
-    void Bonus::notifyPosition(const Coordinates &coordinates) {
-//        observer->notifyPosition(coordinates);
-    }
-
-    Enums::BonusType Bonus::getBType() const {
-        return bType;
-    }
-
-    void Bonus::setBType(Enums::BonusType n_bType) {
-        Bonus::bType = n_bType;
-    }
-
+void Bonus::notifyObserver() {
+    //        observer->update();
 }
+
+void Bonus::notifyPosition(const Coordinates& coordinates) {
+    //        observer->notifyPosition(coordinates);
+}
+
+Enums::BonusType Bonus::getBType() const { return bType; }
+
+void Bonus::setBType(Enums::BonusType n_bType) { Bonus::bType = n_bType; }
+
+} // namespace Logic_Library

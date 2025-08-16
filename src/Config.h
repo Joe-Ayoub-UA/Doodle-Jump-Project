@@ -4,9 +4,9 @@
 
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_CONFIG_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_CONFIG_H
-#include <map>
 #include "Utilities/Enums/Enums.h"
 #include <iostream>
+#include <map>
 /**
  * @brief Config class: has all the parameters that are used in the game, in one file so they are easier to change
  */
@@ -38,25 +38,24 @@ public:
     /**
      * @brief Gravity of the game
      */
-//    static constexpr float gravity = 9.81;
-//    static constexpr float gravity = 90.8f;
-//    static constexpr float gravity = 350.f;
+    //    static constexpr float gravity = 9.81;
+    //    static constexpr float gravity = 90.8f;
+    //    static constexpr float gravity = 350.f;
     static constexpr float gravity = 550.f;
-//    static constexpr float gravity = 0.028f;
+    //    static constexpr float gravity = 0.028f;
 
     /**
      * @brief Jump force of the player
      */
-//    static constexpr float jumpForce = 350.f;
-//    static constexpr float jumpForce = 350.f;
+    //    static constexpr float jumpForce = 350.f;
+    //    static constexpr float jumpForce = 350.f;
     static constexpr float jumpForce = 450.f;
-//    static constexpr float jumpForce = 30.f;
-
+    //    static constexpr float jumpForce = 30.f;
 
     /**
      * @brief Max jump height of the player
      */
-     static constexpr float maxJumpHeight = ((Config::jumpForce * Config::jumpForce) / (2.f * Config::gravity)) - 40.f;
+    static constexpr float maxJumpHeight = ((Config::jumpForce * Config::jumpForce) / (2.f * Config::gravity)) - 40.f;
     // =================================================================================================================
 
     // Frame
@@ -75,13 +74,12 @@ public:
      */
     static constexpr float sizeOffset = 1.f; // Offset for window size
 
-
     // Platform
     // ==================================================PLATFORM=======================================================
     /**
      * @brief Platform's width
      */
-//    static constexpr float platformWidth = 150.f;
+    //    static constexpr float platformWidth = 150.f;
     static constexpr float platformWidth = 100.f;
 
     /**
@@ -102,12 +100,12 @@ public:
     /**
      * @brief Minimum vertical range of a platform
      */
-     static constexpr float platformMinVerticalRange = 50.f;
+    static constexpr float platformMinVerticalRange = 50.f;
 
-     /**
-      * @brief Maximum vertical range of a platform
-      */
-      static constexpr float platformMaxVerticalRange = 120.f;
+    /**
+     * @brief Maximum vertical range of a platform
+     */
+    static constexpr float platformMaxVerticalRange = 120.f;
 
     /**
      * @brief Amount of platforms
@@ -123,7 +121,6 @@ public:
         return std::make_pair(xDistance, yDistance);
     }
 
-
     /**
      * @brief Gets the maximum distance range between platforms based on the amount of platforms
      * @return A pair representing the maximum distance range
@@ -133,17 +130,17 @@ public:
         float yDistance = 150.f + (15 - amountOfPlatforms) * 3;
         return std::make_pair(xDistance, yDistance);
     }
-//    static constexpr int amountOfPlatforms = 15;
+    //    static constexpr int amountOfPlatforms = 15;
 
     /**
      * @brief Minimum distance range between platforms
      */
-    static const std::pair<float,float> minPlatformDistance;
+    static const std::pair<float, float> minPlatformDistance;
 
     /**
      * @brief Maximum distance range between platforms
      */
-    static const std::pair<float,float> maxPlatformDistance;
+    static const std::pair<float, float> maxPlatformDistance;
 
     /**
      * @brief Map of platform types and their respective colors
@@ -172,7 +169,7 @@ public:
     /**
      * @brief Force of the jetpack bonus
      */
-     static constexpr float jetpackForce = -800.f; // Force of the jetpack bonus
+    static constexpr float jetpackForce = -800.f; // Force of the jetpack bonus
 };
 
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_CONFIG_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_CONFIG_H

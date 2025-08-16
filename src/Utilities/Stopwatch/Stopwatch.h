@@ -25,11 +25,11 @@ public:
     /**
      * @brief Instance of the Stopwatch class
      */
-     static Stopwatch& getInstance();
+    static Stopwatch& getInstance();
 
     /**
-    * @brief Starts the stopwatch
-    */
+     * @brief Starts the stopwatch
+     */
     void start();
 
     /**
@@ -50,5 +50,4 @@ public:
     float getElapsedTime() const;
 };
 
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_STOPWATCH_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_STOPWATCH_H

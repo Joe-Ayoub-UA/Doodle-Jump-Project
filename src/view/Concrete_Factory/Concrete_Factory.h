@@ -5,14 +5,14 @@
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_CONCRETE_FACTORY_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_CONCRETE_FACTORY_H
 
+#include "../../logic/Abstract_Factory/Abstract_Factory.h"
+#include "../../view/BG_Tile/BG_Tile.h"
+#include "../../view/Bonus/Bonus.h"
+#include "../../view/Platform/Platform.h"
+#include "../../view/Player/Player.h"
 #include <iostream>
 #include <memory>
 #include <string>
-#include "../../logic/Abstract_Factory/Abstract_Factory.h"
-#include "../../view/Player/Player.h"
-#include "../../view/Platform/Platform.h"
-#include "../../view/BG_Tile/BG_Tile.h"
-#include "../../view/Bonus/Bonus.h"
 
 /**
  * @brief Concrete_Factory class that implements the Abstract_Factory class
@@ -27,11 +27,12 @@ private:
 
     /// @brief Handles the color of the bonus depending on its type
     static sf::Color handleBonusColor(Enums::BonusType type);
+
 public:
     /**
      * @brief Default constructor for the Concrete_Factory class
      */
-    Concrete_Factory()=default;
+    Concrete_Factory() = default;
 
     /**
      * @brief Creates a player
@@ -80,5 +81,4 @@ public:
     void notifyObserver() override;
 };
 
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_CONCRETE_FACTORY_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_CONCRETE_FACTORY_H

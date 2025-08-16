@@ -4,15 +4,15 @@
 
 #include "Random.h"
 
-//Random::Random(int sizeXX, int sizeYY) : sizeX(sizeXX), sizeY(sizeYY), prevX(-1), prevY(-1) {
-//    static bool isSeeded = false;
-//    if (!isSeeded) {
-//        srand(static_cast<unsigned int>(time(nullptr)));
-//        isSeeded = true;
-//    }
-//}
+// Random::Random(int sizeXX, int sizeYY) : sizeX(sizeXX), sizeY(sizeYY), prevX(-1), prevY(-1) {
+//     static bool isSeeded = false;
+//     if (!isSeeded) {
+//         srand(static_cast<unsigned int>(time(nullptr)));
+//         isSeeded = true;
+//     }
+// }
 
-Random::Random(){
+Random::Random() {
     this->setXRange(std::make_pair(0, Config::windowWidth));
     this->setYRange(std::make_pair(0, Config::windowHeight));
     static bool isSeeded = false;
@@ -23,10 +23,9 @@ Random::Random(){
     mersenne = std::mt19937(rd());
 }
 
-Random::~Random() {
-}
+Random::~Random() {}
 
-Random &Random::getInstance() {
+Random& Random::getInstance() {
     static Random instance;
     return instance;
 }
@@ -41,7 +40,7 @@ int Random::randomInt(int min, int max) {
     if (min == max) {
         return min;
     }
-    if ( min > max ) {
+    if (min > max) {
         std::swap(min, max);
     }
     std::uniform_int_distribution<int> distribution(min, max);
@@ -58,7 +57,7 @@ float Random::randomFloat(float min, float max) {
     if (min == max) {
         return min;
     }
-    if ( min > max ) {
+    if (min > max) {
         std::swap(min, max);
     }
     std::uniform_real_distribution<float> distribution(min, max);
@@ -69,9 +68,7 @@ float Random::randomFloat(float min, float max) {
  * @brief Generates a random boolean.
  * @return bool, which is a random boolean.
  */
- bool Random::randomBool() {
-     return randomInt(0, 1) == 1;
- }
+bool Random::randomBool() { return randomInt(0, 1) == 1; }
 
 Coordinates Random::generateCoor() {
     Coordinates coordinates{};
@@ -80,22 +77,13 @@ Coordinates Random::generateCoor() {
     return coordinates;
 }
 
-const std::pair<int, int> &Random::getXRange() const {
-    return x_range;
-}
+const std::pair<int, int>& Random::getXRange() const { return x_range; }
 
-void Random::setXRange(const std::pair<int, int> &xRange) {
-    x_range = xRange;
-}
+void Random::setXRange(const std::pair<int, int>& xRange) { x_range = xRange; }
 
-const std::pair<int, int> &Random::getYRange() const {
-    return y_range;
-}
+const std::pair<int, int>& Random::getYRange() const { return y_range; }
 
-void Random::setYRange(const std::pair<int, int> &yRange) {
-    y_range = yRange;
-}
+void Random::setYRange(const std::pair<int, int>& yRange) { y_range = yRange; }
 
-Random::Random(const std::pair<int, int> &xRange, const std::pair<int, int> &yRange) : x_range(xRange),
-                                                                                       y_range(yRange) {}
-
+Random::Random(const std::pair<int, int>& xRange, const std::pair<int, int>& yRange)
+    : x_range(xRange), y_range(yRange) {}

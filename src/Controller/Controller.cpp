@@ -4,20 +4,12 @@
 
 #include "Controller.h"
 
-Controller::Controller() {std::make_shared<Controller>(*this);}
+Controller::Controller() { std::make_shared<Controller>(*this); }
 
-void Controller::movePlayerRight() {
-    world->getMPlayer()->moveRight();
-}
+void Controller::movePlayerRight() { world->getMPlayer()->moveRight(); }
 
-void Controller::movePlayerLeft() {
-    world->getMPlayer()->moveLeft();
-}
+void Controller::movePlayerLeft() { world->getMPlayer()->moveLeft(); }
 
-void Controller::jumpPlayer() {
-    world->getMPlayer()->jump();
-}
+void Controller::jumpPlayer() { world->getMPlayer()->jump(); }
 
-Controller::~Controller() {
-
-}
+Controller::~Controller() {}

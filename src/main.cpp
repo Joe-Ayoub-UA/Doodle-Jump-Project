@@ -5,19 +5,14 @@
 
 #include "view/_Game/Game.h"
 
-
-
-int main()
-{
+int main() {
     Game game{};
     try {
         game.run();
-    }
-    catch (const std::exception &e) {
+    } catch (const std::exception& e) {
         std::cerr << "An error occurred: " << e.what() << std::endl;
         return EXIT_FAILURE;
-    }
-    catch (...) {
+    } catch (...) {
         std::cerr << "An unknown error occurred." << std::endl;
         return EXIT_FAILURE;
     }

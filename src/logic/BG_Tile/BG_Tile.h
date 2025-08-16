@@ -5,49 +5,48 @@
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_BG_TILE_LOGIC_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_BG_TILE_LOGIC_H
 
-#include "../Entity_Model/Entity_Model.h"
 #include "../../view/BG_Tile/BG_Tile.h"
+#include "../Entity_Model/Entity_Model.h"
 
 /**
  * @brief Namespace Logic_Library: Contains the classes that are responsible for the logic of the game.
  */
 namespace Logic_Library {
+/**
+ * @brief Class that is responsible for the logic of the background tile
+ */
+class BG_Tile : public Entity_Model {
+private:
+    /// @brief Observer of the background tile
+    std::shared_ptr<Game_Repr::BG_Tile> observer;
+
+public:
     /**
-     * @brief Class that is responsible for the logic of the background tile
+     * @brief Default constructor for the BG_Tile class
      */
-    class BG_Tile : public Entity_Model {
-    private:
-        /// @brief Observer of the background tile
-        std::shared_ptr<Game_Repr::BG_Tile> observer;
-    public:
-        /**
-         * @brief Default constructor for the BG_Tile class
-         */
-        BG_Tile() = default;
+    BG_Tile() = default;
 
-        /**
-         * @brief Function to assign an observer to the background tile
-         * @param newObserver
-         */
-        void assignObserver(std::shared_ptr<Game_Repr::BG_Tile> newObserver);
+    /**
+     * @brief Function to assign an observer to the background tile
+     * @param newObserver
+     */
+    void assignObserver(std::shared_ptr<Game_Repr::BG_Tile> newObserver);
 
-        /**
-         * @brief Function to delete the observer of the background tile
-         */
-        void deleteObserver() override;
+    /**
+     * @brief Function to delete the observer of the background tile
+     */
+    void deleteObserver() override;
 
-        /**
-         * @brief Function to notify the observer of the background tile
-         */
-        void notifyObserver() override;
+    /**
+     * @brief Function to notify the observer of the background tile
+     */
+    void notifyObserver() override;
 
-        /**
-         * @brief Virtual destructor for the BG_Tile class
-         */
-        virtual ~BG_Tile() = default;
-    };
-}
+    /**
+     * @brief Virtual destructor for the BG_Tile class
+     */
+    virtual ~BG_Tile() = default;
+};
+} // namespace Logic_Library
 
-
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_BG_TILE_LOGIC_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_BG_TILE_LOGIC_H

@@ -6,13 +6,11 @@
 
 int Score::highScore = 0;
 
-Score::Score() : mScore(0) {
-    loadHighScore();
-}
+Score::Score() : mScore(0) { loadHighScore(); }
 
 void Score::update() {}
 
-Score &Score::getInstance() {
+Score& Score::getInstance() {
     static Score instance;
     return instance;
 }
@@ -24,21 +22,16 @@ void Score::updateHighScore(int newScore) {
     }
 }
 
-int Score::getMScore() const {
-    return mScore;
-}
+int Score::getMScore() const { return mScore; }
 
-void Score::setMScore(int n_mScore) {
-    Score::mScore = n_mScore;
-}
+void Score::setMScore(int n_mScore) { Score::mScore = n_mScore; }
 
 void Score::saveHighScore() {
     std::ofstream file(highScoreFile);
     if (file.is_open()) {
         file << highScore;
         file.close();
-    }
-    else {
+    } else {
         std::cerr << "Unable to open file for writing high score." << std::endl;
     }
 }
@@ -52,15 +45,11 @@ void Score::loadHighScore() {
     if (fileIn.is_open()) {
         fileIn >> highScore;
         fileIn.close();
-    }
-    else {
+    } else {
         highScore = 0;
     }
 }
 
-int Score::getHighScore() {
-    return highScore;
-}
+int Score::getHighScore() { return highScore; }
 
-void Score::notifyPosition(const Coordinates &coordinates) {}
-
+void Score::notifyPosition(const Coordinates& coordinates) {}

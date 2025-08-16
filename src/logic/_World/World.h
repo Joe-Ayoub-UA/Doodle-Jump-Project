@@ -4,10 +4,10 @@
 
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_WORLD_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_WORLD_H
-#include <iostream>
-#include <vector>
-#include <optional>
 #include "../../Config.h"
+#include <iostream>
+#include <optional>
+#include <vector>
 
 #include "../Entity_Model/Entity_Model.h"
 
@@ -18,13 +18,12 @@
 
 #include "../../logic/BG_Tile/BG_Tile.h"
 
-#include "../../Utilities/Random/Random.h"
 #include "../../Utilities/Coordinates/Coordinates.h"
+#include "../../Utilities/Random/Random.h"
 
 #include "../../view/Concrete_Factory/Concrete_Factory.h"
 
 #include "../../logic/Score/Score.h"
-
 
 /**
  * @brief Class that represents the world of the game
@@ -48,6 +47,7 @@ private:
 
     /// @brief State of the game
     bool isFrozen = false;
+
 public:
     /**
      * @brief Default constructor for the World class
@@ -57,7 +57,7 @@ public:
     /**
      * @brief Destructor for the World class
      */
-    ~World()=default;
+    ~World() = default;
 
     /**
      * @brief Function to create the player
@@ -67,7 +67,8 @@ public:
     /**
      * @brief Function to create a platform
      */
-    bool createPlatform(const std::optional<Coordinates>& coordinate = std::nullopt, const std::optional<bool>& setup = std::nullopt);
+    bool createPlatform(const std::optional<Coordinates>& coordinate = std::nullopt,
+                        const std::optional<bool>& setup = std::nullopt);
     /**
      * @brief Function to create a background tile
      */
@@ -84,7 +85,6 @@ public:
      * @return true or false depending on the validity of the platform's positioning, and whether it's reachable or not
      */
     bool checkValidPlatform(const Coordinates& coordinate, const std::optional<bool>& setup = std::nullopt);
-
 
     /**
      * @brief Function to check if the player collided with a platform
@@ -173,37 +173,37 @@ public:
      * @brief Function to get the concrete factory
      * @return shared pointer to the concrete factory
      */
-    const std::shared_ptr<Concrete_Factory> &getCf() const;
+    const std::shared_ptr<Concrete_Factory>& getCf() const;
 
     /**
      * @brief Function to set the concrete factory
      * @param cf
      */
-    void setCf(const std::shared_ptr<Concrete_Factory> &cf);
+    void setCf(const std::shared_ptr<Concrete_Factory>& cf);
 
     /**
      * @brief Function to get the player
      * @return shared pointer to the player
      */
-    const std::shared_ptr<Logic_Library::Player> &getMPlayer() const;
+    const std::shared_ptr<Logic_Library::Player>& getMPlayer() const;
 
     /**
      * @brief Function to set the player
      * @param mPlayer
      */
-    void setMPlayer(const std::shared_ptr<Logic_Library::Player> &mPlayer);
+    void setMPlayer(const std::shared_ptr<Logic_Library::Player>& mPlayer);
 
     /**
      * @brief Function to get the platforms
      * @return vector of shared pointers to the platforms
      */
-    const std::vector<std::shared_ptr<Logic_Library::Platform>> &getMPlatforms() const;
+    const std::vector<std::shared_ptr<Logic_Library::Platform>>& getMPlatforms() const;
 
     /**
      * @brief Function to set the platforms
      * @param mPlatforms
      */
-    void setMPlatforms(const std::vector<std::shared_ptr<Logic_Library::Platform>> &mPlatforms);
+    void setMPlatforms(const std::vector<std::shared_ptr<Logic_Library::Platform>>& mPlatforms);
 
     /**
      * @brief Function to get the platform
@@ -216,13 +216,13 @@ public:
      * @brief Function to get the background tiles
      * @return vector of shared pointers to the background tiles
      */
-    const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &getMbgTiles() const;
+    const std::vector<std::shared_ptr<Logic_Library::BG_Tile>>& getMbgTiles() const;
 
     /**
      * @brief Function to set the background tiles
      * @param mBgTiles
      */
-    void setMbgTiles(const std::vector<std::shared_ptr<Logic_Library::BG_Tile>> &mBgTiles);
+    void setMbgTiles(const std::vector<std::shared_ptr<Logic_Library::BG_Tile>>& mBgTiles);
 
     /**
      * @brief Function to get the background tile
@@ -235,14 +235,13 @@ public:
      * @brief Function to get the bonuses
      * @return vector of shared pointers to the bonuses
      */
-    const std::vector<std::shared_ptr<Logic_Library::Bonus>> &getMBonuses() const;
+    const std::vector<std::shared_ptr<Logic_Library::Bonus>>& getMBonuses() const;
 
     /**
      * @brief Function to set the bonuses
      * @param mBonuses
      */
-    void setMBonuses(const std::vector<std::shared_ptr<Logic_Library::Bonus>> &mBonuses);
+    void setMBonuses(const std::vector<std::shared_ptr<Logic_Library::Bonus>>& mBonuses);
 };
 
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_WORLD_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_WORLD_H

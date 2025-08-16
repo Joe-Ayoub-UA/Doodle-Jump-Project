@@ -8,9 +8,6 @@
 /**
  * @brief Class that is responsible for the camera
  */
-class Camera {
+class Camera {};
 
-};
-
-
-#endif //INC_2024_PROJECT_JOE_AYOUB_UA_CAMERA_H
+#endif // INC_2024_PROJECT_JOE_AYOUB_UA_CAMERA_H

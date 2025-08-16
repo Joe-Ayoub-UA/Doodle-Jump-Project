@@ -4,7 +4,10 @@
 
 #include "Game.h"
 
-Game::Game() : mWindow(std::make_unique<sf::RenderWindow>(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Doodle Jump")), mController(std::make_shared<Controller>()) {
+Game::Game()
+    : mWindow(
+          std::make_unique<sf::RenderWindow>(sf::VideoMode(Config::windowWidth, Config::windowHeight), "Doodle Jump")),
+      mController(std::make_shared<Controller>()) {
     this->gameInit();
     this->render();
 }
@@ -15,7 +18,7 @@ void Game::gameInit() {
     mBG = std::make_shared<Game_Repr::BG_Tile>();
 
     // Create the platforms: een beetje gelijkaardig aan die van boven, de vector van platforms komt van de world
-    for (const std::shared_ptr<Logic_Library::Platform>& i: world->getMPlatforms()) {
+    for (const std::shared_ptr<Logic_Library::Platform>& i : world->getMPlatforms()) {
         mPlatforms.push_back(i->getObserver());
     }
 
@@ -51,15 +54,14 @@ void Game::render() {
     mWindow->draw(mBG->getMTileSprite());
 
     // Draw the entities (player, platforms, BG_Tiles, bonuses)
-    for (const std::shared_ptr<Game_Repr::Platform>& i: mPlatforms) {
+    for (const std::shared_ptr<Game_Repr::Platform>& i : mPlatforms) {
         mWindow->draw(*i->getMPlatform());
         if (i->getBonus() != nullptr) {
             mWindow->draw(*i->getBonus()->getMBonusSprite());
 
             // For debugging purposes, draw debug hitbox of the bonus
-//            mWindow->draw(*i->getBonus()->getMBonus());
+            //            mWindow->draw(*i->getBonus()->getMBonus());
         }
-
     }
     // For debugging, draw the debug hitbox of the player
     mWindow->draw(*mPlayer->getMHitboxDebug());
@@ -76,17 +78,16 @@ void Game::processEvents() {
     sf::Event mEvent{};
     while (mWindow->pollEvent(mEvent)) {
         switch (mEvent.type) {
-            case sf::Event::KeyPressed:
-                handlePlayerInputs(mEvent.key.code,true);
-                break;
-            case sf::Event::KeyReleased:
-                handlePlayerInputs(mEvent.key.code,false);
-                break;
-            case sf::Event::Closed:
-                mWindow->close();
-                break;
+        case sf::Event::KeyPressed:
+            handlePlayerInputs(mEvent.key.code, true);
+            break;
+        case sf::Event::KeyReleased:
+            handlePlayerInputs(mEvent.key.code, false);
+            break;
+        case sf::Event::Closed:
+            mWindow->close();
+            break;
         }
-
     }
 }
 
@@ -99,15 +100,15 @@ void Game::update() {
             throw std::runtime_error("Game Over font not loaded");
         }
         mGameOverText.setFont(mGameOverFont);
-        mGameOverText.setString("Game Over! Your score: " + std::to_string(Score::getInstance().getMScore()) + "\nHighscore: " + std::to_string(Score::getInstance().getHighScore()));
+        mGameOverText.setString("Game Over! Your score: " + std::to_string(Score::getInstance().getMScore()) +
+                                "\nHighscore: " + std::to_string(Score::getInstance().getHighScore()));
         mGameOverText.setCharacterSize(35);
         mGameOverText.setFillColor(sf::Color::White);
         mGameOverText.setStyle(sf::Text::Bold);
         mGameOverText.setOrigin(mGameOverText.getLocalBounds().width / 2, mGameOverText.getLocalBounds().height / 2);
         mGameOverText.setPosition((float)Config::windowWidth / 2, (float)Config::windowHeight / 2);
         mGameOverText.setFillColor(sf::Color::Black);
-    }
-    else {
+    } else {
         if (mKeyStates[sf::Keyboard::D] || mKeyStates[sf::Keyboard::Right]) {
             mController->movePlayerRight();
         }
@@ -129,24 +130,25 @@ void Game::update() {
         mController->checkPlayerBonusCollision();
         mController->updateWorld();
         mPlatforms.clear();
-        for (const std::shared_ptr<Logic_Library::Platform>& i: mController->getWorld()->getMPlatforms()) {
+        for (const std::shared_ptr<Logic_Library::Platform>& i : mController->getWorld()->getMPlatforms()) {
             mPlatforms.push_back(i->getObserver());
         }
-        mText.setString("Score: "+std::to_string(Score::getInstance().getMScore()));
+        mText.setString("Score: " + std::to_string(Score::getInstance().getMScore()));
 
         static bool checkpointReached = false;
-        if (Score::getInstance().getMScore() > 0 and Score::getInstance().getMScore() % 20000 < 60 and !checkpointReached) {
+        if (Score::getInstance().getMScore() > 0 and Score::getInstance().getMScore() % 20000 < 60 and
+            !checkpointReached) {
             Config::amountOfPlatforms--;
             checkpointReached = true;
-        } else if (Score::getInstance().getMScore() % 20000 >= 60) {checkpointReached = false;}
+        } else if (Score::getInstance().getMScore() % 20000 >= 60) {
+            checkpointReached = false;
+        }
 
-        mHighScoreText.setString("Highscore: "+std::to_string(Score::getInstance().getHighScore()));
+        mHighScoreText.setString("Highscore: " + std::to_string(Score::getInstance().getHighScore()));
     }
 }
 
-void Game::handlePlayerInputs(sf::Keyboard::Key key, bool isPressed) {
-    mKeyStates[key] = isPressed;
-}
+void Game::handlePlayerInputs(sf::Keyboard::Key key, bool isPressed) { mKeyStates[key] = isPressed; }
 
 void Game::sleep(float time) {
     Stopwatch& stopwatch = Stopwatch::getInstance();
@@ -159,7 +161,6 @@ void Game::sleep(float time) {
         }
     }
     std::this_thread::sleep_for(std::chrono::nanoseconds(1));
-
 }
 
 void Game::run() {
