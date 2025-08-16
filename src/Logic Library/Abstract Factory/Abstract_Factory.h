@@ -22,6 +22,12 @@ class World;
  */
 class Abstract_Factory {
 public:
+
+    /**
+     * @brief Default constructor for the Abstract Factory class
+     */
+    Abstract_Factory() = default;
+
     /**
      * @brief Creates a player
      * @return a shared pointer to the player
@@ -67,6 +73,11 @@ public:
      * @brief Function to notify the observer of the factory
      */
     virtual void notifyObserver()=0;
+
+    /**
+     * @brief Virtual destructor for the Abstract Factory class
+     */
+     virtual ~Abstract_Factory() = default;
 };
 
 

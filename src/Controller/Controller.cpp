@@ -18,36 +18,6 @@ void Controller::jumpPlayer() {
     world->getMPlayer()->jump();
 }
 
-void Controller::applyGravity() {
-    world->getMPlayer()->applyGravity();
-}
-
-void Controller::movePlatformRight(const std::shared_ptr<Logic_Library::Platform>& platform) {
-    world->getMPlatform(platform)->moveRight();
-}
-
-void Controller::movePlatformLeft(const std::shared_ptr<Logic_Library::Platform>& platform) {
-    world->getMPlatform(platform)->moveLeft();
-}
-
-void Controller::movePlatformUp(const std::shared_ptr<Logic_Library::Platform>& platform) {
-    world->getMPlatform(platform)->moveUp();
-}
-
-void Controller::movePlatformDown(const std::shared_ptr<Logic_Library::Platform>& platform) {
-    world->getMPlatform(platform)->moveDown();
-}
-
-void Controller::moveBGTileUp(std::shared_ptr<Logic_Library::BG_Tile>& bgTile) {
-//    world->getMBGTile(bgTile)->moveUp();
-}
-
-void Controller::moveBGTileDown(std::shared_ptr<Logic_Library::BG_Tile>& bgTile) {
-//    world->getMBGTile(bgTile)->moveDown();
-}
-
-
-
 Controller::~Controller() {
 
 }

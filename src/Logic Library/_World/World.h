@@ -10,21 +10,17 @@
 #include "../../Config.h"
 
 #include "../Entity Model/Entity_Model.h"
-#include "../../Game Representation/Entity View/Entity_View.h"
 
 #include "../../Logic Library/Observer/Observer.h"
 #include "../../Logic Library/Subject/Subject.h"
 
 #include "../../Logic Library/Player/Player.h"
-//#include "../../_Game Representation/Player_logic/Player_logic.h"
 
 #include "../../Logic Library/BG Tile/BG_Tile.h"
-//#include "../../_Game Representation/BG Tile/BG_Tile.h"
 
 #include "../../Utilities/Random/Random.h"
 #include "../../Utilities/Coordinates/Coordinates.h"
 
-#include "../Abstract Factory/Abstract_Factory.h"
 #include "../../Game Representation/Concrete Factory/Concrete_Factory.h"
 
 #include "../../Logic Library/Score/Score.h"

@@ -16,6 +16,7 @@
 #include "../../Game Representation/Player/Player.h" // Class to view the player
 #include "../../Game Representation/Platform/Platform.h" // Class to view the platform
 #include "../../Game Representation/BG Tile/BG_Tile.h" // Class to view the background tile
+#include "../../Game Representation/Concrete Factory/Concrete_Factory.h"
 
 #include "../../Config.h"
 
@@ -28,7 +29,7 @@ private:
     std::shared_ptr<Controller> mController{};
 
     /// @brief Factory of the game
-    std::shared_ptr<Concrete_Factory> CF{new Concrete_Factory()};
+    std::shared_ptr<Concrete_Factory> CF{std::make_shared<Concrete_Factory>()};
 
     /// @brief Window of the game
     std::unique_ptr<sf::RenderWindow> mWindow{};

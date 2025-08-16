@@ -61,49 +61,6 @@ public:
     void jumpPlayer();
 
     /**
-     * @brief Function to apply gravity to the player
-     */
-    void applyGravity();
-
-    /**
-     * @brief Function to move the platform to the right
-     * @param platform
-     */
-    void movePlatformRight(const std::shared_ptr<Logic_Library::Platform>& platform);
-
-    /**
-     * @brief Function to move the platform to the left
-     * @param platform
-     */
-    void movePlatformLeft(const std::shared_ptr<Logic_Library::Platform>& platform);
-
-    /**
-     * @brief Function to move the platform up
-     * @param platform
-     */
-    void movePlatformUp(const std::shared_ptr<Logic_Library::Platform>& platform);
-
-    /**
-     * @brief Function to move the platform down
-     * @param platform
-     */
-    void movePlatformDown(const std::shared_ptr<Logic_Library::Platform>& platform);
-
-    /**
-     * @brief Function to move the background tile up
-     * @param bgTile
-     */
-    void moveBGTileUp(std::shared_ptr<Logic_Library::BG_Tile>& bgTile);
-
-    /**
-     * @brief Function to move the background tile down
-     * @param bgTile
-     */
-    void moveBGTileDown(std::shared_ptr<Logic_Library::BG_Tile>& bgTile);
-
-//    void handlePlayerInputs(sf::Keyboard::Key key, bool isPressed);
-
-    /**
      * @brief Getter for the world
      * @return the world
      */
@@ -114,12 +71,6 @@ public:
      * @param n_world
      */
     void setWorld(const std::shared_ptr<World>& n_world) {Controller::world = n_world;}
-
-    /**
-     * @brief Function to remove a platform
-     * @param platform
-     */
-    void removePlatform(std::shared_ptr<Logic_Library::Platform>& platform) {world->removePlatform(platform);}
 
     /**
      * @brief Function to check if the game has ended
