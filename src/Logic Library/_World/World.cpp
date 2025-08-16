@@ -247,14 +247,21 @@ void World::checkPlayerBonusCollision() {
             // Check for collision between player and bonus
             auto bonusType = bonus->getBType();
 
+            float playerLeft = playerCoordinates.getX();
+            float playerRight = playerCoordinates.getX() + playerDimensions.first;
+            float playerTop = playerCoordinates.getY() - playerDimensions.second;
+            float playerBottom = playerCoordinates.getY();
+
+            float bonusLeft = bonusPos.getX() - bonusRadius;
+            float bonusRight = bonusPos.getX() + bonusRadius;
+            float bonusTop = bonusPos.getY() - bonusRadius;
+            float bonusBottom = bonusPos.getY() + bonusRadius;
+
             if (bonusType == Enums::BonusType::SPRING) {
                 // For spring: only activate if player is landing on it from above
                 if (mPlayer->getVerticalSpeed() > 0) {
-                    float playerBottom = playerCoordinates.getY();
-                    float bonusTop = bonusPos.getY() - bonusRadius;
-
-                    std::cout << "Player bottom: " << playerBottom << ", Bonus top: " << bonusTop << ", Bonus PosY: " << bonusPos.getY() << std::endl;
-                    if (playerBottom >= bonusTop && playerBottom <= bonusPos.getY()+10.f) {
+                    if (playerBottom >= bonusTop and playerBottom <= bonusPos.getY()+10.f
+                    and playerRight >= bonusLeft and playerLeft <= bonusRight) {
                         // Apply spring effect (stronger jump)
                         mPlayer->setJumpForce(1200.f);
                         mPlayer->jump();
@@ -263,35 +270,28 @@ void World::checkPlayerBonusCollision() {
                         // Remove bonus from platform
                         platform->setHasBonus(false);
                         platform->setBonus(nullptr);
+                        if (platform->getPType() == Enums::TEMPORARY) {
+                            removePlatform(platform);
+                        }
                     }
                 }
             }
             else if (bonusType == Enums::BonusType::JETPACK) {
                 // For jetpack: activate on collision
-                float playerLeft = playerCoordinates.getX();
-                float playerRight = playerCoordinates.getX() + playerDimensions.first;
-                float playerTop = playerCoordinates.getY() - playerDimensions.second;
-                float playerBottom = playerCoordinates.getY();
-
-                float bonusLeft = bonusPos.getX() - bonusRadius;
-                float bonusRight = bonusPos.getX() + bonusRadius;
-                float bonusTop = bonusPos.getY() - bonusRadius;
-                float bonusBottom = bonusPos.getY() + bonusRadius;
-
                 // Check for overlap
-                if (playerRight >= bonusLeft && playerLeft <= bonusRight &&
-                    playerBottom >= bonusTop && playerTop <= bonusBottom) {
+                if ((playerRight >= bonusLeft and playerLeft <= bonusRight) and
+                        (playerBottom >= bonusTop and playerTop <= bonusBottom)) {
 
                     // Activate jetpack
-                    mPlayer->activateJetpack();
-
-                    // Remove bonus from platform
-                    platform->setHasBonus(false);
-                    platform->setBonus(nullptr);
+                    if (!mPlayer->isJetpackActive()) {
+                        mPlayer->activateJetpack();
+                        platform->setHasBonus(false);
+                        platform->setBonus(nullptr);
+                        if (platform->getPType() == Enums::TEMPORARY) {
+                            removePlatform(platform);
+                        }
+                    }
                 }
-
-                platform->setHasBonus(false);
-                platform->setBonus(nullptr);
             }
         }
     }

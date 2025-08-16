@@ -165,9 +165,9 @@ public:
     static const std::map<Enums::BonusType, std::string> bonusTexture;
 
     /**
-     * @brief Duration of the jetpack bonus in seconds
+     * @brief Duration of the jetpack bonus in frames
      */
-    static constexpr float jetpackDuration = 3.f; // Duration of the jetpack bonus in seconds
+    static constexpr float jetPackFrameDuration = 180; // Duration of the jetpack bonus in frames (3s)
 
     /**
      * @brief Force of the jetpack bonus

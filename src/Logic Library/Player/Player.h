@@ -39,11 +39,11 @@ namespace Logic_Library {
         /// @brief boolean to check if the jetpack is active
         bool mJetpackActive = false;
 
-        /// @brief Time remaining for the jetpack
-        float mJetpackTimeRemaining = 0.0f;
+        /// @brief Jetpack frame count
+        int mJetpackFrameCount = 0;
 
         /// @brief Constants for the jetpack
-        const float JETPACK_DURATION = Config::jetpackDuration; // 3 seconds of jetpack time
+        const int JETPACK_FRAMES = Config::jetPackFrameDuration;
         const float JETPACK_FORCE = Config::jetpackForce; // Upward force, negative because y-axis is inverted
     public:
         /**
@@ -98,10 +98,9 @@ namespace Logic_Library {
 
         /**
          * @brief Funtion to update the jetpack state
-         * This function applies the jetpack force and updates the time remaining.
-         * @param deltaTime
+         * This function applies the jetpack force and updates the frames remaining.
          */
-        void updateJetpack(float deltaTime);
+        void updateJetpack();
 
         /**
          * @brief Function to check if the jetpack is active

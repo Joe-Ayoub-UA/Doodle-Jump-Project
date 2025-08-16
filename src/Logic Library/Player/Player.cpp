@@ -73,20 +73,26 @@ namespace Logic_Library {
     }
 
     void Player::activateJetpack() {
-        mJetpackActive = true;
-        mJetpackTimeRemaining = JETPACK_DURATION; // Reset the jetpack time
+        if (!mJetpackActive) {
+            mJetpackActive = true;
+            mJetpackFrameCount = 0;
+        }
     }
 
-    void Player::updateJetpack(float deltaTime) {
+    void Player::updateJetpack() {
         if (mJetpackActive) {
             // Apply constant upward force
             setVerticalSpeed(JETPACK_FORCE);
 
-            // Decrease remaining time
-            mJetpackTimeRemaining -= deltaTime;
+            mJetpackFrameCount++;
+
+            // Show percentage complete
+            float percentComplete = (float)mJetpackFrameCount / JETPACK_FRAMES * 100.0f;
+            std::cout << "Jetpack active: " << percentComplete << "% complete" << std::endl;
+
 
             // Deactivate jetpack when time runs out
-            if (mJetpackTimeRemaining <= 0) {
+            if (mJetpackFrameCount >= JETPACK_FRAMES) {
                 mJetpackActive = false;
             }
         }

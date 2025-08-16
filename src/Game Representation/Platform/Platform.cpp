@@ -33,11 +33,11 @@ namespace Game_Repr {
 
     void Platform::notifyPosition(const Coordinates& coordinates) {
         if (bonus != nullptr) {
-            std::cout << "==================" << std::endl;
-            std::cout << "Bonus position: " << bonus->getPosition().getX() << ", " << bonus->getPosition().getY() << std::endl;
-            std::cout << "Bonus origin: " << bonus->getMBonus()->getOrigin().x << ", " << bonus->getMBonus()->getOrigin().y << std::endl;
-            std::cout << "Platform position: " << coordinates.getX() << ", " << coordinates.getY() << std::endl;
-            std::cout << "==================" << std::endl;
+//            std::cout << "==================" << std::endl;
+//            std::cout << "Bonus position: " << bonus->getPosition().getX() << ", " << bonus->getPosition().getY() << std::endl;
+//            std::cout << "Bonus origin: " << bonus->getMBonus()->getOrigin().x << ", " << bonus->getMBonus()->getOrigin().y << std::endl;
+//            std::cout << "Platform position: " << coordinates.getX() << ", " << coordinates.getY() << std::endl;
+//            std::cout << "==================" << std::endl;
             // Calculate center position for bonus
             float bonusPosX = coordinates.getX() + (Config::platformWidth / 2);
             float bonusPosY = coordinates.getY() - bonus->getMBonus()->getRadius();

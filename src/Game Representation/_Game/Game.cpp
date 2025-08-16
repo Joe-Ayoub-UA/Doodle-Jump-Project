@@ -91,6 +91,8 @@ void Game::processEvents() {
 }
 
 void Game::update() {
+    // Update jetpack with delta time
+    mController->getWorld()->getMPlayer()->updateJetpack();
     if (mController->checkEndGame()) {
         mController->freezeWorld();
         if (!mGameOverFont.loadFromFile("../textures/Fonts/Arial.ttf")) {
@@ -112,9 +114,11 @@ void Game::update() {
         if (mKeyStates[sf::Keyboard::A] || mKeyStates[sf::Keyboard::Left]) {
             mController->movePlayerLeft();
         }
-        if (mKeyStates[sf::Keyboard::Space] || mKeyStates[sf::Keyboard::Up]) {
+
+        // For debugging purposes, have a custom jump button
+        /*if (mKeyStates[sf::Keyboard::Space] || mKeyStates[sf::Keyboard::Up]) {
             mController->jumpPlayer();
-        }
+        }*/
         if (mKeyStates[sf::Keyboard::F]) {
             mController->freezeWorld();
         }
@@ -131,11 +135,11 @@ void Game::update() {
         mText.setString("Score: "+std::to_string(Score::getInstance().getMScore()));
 
         static bool checkpointReached = false;
-        if (Score::getInstance().getMScore() > 0 and Score::getInstance().getMScore() % 10000 < 60 and !checkpointReached) {
+        if (Score::getInstance().getMScore() > 0 and Score::getInstance().getMScore() % 20000 < 60 and !checkpointReached) {
             Config::amountOfPlatforms--;
             std::cout << "Checkpoint reached" << std::endl;
             checkpointReached = true;
-        } else if (Score::getInstance().getMScore() % 5000 >= 60) {checkpointReached = false;}
+        } else if (Score::getInstance().getMScore() % 20000 >= 60) {checkpointReached = false;}
 
         mHighScoreText.setString("Highscore: "+std::to_string(Score::getInstance().getHighScore()));
     }

@@ -163,7 +163,12 @@ namespace Logic_Library {
          * @brief Setter for the bonus.
          * @param newBonus: shared pointer to the bonus.
          */
-        void setBonus(std::shared_ptr<Logic_Library::Bonus> newBonus) { bonus = std::move(newBonus); }
+        void setBonus(std::shared_ptr<Logic_Library::Bonus> newBonus) {
+            if (newBonus == nullptr && observer) {
+                observer->setBonus(nullptr);
+            }
+            bonus = std::move(newBonus);
+        }
 
         /**
          * @brief Function to move the platform up.
