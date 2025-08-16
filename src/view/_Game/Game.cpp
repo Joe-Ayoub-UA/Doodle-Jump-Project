@@ -12,6 +12,7 @@ void Game::gameInit() {
     std::shared_ptr<World> world = CF->createWorld();
     mController->setWorld(world);
     mPlayer = world->getMPlayer()->getObserver();
+    mBG = std::make_shared<Game_Repr::BG_Tile>();
 
     // Create the platforms: een beetje gelijkaardig aan die van boven, de vector van platforms komt van de world
     for (const std::shared_ptr<Logic_Library::Platform>& i: world->getMPlatforms()) {
@@ -46,7 +47,8 @@ void Game::gameInit() {
 
 void Game::render() {
     // Clear the window
-    mWindow->clear(sf::Color::White);
+    mWindow->clear();
+    mWindow->draw(mBG->getMTileSprite());
 
     // Draw the entities (player, platforms, BG_Tiles, bonuses)
     for (const std::shared_ptr<Game_Repr::Platform>& i: mPlatforms) {
@@ -97,7 +99,7 @@ void Game::update() {
             throw std::runtime_error("Game Over font not loaded");
         }
         mGameOverText.setFont(mGameOverFont);
-        mGameOverText.setString("Game Over! Your score: " + std::to_string(Score::getInstance().getMScore()) + "\n Highscore: " + std::to_string(Score::getInstance().getHighScore()));
+        mGameOverText.setString("Game Over! Your score: " + std::to_string(Score::getInstance().getMScore()) + "\nHighscore: " + std::to_string(Score::getInstance().getHighScore()));
         mGameOverText.setCharacterSize(35);
         mGameOverText.setFillColor(sf::Color::White);
         mGameOverText.setStyle(sf::Text::Bold);

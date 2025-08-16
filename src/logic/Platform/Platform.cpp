@@ -28,13 +28,13 @@ namespace Logic_Library {
 
 
         // Code for adding a bonus to a platform
-        int random2 = Random::getInstance().randomInt(1,10);
-        if (random2 == 1) {
+        int random2 = Random::getInstance().randomInt(1,20);
+        if (random2 == 4) {
             // 10% probability of a creating jetpack bonus
             setHasBonus(true);
             setBonus(std::make_shared<Logic_Library::Bonus>(Enums::BonusType::JETPACK));
         }
-        else if (random2 == 2) {
+        else if (random2 == 6) {
             // 10% probability of a creating spring bonus
             setHasBonus(true);
             setBonus(std::make_shared<Logic_Library::Bonus>(Enums::BonusType::SPRING));

@@ -37,6 +37,9 @@ private:
     /// @brief Player of the game
     std::shared_ptr<Game_Repr::Player> mPlayer{};
 
+    /// @brief Background of the game
+    std::shared_ptr<Game_Repr::BG_Tile> mBG{};
+
     /// @brief Platforms of the game
     std::vector<std::shared_ptr<Game_Repr::Platform>> mPlatforms{};
 
