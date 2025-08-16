@@ -1,0 +1,32 @@
+\doxysection{Coordinates.\+h}
+\hypertarget{Coordinates_8h_source}{}\label{Coordinates_8h_source}\index{src/Utilities/Coordinates/Coordinates.h@{src/Utilities/Coordinates/Coordinates.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 22/12/24\ at\ 16:40.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_COORDINATES\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_COORDINATES\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCoordinates}{Coordinates}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ x\{\};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ y\{\};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classCoordinates_a58f1192f5f92f368b893addeb38d69d6}{Coordinates}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classCoordinates_af98b3cdf06c918fb13e758b20bf96900}{Coordinates}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y)\ :\ x(x),\ y(y)\ \{\}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCoordinates_a08452457288db003635357b87e7e9837}{getX}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ x;\ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCoordinates_aadc84146f9a515fb04f67fb9c12d8802}{setX}}(\textcolor{keywordtype}{float}\ n\_x)\ \{\ Coordinates::x\ =\ n\_x;\ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classCoordinates_aa469639180fb0e272e6dc5b6045700cc}{getY}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ y;\ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCoordinates_afe57871989270e2e5a8bcca6075e56b6}{setY}}(\textcolor{keywordtype}{float}\ n\_y)\ \{\ Coordinates::y\ =\ n\_y;\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCoordinates_a097f1c9dd8792d82438cc09156b9b5d1}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ lhs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ rhs)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lhs.\mbox{\hyperlink{classCoordinates_a08452457288db003635357b87e7e9837}{getX}}()\ ==\ rhs.\mbox{\hyperlink{classCoordinates_a08452457288db003635357b87e7e9837}{getX}}()\ \&\&\ lhs.\mbox{\hyperlink{classCoordinates_aa469639180fb0e272e6dc5b6045700cc}{getY}}()\ ==\ rhs.\mbox{\hyperlink{classCoordinates_aa469639180fb0e272e6dc5b6045700cc}{getY}}();}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCoordinates_a4b1dbbbbd60736fa8e92da7d70e389d4}{\string~Coordinates}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_COORDINATES\_H}}
+
+\end{DoxyCode}

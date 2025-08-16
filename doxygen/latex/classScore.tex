@@ -1,0 +1,172 @@
+\doxysection{Score Class Reference}
+\hypertarget{classScore}{}\label{classScore}\index{Score@{Score}}
+
+
+Class that keeps track of the score and updates the highscore.  
+
+
+
+
+{\ttfamily \#include $<$Score.\+h$>$}
+
+
+
+Inheritance diagram for Score\+:
+% FIG 0
+
+
+Collaboration diagram for Score\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classScore_a039c99843551e5e4b512ecee99e46617}\label{classScore_a039c99843551e5e4b512ecee99e46617} 
+{\bfseries Score} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classScore}{Score} class. \end{DoxyCompactList}\item 
+\Hypertarget{classScore_aaff2e45637fcb22eb3a85ff2394a649c}\label{classScore_aaff2e45637fcb22eb3a85ff2394a649c} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Score} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor for the \doxylink{classScore}{Score} class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classScore_a9a832d934403f709d1fc33815f21cc78}{get\+MScore}} () const
+\begin{DoxyCompactList}\small\item\em Function that returns the score of the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classScore_a3c0aa11a97776989c962a49f4f3d6940}{set\+MScore}} (int n\+\_\+m\+Score)
+\begin{DoxyCompactList}\small\item\em Function that sets the score of the player. \end{DoxyCompactList}\item 
+\Hypertarget{classScore_a82ad5883f38f25ec50a8df1122ad96ea}\label{classScore_a82ad5883f38f25ec50a8df1122ad96ea} 
+void {\bfseries save\+High\+Score} ()
+\item 
+\Hypertarget{classScore_aee6aa653d803f56194316dee3b1ac682}\label{classScore_aee6aa653d803f56194316dee3b1ac682} 
+void {\bfseries load\+High\+Score} ()
+\item 
+void \mbox{\hyperlink{classScore_a617bb54eef73dbb511b09eda8b9d142a}{update\+High\+Score}} (int new\+Score)
+\begin{DoxyCompactList}\small\item\em Function that updates the highscore. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classScore_a1d4efebde034ef2b79e542aa92f08779}{update}} () override
+\begin{DoxyCompactList}\small\item\em Function that updates the score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classScore_a8e241de2d00b5e4a980946f2678c379b}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates) override
+\begin{DoxyCompactList}\small\item\em Function that notifies the position of the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classObserver}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classScore}{Score}} \& \mbox{\hyperlink{classScore_abd8cce853cefc900c66a769fa8929c30}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Function that returns the instance of the \doxylink{classScore}{Score} class. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classScore_aa32ce4c65b664ffcff28fe21d61cda44}{get\+High\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Function that returns the highscore. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that keeps track of the score and updates the highscore. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classScore_aa32ce4c65b664ffcff28fe21d61cda44}\label{classScore_aa32ce4c65b664ffcff28fe21d61cda44} 
+\index{Score@{Score}!getHighScore@{getHighScore}}
+\index{getHighScore@{getHighScore}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{getHighScore()}{getHighScore()}}
+{\footnotesize\ttfamily int Score\+::get\+High\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function that returns the highscore. 
+
+\begin{DoxyReturn}{Returns}
+the highscore 
+\end{DoxyReturn}
+\Hypertarget{classScore_abd8cce853cefc900c66a769fa8929c30}\label{classScore_abd8cce853cefc900c66a769fa8929c30} 
+\index{Score@{Score}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classScore}{Score}} \& Score\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function that returns the instance of the \doxylink{classScore}{Score} class. 
+
+\begin{DoxyReturn}{Returns}
+the instance of the \doxylink{classScore}{Score} class 
+\end{DoxyReturn}
+\Hypertarget{classScore_a9a832d934403f709d1fc33815f21cc78}\label{classScore_a9a832d934403f709d1fc33815f21cc78} 
+\index{Score@{Score}!getMScore@{getMScore}}
+\index{getMScore@{getMScore}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{getMScore()}{getMScore()}}
+{\footnotesize\ttfamily int Score\+::get\+MScore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function that returns the score of the player. 
+
+\begin{DoxyReturn}{Returns}
+the score of the player 
+\end{DoxyReturn}
+\Hypertarget{classScore_a8e241de2d00b5e4a980946f2678c379b}\label{classScore_a8e241de2d00b5e4a980946f2678c379b} 
+\index{Score@{Score}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily void Score\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function that notifies the position of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & the coordinates of the player \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classObserver_a77c1db4a66ba45b999696fbc29638a29}{Observer}}.
+
+\Hypertarget{classScore_a3c0aa11a97776989c962a49f4f3d6940}\label{classScore_a3c0aa11a97776989c962a49f4f3d6940} 
+\index{Score@{Score}!setMScore@{setMScore}}
+\index{setMScore@{setMScore}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{setMScore()}{setMScore()}}
+{\footnotesize\ttfamily void Score\+::set\+MScore (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+m\+Score }\end{DoxyParamCaption})}
+
+
+
+Function that sets the score of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+m\+Score} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classScore_a1d4efebde034ef2b79e542aa92f08779}\label{classScore_a1d4efebde034ef2b79e542aa92f08779} 
+\index{Score@{Score}!update@{update}}
+\index{update@{update}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Score\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function that updates the score. 
+
+
+
+Implements \mbox{\hyperlink{classObserver_ac75e4b339faeb3ea6fe0a01bf0b4a215}{Observer}}.
+
+\Hypertarget{classScore_a617bb54eef73dbb511b09eda8b9d142a}\label{classScore_a617bb54eef73dbb511b09eda8b9d142a} 
+\index{Score@{Score}!updateHighScore@{updateHighScore}}
+\index{updateHighScore@{updateHighScore}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{updateHighScore()}{updateHighScore()}}
+{\footnotesize\ttfamily void Score\+::update\+High\+Score (\begin{DoxyParamCaption}\item[{int}]{new\+Score }\end{DoxyParamCaption})}
+
+
+
+Function that updates the highscore. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Score} & the new score to be compared with the highscore \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/logic/\+Score/Score.\+h\item 
+src/logic/\+Score/Score.\+cpp\end{DoxyCompactItemize}

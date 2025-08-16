@@ -1,0 +1,72 @@
+\doxysection{Observer Class Reference}
+\hypertarget{classObserver}{}\label{classObserver}\index{Observer@{Observer}}
+
+
+Class that is responsible for the observer.  
+
+
+
+
+{\ttfamily \#include $<$Observer.\+h$>$}
+
+
+
+Inheritance diagram for Observer\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classObserver_acb0af5014875c6ec7465cccc85e4f39b}\label{classObserver_acb0af5014875c6ec7465cccc85e4f39b} 
+{\bfseries Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classObserver_ac75e4b339faeb3ea6fe0a01bf0b4a215}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Function to update the observer. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classObserver_a77c1db4a66ba45b999696fbc29638a29}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates)=0
+\begin{DoxyCompactList}\small\item\em Function to notify the position of the observer. \end{DoxyCompactList}\item 
+\Hypertarget{classObserver_a37824643eeaef086de17bba2717d865a}\label{classObserver_a37824643eeaef086de17bba2717d865a} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that is responsible for the observer. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classObserver_a77c1db4a66ba45b999696fbc29638a29}\label{classObserver_a77c1db4a66ba45b999696fbc29638a29} 
+\index{Observer@{Observer}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily virtual void Observer\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function to notify the position of the observer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \doxylink{classCoordinates}{Coordinates}, which are the new coordinates of the observer \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classGame__Repr_1_1Bonus_af7afd9baa6ff09518bb16333bf104e60}{Game\+\_\+\+Repr\+::\+Bonus}}, \mbox{\hyperlink{classScore_a8e241de2d00b5e4a980946f2678c379b}{Score}}, \mbox{\hyperlink{classGame__Repr_1_1Platform_a39dee4be83f942c6a7873702e6073d2a}{Game\+\_\+\+Repr\+::\+Platform}}, \mbox{\hyperlink{classGame__Repr_1_1Player_a4f27488cbeca0fd8ac8bbddffe0c332c}{Game\+\_\+\+Repr\+::\+Player}}, and \mbox{\hyperlink{classEntity__View_a438aca6eca6afa1c4285522f18b513b2}{Entity\+\_\+\+View}}.
+
+\Hypertarget{classObserver_ac75e4b339faeb3ea6fe0a01bf0b4a215}\label{classObserver_ac75e4b339faeb3ea6fe0a01bf0b4a215} 
+\index{Observer@{Observer}!update@{update}}
+\index{update@{update}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Observer\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function to update the observer. 
+
+
+
+Implemented in \mbox{\hyperlink{classGame__Repr_1_1Bonus_a1b9cfe74379aeefd3e26313d016a97be}{Game\+\_\+\+Repr\+::\+Bonus}}, \mbox{\hyperlink{classScore_a1d4efebde034ef2b79e542aa92f08779}{Score}}, \mbox{\hyperlink{classGame__Repr_1_1Platform_a83bc1d7a4d9fd7d428926e31d9063a6a}{Game\+\_\+\+Repr\+::\+Platform}}, \mbox{\hyperlink{classGame__Repr_1_1Player_ad6d2f94629b50b34a85ca02e56f7025a}{Game\+\_\+\+Repr\+::\+Player}}, and \mbox{\hyperlink{classEntity__View_a4137c102f447c4672c5fa85274363566}{Entity\+\_\+\+View}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/logic/\+Observer/Observer.\+h\end{DoxyCompactItemize}

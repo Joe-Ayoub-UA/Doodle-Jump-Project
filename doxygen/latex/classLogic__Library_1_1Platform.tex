@@ -1,0 +1,437 @@
+\doxysection{Logic\+\_\+\+Library\+::Platform Class Reference}
+\hypertarget{classLogic__Library_1_1Platform}{}\label{classLogic__Library_1_1Platform}\index{Logic\_Library::Platform@{Logic\_Library::Platform}}
+
+
+\doxylink{classLogic__Library_1_1Platform}{Platform} class\+: This class is responsible for the logic of the platform, it has the movement of the platform and the type of the platform.  
+
+
+
+
+{\ttfamily \#include $<$Platform.\+h$>$}
+
+
+
+Inheritance diagram for Logic\+\_\+\+Library\+::Platform\+:
+% FIG 0
+
+
+Collaboration diagram for Logic\+\_\+\+Library\+::Platform\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLogic__Library_1_1Platform_a40d7154681415ad7fc52e1d803917bc3}\label{classLogic__Library_1_1Platform_a40d7154681415ad7fc52e1d803917bc3} 
+{\bfseries Platform} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the platform class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums\+::\+Platform\+Type}} \mbox{\hyperlink{classLogic__Library_1_1Platform_ab8afc4a403229de17a926619fef6a40e}{get\+PType}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the type of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_aabe32d613c562bdc24b554ec0f785f0f}{set\+PType}} (\mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums\+::\+Platform\+Type}} new\+Type)
+\begin{DoxyCompactList}\small\item\em Setter for the type of the platform. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLogic__Library_1_1Platform_aa830dbd6a1fde3d8a4b9598293307f0e}{get\+Horizontal\+Speed}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the horizontal speed of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_a8b95d033eb6dae86a8be3f59e5910f26}{set\+Horizontal\+Speed}} (float n\+\_\+horizontal\+Speed)
+\begin{DoxyCompactList}\small\item\em Setter for the horizontal speed of the platform. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLogic__Library_1_1Platform_a2cd8d70e2437b61ae63425632edf8223}{get\+Vertical\+Speed}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the vertical speed of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_a3d0519a4600eef19c19f37d458ce2863}{set\+Vertical\+Speed}} (float n\+\_\+vertical\+Speed)
+\begin{DoxyCompactList}\small\item\em Setter for the vertical speed of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_aeeb01ab6a9952f65a8012226999fab2f}{set\+Vertical\+Limits}} (float range)
+\begin{DoxyCompactList}\small\item\em Setter for the vertical range of the platform. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLogic__Library_1_1Platform_ae91e3a9087fce0e73b7b318bd04c5643}{get\+Vertical\+Min}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the vertical minimum range of the platform. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLogic__Library_1_1Platform_a017fdb6c39591b8cf69ef2e30a62c6a5}{get\+Vertical\+Max}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the vertical maximum range of the platform. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLogic__Library_1_1Platform_a5a93a8e53ff97ffde280d3d577a1a56d}{is\+Going\+Left}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the boolean going\+Left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_aeb65160925bb95e068b437ebd5a3455a}{set\+Going\+Left}} (bool n\+\_\+going\+Left)
+\begin{DoxyCompactList}\small\item\em Setter for the boolean going\+Left. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLogic__Library_1_1Platform_a7b9d6a711b9fa47ce897a1b9845694dd}{is\+Going\+Up}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the boolean going\+Up. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_aead43e1f017aab760b648cffe1bcd958}{set\+Going\+Up}} (bool n\+\_\+going\+Up)
+\begin{DoxyCompactList}\small\item\em Setter for the boolean going\+Up. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLogic__Library_1_1Platform_a9bb2a53d0efeed57de0e4e6a051b29b1}{get\+Has\+Bonus}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the boolean has\+Bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_accd9f35314ffc4a266c3cc7c14cf7edb}{set\+Has\+Bonus}} (bool n\+\_\+has\+Bonus)
+\begin{DoxyCompactList}\small\item\em Setter for the boolean has\+Bonus. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ \mbox{\hyperlink{classLogic__Library_1_1Platform_a540f3a2d7dfbb1762be8d42416e25fe4}{get\+Bonus}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_ae1a86d6c3fa883f7f5389e1ab60999b7}{set\+Bonus}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ new\+Bonus)
+\begin{DoxyCompactList}\small\item\em Setter for the bonus. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Platform_a3d7763adf91bb73a7df78553e6e7e0f7}\label{classLogic__Library_1_1Platform_a3d7763adf91bb73a7df78553e6e7e0f7} 
+void {\bfseries move\+Up} ()
+\begin{DoxyCompactList}\small\item\em Function to move the platform up. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Platform_a6c5a287d24d2e1a1967d3999869110d4}\label{classLogic__Library_1_1Platform_a6c5a287d24d2e1a1967d3999869110d4} 
+void {\bfseries move\+Down} ()
+\begin{DoxyCompactList}\small\item\em Function to move the platform down. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Platform_a7042cf83faf74cf231674850da7e21e9}\label{classLogic__Library_1_1Platform_a7042cf83faf74cf231674850da7e21e9} 
+void {\bfseries move\+Left} ()
+\begin{DoxyCompactList}\small\item\em Function to move the platform left. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Platform_ab51f09c9ba27a1975c93354a931a5bad}\label{classLogic__Library_1_1Platform_ab51f09c9ba27a1975c93354a931a5bad} 
+void {\bfseries move\+Right} ()
+\begin{DoxyCompactList}\small\item\em Function to move the platform right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_a3513bcc5abccfea21864c6add09e096d}{fix\+Too\+High}} (float move\+Down\+Distance)
+\begin{DoxyCompactList}\small\item\em Function to move the platforms down when the player reaches the half of the window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_ab23c8fc4d6bd450d5c5b86b8997ef8fa}{assign\+Observer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Platform}{Game\+\_\+\+Repr\+::\+Platform}} $>$ new\+Observer)
+\begin{DoxyCompactList}\small\item\em Function to assign an observer to the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_a79f1eb76cd74ac8ac778f08322eaa4a4}{delete\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Function to delete the observer of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_af94057e180d66a274ea4deae2a346ae6}{notify\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Function to notify the observer of the platform. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Platform}{Game\+\_\+\+Repr\+::\+Platform}} $>$ \mbox{\hyperlink{classLogic__Library_1_1Platform_a5d39d8a5fd19086f1096f632abb61456}{get\+Observer}} ()
+\begin{DoxyCompactList}\small\item\em Function to get the observer of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Platform_a6684b860a7ba9bdeaf4af0118a6d13f9}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates) override
+\begin{DoxyCompactList}\small\item\em Function to notify the observer of the platform. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Platform_aa4a94d7ace1fe5df7fd05ee25a342d6a}\label{classLogic__Library_1_1Platform_aa4a94d7ace1fe5df7fd05ee25a342d6a} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Platform} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the platform class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classLogic__Library_1_1Entity__Model}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Entity\+\_\+\+Model} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Entity__Model}{Entity\+\_\+\+Model} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classLogic__Library_1_1Subject}{Logic\+\_\+\+Library\+::\+Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classLogic__Library_1_1Platform}{Platform} class\+: This class is responsible for the logic of the platform, it has the movement of the platform and the type of the platform. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLogic__Library_1_1Platform_ab23c8fc4d6bd450d5c5b86b8997ef8fa}\label{classLogic__Library_1_1Platform_ab23c8fc4d6bd450d5c5b86b8997ef8fa} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!assignObserver@{assignObserver}}
+\index{assignObserver@{assignObserver}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{assignObserver()}{assignObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::assign\+Observer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Platform}{Game\+\_\+\+Repr\+::\+Platform}} $>$}]{new\+Observer }\end{DoxyParamCaption})}
+
+
+
+Function to assign an observer to the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Observer} & std\+::shared\+\_\+ptr$<$\+Observer$>$, which is the new observer of the platform. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Platform_a79f1eb76cd74ac8ac778f08322eaa4a4}\label{classLogic__Library_1_1Platform_a79f1eb76cd74ac8ac778f08322eaa4a4} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!deleteObserver@{deleteObserver}}
+\index{deleteObserver@{deleteObserver}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{deleteObserver()}{deleteObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::delete\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to delete the observer of the platform. 
+
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a56fb751d461e4d9825ecec059f380879}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Platform_a3513bcc5abccfea21864c6add09e096d}\label{classLogic__Library_1_1Platform_a3513bcc5abccfea21864c6add09e096d} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!fixTooHigh@{fixTooHigh}}
+\index{fixTooHigh@{fixTooHigh}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{fixTooHigh()}{fixTooHigh()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::fix\+Too\+High (\begin{DoxyParamCaption}\item[{float}]{move\+Down\+Distance }\end{DoxyParamCaption})}
+
+
+
+Function to move the platforms down when the player reaches the half of the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Down\+Distance} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Platform_a540f3a2d7dfbb1762be8d42416e25fe4}\label{classLogic__Library_1_1Platform_a540f3a2d7dfbb1762be8d42416e25fe4} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!getBonus@{getBonus}}
+\index{getBonus@{getBonus}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{getBonus()}{getBonus()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ Logic\+\_\+\+Library\+::\+Platform\+::get\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the bonus. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the bonus. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_a9bb2a53d0efeed57de0e4e6a051b29b1}\label{classLogic__Library_1_1Platform_a9bb2a53d0efeed57de0e4e6a051b29b1} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!getHasBonus@{getHasBonus}}
+\index{getHasBonus@{getHasBonus}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{getHasBonus()}{getHasBonus()}}
+{\footnotesize\ttfamily bool Logic\+\_\+\+Library\+::\+Platform\+::get\+Has\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the boolean has\+Bonus. 
+
+\begin{DoxyReturn}{Returns}
+true if the platform has a bonus, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_aa830dbd6a1fde3d8a4b9598293307f0e}\label{classLogic__Library_1_1Platform_aa830dbd6a1fde3d8a4b9598293307f0e} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!getHorizontalSpeed@{getHorizontalSpeed}}
+\index{getHorizontalSpeed@{getHorizontalSpeed}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{getHorizontalSpeed()}{getHorizontalSpeed()}}
+{\footnotesize\ttfamily float Logic\+\_\+\+Library\+::\+Platform\+::get\+Horizontal\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the horizontal speed of the platform. 
+
+\begin{DoxyReturn}{Returns}
+horizontal\+Speed, which is the horizontal speed of the platform. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_a5d39d8a5fd19086f1096f632abb61456}\label{classLogic__Library_1_1Platform_a5d39d8a5fd19086f1096f632abb61456} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!getObserver@{getObserver}}
+\index{getObserver@{getObserver}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{getObserver()}{getObserver()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Platform}{Game\+\_\+\+Repr\+::\+Platform}} $>$ Logic\+\_\+\+Library\+::\+Platform\+::get\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to get the observer of the platform. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the observer of the platform. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_ab8afc4a403229de17a926619fef6a40e}\label{classLogic__Library_1_1Platform_ab8afc4a403229de17a926619fef6a40e} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!getPType@{getPType}}
+\index{getPType@{getPType}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{getPType()}{getPType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums\+::\+Platform\+Type}} Logic\+\_\+\+Library\+::\+Platform\+::get\+PType (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the type of the platform. 
+
+\begin{DoxyReturn}{Returns}
+Platform\+Type, which is the type of the platform. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_a017fdb6c39591b8cf69ef2e30a62c6a5}\label{classLogic__Library_1_1Platform_a017fdb6c39591b8cf69ef2e30a62c6a5} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!getVerticalMax@{getVerticalMax}}
+\index{getVerticalMax@{getVerticalMax}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{getVerticalMax()}{getVerticalMax()}}
+{\footnotesize\ttfamily float Logic\+\_\+\+Library\+::\+Platform\+::get\+Vertical\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the vertical maximum range of the platform. 
+
+\begin{DoxyReturn}{Returns}
+float, which is the vertical maximum range of the platform. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_ae91e3a9087fce0e73b7b318bd04c5643}\label{classLogic__Library_1_1Platform_ae91e3a9087fce0e73b7b318bd04c5643} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!getVerticalMin@{getVerticalMin}}
+\index{getVerticalMin@{getVerticalMin}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{getVerticalMin()}{getVerticalMin()}}
+{\footnotesize\ttfamily float Logic\+\_\+\+Library\+::\+Platform\+::get\+Vertical\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the vertical minimum range of the platform. 
+
+\begin{DoxyReturn}{Returns}
+float, which is the vertical minimum range of the platform. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_a2cd8d70e2437b61ae63425632edf8223}\label{classLogic__Library_1_1Platform_a2cd8d70e2437b61ae63425632edf8223} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!getVerticalSpeed@{getVerticalSpeed}}
+\index{getVerticalSpeed@{getVerticalSpeed}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{getVerticalSpeed()}{getVerticalSpeed()}}
+{\footnotesize\ttfamily float Logic\+\_\+\+Library\+::\+Platform\+::get\+Vertical\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the vertical speed of the platform. 
+
+\begin{DoxyReturn}{Returns}
+vertical\+Speed, which is the vertical speed of the platform. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_a5a93a8e53ff97ffde280d3d577a1a56d}\label{classLogic__Library_1_1Platform_a5a93a8e53ff97ffde280d3d577a1a56d} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!isGoingLeft@{isGoingLeft}}
+\index{isGoingLeft@{isGoingLeft}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{isGoingLeft()}{isGoingLeft()}}
+{\footnotesize\ttfamily bool Logic\+\_\+\+Library\+::\+Platform\+::is\+Going\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the boolean going\+Left. 
+
+\begin{DoxyReturn}{Returns}
+true if the platform is going left, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_a7b9d6a711b9fa47ce897a1b9845694dd}\label{classLogic__Library_1_1Platform_a7b9d6a711b9fa47ce897a1b9845694dd} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!isGoingUp@{isGoingUp}}
+\index{isGoingUp@{isGoingUp}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{isGoingUp()}{isGoingUp()}}
+{\footnotesize\ttfamily bool Logic\+\_\+\+Library\+::\+Platform\+::is\+Going\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the boolean going\+Up. 
+
+\begin{DoxyReturn}{Returns}
+true if the platform is going up, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Platform_af94057e180d66a274ea4deae2a346ae6}\label{classLogic__Library_1_1Platform_af94057e180d66a274ea4deae2a346ae6} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to notify the observer of the platform. 
+
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a9d8bd1ecef74b4a4eb18009a261e9dc0}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Platform_a6684b860a7ba9bdeaf4af0118a6d13f9}\label{classLogic__Library_1_1Platform_a6684b860a7ba9bdeaf4af0118a6d13f9} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to notify the observer of the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \doxylink{classCoordinates}{Coordinates}, which are the new coordinates of the platform. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a8eaae590e06b70348dbf2d216ba206e8}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Platform_ae1a86d6c3fa883f7f5389e1ab60999b7}\label{classLogic__Library_1_1Platform_ae1a86d6c3fa883f7f5389e1ab60999b7} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!setBonus@{setBonus}}
+\index{setBonus@{setBonus}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{setBonus()}{setBonus()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::set\+Bonus (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$}]{new\+Bonus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for the bonus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Bonus} & shared pointer to the bonus. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Platform_aeb65160925bb95e068b437ebd5a3455a}\label{classLogic__Library_1_1Platform_aeb65160925bb95e068b437ebd5a3455a} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!setGoingLeft@{setGoingLeft}}
+\index{setGoingLeft@{setGoingLeft}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{setGoingLeft()}{setGoingLeft()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::set\+Going\+Left (\begin{DoxyParamCaption}\item[{bool}]{n\+\_\+going\+Left }\end{DoxyParamCaption})}
+
+
+
+Setter for the boolean going\+Left. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+going\+Left} & bool, which is the new going\+Left. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Platform_aead43e1f017aab760b648cffe1bcd958}\label{classLogic__Library_1_1Platform_aead43e1f017aab760b648cffe1bcd958} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!setGoingUp@{setGoingUp}}
+\index{setGoingUp@{setGoingUp}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{setGoingUp()}{setGoingUp()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::set\+Going\+Up (\begin{DoxyParamCaption}\item[{bool}]{n\+\_\+going\+Up }\end{DoxyParamCaption})}
+
+
+
+Setter for the boolean going\+Up. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+going\+Up} & bool, which is the new going\+Up. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Platform_accd9f35314ffc4a266c3cc7c14cf7edb}\label{classLogic__Library_1_1Platform_accd9f35314ffc4a266c3cc7c14cf7edb} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!setHasBonus@{setHasBonus}}
+\index{setHasBonus@{setHasBonus}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{setHasBonus()}{setHasBonus()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::set\+Has\+Bonus (\begin{DoxyParamCaption}\item[{bool}]{n\+\_\+has\+Bonus }\end{DoxyParamCaption})}
+
+
+
+Setter for the boolean has\+Bonus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em has\+Bonus} & bool, which is the new has\+Bonus. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Platform_a8b95d033eb6dae86a8be3f59e5910f26}\label{classLogic__Library_1_1Platform_a8b95d033eb6dae86a8be3f59e5910f26} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!setHorizontalSpeed@{setHorizontalSpeed}}
+\index{setHorizontalSpeed@{setHorizontalSpeed}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{setHorizontalSpeed()}{setHorizontalSpeed()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::set\+Horizontal\+Speed (\begin{DoxyParamCaption}\item[{float}]{n\+\_\+horizontal\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for the horizontal speed of the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+horizontal\+Speed} & float, which is the new horizontal speed of the platform. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Platform_aabe32d613c562bdc24b554ec0f785f0f}\label{classLogic__Library_1_1Platform_aabe32d613c562bdc24b554ec0f785f0f} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!setPType@{setPType}}
+\index{setPType@{setPType}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{setPType()}{setPType()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::set\+PType (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums\+::\+Platform\+Type}}}]{new\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for the type of the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Type} & Platform\+Type, which is the new type of the platform. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Platform_aeeb01ab6a9952f65a8012226999fab2f}\label{classLogic__Library_1_1Platform_aeeb01ab6a9952f65a8012226999fab2f} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!setVerticalLimits@{setVerticalLimits}}
+\index{setVerticalLimits@{setVerticalLimits}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{setVerticalLimits()}{setVerticalLimits()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::set\+Vertical\+Limits (\begin{DoxyParamCaption}\item[{float}]{range }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for the vertical range of the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em range} & float, which is the new vertical range of the platform. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Platform_a3d0519a4600eef19c19f37d458ce2863}\label{classLogic__Library_1_1Platform_a3d0519a4600eef19c19f37d458ce2863} 
+\index{Logic\_Library::Platform@{Logic\_Library::Platform}!setVerticalSpeed@{setVerticalSpeed}}
+\index{setVerticalSpeed@{setVerticalSpeed}!Logic\_Library::Platform@{Logic\_Library::Platform}}
+\doxysubsubsection{\texorpdfstring{setVerticalSpeed()}{setVerticalSpeed()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Platform\+::set\+Vertical\+Speed (\begin{DoxyParamCaption}\item[{float}]{n\+\_\+vertical\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for the vertical speed of the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+vertical\+Speed} & float, which is the new vertical speed of the platform. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/logic/\+Platform/Platform.\+h\item 
+src/logic/\+Platform/Platform.\+cpp\end{DoxyCompactItemize}

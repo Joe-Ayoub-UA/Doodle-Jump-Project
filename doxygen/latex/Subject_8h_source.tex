@@ -1,0 +1,39 @@
+\doxysection{Subject.\+h}
+\hypertarget{Subject_8h_source}{}\label{Subject_8h_source}\index{src/logic/Subject/Subject.h@{src/logic/Subject/Subject.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 11/12/24\ at\ 11:43.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_SUBJECT\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_SUBJECT\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Coordinates/Coordinates.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../Observer/Observer.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLogic__Library}{Logic\_Library}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogic__Library_1_1Subject}{Subject}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ std::shared\_ptr<Observer>\ observer;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classLogic__Library_1_1Subject_a6cdbb18784ea3112c1db97baf33a8af1}{Subject}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ virtual\ void\ assignObserver(std::shared\_ptr<Observer>\ observer);}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Subject_a6e2b59fc27fc1fdc2e3d513e0107816b}{deleteObserver}}()\ =\ 0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Subject_a3f9af7bd2251e9269360f1d351600e78}{notifyObserver}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Subject_a02a4bceee37afc3a8464049f4700b06d}{notifyPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ coordinates)\ =\ 0;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classLogic__Library_1_1Subject_a419c2cf024507e70df5eae3a3534f66c}{\string~Subject}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ \}\ \textcolor{comment}{//\ namespace\ Logic\_Library}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_SUBJECT\_H}}
+
+\end{DoxyCode}

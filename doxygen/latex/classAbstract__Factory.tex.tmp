@@ -1,0 +1,183 @@
+\doxysection{Abstract\+\_\+\+Factory Class Reference}
+\hypertarget{classAbstract__Factory}{}\label{classAbstract__Factory}\index{Abstract\_Factory@{Abstract\_Factory}}
+
+
+\doxylink{classAbstract__Factory}{Abstract\+\_\+\+Factory} class that creates the player, platform, background tile, bonus etc...  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+\_\+\+Factory.\+h$>$}
+
+
+
+Inheritance diagram for Abstract\+\_\+\+Factory\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classAbstract__Factory_aa13740b11a1570f5a158fb9875fa924d}\label{classAbstract__Factory_aa13740b11a1570f5a158fb9875fa924d} 
+{\bfseries Abstract\+\_\+\+Factory} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classAbstract__Factory}{Abstract\+\_\+\+Factory} class. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Player}{Logic\+\_\+\+Library\+::\+Player}} $>$ \mbox{\hyperlink{classAbstract__Factory_a09dccaa5fc3ee2c19c332b95cc71f082}{create\+Player}} ()=0
+\begin{DoxyCompactList}\small\item\em Creates a player. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ \mbox{\hyperlink{classAbstract__Factory_ad735e044fd1289a4f5ffd04c12b81587}{create\+Platform}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coordinate)=0
+\begin{DoxyCompactList}\small\item\em Creates a platform. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ \mbox{\hyperlink{classAbstract__Factory_a3b61eef4c15b4a9b2b7cf88ae3bb8875}{create\+BGTile}} ()=0
+\begin{DoxyCompactList}\small\item\em Creates a background tile. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ \mbox{\hyperlink{classAbstract__Factory_ab2c3afaf1a4b1d486da870297239b468}{create\+Bonus}} ()=0
+\begin{DoxyCompactList}\small\item\em Creates a bonus. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ \mbox{\hyperlink{classAbstract__Factory_a93c036f3914d139ad9bbe7cee6deb197}{create\+World}} ()=0
+\begin{DoxyCompactList}\small\item\em Creates a world. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classAbstract__Factory_a8d6b73c74872984e97a191ae5b47946b}{assign\+Observer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classObserver}{Observer}} $>$ observer)=0
+\begin{DoxyCompactList}\small\item\em Function to assign an observer to the factory. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classAbstract__Factory_af191ef570e1423a71f092a0b4353fbd3}{delete\+Observer}} ()=0
+\begin{DoxyCompactList}\small\item\em Function to delete the observer of the factory. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classAbstract__Factory_a9ecaff941ea7c6403a4bbf83365a34f7}{notify\+Observer}} ()=0
+\begin{DoxyCompactList}\small\item\em Function to notify the observer of the factory. \end{DoxyCompactList}\item 
+\Hypertarget{classAbstract__Factory_acbd66f22ac5ec340bbc9e82b105fe6ec}\label{classAbstract__Factory_acbd66f22ac5ec340bbc9e82b105fe6ec} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Abstract\+\_\+\+Factory} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classAbstract__Factory}{Abstract\+\_\+\+Factory} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classAbstract__Factory}{Abstract\+\_\+\+Factory} class that creates the player, platform, background tile, bonus etc... 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAbstract__Factory_a8d6b73c74872984e97a191ae5b47946b}\label{classAbstract__Factory_a8d6b73c74872984e97a191ae5b47946b} 
+\index{Abstract\_Factory@{Abstract\_Factory}!assignObserver@{assignObserver}}
+\index{assignObserver@{assignObserver}!Abstract\_Factory@{Abstract\_Factory}}
+\doxysubsubsection{\texorpdfstring{assignObserver()}{assignObserver()}}
+{\footnotesize\ttfamily virtual void Abstract\+\_\+\+Factory\+::assign\+Observer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classObserver}{Observer}} $>$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function to assign an observer to the factory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classConcrete__Factory_afaf67ff75769d9efa55a4b84abaa6639}{Concrete\+\_\+\+Factory}}.
+
+\Hypertarget{classAbstract__Factory_a3b61eef4c15b4a9b2b7cf88ae3bb8875}\label{classAbstract__Factory_a3b61eef4c15b4a9b2b7cf88ae3bb8875} 
+\index{Abstract\_Factory@{Abstract\_Factory}!createBGTile@{createBGTile}}
+\index{createBGTile@{createBGTile}!Abstract\_Factory@{Abstract\_Factory}}
+\doxysubsubsection{\texorpdfstring{createBGTile()}{createBGTile()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ Abstract\+\_\+\+Factory\+::create\+BGTile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a background tile. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the background tile 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classConcrete__Factory_a0f63a6442ebd4268c61ca7ffbbd9000d}{Concrete\+\_\+\+Factory}}.
+
+\Hypertarget{classAbstract__Factory_ab2c3afaf1a4b1d486da870297239b468}\label{classAbstract__Factory_ab2c3afaf1a4b1d486da870297239b468} 
+\index{Abstract\_Factory@{Abstract\_Factory}!createBonus@{createBonus}}
+\index{createBonus@{createBonus}!Abstract\_Factory@{Abstract\_Factory}}
+\doxysubsubsection{\texorpdfstring{createBonus()}{createBonus()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ Abstract\+\_\+\+Factory\+::create\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a bonus. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the bonus 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classConcrete__Factory_a46d005fc674c606433db8ae4aca5201b}{Concrete\+\_\+\+Factory}}.
+
+\Hypertarget{classAbstract__Factory_ad735e044fd1289a4f5ffd04c12b81587}\label{classAbstract__Factory_ad735e044fd1289a4f5ffd04c12b81587} 
+\index{Abstract\_Factory@{Abstract\_Factory}!createPlatform@{createPlatform}}
+\index{createPlatform@{createPlatform}!Abstract\_Factory@{Abstract\_Factory}}
+\doxysubsubsection{\texorpdfstring{createPlatform()}{createPlatform()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ Abstract\+\_\+\+Factory\+::create\+Platform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{coordinate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a platform. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the platform 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classConcrete__Factory_a36d91541c2e4e84924f911535a504e10}{Concrete\+\_\+\+Factory}}.
+
+\Hypertarget{classAbstract__Factory_a09dccaa5fc3ee2c19c332b95cc71f082}\label{classAbstract__Factory_a09dccaa5fc3ee2c19c332b95cc71f082} 
+\index{Abstract\_Factory@{Abstract\_Factory}!createPlayer@{createPlayer}}
+\index{createPlayer@{createPlayer}!Abstract\_Factory@{Abstract\_Factory}}
+\doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Player}{Logic\+\_\+\+Library\+::\+Player}} $>$ Abstract\+\_\+\+Factory\+::create\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a player. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the player 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classConcrete__Factory_a7b18228741faafd0950cd60253218c39}{Concrete\+\_\+\+Factory}}.
+
+\Hypertarget{classAbstract__Factory_a93c036f3914d139ad9bbe7cee6deb197}\label{classAbstract__Factory_a93c036f3914d139ad9bbe7cee6deb197} 
+\index{Abstract\_Factory@{Abstract\_Factory}!createWorld@{createWorld}}
+\index{createWorld@{createWorld}!Abstract\_Factory@{Abstract\_Factory}}
+\doxysubsubsection{\texorpdfstring{createWorld()}{createWorld()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ Abstract\+\_\+\+Factory\+::create\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates a world. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the world 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classConcrete__Factory_a3c639935bff77651ab9c7fd5f363b471}{Concrete\+\_\+\+Factory}}.
+
+\Hypertarget{classAbstract__Factory_af191ef570e1423a71f092a0b4353fbd3}\label{classAbstract__Factory_af191ef570e1423a71f092a0b4353fbd3} 
+\index{Abstract\_Factory@{Abstract\_Factory}!deleteObserver@{deleteObserver}}
+\index{deleteObserver@{deleteObserver}!Abstract\_Factory@{Abstract\_Factory}}
+\doxysubsubsection{\texorpdfstring{deleteObserver()}{deleteObserver()}}
+{\footnotesize\ttfamily virtual void Abstract\+\_\+\+Factory\+::delete\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function to delete the observer of the factory. 
+
+
+
+Implemented in \mbox{\hyperlink{classConcrete__Factory_a2d53b225c112604da23f9ce2735d09a9}{Concrete\+\_\+\+Factory}}.
+
+\Hypertarget{classAbstract__Factory_a9ecaff941ea7c6403a4bbf83365a34f7}\label{classAbstract__Factory_a9ecaff941ea7c6403a4bbf83365a34f7} 
+\index{Abstract\_Factory@{Abstract\_Factory}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Abstract\_Factory@{Abstract\_Factory}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily virtual void Abstract\+\_\+\+Factory\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function to notify the observer of the factory. 
+
+
+
+Implemented in \mbox{\hyperlink{classConcrete__Factory_abd86a97a6fc2c9f85ef5d258492d911b}{Concrete\+\_\+\+Factory}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/logic/\+Abstract\+\_\+\+Factory/Abstract\+\_\+\+Factory.\+h\end{DoxyCompactItemize}

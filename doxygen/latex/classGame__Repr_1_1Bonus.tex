@@ -1,0 +1,204 @@
+\doxysection{Game\+\_\+\+Repr\+::Bonus Class Reference}
+\hypertarget{classGame__Repr_1_1Bonus}{}\label{classGame__Repr_1_1Bonus}\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+
+
+Class to represent the bonus.  
+
+
+
+
+{\ttfamily \#include $<$Bonus.\+h$>$}
+
+
+
+Inheritance diagram for Game\+\_\+\+Repr\+::Bonus\+:
+% FIG 0
+
+
+Collaboration diagram for Game\+\_\+\+Repr\+::Bonus\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGame__Repr_1_1Bonus_a1293b91011e7b8e1a4253581b48af5d3}\label{classGame__Repr_1_1Bonus_a1293b91011e7b8e1a4253581b48af5d3} 
+{\bfseries Bonus} (\mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums\+::\+Bonus\+Type}} bonus\+Type)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classGame__Repr_1_1Player}{Player} class. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ sf\+::\+Circle\+Shape $>$ \& \mbox{\hyperlink{classGame__Repr_1_1Bonus_a706cd366ae83a63115ecea8904a159ac}{get\+MBonus}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Bonus_a8cb13de0023a6019aa1c7aa9e59ad498}{set\+MBonus}} (const std\+::shared\+\_\+ptr$<$ sf\+::\+Circle\+Shape $>$ \&n\+\_\+m\+Player)
+\begin{DoxyCompactList}\small\item\em Setter for the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Bonus_a1b9cfe74379aeefd3e26313d016a97be}{update}} ()
+\begin{DoxyCompactList}\small\item\em Function to update the bonus. \end{DoxyCompactList}\item 
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classGame__Repr_1_1Bonus_a592a16607f75ebab46fca07f5d296a94}{get\+MDimensions}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the dimensions of the bonus. \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{classGame__Repr_1_1Bonus_a98baed4833ba467565f8068b482d5f96}{get\+Global\+Bounds}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the position of the bonus. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ sf\+::\+Sprite $>$ \& \mbox{\hyperlink{classGame__Repr_1_1Bonus_abd118a76dcdff804d21bea9941f3393d}{get\+MBonus\+Sprite}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the sprite of the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Bonus_a25d7830514605dcb6b739596008ec28c}{set\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&n\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Function to set the position of the bonus. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classCoordinates}{Coordinates}} \& \mbox{\hyperlink{classGame__Repr_1_1Bonus_aefefc293d1901290685e31b48f76e7bf}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the position of the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Bonus_af7afd9baa6ff09518bb16333bf104e60}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates)
+\begin{DoxyCompactList}\small\item\em Function to notify the position of the bonus. \end{DoxyCompactList}\item 
+\Hypertarget{classGame__Repr_1_1Bonus_a5d1446b63d8653030c0310ac3ac1656d}\label{classGame__Repr_1_1Bonus_a5d1446b63d8653030c0310ac3ac1656d} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Bonus} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the bonus class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEntity__View}{Entity\+\_\+\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Entity\+\_\+\+View} ()=default
+\begin{DoxyCompactList}\small\item\em Function to update the entity. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity\+\_\+\+View} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classEntity__View}{Entity\+\_\+\+View} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classObserver}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to represent the bonus. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGame__Repr_1_1Bonus_a98baed4833ba467565f8068b482d5f96}\label{classGame__Repr_1_1Bonus_a98baed4833ba467565f8068b482d5f96} 
+\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}!getGlobalBounds@{getGlobalBounds}}
+\index{getGlobalBounds@{getGlobalBounds}!Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+\doxysubsubsection{\texorpdfstring{getGlobalBounds()}{getGlobalBounds()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Game\+\_\+\+Repr\+::\+Bonus\+::get\+Global\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Function to get the position of the bonus. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classCoordinates}{Coordinates}, which are the position of the bonus 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classEntity__View_a9712075a070a771f4c24e4622aec64d6}{Entity\+\_\+\+View}}.
+
+\Hypertarget{classGame__Repr_1_1Bonus_a706cd366ae83a63115ecea8904a159ac}\label{classGame__Repr_1_1Bonus_a706cd366ae83a63115ecea8904a159ac} 
+\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}!getMBonus@{getMBonus}}
+\index{getMBonus@{getMBonus}!Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+\doxysubsubsection{\texorpdfstring{getMBonus()}{getMBonus()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ sf\+::\+Circle\+Shape $>$ \& Game\+\_\+\+Repr\+::\+Bonus\+::get\+MBonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the bonus. 
+
+\begin{DoxyReturn}{Returns}
+the bonus 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Bonus_abd118a76dcdff804d21bea9941f3393d}\label{classGame__Repr_1_1Bonus_abd118a76dcdff804d21bea9941f3393d} 
+\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}!getMBonusSprite@{getMBonusSprite}}
+\index{getMBonusSprite@{getMBonusSprite}!Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+\doxysubsubsection{\texorpdfstring{getMBonusSprite()}{getMBonusSprite()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ sf\+::\+Sprite $>$ \& Game\+\_\+\+Repr\+::\+Bonus\+::get\+MBonus\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the sprite of the bonus. 
+
+\begin{DoxyReturn}{Returns}
+the sprite of the bonus 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Bonus_a592a16607f75ebab46fca07f5d296a94}\label{classGame__Repr_1_1Bonus_a592a16607f75ebab46fca07f5d296a94} 
+\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}!getMDimensions@{getMDimensions}}
+\index{getMDimensions@{getMDimensions}!Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+\doxysubsubsection{\texorpdfstring{getMDimensions()}{getMDimensions()}}
+{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Game\+\_\+\+Repr\+::\+Bonus\+::get\+MDimensions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the dimensions of the bonus. 
+
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$float, float$>$, which are the dimensions of the bonus 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Bonus_aefefc293d1901290685e31b48f76e7bf}\label{classGame__Repr_1_1Bonus_aefefc293d1901290685e31b48f76e7bf} 
+\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCoordinates}{Coordinates}} \& Game\+\_\+\+Repr\+::\+Bonus\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the position of the bonus. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Bonus_af7afd9baa6ff09518bb16333bf104e60}\label{classGame__Repr_1_1Bonus_af7afd9baa6ff09518bb16333bf104e60} 
+\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Bonus\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to notify the position of the bonus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \doxylink{classCoordinates}{Coordinates}, which are the new coordinates of the bonus \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classEntity__View_a438aca6eca6afa1c4285522f18b513b2}{Entity\+\_\+\+View}}.
+
+\Hypertarget{classGame__Repr_1_1Bonus_a8cb13de0023a6019aa1c7aa9e59ad498}\label{classGame__Repr_1_1Bonus_a8cb13de0023a6019aa1c7aa9e59ad498} 
+\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}!setMBonus@{setMBonus}}
+\index{setMBonus@{setMBonus}!Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+\doxysubsubsection{\texorpdfstring{setMBonus()}{setMBonus()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Bonus\+::set\+MBonus (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ sf\+::\+Circle\+Shape $>$ \&}]{n\+\_\+m\+Player }\end{DoxyParamCaption})}
+
+
+
+Setter for the bonus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+m\+Player} & std\+::shared\+\_\+ptr$<$sf\+::\+Sprite$>$, which is the new bonus \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGame__Repr_1_1Bonus_a25d7830514605dcb6b739596008ec28c}\label{classGame__Repr_1_1Bonus_a25d7830514605dcb6b739596008ec28c} 
+\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Bonus\+::set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{n\+\_\+position }\end{DoxyParamCaption})}
+
+
+
+Function to set the position of the bonus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+position} & \doxylink{classCoordinates}{Coordinates}, which are the new position of the bonus \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGame__Repr_1_1Bonus_a1b9cfe74379aeefd3e26313d016a97be}\label{classGame__Repr_1_1Bonus_a1b9cfe74379aeefd3e26313d016a97be} 
+\index{Game\_Repr::Bonus@{Game\_Repr::Bonus}!update@{update}}
+\index{update@{update}!Game\_Repr::Bonus@{Game\_Repr::Bonus}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Bonus\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Function to update the bonus. 
+
+
+
+Implements \mbox{\hyperlink{classEntity__View_a4137c102f447c4672c5fa85274363566}{Entity\+\_\+\+View}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/view/\+Bonus/Bonus.\+h\item 
+src/view/\+Bonus/Bonus.\+cpp\end{DoxyCompactItemize}

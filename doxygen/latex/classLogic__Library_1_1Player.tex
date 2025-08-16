@@ -1,0 +1,306 @@
+\doxysection{Logic\+\_\+\+Library\+::Player Class Reference}
+\hypertarget{classLogic__Library_1_1Player}{}\label{classLogic__Library_1_1Player}\index{Logic\_Library::Player@{Logic\_Library::Player}}
+
+
+Class that is responsible for the logic of the player.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+
+
+Inheritance diagram for Logic\+\_\+\+Library\+::Player\+:
+% FIG 0
+
+
+Collaboration diagram for Logic\+\_\+\+Library\+::Player\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLogic__Library_1_1Player_a1c431f5885472f72c804eaf4a6978f48}\label{classLogic__Library_1_1Player_a1c431f5885472f72c804eaf4a6978f48} 
+{\bfseries Player} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Player}{Player} class. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Player_a1675f62a80e1fafd8c8cbbda369bdc33}\label{classLogic__Library_1_1Player_a1675f62a80e1fafd8c8cbbda369bdc33} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Player} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classLogic__Library_1_1Player}{Player} class. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Player_afe004832e11ebcbe6fadd4d4098c3c23}\label{classLogic__Library_1_1Player_afe004832e11ebcbe6fadd4d4098c3c23} 
+void {\bfseries move\+Left} ()
+\begin{DoxyCompactList}\small\item\em Function to move the player to the left. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Player_ad34e317c25a5eb41ffa80db4827c4caf}\label{classLogic__Library_1_1Player_ad34e317c25a5eb41ffa80db4827c4caf} 
+void {\bfseries move\+Right} ()
+\begin{DoxyCompactList}\small\item\em Function to move the player to the right. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classLogic__Library_1_1Player_a859724990948a0d74cc731bc139aef6a}{teleport\+Player}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinate)
+\begin{DoxyCompactList}\small\item\em Function to handle the situation when the player is out of bounds (Teleportation) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLogic__Library_1_1Player_ac2cdaf7c46c45d2cebe6fedea261012a}{check\+Out\+Of\+Bounds}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates)
+\begin{DoxyCompactList}\small\item\em Function to check if the player is out of bounds. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Player_a299848d58ef824ebaa9430d0a82db5c7}\label{classLogic__Library_1_1Player_a299848d58ef824ebaa9430d0a82db5c7} 
+void {\bfseries jump} ()
+\begin{DoxyCompactList}\small\item\em Function to make the player jump. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Player_a5c4e3b6856ddd7293797a73c2953e001}\label{classLogic__Library_1_1Player_a5c4e3b6856ddd7293797a73c2953e001} 
+void {\bfseries apply\+Gravity} ()
+\begin{DoxyCompactList}\small\item\em Function to apply gravity to the player. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Player_ac9b80d44f082e1f6760cfffad3fcaf23}\label{classLogic__Library_1_1Player_ac9b80d44f082e1f6760cfffad3fcaf23} 
+void {\bfseries activate\+Jetpack} ()
+\begin{DoxyCompactList}\small\item\em Funtion to activate the jetpack This function sets the jetpack active state and initializes the time remaining. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Player_a7f394710553a980abece7c1685bb7102}\label{classLogic__Library_1_1Player_a7f394710553a980abece7c1685bb7102} 
+void {\bfseries update\+Jetpack} ()
+\begin{DoxyCompactList}\small\item\em Funtion to update the jetpack state This function applies the jetpack force and updates the frames remaining. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLogic__Library_1_1Player_aa19686a87210b80d16c7d4673ff4c24b}{is\+Jetpack\+Active}} () const
+\begin{DoxyCompactList}\small\item\em Function to check if the jetpack is active. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Player_aecfa24c7635326f8d9066a50cfb73f06}{assign\+Observer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Player}{Game\+\_\+\+Repr\+::\+Player}} $>$ new\+Observer)
+\begin{DoxyCompactList}\small\item\em Function to assign an observer to the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Player_abb569c5ef80d4b940e56f35e65936eab}{delete\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Function to delete the observer of the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Player_ae2f4b8cc9dfbe8e39a7a4546d80dcaf4}{notify\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Function to notify the observer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Player_a0261509fa5854cfce9435053056fe35c}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates) override
+\begin{DoxyCompactList}\small\item\em Function to notify the position of the player. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Player}{Game\+\_\+\+Repr\+::\+Player}} $>$ \mbox{\hyperlink{classLogic__Library_1_1Player_a83e73949dbcee8199b844ec5e0b98c81}{get\+Observer}} ()
+\begin{DoxyCompactList}\small\item\em Function to get the observer of the player. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLogic__Library_1_1Player_ab119e4e7d3079318d90f80a4f8229c16}{get\+Vertical\+Speed}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the horizontal speed of the player. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLogic__Library_1_1Player_a45d182511f902dae59afd53b2d649458}{get\+Jump\+Force}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the jump force of the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Player_a12b0d13bdf1b3dfd2859cb5eff93cd7a}{set\+Vertical\+Speed}} (float n\+\_\+vertical\+Speed)
+\begin{DoxyCompactList}\small\item\em Function to set the vertical speed of the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Player_a9c3aa0ff2677125074d7c2be0de77897}{set\+Jump\+Force}} (float n\+\_\+jump\+Force)
+\begin{DoxyCompactList}\small\item\em Function to set the jump force of the player. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classLogic__Library_1_1Player_a055e6d068901c8e77ac4654270c5db26}{get\+Horizontal\+Speed}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the horizontal speed of the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Player_a996a1ae8172d0af271ccefdde24acd21}{set\+Horizontal\+Speed}} (float n\+\_\+horizontal\+Speed)
+\begin{DoxyCompactList}\small\item\em Function to set the horizontal speed of the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classLogic__Library_1_1Entity__Model}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Entity\+\_\+\+Model} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Entity__Model}{Entity\+\_\+\+Model} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classLogic__Library_1_1Subject}{Logic\+\_\+\+Library\+::\+Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that is responsible for the logic of the player. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLogic__Library_1_1Player_aecfa24c7635326f8d9066a50cfb73f06}\label{classLogic__Library_1_1Player_aecfa24c7635326f8d9066a50cfb73f06} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!assignObserver@{assignObserver}}
+\index{assignObserver@{assignObserver}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{assignObserver()}{assignObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Player\+::assign\+Observer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Player}{Game\+\_\+\+Repr\+::\+Player}} $>$}]{new\+Observer }\end{DoxyParamCaption})}
+
+
+
+Function to assign an observer to the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Observer} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Player_ac2cdaf7c46c45d2cebe6fedea261012a}\label{classLogic__Library_1_1Player_ac2cdaf7c46c45d2cebe6fedea261012a} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!checkOutOfBounds@{checkOutOfBounds}}
+\index{checkOutOfBounds@{checkOutOfBounds}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{checkOutOfBounds()}{checkOutOfBounds()}}
+{\footnotesize\ttfamily bool Logic\+\_\+\+Library\+::\+Player\+::check\+Out\+Of\+Bounds (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})}
+
+
+
+Function to check if the player is out of bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the player is out of bounds, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Player_abb569c5ef80d4b940e56f35e65936eab}\label{classLogic__Library_1_1Player_abb569c5ef80d4b940e56f35e65936eab} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!deleteObserver@{deleteObserver}}
+\index{deleteObserver@{deleteObserver}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{deleteObserver()}{deleteObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Player\+::delete\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to delete the observer of the player. 
+
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a56fb751d461e4d9825ecec059f380879}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Player_a055e6d068901c8e77ac4654270c5db26}\label{classLogic__Library_1_1Player_a055e6d068901c8e77ac4654270c5db26} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!getHorizontalSpeed@{getHorizontalSpeed}}
+\index{getHorizontalSpeed@{getHorizontalSpeed}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{getHorizontalSpeed()}{getHorizontalSpeed()}}
+{\footnotesize\ttfamily float Logic\+\_\+\+Library\+::\+Player\+::get\+Horizontal\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the horizontal speed of the player. 
+
+\begin{DoxyReturn}{Returns}
+horizontal speed of the player 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Player_a45d182511f902dae59afd53b2d649458}\label{classLogic__Library_1_1Player_a45d182511f902dae59afd53b2d649458} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!getJumpForce@{getJumpForce}}
+\index{getJumpForce@{getJumpForce}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{getJumpForce()}{getJumpForce()}}
+{\footnotesize\ttfamily float Logic\+\_\+\+Library\+::\+Player\+::get\+Jump\+Force (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the jump force of the player. 
+
+\begin{DoxyReturn}{Returns}
+jump force of the player 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Player_a83e73949dbcee8199b844ec5e0b98c81}\label{classLogic__Library_1_1Player_a83e73949dbcee8199b844ec5e0b98c81} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!getObserver@{getObserver}}
+\index{getObserver@{getObserver}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{getObserver()}{getObserver()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Player}{Game\+\_\+\+Repr\+::\+Player}} $>$ Logic\+\_\+\+Library\+::\+Player\+::get\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get the observer of the player. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the observer of the player 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Player_ab119e4e7d3079318d90f80a4f8229c16}\label{classLogic__Library_1_1Player_ab119e4e7d3079318d90f80a4f8229c16} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!getVerticalSpeed@{getVerticalSpeed}}
+\index{getVerticalSpeed@{getVerticalSpeed}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{getVerticalSpeed()}{getVerticalSpeed()}}
+{\footnotesize\ttfamily float Logic\+\_\+\+Library\+::\+Player\+::get\+Vertical\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the horizontal speed of the player. 
+
+\begin{DoxyReturn}{Returns}
+horizontal speed of the player 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Player_aa19686a87210b80d16c7d4673ff4c24b}\label{classLogic__Library_1_1Player_aa19686a87210b80d16c7d4673ff4c24b} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!isJetpackActive@{isJetpackActive}}
+\index{isJetpackActive@{isJetpackActive}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{isJetpackActive()}{isJetpackActive()}}
+{\footnotesize\ttfamily bool Logic\+\_\+\+Library\+::\+Player\+::is\+Jetpack\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to check if the jetpack is active. 
+
+\begin{DoxyReturn}{Returns}
+true if the jetpack is active, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Player_ae2f4b8cc9dfbe8e39a7a4546d80dcaf4}\label{classLogic__Library_1_1Player_ae2f4b8cc9dfbe8e39a7a4546d80dcaf4} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Player\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to notify the observer. 
+
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a9d8bd1ecef74b4a4eb18009a261e9dc0}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Player_a0261509fa5854cfce9435053056fe35c}\label{classLogic__Library_1_1Player_a0261509fa5854cfce9435053056fe35c} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Player\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to notify the position of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a8eaae590e06b70348dbf2d216ba206e8}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Player_a996a1ae8172d0af271ccefdde24acd21}\label{classLogic__Library_1_1Player_a996a1ae8172d0af271ccefdde24acd21} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!setHorizontalSpeed@{setHorizontalSpeed}}
+\index{setHorizontalSpeed@{setHorizontalSpeed}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{setHorizontalSpeed()}{setHorizontalSpeed()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Player\+::set\+Horizontal\+Speed (\begin{DoxyParamCaption}\item[{float}]{n\+\_\+horizontal\+Speed }\end{DoxyParamCaption})}
+
+
+
+Function to set the horizontal speed of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+horizontal\+Speed} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Player_a9c3aa0ff2677125074d7c2be0de77897}\label{classLogic__Library_1_1Player_a9c3aa0ff2677125074d7c2be0de77897} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!setJumpForce@{setJumpForce}}
+\index{setJumpForce@{setJumpForce}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{setJumpForce()}{setJumpForce()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Player\+::set\+Jump\+Force (\begin{DoxyParamCaption}\item[{float}]{n\+\_\+jump\+Force }\end{DoxyParamCaption})}
+
+
+
+Function to set the jump force of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+jump\+Force} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Player_a12b0d13bdf1b3dfd2859cb5eff93cd7a}\label{classLogic__Library_1_1Player_a12b0d13bdf1b3dfd2859cb5eff93cd7a} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!setVerticalSpeed@{setVerticalSpeed}}
+\index{setVerticalSpeed@{setVerticalSpeed}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{setVerticalSpeed()}{setVerticalSpeed()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Player\+::set\+Vertical\+Speed (\begin{DoxyParamCaption}\item[{float}]{n\+\_\+vertical\+Speed }\end{DoxyParamCaption})}
+
+
+
+Function to set the vertical speed of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+vertical\+Speed} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Player_a859724990948a0d74cc731bc139aef6a}\label{classLogic__Library_1_1Player_a859724990948a0d74cc731bc139aef6a} 
+\index{Logic\_Library::Player@{Logic\_Library::Player}!teleportPlayer@{teleportPlayer}}
+\index{teleportPlayer@{teleportPlayer}!Logic\_Library::Player@{Logic\_Library::Player}}
+\doxysubsubsection{\texorpdfstring{teleportPlayer()}{teleportPlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCoordinates}{Coordinates}} Logic\+\_\+\+Library\+::\+Player\+::teleport\+Player (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinate }\end{DoxyParamCaption})}
+
+
+
+Function to handle the situation when the player is out of bounds (Teleportation) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinate} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New coordinates if the player is out of bounds, same coordinates otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/logic/\+Player/Player.\+h\item 
+src/logic/\+Player/Player.\+cpp\end{DoxyCompactItemize}

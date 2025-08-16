@@ -1,0 +1,64 @@
+\doxysection{Controller.\+h}
+\hypertarget{Controller_8h_source}{}\label{Controller_8h_source}\index{src/Controller/Controller.h@{src/Controller/Controller.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 16/11/24\ at\ 20:04.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_CONTROLLER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_CONTROLLER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../logic/\_World/World.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}SFML/Graphics.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classController}{Controller}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::shared\_ptr<World>\ world;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classController_a95c56822d667e94b031451729ce069a9}{Controller}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classController_a2bd879119bc0d9036e600564e37fb471}{Controller}}(\textcolor{keyword}{const}\ std::shared\_ptr<World>\&\ world)\ :\ world(world)\ \{\}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classController_a5f8b9873fc6a814e73f23690c5d3054b}{movePlayerRight}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classController_a8d28bb92f11afcc89f5057f8d0ee94ae}{movePlayerLeft}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classController_a01aa59290c2109a652133071242d87e5}{outOfBounds}}()\ \{\ world-\/>getMPlayer()-\/>teleportPlayer(world-\/>getMPlayer()-\/>getObserver()-\/>getPosition());\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classController_ae3feebfad8bb1fe40f7c7b4ac8fe0baf}{checkCollision}}()\ \{\ \textcolor{keywordflow}{return}\ world-\/>checkCollision();\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classController_a512d2f89e8a3d8f8ea31acb76bd67901}{checkPlayerBonusCollision}}()\ \{\ world-\/>checkPlayerBonusCollision();\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classController_a5f2b185807568f9aac487942dc3554e0}{jumpPlayer}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<World>\&\ \mbox{\hyperlink{classController_a19be03441e2ef1ab71902c56ba46b446}{getWorld}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ world;\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classController_ae82eaec29628a142c349af75563f9250}{setWorld}}(\textcolor{keyword}{const}\ std::shared\_ptr<World>\&\ n\_world)\ \{\ Controller::world\ =\ n\_world;\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classController_adcb3d63dd9e8d83b5519a97a3c280934}{checkEndGame}}()\ \{\ \textcolor{keywordflow}{return}\ world-\/>checkEndGame();\ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classController_a7f0294e62cfa6b4e132b9d5e1d81b58b}{freezeWorld}}()\ \{\ world-\/>freezeWorld();\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classController_a779013af8695e13f8b3ecda0a216bc07}{updateWorld}}()\ \{\ world-\/>updateWorld();\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ \ \ \ /**}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ *\ @brief\ Function\ to\ check\ if\ a\ platform\ is\ needed}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ *\ @return\ true\ if\ a\ platform\ is\ needed,\ false\ otherwise}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ */}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ \ \ \ bool\ isPlatformNeeded()\ \{return\ world-\/>isPlatformNeeded();\}}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ \ \ \ /**}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ *\ @brief\ Function\ to\ check\ if\ a\ platform\ is\ not\ needed}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ *\ @return\ true\ if\ a\ platform\ is\ not\ needed,\ false\ otherwise}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ */}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ \ \ \ bool\ isPlatformNotNeeded()\ \{return\ world-\/>isPlatformNotNeeded();\}}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classController_a0ab87934c4f7a266cfdb86e0f36bc1b5}{\string~Controller}}();}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_CONTROLLER\_H}}
+
+\end{DoxyCode}

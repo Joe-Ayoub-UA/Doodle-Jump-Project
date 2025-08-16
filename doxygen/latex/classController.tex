@@ -1,0 +1,135 @@
+\doxysection{Controller Class Reference}
+\hypertarget{classController}{}\label{classController}\index{Controller@{Controller}}
+
+
+Class that is responsible of handling changes.  
+
+
+
+
+{\ttfamily \#include $<$Controller.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classController_a95c56822d667e94b031451729ce069a9}\label{classController_a95c56822d667e94b031451729ce069a9} 
+{\bfseries Controller} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classController}{Controller} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classController_a2bd879119bc0d9036e600564e37fb471}{Controller}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ \&world)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classController}{Controller} class. \end{DoxyCompactList}\item 
+\Hypertarget{classController_a5f8b9873fc6a814e73f23690c5d3054b}\label{classController_a5f8b9873fc6a814e73f23690c5d3054b} 
+void {\bfseries move\+Player\+Right} ()
+\begin{DoxyCompactList}\small\item\em Function to move the player to the right. \end{DoxyCompactList}\item 
+\Hypertarget{classController_a8d28bb92f11afcc89f5057f8d0ee94ae}\label{classController_a8d28bb92f11afcc89f5057f8d0ee94ae} 
+void {\bfseries move\+Player\+Left} ()
+\begin{DoxyCompactList}\small\item\em Function to move the player to the left. \end{DoxyCompactList}\item 
+\Hypertarget{classController_a01aa59290c2109a652133071242d87e5}\label{classController_a01aa59290c2109a652133071242d87e5} 
+void {\bfseries out\+Of\+Bounds} ()
+\begin{DoxyCompactList}\small\item\em Function to handle the situation when the player is out of bounds. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classController_ae3feebfad8bb1fe40f7c7b4ac8fe0baf}{check\+Collision}} ()
+\begin{DoxyCompactList}\small\item\em Function to check if there is a collision. \end{DoxyCompactList}\item 
+\Hypertarget{classController_a512d2f89e8a3d8f8ea31acb76bd67901}\label{classController_a512d2f89e8a3d8f8ea31acb76bd67901} 
+void {\bfseries check\+Player\+Bonus\+Collision} ()
+\begin{DoxyCompactList}\small\item\em Function to check if the player has collided with a bonus. \end{DoxyCompactList}\item 
+\Hypertarget{classController_a5f2b185807568f9aac487942dc3554e0}\label{classController_a5f2b185807568f9aac487942dc3554e0} 
+void {\bfseries jump\+Player} ()
+\begin{DoxyCompactList}\small\item\em Function to make the player jump. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ \& \mbox{\hyperlink{classController_a19be03441e2ef1ab71902c56ba46b446}{get\+World}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classController_ae82eaec29628a142c349af75563f9250}{set\+World}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ \&n\+\_\+world)
+\begin{DoxyCompactList}\small\item\em Setter for the world. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classController_adcb3d63dd9e8d83b5519a97a3c280934}{check\+End\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Function to check if the game has ended. \end{DoxyCompactList}\item 
+\Hypertarget{classController_a7f0294e62cfa6b4e132b9d5e1d81b58b}\label{classController_a7f0294e62cfa6b4e132b9d5e1d81b58b} 
+void {\bfseries freeze\+World} ()
+\begin{DoxyCompactList}\small\item\em Function to freeze the world. \end{DoxyCompactList}\item 
+\Hypertarget{classController_a779013af8695e13f8b3ecda0a216bc07}\label{classController_a779013af8695e13f8b3ecda0a216bc07} 
+void {\bfseries update\+World} ()
+\begin{DoxyCompactList}\small\item\em Function to update the world. \end{DoxyCompactList}\item 
+\Hypertarget{classController_a0ab87934c4f7a266cfdb86e0f36bc1b5}\label{classController_a0ab87934c4f7a266cfdb86e0f36bc1b5} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Controller} ()
+\begin{DoxyCompactList}\small\item\em Default destructor for the \doxylink{classController}{Controller} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that is responsible of handling changes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classController_a2bd879119bc0d9036e600564e37fb471}\label{classController_a2bd879119bc0d9036e600564e37fb471} 
+\index{Controller@{Controller}!Controller@{Controller}}
+\index{Controller@{Controller}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{Controller()}{Controller()}}
+{\footnotesize\ttfamily Controller\+::\+Controller (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ \&}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor for the \doxylink{classController}{Controller} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classController_ae3feebfad8bb1fe40f7c7b4ac8fe0baf}\label{classController_ae3feebfad8bb1fe40f7c7b4ac8fe0baf} 
+\index{Controller@{Controller}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily bool Controller\+::check\+Collision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to check if there is a collision. 
+
+\begin{DoxyReturn}{Returns}
+true if there is a collision, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classController_adcb3d63dd9e8d83b5519a97a3c280934}\label{classController_adcb3d63dd9e8d83b5519a97a3c280934} 
+\index{Controller@{Controller}!checkEndGame@{checkEndGame}}
+\index{checkEndGame@{checkEndGame}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{checkEndGame()}{checkEndGame()}}
+{\footnotesize\ttfamily bool Controller\+::check\+End\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to check if the game has ended. 
+
+\begin{DoxyReturn}{Returns}
+true if the game has ended, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classController_a19be03441e2ef1ab71902c56ba46b446}\label{classController_a19be03441e2ef1ab71902c56ba46b446} 
+\index{Controller@{Controller}!getWorld@{getWorld}}
+\index{getWorld@{getWorld}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{getWorld()}{getWorld()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ \& Controller\+::get\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the world. 
+
+\begin{DoxyReturn}{Returns}
+the world 
+\end{DoxyReturn}
+\Hypertarget{classController_ae82eaec29628a142c349af75563f9250}\label{classController_ae82eaec29628a142c349af75563f9250} 
+\index{Controller@{Controller}!setWorld@{setWorld}}
+\index{setWorld@{setWorld}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{setWorld()}{setWorld()}}
+{\footnotesize\ttfamily void Controller\+::set\+World (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ \&}]{n\+\_\+world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter for the world. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+world} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Controller/Controller.\+h\item 
+src/\+Controller/Controller.\+cpp\end{DoxyCompactItemize}

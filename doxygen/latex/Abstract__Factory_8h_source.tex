@@ -1,0 +1,48 @@
+\doxysection{Abstract\+\_\+\+Factory.\+h}
+\hypertarget{Abstract__Factory_8h_source}{}\label{Abstract__Factory_8h_source}\index{src/logic/Abstract\_Factory/Abstract\_Factory.h@{src/logic/Abstract\_Factory/Abstract\_Factory.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 14/11/24\ at\ 16:06.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_ABSTRACT\_FACTORY\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_ABSTRACT\_FACTORY\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Coordinates/Coordinates.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../../logic/BG\_Tile/BG\_Tile.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../../logic/Bonus/Bonus.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../../logic/Platform/Platform.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}../../logic/Player/Player.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorld}{World}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAbstract__Factory}{Abstract\_Factory}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classAbstract__Factory_aa13740b11a1570f5a158fb9875fa924d}{Abstract\_Factory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<Logic\_Library::Player>\ \mbox{\hyperlink{classAbstract__Factory_a09dccaa5fc3ee2c19c332b95cc71f082}{createPlayer}}()\ =\ 0;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<Logic\_Library::Platform>\ \mbox{\hyperlink{classAbstract__Factory_ad735e044fd1289a4f5ffd04c12b81587}{createPlatform}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ coordinate)\ =\ 0;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<Logic\_Library::BG\_Tile>\ \mbox{\hyperlink{classAbstract__Factory_a3b61eef4c15b4a9b2b7cf88ae3bb8875}{createBGTile}}()\ =\ 0;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<Logic\_Library::Bonus>\ \mbox{\hyperlink{classAbstract__Factory_ab2c3afaf1a4b1d486da870297239b468}{createBonus}}()\ =\ 0;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<World>\ \mbox{\hyperlink{classAbstract__Factory_a93c036f3914d139ad9bbe7cee6deb197}{createWorld}}()\ =\ 0;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAbstract__Factory_a8d6b73c74872984e97a191ae5b47946b}{assignObserver}}(std::shared\_ptr<Observer>\ observer)\ =\ 0;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAbstract__Factory_af191ef570e1423a71f092a0b4353fbd3}{deleteObserver}}()\ =\ 0;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAbstract__Factory_a9ecaff941ea7c6403a4bbf83365a34f7}{notifyObserver}}()\ =\ 0;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classAbstract__Factory_acbd66f22ac5ec340bbc9e82b105fe6ec}{\string~Abstract\_Factory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_ABSTRACT\_FACTORY\_H}}
+
+\end{DoxyCode}

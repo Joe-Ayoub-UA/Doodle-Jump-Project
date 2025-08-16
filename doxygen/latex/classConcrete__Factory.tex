@@ -1,0 +1,192 @@
+\doxysection{Concrete\+\_\+\+Factory Class Reference}
+\hypertarget{classConcrete__Factory}{}\label{classConcrete__Factory}\index{Concrete\_Factory@{Concrete\_Factory}}
+
+
+\doxylink{classConcrete__Factory}{Concrete\+\_\+\+Factory} class that implements the \doxylink{classAbstract__Factory}{Abstract\+\_\+\+Factory} class.  
+
+
+
+
+{\ttfamily \#include $<$Concrete\+\_\+\+Factory.\+h$>$}
+
+
+
+Inheritance diagram for Concrete\+\_\+\+Factory\+:
+% FIG 0
+
+
+Collaboration diagram for Concrete\+\_\+\+Factory\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classConcrete__Factory_a2f2988910bab0287a421a4e4a6379070}\label{classConcrete__Factory_a2f2988910bab0287a421a4e4a6379070} 
+{\bfseries Concrete\+\_\+\+Factory} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classConcrete__Factory}{Concrete\+\_\+\+Factory} class. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Player}{Logic\+\_\+\+Library\+::\+Player}} $>$ \mbox{\hyperlink{classConcrete__Factory_a7b18228741faafd0950cd60253218c39}{create\+Player}} () override
+\begin{DoxyCompactList}\small\item\em Creates a player. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ \mbox{\hyperlink{classConcrete__Factory_a36d91541c2e4e84924f911535a504e10}{create\+Platform}} (\mbox{\hyperlink{classCoordinates}{Coordinates}} coordinate) override
+\begin{DoxyCompactList}\small\item\em Creates a platform. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ \mbox{\hyperlink{classConcrete__Factory_a0f63a6442ebd4268c61ca7ffbbd9000d}{create\+BGTile}} () override
+\begin{DoxyCompactList}\small\item\em Creates a background tile. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ \mbox{\hyperlink{classConcrete__Factory_a46d005fc674c606433db8ae4aca5201b}{create\+Bonus}} () override
+\begin{DoxyCompactList}\small\item\em Creates a bonus. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ \mbox{\hyperlink{classConcrete__Factory_a3c639935bff77651ab9c7fd5f363b471}{create\+World}} () override
+\begin{DoxyCompactList}\small\item\em Creates a world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConcrete__Factory_afaf67ff75769d9efa55a4b84abaa6639}{assign\+Observer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classObserver}{Observer}} $>$ observer) override
+\begin{DoxyCompactList}\small\item\em Assigns an observer to the factory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConcrete__Factory_a2d53b225c112604da23f9ce2735d09a9}{delete\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Deletes the observer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classConcrete__Factory_abd86a97a6fc2c9f85ef5d258492d911b}{notify\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Notifies the observer for an update. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classAbstract__Factory}{Abstract\+\_\+\+Factory}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Abstract\+\_\+\+Factory} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classAbstract__Factory}{Abstract\+\_\+\+Factory} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Abstract\+\_\+\+Factory} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classAbstract__Factory}{Abstract\+\_\+\+Factory} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classConcrete__Factory}{Concrete\+\_\+\+Factory} class that implements the \doxylink{classAbstract__Factory}{Abstract\+\_\+\+Factory} class. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classConcrete__Factory_afaf67ff75769d9efa55a4b84abaa6639}\label{classConcrete__Factory_afaf67ff75769d9efa55a4b84abaa6639} 
+\index{Concrete\_Factory@{Concrete\_Factory}!assignObserver@{assignObserver}}
+\index{assignObserver@{assignObserver}!Concrete\_Factory@{Concrete\_Factory}}
+\doxysubsubsection{\texorpdfstring{assignObserver()}{assignObserver()}}
+{\footnotesize\ttfamily void Concrete\+\_\+\+Factory\+::assign\+Observer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classObserver}{Observer}} $>$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Assigns an observer to the factory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & shared pointer to the observer \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAbstract__Factory_a8d6b73c74872984e97a191ae5b47946b}{Abstract\+\_\+\+Factory}}.
+
+\Hypertarget{classConcrete__Factory_a0f63a6442ebd4268c61ca7ffbbd9000d}\label{classConcrete__Factory_a0f63a6442ebd4268c61ca7ffbbd9000d} 
+\index{Concrete\_Factory@{Concrete\_Factory}!createBGTile@{createBGTile}}
+\index{createBGTile@{createBGTile}!Concrete\_Factory@{Concrete\_Factory}}
+\doxysubsubsection{\texorpdfstring{createBGTile()}{createBGTile()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ Concrete\+\_\+\+Factory\+::create\+BGTile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a background tile. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the background tile 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstract__Factory_a3b61eef4c15b4a9b2b7cf88ae3bb8875}{Abstract\+\_\+\+Factory}}.
+
+\Hypertarget{classConcrete__Factory_a46d005fc674c606433db8ae4aca5201b}\label{classConcrete__Factory_a46d005fc674c606433db8ae4aca5201b} 
+\index{Concrete\_Factory@{Concrete\_Factory}!createBonus@{createBonus}}
+\index{createBonus@{createBonus}!Concrete\_Factory@{Concrete\_Factory}}
+\doxysubsubsection{\texorpdfstring{createBonus()}{createBonus()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ Concrete\+\_\+\+Factory\+::create\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a bonus. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the bonus 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstract__Factory_ab2c3afaf1a4b1d486da870297239b468}{Abstract\+\_\+\+Factory}}.
+
+\Hypertarget{classConcrete__Factory_a36d91541c2e4e84924f911535a504e10}\label{classConcrete__Factory_a36d91541c2e4e84924f911535a504e10} 
+\index{Concrete\_Factory@{Concrete\_Factory}!createPlatform@{createPlatform}}
+\index{createPlatform@{createPlatform}!Concrete\_Factory@{Concrete\_Factory}}
+\doxysubsubsection{\texorpdfstring{createPlatform()}{createPlatform()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ Concrete\+\_\+\+Factory\+::create\+Platform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoordinates}{Coordinates}}}]{coordinate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a platform. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the platform 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstract__Factory_ad735e044fd1289a4f5ffd04c12b81587}{Abstract\+\_\+\+Factory}}.
+
+\Hypertarget{classConcrete__Factory_a7b18228741faafd0950cd60253218c39}\label{classConcrete__Factory_a7b18228741faafd0950cd60253218c39} 
+\index{Concrete\_Factory@{Concrete\_Factory}!createPlayer@{createPlayer}}
+\index{createPlayer@{createPlayer}!Concrete\_Factory@{Concrete\_Factory}}
+\doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Player}{Logic\+\_\+\+Library\+::\+Player}} $>$ Concrete\+\_\+\+Factory\+::create\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a player. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the player 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstract__Factory_a09dccaa5fc3ee2c19c332b95cc71f082}{Abstract\+\_\+\+Factory}}.
+
+\Hypertarget{classConcrete__Factory_a3c639935bff77651ab9c7fd5f363b471}\label{classConcrete__Factory_a3c639935bff77651ab9c7fd5f363b471} 
+\index{Concrete\_Factory@{Concrete\_Factory}!createWorld@{createWorld}}
+\index{createWorld@{createWorld}!Concrete\_Factory@{Concrete\_Factory}}
+\doxysubsubsection{\texorpdfstring{createWorld()}{createWorld()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classWorld}{World}} $>$ Concrete\+\_\+\+Factory\+::create\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Creates a world. 
+
+\begin{DoxyReturn}{Returns}
+a shared pointer to the world 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAbstract__Factory_a93c036f3914d139ad9bbe7cee6deb197}{Abstract\+\_\+\+Factory}}.
+
+\Hypertarget{classConcrete__Factory_a2d53b225c112604da23f9ce2735d09a9}\label{classConcrete__Factory_a2d53b225c112604da23f9ce2735d09a9} 
+\index{Concrete\_Factory@{Concrete\_Factory}!deleteObserver@{deleteObserver}}
+\index{deleteObserver@{deleteObserver}!Concrete\_Factory@{Concrete\_Factory}}
+\doxysubsubsection{\texorpdfstring{deleteObserver()}{deleteObserver()}}
+{\footnotesize\ttfamily void Concrete\+\_\+\+Factory\+::delete\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Deletes the observer. 
+
+
+
+Implements \mbox{\hyperlink{classAbstract__Factory_af191ef570e1423a71f092a0b4353fbd3}{Abstract\+\_\+\+Factory}}.
+
+\Hypertarget{classConcrete__Factory_abd86a97a6fc2c9f85ef5d258492d911b}\label{classConcrete__Factory_abd86a97a6fc2c9f85ef5d258492d911b} 
+\index{Concrete\_Factory@{Concrete\_Factory}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Concrete\_Factory@{Concrete\_Factory}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily void Concrete\+\_\+\+Factory\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Notifies the observer for an update. 
+
+
+
+Implements \mbox{\hyperlink{classAbstract__Factory_a9ecaff941ea7c6403a4bbf83365a34f7}{Abstract\+\_\+\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/view/\+Concrete\+\_\+\+Factory/Concrete\+\_\+\+Factory.\+h\item 
+src/view/\+Concrete\+\_\+\+Factory/Concrete\+\_\+\+Factory.\+cpp\end{DoxyCompactItemize}

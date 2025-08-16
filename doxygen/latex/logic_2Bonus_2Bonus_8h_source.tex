@@ -1,0 +1,47 @@
+\doxysection{Bonus.\+h}
+\hypertarget{logic_2Bonus_2Bonus_8h_source}{}\label{logic_2Bonus_2Bonus_8h_source}\index{src/logic/Bonus/Bonus.h@{src/logic/Bonus/Bonus.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 14/11/24\ at\ 15:16.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_BONUS\_LOGIC\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_BONUS\_LOGIC\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Enums/Enums.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Random/Random.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../../view/Bonus/Bonus.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../Entity\_Model/Entity\_Model.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLogic__Library}{Logic\_Library}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogic__Library_1_1Bonus}{Bonus}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classLogic__Library_1_1Entity__Model}{Entity\_Model}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ std::shared\_ptr<Game\_Repr::Bonus>\ observer;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums::BonusType}}\ bType\{\};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ createBonus();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Bonus}}(\mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums::BonusType}}\ bonusType);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums::BonusType}}\ \mbox{\hyperlink{classLogic__Library_1_1Bonus_a6545437da7ea7f261d488957686e9c35}{getBType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Bonus_a642962d9d51a7b143cc793b313bbaeb3}{setBType}}(\mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums::BonusType}}\ n\_bType);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::shared\_ptr<Game\_Repr::Bonus>\ \mbox{\hyperlink{classLogic__Library_1_1Bonus_aa62803726bcf556a9b743d47b7f87910}{getObserver}}()\ \{\ \textcolor{keywordflow}{return}\ observer;\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Bonus_aaa9cfbc9eac484fa8428759600415a7d}{assignObserver}}(std::shared\_ptr<Game\_Repr::Bonus>\ newObserver);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Bonus_a4c1c2c49298180e05284a94ada1a58e5}{deleteObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Bonus_a4ef0f7b7456f3d846cf700443c548535}{notifyObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Bonus_a387c8446f202fe99e881c6da9d88fef3}{notifyPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ coordinates)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00077\ \}\ \textcolor{comment}{//\ namespace\ Logic\_Library}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_BONUS\_LOGIC\_H}}
+
+\end{DoxyCode}

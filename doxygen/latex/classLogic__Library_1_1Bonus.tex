@@ -1,0 +1,154 @@
+\doxysection{Logic\+\_\+\+Library\+::Bonus Class Reference}
+\hypertarget{classLogic__Library_1_1Bonus}{}\label{classLogic__Library_1_1Bonus}\index{Logic\_Library::Bonus@{Logic\_Library::Bonus}}
+
+
+\doxylink{classLogic__Library_1_1Bonus}{Bonus} class\+: This class is responsible for the logic of the bonus, it has the type of the bonus and the creation of the bonus.  
+
+
+
+
+{\ttfamily \#include $<$Bonus.\+h$>$}
+
+
+
+Inheritance diagram for Logic\+\_\+\+Library\+::Bonus\+:
+% FIG 0
+
+
+Collaboration diagram for Logic\+\_\+\+Library\+::Bonus\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLogic__Library_1_1Bonus_a8229d5f2666e8956351179defb2cf5cb}\label{classLogic__Library_1_1Bonus_a8229d5f2666e8956351179defb2cf5cb} 
+{\bfseries Bonus} (\mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums\+::\+Bonus\+Type}} bonus\+Type)
+\begin{DoxyCompactList}\small\item\em Constructor for the bonus class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums\+::\+Bonus\+Type}} \mbox{\hyperlink{classLogic__Library_1_1Bonus_a6545437da7ea7f261d488957686e9c35}{get\+BType}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the type of the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Bonus_a642962d9d51a7b143cc793b313bbaeb3}{set\+BType}} (\mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums\+::\+Bonus\+Type}} n\+\_\+b\+Type)
+\begin{DoxyCompactList}\small\item\em Setter for the type of the bonus. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Bonus_aa62803726bcf556a9b743d47b7f87910}\label{classLogic__Library_1_1Bonus_aa62803726bcf556a9b743d47b7f87910} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Bonus}{Game\+\_\+\+Repr\+::\+Bonus}} $>$ {\bfseries get\+Observer} ()
+\begin{DoxyCompactList}\small\item\em Function to get the observer of the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Bonus_aaa9cfbc9eac484fa8428759600415a7d}{assign\+Observer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Bonus}{Game\+\_\+\+Repr\+::\+Bonus}} $>$ new\+Observer)
+\begin{DoxyCompactList}\small\item\em Function to assign an observer to the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Bonus_a4c1c2c49298180e05284a94ada1a58e5}{delete\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Function to delete the observer of the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Bonus_a4ef0f7b7456f3d846cf700443c548535}{notify\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Function to notify the observer of the bonus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Bonus_a387c8446f202fe99e881c6da9d88fef3}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates) override
+\begin{DoxyCompactList}\small\item\em Function to notify the observer of the bonus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classLogic__Library_1_1Entity__Model}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Entity\+\_\+\+Model} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Entity__Model}{Entity\+\_\+\+Model} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classLogic__Library_1_1Subject}{Logic\+\_\+\+Library\+::\+Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classLogic__Library_1_1Bonus}{Bonus} class\+: This class is responsible for the logic of the bonus, it has the type of the bonus and the creation of the bonus. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLogic__Library_1_1Bonus_aaa9cfbc9eac484fa8428759600415a7d}\label{classLogic__Library_1_1Bonus_aaa9cfbc9eac484fa8428759600415a7d} 
+\index{Logic\_Library::Bonus@{Logic\_Library::Bonus}!assignObserver@{assignObserver}}
+\index{assignObserver@{assignObserver}!Logic\_Library::Bonus@{Logic\_Library::Bonus}}
+\doxysubsubsection{\texorpdfstring{assignObserver()}{assignObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Bonus\+::assign\+Observer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Bonus}{Game\+\_\+\+Repr\+::\+Bonus}} $>$}]{new\+Observer }\end{DoxyParamCaption})}
+
+
+
+Function to assign an observer to the bonus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Observer} & std\+::shared\+\_\+ptr$<$\+Observer$>$, which is the new observer of the bonus. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1Bonus_a4c1c2c49298180e05284a94ada1a58e5}\label{classLogic__Library_1_1Bonus_a4c1c2c49298180e05284a94ada1a58e5} 
+\index{Logic\_Library::Bonus@{Logic\_Library::Bonus}!deleteObserver@{deleteObserver}}
+\index{deleteObserver@{deleteObserver}!Logic\_Library::Bonus@{Logic\_Library::Bonus}}
+\doxysubsubsection{\texorpdfstring{deleteObserver()}{deleteObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Bonus\+::delete\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to delete the observer of the bonus. 
+
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a56fb751d461e4d9825ecec059f380879}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Bonus_a6545437da7ea7f261d488957686e9c35}\label{classLogic__Library_1_1Bonus_a6545437da7ea7f261d488957686e9c35} 
+\index{Logic\_Library::Bonus@{Logic\_Library::Bonus}!getBType@{getBType}}
+\index{getBType@{getBType}!Logic\_Library::Bonus@{Logic\_Library::Bonus}}
+\doxysubsubsection{\texorpdfstring{getBType()}{getBType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums\+::\+Bonus\+Type}} Logic\+\_\+\+Library\+::\+Bonus\+::get\+BType (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the type of the bonus. 
+
+\begin{DoxyReturn}{Returns}
+Bonus\+Type, which is the type of the bonus. 
+\end{DoxyReturn}
+\Hypertarget{classLogic__Library_1_1Bonus_a4ef0f7b7456f3d846cf700443c548535}\label{classLogic__Library_1_1Bonus_a4ef0f7b7456f3d846cf700443c548535} 
+\index{Logic\_Library::Bonus@{Logic\_Library::Bonus}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Logic\_Library::Bonus@{Logic\_Library::Bonus}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Bonus\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to notify the observer of the bonus. 
+
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a9d8bd1ecef74b4a4eb18009a261e9dc0}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Bonus_a387c8446f202fe99e881c6da9d88fef3}\label{classLogic__Library_1_1Bonus_a387c8446f202fe99e881c6da9d88fef3} 
+\index{Logic\_Library::Bonus@{Logic\_Library::Bonus}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Logic\_Library::Bonus@{Logic\_Library::Bonus}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Bonus\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to notify the observer of the bonus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \doxylink{classCoordinates}{Coordinates}, which are the new coordinates of the bonus. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a8eaae590e06b70348dbf2d216ba206e8}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Bonus_a642962d9d51a7b143cc793b313bbaeb3}\label{classLogic__Library_1_1Bonus_a642962d9d51a7b143cc793b313bbaeb3} 
+\index{Logic\_Library::Bonus@{Logic\_Library::Bonus}!setBType@{setBType}}
+\index{setBType@{setBType}!Logic\_Library::Bonus@{Logic\_Library::Bonus}}
+\doxysubsubsection{\texorpdfstring{setBType()}{setBType()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Bonus\+::set\+BType (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums\+::\+Bonus\+Type}}}]{n\+\_\+b\+Type }\end{DoxyParamCaption})}
+
+
+
+Setter for the type of the bonus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+b\+Type} & Bonus\+Type, which is the new type of the bonus. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/logic/\+Bonus/Bonus.\+h\item 
+src/logic/\+Bonus/Bonus.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,204 @@
+\doxysection{Game\+\_\+\+Repr\+::Player Class Reference}
+\hypertarget{classGame__Repr_1_1Player}{}\label{classGame__Repr_1_1Player}\index{Game\_Repr::Player@{Game\_Repr::Player}}
+
+
+Class that is responsible for the view of the player.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+
+
+Inheritance diagram for Game\+\_\+\+Repr\+::Player\+:
+% FIG 0
+
+
+Collaboration diagram for Game\+\_\+\+Repr\+::Player\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGame__Repr_1_1Player_a0f5273b5ab3733cf71114a7b6ed4c1ca}\label{classGame__Repr_1_1Player_a0f5273b5ab3733cf71114a7b6ed4c1ca} 
+{\bfseries Player} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classGame__Repr_1_1Player}{Player} class. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ sf\+::\+Sprite $>$ \& \mbox{\hyperlink{classGame__Repr_1_1Player_a1a70ba3774daec9b1e7e045658ef732c}{get\+MPlayer}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Player_a5204aba41c5a72637b0cfd7a6da312eb}{set\+MPlayer}} (const std\+::shared\+\_\+ptr$<$ sf\+::\+Sprite $>$ \&n\+\_\+m\+Player)
+\begin{DoxyCompactList}\small\item\em Setter for the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Player_ad6d2f94629b50b34a85ca02e56f7025a}{update}} () override
+\begin{DoxyCompactList}\small\item\em Function to update the player. \end{DoxyCompactList}\item 
+std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classGame__Repr_1_1Player_aca13aa9c4f2cc166dade5d17ccd49f0f}{get\+MDimensions}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the dimensions of the player. \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{classGame__Repr_1_1Player_ac9fa6e73fb8c6dac986674160e9b7398}{get\+Global\+Bounds}} () const override
+\begin{DoxyCompactList}\small\item\em Function to get the position of the player. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classCoordinates}{Coordinates}} \& \mbox{\hyperlink{classGame__Repr_1_1Player_af124e9e5097cec8c89fdcef6bc46bea5}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the position of the player. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ sf\+::\+Rectangle\+Shape $>$ \& \mbox{\hyperlink{classGame__Repr_1_1Player_aa4f454bd451f0854da38a62c835cfe2e}{get\+MHitbox\+Debug}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the debug hitbox of the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Player_a9ed9275d11182db223cb4928fe6ddbcb}{set\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&n\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Function to set the position of the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Player_a4f27488cbeca0fd8ac8bbddffe0c332c}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates) override
+\begin{DoxyCompactList}\small\item\em Function to notify the position of the player. \end{DoxyCompactList}\item 
+\Hypertarget{classGame__Repr_1_1Player_ae27c13f23a367584e7d855df8f8e4495}\label{classGame__Repr_1_1Player_ae27c13f23a367584e7d855df8f8e4495} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Player} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classGame__Repr_1_1Player}{Player} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEntity__View}{Entity\+\_\+\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Entity\+\_\+\+View} ()=default
+\begin{DoxyCompactList}\small\item\em Function to update the entity. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity\+\_\+\+View} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classEntity__View}{Entity\+\_\+\+View} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classObserver}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that is responsible for the view of the player. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGame__Repr_1_1Player_ac9fa6e73fb8c6dac986674160e9b7398}\label{classGame__Repr_1_1Player_ac9fa6e73fb8c6dac986674160e9b7398} 
+\index{Game\_Repr::Player@{Game\_Repr::Player}!getGlobalBounds@{getGlobalBounds}}
+\index{getGlobalBounds@{getGlobalBounds}!Game\_Repr::Player@{Game\_Repr::Player}}
+\doxysubsubsection{\texorpdfstring{getGlobalBounds()}{getGlobalBounds()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Game\+\_\+\+Repr\+::\+Player\+::get\+Global\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to get the position of the player. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classCoordinates}{Coordinates}, which are the position of the player 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classEntity__View_a9712075a070a771f4c24e4622aec64d6}{Entity\+\_\+\+View}}.
+
+\Hypertarget{classGame__Repr_1_1Player_aca13aa9c4f2cc166dade5d17ccd49f0f}\label{classGame__Repr_1_1Player_aca13aa9c4f2cc166dade5d17ccd49f0f} 
+\index{Game\_Repr::Player@{Game\_Repr::Player}!getMDimensions@{getMDimensions}}
+\index{getMDimensions@{getMDimensions}!Game\_Repr::Player@{Game\_Repr::Player}}
+\doxysubsubsection{\texorpdfstring{getMDimensions()}{getMDimensions()}}
+{\footnotesize\ttfamily std\+::pair$<$ float, float $>$ Game\+\_\+\+Repr\+::\+Player\+::get\+MDimensions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the dimensions of the player. 
+
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$float, float$>$, which are the dimensions of the player 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Player_aa4f454bd451f0854da38a62c835cfe2e}\label{classGame__Repr_1_1Player_aa4f454bd451f0854da38a62c835cfe2e} 
+\index{Game\_Repr::Player@{Game\_Repr::Player}!getMHitboxDebug@{getMHitboxDebug}}
+\index{getMHitboxDebug@{getMHitboxDebug}!Game\_Repr::Player@{Game\_Repr::Player}}
+\doxysubsubsection{\texorpdfstring{getMHitboxDebug()}{getMHitboxDebug()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ sf\+::\+Rectangle\+Shape $>$ \& Game\+\_\+\+Repr\+::\+Player\+::get\+MHitbox\+Debug (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the debug hitbox of the player. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the debug hitbox of the player 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Player_a1a70ba3774daec9b1e7e045658ef732c}\label{classGame__Repr_1_1Player_a1a70ba3774daec9b1e7e045658ef732c} 
+\index{Game\_Repr::Player@{Game\_Repr::Player}!getMPlayer@{getMPlayer}}
+\index{getMPlayer@{getMPlayer}!Game\_Repr::Player@{Game\_Repr::Player}}
+\doxysubsubsection{\texorpdfstring{getMPlayer()}{getMPlayer()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ sf\+::\+Sprite $>$ \& Game\+\_\+\+Repr\+::\+Player\+::get\+MPlayer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the player. 
+
+\begin{DoxyReturn}{Returns}
+the player 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Player_af124e9e5097cec8c89fdcef6bc46bea5}\label{classGame__Repr_1_1Player_af124e9e5097cec8c89fdcef6bc46bea5} 
+\index{Game\_Repr::Player@{Game\_Repr::Player}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Game\_Repr::Player@{Game\_Repr::Player}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCoordinates}{Coordinates}} \& Game\+\_\+\+Repr\+::\+Player\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the position of the player. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Player_a4f27488cbeca0fd8ac8bbddffe0c332c}\label{classGame__Repr_1_1Player_a4f27488cbeca0fd8ac8bbddffe0c332c} 
+\index{Game\_Repr::Player@{Game\_Repr::Player}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Game\_Repr::Player@{Game\_Repr::Player}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Player\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to notify the position of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \doxylink{classCoordinates}{Coordinates}, which are the new coordinates of the player \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classEntity__View_a438aca6eca6afa1c4285522f18b513b2}{Entity\+\_\+\+View}}.
+
+\Hypertarget{classGame__Repr_1_1Player_a5204aba41c5a72637b0cfd7a6da312eb}\label{classGame__Repr_1_1Player_a5204aba41c5a72637b0cfd7a6da312eb} 
+\index{Game\_Repr::Player@{Game\_Repr::Player}!setMPlayer@{setMPlayer}}
+\index{setMPlayer@{setMPlayer}!Game\_Repr::Player@{Game\_Repr::Player}}
+\doxysubsubsection{\texorpdfstring{setMPlayer()}{setMPlayer()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Player\+::set\+MPlayer (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ sf\+::\+Sprite $>$ \&}]{n\+\_\+m\+Player }\end{DoxyParamCaption})}
+
+
+
+Setter for the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+m\+Player} & std\+::shared\+\_\+ptr$<$sf\+::\+Sprite$>$, which is the new player \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGame__Repr_1_1Player_a9ed9275d11182db223cb4928fe6ddbcb}\label{classGame__Repr_1_1Player_a9ed9275d11182db223cb4928fe6ddbcb} 
+\index{Game\_Repr::Player@{Game\_Repr::Player}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Game\_Repr::Player@{Game\_Repr::Player}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Player\+::set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{n\+\_\+position }\end{DoxyParamCaption})}
+
+
+
+Function to set the position of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+position} & \doxylink{classCoordinates}{Coordinates}, which are the new position of the player \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGame__Repr_1_1Player_ad6d2f94629b50b34a85ca02e56f7025a}\label{classGame__Repr_1_1Player_ad6d2f94629b50b34a85ca02e56f7025a} 
+\index{Game\_Repr::Player@{Game\_Repr::Player}!update@{update}}
+\index{update@{update}!Game\_Repr::Player@{Game\_Repr::Player}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Player\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to update the player. 
+
+
+
+Implements \mbox{\hyperlink{classEntity__View_a4137c102f447c4672c5fa85274363566}{Entity\+\_\+\+View}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/view/\+Player/Player.\+h\item 
+src/view/\+Player/Player.\+cpp\end{DoxyCompactItemize}

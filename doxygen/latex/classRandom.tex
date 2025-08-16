@@ -1,0 +1,238 @@
+\doxysection{Random Class Reference}
+\hypertarget{classRandom}{}\label{classRandom}\index{Random@{Random}}
+
+
+class to generate random digits.  
+
+
+
+
+{\ttfamily \#include $<$Random.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classRandom_acb76b49c3903a3c4fb67fd216341f08d}\label{classRandom_acb76b49c3903a3c4fb67fd216341f08d} 
+{\bfseries Random} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classRandom}{Random} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRandom_aabd11c72db4609e7542204a19908a989}{Random}} (const std\+::pair$<$ int, int $>$ \&x\+Range, const std\+::pair$<$ int, int $>$ \&y\+Range)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classRandom}{Random} class. \end{DoxyCompactList}\item 
+\Hypertarget{classRandom_ac0d4eaf1f32df4600eb321cb8dbc0c55}\label{classRandom_ac0d4eaf1f32df4600eb321cb8dbc0c55} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Random} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classRandom}{Random} class. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRandom_a6a9dfc13b6af6788018738bb132656c7}{random\+Int}} (int min, int max)
+\begin{DoxyCompactList}\small\item\em Function to generate a random integer. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classRandom_a982a7d03eccae6bac9b3eee4b5e0594f}{random\+Float}} (float min, float max)
+\begin{DoxyCompactList}\small\item\em Function to generate a random float. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRandom_a9fd1fd484ea5f2525198520e44fb0df0}{random\+Bool}} ()
+\begin{DoxyCompactList}\small\item\em Function to generate a random boolean. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoordinates}{Coordinates}} \mbox{\hyperlink{classRandom_a83f3566b8244dbcd49d2c932e2d5d85c}{generate\+Coor}} ()
+\begin{DoxyCompactList}\small\item\em Function to generate a random coordinates. \end{DoxyCompactList}\item 
+const std\+::pair$<$ int, int $>$ \& \mbox{\hyperlink{classRandom_ada45c9e250bb604f00d4ae435fd849d5}{get\+XRange}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the range of the x coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRandom_adc2375f6da1597458aa45d3e621e08da}{set\+XRange}} (const std\+::pair$<$ int, int $>$ \&x\+Range)
+\begin{DoxyCompactList}\small\item\em Function to set the range of the x coordinate. \end{DoxyCompactList}\item 
+const std\+::pair$<$ int, int $>$ \& \mbox{\hyperlink{classRandom_af478d53331b0deb5241947182f64b97c}{get\+YRange}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the range of the y coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRandom_af99228661737ee468d3b4a6e78ead7a8}{set\+YRange}} (const std\+::pair$<$ int, int $>$ \&y\+Range)
+\begin{DoxyCompactList}\small\item\em Function to set the range of the y coordinate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classRandom}{Random}} \& \mbox{\hyperlink{classRandom_a2aa30d2f678fc76f75efc60356c6ea4d}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Function to get the instance of the \doxylink{classRandom}{Random} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class to generate random digits. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRandom_aabd11c72db4609e7542204a19908a989}\label{classRandom_aabd11c72db4609e7542204a19908a989} 
+\index{Random@{Random}!Random@{Random}}
+\index{Random@{Random}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{Random()}{Random()}}
+{\footnotesize\ttfamily Random\+::\+Random (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ int, int $>$ \&}]{x\+Range,  }\item[{const std\+::pair$<$ int, int $>$ \&}]{y\+Range }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{classRandom}{Random} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Range} & pair of integers, which is the range of the x coordinate. \\
+\hline
+{\em y\+Range} & pair of integers, which is the range of the y coordinate. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRandom_a83f3566b8244dbcd49d2c932e2d5d85c}\label{classRandom_a83f3566b8244dbcd49d2c932e2d5d85c} 
+\index{Random@{Random}!generateCoor@{generateCoor}}
+\index{generateCoor@{generateCoor}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{generateCoor()}{generateCoor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCoordinates}{Coordinates}} Random\+::generate\+Coor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to generate a random coordinates. 
+
+\begin{DoxyReturn}{Returns}
+the random coordinates 
+\end{DoxyReturn}
+\Hypertarget{classRandom_a2aa30d2f678fc76f75efc60356c6ea4d}\label{classRandom_a2aa30d2f678fc76f75efc60356c6ea4d} 
+\index{Random@{Random}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRandom}{Random}} \& Random\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to get the instance of the \doxylink{classRandom}{Random} class. 
+
+\begin{DoxyReturn}{Returns}
+the instance of the \doxylink{classRandom}{Random} class 
+\end{DoxyReturn}
+\Hypertarget{classRandom_ada45c9e250bb604f00d4ae435fd849d5}\label{classRandom_ada45c9e250bb604f00d4ae435fd849d5} 
+\index{Random@{Random}!getXRange@{getXRange}}
+\index{getXRange@{getXRange}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{getXRange()}{getXRange()}}
+{\footnotesize\ttfamily const std\+::pair$<$ int, int $>$ \& Random\+::get\+XRange (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the range of the x coordinate. 
+
+\begin{DoxyReturn}{Returns}
+the range of the x coordinate 
+\end{DoxyReturn}
+\Hypertarget{classRandom_af478d53331b0deb5241947182f64b97c}\label{classRandom_af478d53331b0deb5241947182f64b97c} 
+\index{Random@{Random}!getYRange@{getYRange}}
+\index{getYRange@{getYRange}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{getYRange()}{getYRange()}}
+{\footnotesize\ttfamily const std\+::pair$<$ int, int $>$ \& Random\+::get\+YRange (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the range of the y coordinate. 
+
+\begin{DoxyReturn}{Returns}
+the range of the y coordinate 
+\end{DoxyReturn}
+\Hypertarget{classRandom_a9fd1fd484ea5f2525198520e44fb0df0}\label{classRandom_a9fd1fd484ea5f2525198520e44fb0df0} 
+\index{Random@{Random}!randomBool@{randomBool}}
+\index{randomBool@{randomBool}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{randomBool()}{randomBool()}}
+{\footnotesize\ttfamily bool Random\+::random\+Bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to generate a random boolean. 
+
+Generates a random boolean.
+
+\begin{DoxyReturn}{Returns}
+the random boolean
+
+bool, which is a random boolean. 
+\end{DoxyReturn}
+\Hypertarget{classRandom_a982a7d03eccae6bac9b3eee4b5e0594f}\label{classRandom_a982a7d03eccae6bac9b3eee4b5e0594f} 
+\index{Random@{Random}!randomFloat@{randomFloat}}
+\index{randomFloat@{randomFloat}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{randomFloat()}{randomFloat()}}
+{\footnotesize\ttfamily float Random\+::random\+Float (\begin{DoxyParamCaption}\item[{float}]{min,  }\item[{float}]{max }\end{DoxyParamCaption})}
+
+
+
+Function to generate a random float. 
+
+Generates a random float between min and max.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & float, which is the minimum value of the random float. \\
+\hline
+{\em max} & float, which is the maximum value of the random float. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the random float
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em min} & \\
+\hline
+{\em max} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float, which is a random number between min and max. 
+\end{DoxyReturn}
+\Hypertarget{classRandom_a6a9dfc13b6af6788018738bb132656c7}\label{classRandom_a6a9dfc13b6af6788018738bb132656c7} 
+\index{Random@{Random}!randomInt@{randomInt}}
+\index{randomInt@{randomInt}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{randomInt()}{randomInt()}}
+{\footnotesize\ttfamily int Random\+::random\+Int (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+Function to generate a random integer. 
+
+Generates a random integer between min and max.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & int, which is the minimum value of the random integer. \\
+\hline
+{\em max} & int, which is the maximum value of the random integer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the random integer
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em min} & \\
+\hline
+{\em max} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int, which is a random number between min and max. 
+\end{DoxyReturn}
+\Hypertarget{classRandom_adc2375f6da1597458aa45d3e621e08da}\label{classRandom_adc2375f6da1597458aa45d3e621e08da} 
+\index{Random@{Random}!setXRange@{setXRange}}
+\index{setXRange@{setXRange}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{setXRange()}{setXRange()}}
+{\footnotesize\ttfamily void Random\+::set\+XRange (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ int, int $>$ \&}]{x\+Range }\end{DoxyParamCaption})}
+
+
+
+Function to set the range of the x coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Range} & pair of integers, which is the new range of the x coordinate. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRandom_af99228661737ee468d3b4a6e78ead7a8}\label{classRandom_af99228661737ee468d3b4a6e78ead7a8} 
+\index{Random@{Random}!setYRange@{setYRange}}
+\index{setYRange@{setYRange}!Random@{Random}}
+\doxysubsubsection{\texorpdfstring{setYRange()}{setYRange()}}
+{\footnotesize\ttfamily void Random\+::set\+YRange (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ int, int $>$ \&}]{y\+Range }\end{DoxyParamCaption})}
+
+
+
+Function to set the range of the y coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y\+Range} & pair of integers, which is the new range of the y coordinate. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Utilities/\+Random/Random.\+h\item 
+src/\+Utilities/\+Random/Random.\+cpp\end{DoxyCompactItemize}

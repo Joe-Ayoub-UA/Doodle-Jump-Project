@@ -1,0 +1,110 @@
+\doxysection{Entity\+\_\+\+View Class Reference}
+\hypertarget{classEntity__View}{}\label{classEntity__View}\index{Entity\_View@{Entity\_View}}
+
+
+Class that is responsible for the view of the entity.  
+
+
+
+
+{\ttfamily \#include $<$Entity\+\_\+\+View.\+h$>$}
+
+
+
+Inheritance diagram for Entity\+\_\+\+View\+:
+% FIG 0
+
+
+Collaboration diagram for Entity\+\_\+\+View\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEntity__View_a7709d5d2a066c73fcd05e0d2c058ad52}\label{classEntity__View_a7709d5d2a066c73fcd05e0d2c058ad52} 
+{\bfseries Entity\+\_\+\+View} ()=default
+\begin{DoxyCompactList}\small\item\em Function to update the entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEntity__View_a4137c102f447c4672c5fa85274363566}{update}} () override=0
+\begin{DoxyCompactList}\small\item\em Function to update the entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEntity__View_a438aca6eca6afa1c4285522f18b513b2}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates) override=0
+\begin{DoxyCompactList}\small\item\em Function to notify the position of the entity. \end{DoxyCompactList}\item 
+virtual sf\+::\+Float\+Rect \mbox{\hyperlink{classEntity__View_a9712075a070a771f4c24e4622aec64d6}{get\+Global\+Bounds}} () const =0
+\begin{DoxyCompactList}\small\item\em Function to get the position of the entity. \end{DoxyCompactList}\item 
+\Hypertarget{classEntity__View_a102524f513b9e2638f3f57053f692af4}\label{classEntity__View_a102524f513b9e2638f3f57053f692af4} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity\+\_\+\+View} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classEntity__View}{Entity\+\_\+\+View} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classObserver}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that is responsible for the view of the entity. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEntity__View_a9712075a070a771f4c24e4622aec64d6}\label{classEntity__View_a9712075a070a771f4c24e4622aec64d6} 
+\index{Entity\_View@{Entity\_View}!getGlobalBounds@{getGlobalBounds}}
+\index{getGlobalBounds@{getGlobalBounds}!Entity\_View@{Entity\_View}}
+\doxysubsubsection{\texorpdfstring{getGlobalBounds()}{getGlobalBounds()}}
+{\footnotesize\ttfamily virtual sf\+::\+Float\+Rect Entity\+\_\+\+View\+::get\+Global\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function to get the position of the entity. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classCoordinates}{Coordinates}, which are the position of the entity 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classGame__Repr_1_1Bonus_a98baed4833ba467565f8068b482d5f96}{Game\+\_\+\+Repr\+::\+Bonus}}, \mbox{\hyperlink{classGame__Repr_1_1Platform_a2b14519650e53cea360594d0df510161}{Game\+\_\+\+Repr\+::\+Platform}}, and \mbox{\hyperlink{classGame__Repr_1_1Player_ac9fa6e73fb8c6dac986674160e9b7398}{Game\+\_\+\+Repr\+::\+Player}}.
+
+\Hypertarget{classEntity__View_a438aca6eca6afa1c4285522f18b513b2}\label{classEntity__View_a438aca6eca6afa1c4285522f18b513b2} 
+\index{Entity\_View@{Entity\_View}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Entity\_View@{Entity\_View}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily void Entity\+\_\+\+View\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Function to notify the position of the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \doxylink{classCoordinates}{Coordinates}, which are the new coordinates of the entity \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classObserver_a77c1db4a66ba45b999696fbc29638a29}{Observer}}.
+
+
+
+Implemented in \mbox{\hyperlink{classGame__Repr_1_1Bonus_af7afd9baa6ff09518bb16333bf104e60}{Game\+\_\+\+Repr\+::\+Bonus}}, \mbox{\hyperlink{classGame__Repr_1_1Platform_a39dee4be83f942c6a7873702e6073d2a}{Game\+\_\+\+Repr\+::\+Platform}}, and \mbox{\hyperlink{classGame__Repr_1_1Player_a4f27488cbeca0fd8ac8bbddffe0c332c}{Game\+\_\+\+Repr\+::\+Player}}.
+
+\Hypertarget{classEntity__View_a4137c102f447c4672c5fa85274363566}\label{classEntity__View_a4137c102f447c4672c5fa85274363566} 
+\index{Entity\_View@{Entity\_View}!update@{update}}
+\index{update@{update}!Entity\_View@{Entity\_View}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Entity\+\_\+\+View\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Function to update the entity. 
+
+
+
+Implements \mbox{\hyperlink{classObserver_ac75e4b339faeb3ea6fe0a01bf0b4a215}{Observer}}.
+
+
+
+Implemented in \mbox{\hyperlink{classGame__Repr_1_1Bonus_a1b9cfe74379aeefd3e26313d016a97be}{Game\+\_\+\+Repr\+::\+Bonus}}, \mbox{\hyperlink{classGame__Repr_1_1Platform_a83bc1d7a4d9fd7d428926e31d9063a6a}{Game\+\_\+\+Repr\+::\+Platform}}, and \mbox{\hyperlink{classGame__Repr_1_1Player_ad6d2f94629b50b34a85ca02e56f7025a}{Game\+\_\+\+Repr\+::\+Player}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/view/\+Entity\+\_\+\+View/Entity\+\_\+\+View.\+h\end{DoxyCompactItemize}

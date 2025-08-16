@@ -1,0 +1,77 @@
+\doxysection{Game.\+h}
+\hypertarget{Game_8h_source}{}\label{Game_8h_source}\index{src/view/\_Game/Game.h@{src/view/\_Game/Game.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 23/12/24\ at\ 17:02.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_GAME\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_GAME\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../../Controller/Controller.h"{}}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Controller}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Stopwatch/Stopwatch.h"{}}\ \textcolor{comment}{//\ Stopwatch,\ singleton}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}../../logic/\_World/World.h"{}}\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ World}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../../view/BG\_Tile/BG\_Tile.h"{}}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Class\ to\ view\ the\ background\ tile}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../../view/Concrete\_Factory/Concrete\_Factory.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../../view/Platform/Platform.h"{}}\ \textcolor{comment}{//\ Class\ to\ view\ the\ platform}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}../../view/Player/Player.h"{}}\ \ \ \ \ \textcolor{comment}{//\ Class\ to\ view\ the\ player}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../../Config.h"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGame}{Game}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ std::shared\_ptr<Controller>\ mController\{\};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::shared\_ptr<Concrete\_Factory>\ CF\{std::make\_shared<Concrete\_Factory>()\};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::unique\_ptr<sf::RenderWindow>\ mWindow\{\};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ std::shared\_ptr<Game\_Repr::Player>\ mPlayer\{\};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::shared\_ptr<Game\_Repr::BG\_Tile>\ mBG\{\};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<std::shared\_ptr<Game\_Repr::Platform>>\ mPlatforms\{\};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::unordered\_map<sf::Keyboard::Key,\ bool>\ mKeyStates\{\};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \ \ \ \ sf::Text\ mText\{\};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00053\ \ \ \ \ sf::Font\ mFont\{\};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ sf::Text\ mHighScoreText\{\};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ sf::Font\ mHighScoreFont\{\};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00062\ \ \ \ \ sf::Text\ mGameOverText\{\};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ sf::Font\ mGameOverFont\{\};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ lastScore\ =\ 0;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ handlePlayerInputs(sf::Keyboard::Key\ key,\ \textcolor{keywordtype}{bool}\ isPressed);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ gameInit();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ processEvents();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ update();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ render();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ sleep(\textcolor{keywordtype}{float}\ time);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{classGame_ad59df6562a58a614fda24622d3715b65}{Game}}();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame_a1ab78f5ed0d5ea879157357cf2fb2afa}{run}}();}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_GAME\_H}}
+
+\end{DoxyCode}

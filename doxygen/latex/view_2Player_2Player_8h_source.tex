@@ -1,0 +1,59 @@
+\doxysection{Player.\+h}
+\hypertarget{view_2Player_2Player_8h_source}{}\label{view_2Player_2Player_8h_source}\index{src/view/Player/Player.h@{src/view/Player/Player.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 16/11/24\ at\ 19:16.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLAYER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLAYER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../../Config.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Coordinates/Coordinates.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../Entity\_View/Entity\_View.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceGame__Repr}{Game\_Repr}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGame__Repr_1_1Player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity__View}{Entity\_View}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ sf::Vector2<float>\ mDimensions\ =\ \{50.f,\ 50.f\};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ position;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \ \ sf::Color\ color;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00032\ \ \ \ \ sf::Texture\ mTexture;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::shared\_ptr<sf::Sprite>\ mPlayer;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ std::shared\_ptr<sf::RectangleShape>\ mHitboxDebug;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classGame__Repr_1_1Player_a0f5273b5ab3733cf71114a7b6ed4c1ca}{Player}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ std::shared\_ptr<sf::Sprite>\&\ \mbox{\hyperlink{classGame__Repr_1_1Player_a1a70ba3774daec9b1e7e045658ef732c}{getMPlayer}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Player_a5204aba41c5a72637b0cfd7a6da312eb}{setMPlayer}}(\textcolor{keyword}{const}\ std::shared\_ptr<sf::Sprite>\&\ n\_mPlayer);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Player_ad6d2f94629b50b34a85ca02e56f7025a}{update}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ std::pair<float,\ float>\ \mbox{\hyperlink{classGame__Repr_1_1Player_aca13aa9c4f2cc166dade5d17ccd49f0f}{getMDimensions}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ sf::FloatRect\ \mbox{\hyperlink{classGame__Repr_1_1Player_ac9fa6e73fb8c6dac986674160e9b7398}{getGlobalBounds}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ mPlayer-\/>getGlobalBounds();\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ \mbox{\hyperlink{classGame__Repr_1_1Player_af124e9e5097cec8c89fdcef6bc46bea5}{getPosition}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<sf::RectangleShape>\&\ \mbox{\hyperlink{classGame__Repr_1_1Player_aa4f454bd451f0854da38a62c835cfe2e}{getMHitboxDebug}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Player_a9ed9275d11182db223cb4928fe6ddbcb}{setPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ n\_position);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Player_a4f27488cbeca0fd8ac8bbddffe0c332c}{notifyPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ coordinates)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classGame__Repr_1_1Player_ae27c13f23a367584e7d855df8f8e4495}{\string~Player}}();}
+\DoxyCodeLine{00103\ \};}
+\DoxyCodeLine{00104\ \}\ \textcolor{comment}{//\ namespace\ Game\_Repr}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLAYER\_H}}
+
+\end{DoxyCode}

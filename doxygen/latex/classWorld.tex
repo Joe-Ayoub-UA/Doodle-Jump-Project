@@ -1,0 +1,409 @@
+\doxysection{World Class Reference}
+\hypertarget{classWorld}{}\label{classWorld}\index{World@{World}}
+
+
+Class that represents the world of the game.  
+
+
+
+
+{\ttfamily \#include $<$World.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classWorld_afa39d4e6f714a7a3691ac0c656f5e8a8}\label{classWorld_afa39d4e6f714a7a3691ac0c656f5e8a8} 
+{\bfseries World} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classWorld}{World} class. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a3d07ed2f713c3946fbbaa3a1b7b7f8c0}\label{classWorld_a3d07ed2f713c3946fbbaa3a1b7b7f8c0} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+World} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classWorld}{World} class. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a1c6f8aabc917118d292103bcf95445b1}\label{classWorld_a1c6f8aabc917118d292103bcf95445b1} 
+void {\bfseries create\+Player} ()
+\begin{DoxyCompactList}\small\item\em Function to create the player. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a0c65a0e7476fc69a55b517ee83ab3459}\label{classWorld_a0c65a0e7476fc69a55b517ee83ab3459} 
+bool {\bfseries create\+Platform} (const std\+::optional$<$ \mbox{\hyperlink{classCoordinates}{Coordinates}} $>$ \&coordinate=std\+::nullopt, const std\+::optional$<$ bool $>$ \&setup=std\+::nullopt)
+\begin{DoxyCompactList}\small\item\em Function to create a platform. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a5e33ac7e90f99a8162856956d971fb26}\label{classWorld_a5e33ac7e90f99a8162856956d971fb26} 
+void {\bfseries create\+BGTile} ()
+\begin{DoxyCompactList}\small\item\em Function to create a background tile. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a634e6f92d58f52cdd979a93a72812561}\label{classWorld_a634e6f92d58f52cdd979a93a72812561} 
+void {\bfseries create\+Bonus} ()
+\begin{DoxyCompactList}\small\item\em Function to create a bonus. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classWorld_a87a29915469d2cc9ab0fe24ac55aeb61}{check\+Valid\+Platform}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinate, const std\+::optional$<$ bool $>$ \&setup=std\+::nullopt)
+\begin{DoxyCompactList}\small\item\em Function to check if a platform\textquotesingle{}s position is valid. Called before a platform is officially created. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classWorld_af1999de133d57c99805e8a56faefa7e3}{check\+Collision}} ()
+\begin{DoxyCompactList}\small\item\em Function to check if the player collided with a platform. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a612d0d03a86ecf9a14e74e33e22f0cf5}\label{classWorld_a612d0d03a86ecf9a14e74e33e22f0cf5} 
+void {\bfseries check\+Player\+Bonus\+Collision} ()
+\begin{DoxyCompactList}\small\item\em Function to check if the player has collided with a bonus. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classWorld_a96603df2e29922b5f6d6925671f6f39d}{check\+End\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Function to check if the game has ended. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} \mbox{\hyperlink{classWorld_a66206d2f519e384562a05d4d2c8664e0}{find\+Lowest\+Platform}} ()
+\begin{DoxyCompactList}\small\item\em Function to find the lowest platform. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} \mbox{\hyperlink{classWorld_a725d632510080fa0e4b1970414c092b9}{find\+Highest\+Platform}} ()
+\begin{DoxyCompactList}\small\item\em Function to find the highest platform. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classWorld_a5937acc8fc21880346802e8cd01608da}{is\+Platform\+Needed}} ()
+\begin{DoxyCompactList}\small\item\em Function to check if a new platform is needed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classWorld_aae0c3b9d285d1b59fa9de69b00819280}{is\+Platform\+Not\+Needed}} ()
+\begin{DoxyCompactList}\small\item\em Function to check if a platform is not needed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorld_a56e01ef00dc450bcb34d581a8b40f5a0}{remove\+Platform}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ \&platform)
+\begin{DoxyCompactList}\small\item\em Function to remove a platform. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a87188b50047bb377043a0eee26c6fdfd}\label{classWorld_a87188b50047bb377043a0eee26c6fdfd} 
+void {\bfseries setup\+World} ()
+\begin{DoxyCompactList}\small\item\em Function to setup the world. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a9eb98001356e41ab9fcc3177f1bf20b9}\label{classWorld_a9eb98001356e41ab9fcc3177f1bf20b9} 
+void {\bfseries freeze\+Player} ()
+\begin{DoxyCompactList}\small\item\em Function to freeze the player. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a2cb96ad7b8fd3c3eca95bc1db9151965}\label{classWorld_a2cb96ad7b8fd3c3eca95bc1db9151965} 
+void {\bfseries freeze\+Platforms} ()
+\begin{DoxyCompactList}\small\item\em Function to freeze the platforms. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_a556973d884d8c892a24002f91e5d6a3f}\label{classWorld_a556973d884d8c892a24002f91e5d6a3f} 
+void {\bfseries freeze\+World} ()
+\begin{DoxyCompactList}\small\item\em Function to freeze the world. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_aea055bac16c4cb8886e70f670f46f044}\label{classWorld_aea055bac16c4cb8886e70f670f46f044} 
+void {\bfseries update\+World} ()
+\begin{DoxyCompactList}\small\item\em Function to update the world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorld_a7bb3625d54a74b82879a24f2ab71a4f9}{move\+Platforms\+Down}} (float move\+Down\+Distance)
+\begin{DoxyCompactList}\small\item\em Function to move the platforms down when the player reaches the half of the window. \end{DoxyCompactList}\item 
+\Hypertarget{classWorld_aab3ed0731998bcc01f23f0a466662227}\label{classWorld_aab3ed0731998bcc01f23f0a466662227} 
+void {\bfseries update\+Platforms} ()
+\begin{DoxyCompactList}\small\item\em Function to update the platforms depending on their type. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classConcrete__Factory}{Concrete\+\_\+\+Factory}} $>$ \& \mbox{\hyperlink{classWorld_a1d14cfa48927d32fcbaa3835f1f74aea}{get\+Cf}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the concrete factory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorld_ad346086b6806f83e179801ce40db8aab}{set\+Cf}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classConcrete__Factory}{Concrete\+\_\+\+Factory}} $>$ \&cf)
+\begin{DoxyCompactList}\small\item\em Function to set the concrete factory. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Player}{Logic\+\_\+\+Library\+::\+Player}} $>$ \& \mbox{\hyperlink{classWorld_a2a0c95f86e53141852c63af8d398959d}{get\+MPlayer}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorld_ac97ba5c867a72056ab8f9cd5692732c9}{set\+MPlayer}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Player}{Logic\+\_\+\+Library\+::\+Player}} $>$ \&m\+Player)
+\begin{DoxyCompactList}\small\item\em Function to set the player. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ $>$ \& \mbox{\hyperlink{classWorld_a728a8850a234cb82e4540077ba1e11d5}{get\+MPlatforms}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the platforms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorld_a6320bb3c39cdab0c773f1737a3a27791}{set\+MPlatforms}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ $>$ \&m\+Platforms)
+\begin{DoxyCompactList}\small\item\em Function to set the platforms. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ \mbox{\hyperlink{classWorld_ac21a127c3fb493d7550d179c0d598127}{get\+MPlatform}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ \&platform)
+\begin{DoxyCompactList}\small\item\em Function to get the platform. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ $>$ \& \mbox{\hyperlink{classWorld_ada46ec82ffcbc0abbaad40858282c28f}{get\+Mbg\+Tiles}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the background tiles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorld_aa2671ea4be246b75c831b43f76b741f0}{set\+Mbg\+Tiles}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ $>$ \&m\+Bg\+Tiles)
+\begin{DoxyCompactList}\small\item\em Function to set the background tiles. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ \mbox{\hyperlink{classWorld_a87e6118e98a86e02d0bf966375f6a760}{get\+MBGTile}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ \&bg\+Tile)
+\begin{DoxyCompactList}\small\item\em Function to get the background tile. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ $>$ \& \mbox{\hyperlink{classWorld_aeac1d1ffa0e757de93955e939a4ed64b}{get\+MBonuses}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the bonuses. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorld_ab6aafc7025bb9382a0cf57a47148c9a2}{set\+MBonuses}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ $>$ \&m\+Bonuses)
+\begin{DoxyCompactList}\small\item\em Function to set the bonuses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that represents the world of the game. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWorld_af1999de133d57c99805e8a56faefa7e3}\label{classWorld_af1999de133d57c99805e8a56faefa7e3} 
+\index{World@{World}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!World@{World}}
+\doxysubsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily bool World\+::check\+Collision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to check if the player collided with a platform. 
+
+\begin{DoxyReturn}{Returns}
+true or false depending on the player\textquotesingle{}s and platform\textquotesingle{}s positions 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a96603df2e29922b5f6d6925671f6f39d}\label{classWorld_a96603df2e29922b5f6d6925671f6f39d} 
+\index{World@{World}!checkEndGame@{checkEndGame}}
+\index{checkEndGame@{checkEndGame}!World@{World}}
+\doxysubsubsection{\texorpdfstring{checkEndGame()}{checkEndGame()}}
+{\footnotesize\ttfamily bool World\+::check\+End\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to check if the game has ended. 
+
+\begin{DoxyReturn}{Returns}
+true if the player has gone below the window, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a87a29915469d2cc9ab0fe24ac55aeb61}\label{classWorld_a87a29915469d2cc9ab0fe24ac55aeb61} 
+\index{World@{World}!checkValidPlatform@{checkValidPlatform}}
+\index{checkValidPlatform@{checkValidPlatform}!World@{World}}
+\doxysubsubsection{\texorpdfstring{checkValidPlatform()}{checkValidPlatform()}}
+{\footnotesize\ttfamily bool World\+::check\+Valid\+Platform (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinate,  }\item[{const std\+::optional$<$ bool $>$ \&}]{setup = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+
+
+
+Function to check if a platform\textquotesingle{}s position is valid. Called before a platform is officially created. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinate} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false depending on the validity of the platform\textquotesingle{}s positioning, and whether it\textquotesingle{}s reachable or not 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a725d632510080fa0e4b1970414c092b9}\label{classWorld_a725d632510080fa0e4b1970414c092b9} 
+\index{World@{World}!findHighestPlatform@{findHighestPlatform}}
+\index{findHighestPlatform@{findHighestPlatform}!World@{World}}
+\doxysubsubsection{\texorpdfstring{findHighestPlatform()}{findHighestPlatform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} World\+::find\+Highest\+Platform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to find the highest platform. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the highest platform 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a66206d2f519e384562a05d4d2c8664e0}\label{classWorld_a66206d2f519e384562a05d4d2c8664e0} 
+\index{World@{World}!findLowestPlatform@{findLowestPlatform}}
+\index{findLowestPlatform@{findLowestPlatform}!World@{World}}
+\doxysubsubsection{\texorpdfstring{findLowestPlatform()}{findLowestPlatform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} World\+::find\+Lowest\+Platform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to find the lowest platform. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the lowest platform 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a1d14cfa48927d32fcbaa3835f1f74aea}\label{classWorld_a1d14cfa48927d32fcbaa3835f1f74aea} 
+\index{World@{World}!getCf@{getCf}}
+\index{getCf@{getCf}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getCf()}{getCf()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classConcrete__Factory}{Concrete\+\_\+\+Factory}} $>$ \& World\+::get\+Cf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the concrete factory. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the concrete factory 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a87e6118e98a86e02d0bf966375f6a760}\label{classWorld_a87e6118e98a86e02d0bf966375f6a760} 
+\index{World@{World}!getMBGTile@{getMBGTile}}
+\index{getMBGTile@{getMBGTile}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getMBGTile()}{getMBGTile()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ World\+::get\+MBGTile (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ \&}]{bg\+Tile }\end{DoxyParamCaption})}
+
+
+
+Function to get the background tile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bg\+Tile} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+shared pointer to the background tile 
+\end{DoxyReturn}
+\Hypertarget{classWorld_ada46ec82ffcbc0abbaad40858282c28f}\label{classWorld_ada46ec82ffcbc0abbaad40858282c28f} 
+\index{World@{World}!getMbgTiles@{getMbgTiles}}
+\index{getMbgTiles@{getMbgTiles}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getMbgTiles()}{getMbgTiles()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ $>$ \& World\+::get\+Mbg\+Tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the background tiles. 
+
+\begin{DoxyReturn}{Returns}
+vector of shared pointers to the background tiles 
+\end{DoxyReturn}
+\Hypertarget{classWorld_aeac1d1ffa0e757de93955e939a4ed64b}\label{classWorld_aeac1d1ffa0e757de93955e939a4ed64b} 
+\index{World@{World}!getMBonuses@{getMBonuses}}
+\index{getMBonuses@{getMBonuses}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getMBonuses()}{getMBonuses()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ $>$ \& World\+::get\+MBonuses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the bonuses. 
+
+\begin{DoxyReturn}{Returns}
+vector of shared pointers to the bonuses 
+\end{DoxyReturn}
+\Hypertarget{classWorld_ac21a127c3fb493d7550d179c0d598127}\label{classWorld_ac21a127c3fb493d7550d179c0d598127} 
+\index{World@{World}!getMPlatform@{getMPlatform}}
+\index{getMPlatform@{getMPlatform}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getMPlatform()}{getMPlatform()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ World\+::get\+MPlatform (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ \&}]{platform }\end{DoxyParamCaption})}
+
+
+
+Function to get the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em platform} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+shared pointer to the platform 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a728a8850a234cb82e4540077ba1e11d5}\label{classWorld_a728a8850a234cb82e4540077ba1e11d5} 
+\index{World@{World}!getMPlatforms@{getMPlatforms}}
+\index{getMPlatforms@{getMPlatforms}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getMPlatforms()}{getMPlatforms()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ $>$ \& World\+::get\+MPlatforms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the platforms. 
+
+\begin{DoxyReturn}{Returns}
+vector of shared pointers to the platforms 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a2a0c95f86e53141852c63af8d398959d}\label{classWorld_a2a0c95f86e53141852c63af8d398959d} 
+\index{World@{World}!getMPlayer@{getMPlayer}}
+\index{getMPlayer@{getMPlayer}!World@{World}}
+\doxysubsubsection{\texorpdfstring{getMPlayer()}{getMPlayer()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Player}{Logic\+\_\+\+Library\+::\+Player}} $>$ \& World\+::get\+MPlayer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the player. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the player 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a5937acc8fc21880346802e8cd01608da}\label{classWorld_a5937acc8fc21880346802e8cd01608da} 
+\index{World@{World}!isPlatformNeeded@{isPlatformNeeded}}
+\index{isPlatformNeeded@{isPlatformNeeded}!World@{World}}
+\doxysubsubsection{\texorpdfstring{isPlatformNeeded()}{isPlatformNeeded()}}
+{\footnotesize\ttfamily bool World\+::is\+Platform\+Needed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to check if a new platform is needed. 
+
+\begin{DoxyReturn}{Returns}
+true or false depending on the necessity of a new platform 
+\end{DoxyReturn}
+\Hypertarget{classWorld_aae0c3b9d285d1b59fa9de69b00819280}\label{classWorld_aae0c3b9d285d1b59fa9de69b00819280} 
+\index{World@{World}!isPlatformNotNeeded@{isPlatformNotNeeded}}
+\index{isPlatformNotNeeded@{isPlatformNotNeeded}!World@{World}}
+\doxysubsubsection{\texorpdfstring{isPlatformNotNeeded()}{isPlatformNotNeeded()}}
+{\footnotesize\ttfamily bool World\+::is\+Platform\+Not\+Needed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to check if a platform is not needed. 
+
+\begin{DoxyReturn}{Returns}
+true or false depending on the necessity of a platform 
+\end{DoxyReturn}
+\Hypertarget{classWorld_a7bb3625d54a74b82879a24f2ab71a4f9}\label{classWorld_a7bb3625d54a74b82879a24f2ab71a4f9} 
+\index{World@{World}!movePlatformsDown@{movePlatformsDown}}
+\index{movePlatformsDown@{movePlatformsDown}!World@{World}}
+\doxysubsubsection{\texorpdfstring{movePlatformsDown()}{movePlatformsDown()}}
+{\footnotesize\ttfamily void World\+::move\+Platforms\+Down (\begin{DoxyParamCaption}\item[{float}]{move\+Down\+Distance }\end{DoxyParamCaption})}
+
+
+
+Function to move the platforms down when the player reaches the half of the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Down\+Distance} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classWorld_a56e01ef00dc450bcb34d581a8b40f5a0}\label{classWorld_a56e01ef00dc450bcb34d581a8b40f5a0} 
+\index{World@{World}!removePlatform@{removePlatform}}
+\index{removePlatform@{removePlatform}!World@{World}}
+\doxysubsubsection{\texorpdfstring{removePlatform()}{removePlatform()}}
+{\footnotesize\ttfamily void World\+::remove\+Platform (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ \&}]{platform }\end{DoxyParamCaption})}
+
+
+
+Function to remove a platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em platform} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classWorld_ad346086b6806f83e179801ce40db8aab}\label{classWorld_ad346086b6806f83e179801ce40db8aab} 
+\index{World@{World}!setCf@{setCf}}
+\index{setCf@{setCf}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setCf()}{setCf()}}
+{\footnotesize\ttfamily void World\+::set\+Cf (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classConcrete__Factory}{Concrete\+\_\+\+Factory}} $>$ \&}]{cf }\end{DoxyParamCaption})}
+
+
+
+Function to set the concrete factory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cf} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classWorld_aa2671ea4be246b75c831b43f76b741f0}\label{classWorld_aa2671ea4be246b75c831b43f76b741f0} 
+\index{World@{World}!setMbgTiles@{setMbgTiles}}
+\index{setMbgTiles@{setMbgTiles}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setMbgTiles()}{setMbgTiles()}}
+{\footnotesize\ttfamily void World\+::set\+Mbg\+Tiles (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}} $>$ $>$ \&}]{m\+Bg\+Tiles }\end{DoxyParamCaption})}
+
+
+
+Function to set the background tiles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+Bg\+Tiles} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classWorld_ab6aafc7025bb9382a0cf57a47148c9a2}\label{classWorld_ab6aafc7025bb9382a0cf57a47148c9a2} 
+\index{World@{World}!setMBonuses@{setMBonuses}}
+\index{setMBonuses@{setMBonuses}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setMBonuses()}{setMBonuses()}}
+{\footnotesize\ttfamily void World\+::set\+MBonuses (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Bonus}{Logic\+\_\+\+Library\+::\+Bonus}} $>$ $>$ \&}]{m\+Bonuses }\end{DoxyParamCaption})}
+
+
+
+Function to set the bonuses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+Bonuses} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classWorld_a6320bb3c39cdab0c773f1737a3a27791}\label{classWorld_a6320bb3c39cdab0c773f1737a3a27791} 
+\index{World@{World}!setMPlatforms@{setMPlatforms}}
+\index{setMPlatforms@{setMPlatforms}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setMPlatforms()}{setMPlatforms()}}
+{\footnotesize\ttfamily void World\+::set\+MPlatforms (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Platform}{Logic\+\_\+\+Library\+::\+Platform}} $>$ $>$ \&}]{m\+Platforms }\end{DoxyParamCaption})}
+
+
+
+Function to set the platforms. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+Platforms} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classWorld_ac97ba5c867a72056ab8f9cd5692732c9}\label{classWorld_ac97ba5c867a72056ab8f9cd5692732c9} 
+\index{World@{World}!setMPlayer@{setMPlayer}}
+\index{setMPlayer@{setMPlayer}!World@{World}}
+\doxysubsubsection{\texorpdfstring{setMPlayer()}{setMPlayer()}}
+{\footnotesize\ttfamily void World\+::set\+MPlayer (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classLogic__Library_1_1Player}{Logic\+\_\+\+Library\+::\+Player}} $>$ \&}]{m\+Player }\end{DoxyParamCaption})}
+
+
+
+Function to set the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+Player} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/logic/\+\_\+\+World/World.\+h\item 
+src/logic/\+\_\+\+World/World.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+\doxysection{Concrete\+\_\+\+Factory.\+h}
+\hypertarget{Concrete__Factory_8h_source}{}\label{Concrete__Factory_8h_source}\index{src/view/Concrete\_Factory/Concrete\_Factory.h@{src/view/Concrete\_Factory/Concrete\_Factory.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 14/11/24\ at\ 16:06.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_CONCRETE\_FACTORY\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_CONCRETE\_FACTORY\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../logic/Abstract\_Factory/Abstract\_Factory.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../../view/BG\_Tile/BG\_Tile.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../../view/Bonus/Bonus.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../../view/Platform/Platform.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../../view/Player/Player.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classConcrete__Factory}{Concrete\_Factory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classAbstract__Factory}{Abstract\_Factory}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ std::shared\_ptr<Observer>\ observer;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ sf::Color\ handlePlatformColor(\mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums::PlatformType}}\ type);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ sf::Color\ handleBonusColor(\mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums::BonusType}}\ type);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classConcrete__Factory_a2f2988910bab0287a421a4e4a6379070}{Concrete\_Factory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::shared\_ptr<Logic\_Library::Player>\ \mbox{\hyperlink{classConcrete__Factory_a7b18228741faafd0950cd60253218c39}{createPlayer}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::shared\_ptr<Logic\_Library::Platform>\ \mbox{\hyperlink{classConcrete__Factory_a36d91541c2e4e84924f911535a504e10}{createPlatform}}(\mbox{\hyperlink{classCoordinates}{Coordinates}}\ coordinate)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::shared\_ptr<Logic\_Library::BG\_Tile>\ \mbox{\hyperlink{classConcrete__Factory_a0f63a6442ebd4268c61ca7ffbbd9000d}{createBGTile}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ std::shared\_ptr<Logic\_Library::Bonus>\ \mbox{\hyperlink{classConcrete__Factory_a46d005fc674c606433db8ae4aca5201b}{createBonus}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ std::shared\_ptr<World>\ \mbox{\hyperlink{classConcrete__Factory_a3c639935bff77651ab9c7fd5f363b471}{createWorld}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConcrete__Factory_afaf67ff75769d9efa55a4b84abaa6639}{assignObserver}}(std::shared\_ptr<Observer>\ observer)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConcrete__Factory_a2d53b225c112604da23f9ce2735d09a9}{deleteObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConcrete__Factory_abd86a97a6fc2c9f85ef5d258492d911b}{notifyObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_CONCRETE\_FACTORY\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,219 @@
+\doxysection{Game\+\_\+\+Repr\+::Platform Class Reference}
+\hypertarget{classGame__Repr_1_1Platform}{}\label{classGame__Repr_1_1Platform}\index{Game\_Repr::Platform@{Game\_Repr::Platform}}
+
+
+Class that is responsible for the view of the platform.  
+
+
+
+
+{\ttfamily \#include $<$Platform.\+h$>$}
+
+
+
+Inheritance diagram for Game\+\_\+\+Repr\+::Platform\+:
+% FIG 0
+
+
+Collaboration diagram for Game\+\_\+\+Repr\+::Platform\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGame__Repr_1_1Platform_a051482a4717fd5a5949741950284c3fd}\label{classGame__Repr_1_1Platform_a051482a4717fd5a5949741950284c3fd} 
+{\bfseries Platform} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classGame__Repr_1_1Platform}{Platform} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Platform_a83bc1d7a4d9fd7d428926e31d9063a6a}{update}} () override
+\begin{DoxyCompactList}\small\item\em Function to update the platform. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ sf\+::\+Rectangle\+Shape $>$ \& \mbox{\hyperlink{classGame__Repr_1_1Platform_aa3cd27c45f5441af1ad856bac33d2381}{get\+MPlatform}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Platform_af6b7bce52d4f61bacaa45f74d334864e}{set\+MPlatform}} (const std\+::shared\+\_\+ptr$<$ sf\+::\+Rectangle\+Shape $>$ \&n\+\_\+m\+Platform)
+\begin{DoxyCompactList}\small\item\em Function to set the platform. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classCoordinates}{Coordinates}} \& \mbox{\hyperlink{classGame__Repr_1_1Platform_a1c2fb1f9dfcd3e516098572a31d0f000}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the position of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Platform_a1b7ed0ddd7a9d8e86b6bbd19e08f2d02}{set\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&n\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Function to set the position of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Platform_a1dab68a5dba82acc49ae5c83db3f4802}{set\+Platform\+Pos}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Function to get the type of the platform. \end{DoxyCompactList}\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Bonus}{Bonus}} $>$ \& \mbox{\hyperlink{classGame__Repr_1_1Platform_acc1bbc12df8b925c302031f06dac358f}{get\+Bonus}} () const
+\begin{DoxyCompactList}\small\item\em Function to get the bonus of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Platform_a65a58e46c97b3007223059aab872dd13}{set\+Bonus}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Bonus}{Bonus}} $>$ \&n\+\_\+bonus)
+\begin{DoxyCompactList}\small\item\em Function to set the bonus of the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGame__Repr_1_1Platform_a39dee4be83f942c6a7873702e6073d2a}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates) override
+\begin{DoxyCompactList}\small\item\em Function to get the type of the platform. \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{classGame__Repr_1_1Platform_a2b14519650e53cea360594d0df510161}{get\+Global\+Bounds}} () const override
+\begin{DoxyCompactList}\small\item\em Function to get the type of the platform. \end{DoxyCompactList}\item 
+\Hypertarget{classGame__Repr_1_1Platform_a290712026302c39d4b70d50c91f1dc62}\label{classGame__Repr_1_1Platform_a290712026302c39d4b70d50c91f1dc62} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Platform} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classGame__Repr_1_1Platform}{Platform} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEntity__View}{Entity\+\_\+\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Entity\+\_\+\+View} ()=default
+\begin{DoxyCompactList}\small\item\em Function to update the entity. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity\+\_\+\+View} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classEntity__View}{Entity\+\_\+\+View} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classObserver}{Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Observer} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classObserver}{Observer} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that is responsible for the view of the platform. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGame__Repr_1_1Platform_acc1bbc12df8b925c302031f06dac358f}\label{classGame__Repr_1_1Platform_acc1bbc12df8b925c302031f06dac358f} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!getBonus@{getBonus}}
+\index{getBonus@{getBonus}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{getBonus()}{getBonus()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Bonus}{Game\+\_\+\+Repr\+::\+Bonus}} $>$ \& Game\+\_\+\+Repr\+::\+Platform\+::get\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the bonus of the platform. 
+
+\begin{DoxyReturn}{Returns}
+shared pointer to the bonus 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Platform_a2b14519650e53cea360594d0df510161}\label{classGame__Repr_1_1Platform_a2b14519650e53cea360594d0df510161} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!getGlobalBounds@{getGlobalBounds}}
+\index{getGlobalBounds@{getGlobalBounds}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{getGlobalBounds()}{getGlobalBounds()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Game\+\_\+\+Repr\+::\+Platform\+::get\+Global\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to get the type of the platform. 
+
+\begin{DoxyReturn}{Returns}
+Platform\+Type, which is the type of the platform 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classEntity__View_a9712075a070a771f4c24e4622aec64d6}{Entity\+\_\+\+View}}.
+
+\Hypertarget{classGame__Repr_1_1Platform_aa3cd27c45f5441af1ad856bac33d2381}\label{classGame__Repr_1_1Platform_aa3cd27c45f5441af1ad856bac33d2381} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!getMPlatform@{getMPlatform}}
+\index{getMPlatform@{getMPlatform}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{getMPlatform()}{getMPlatform()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$ sf\+::\+Rectangle\+Shape $>$ \& Game\+\_\+\+Repr\+::\+Platform\+::get\+MPlatform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the platform. 
+
+\begin{DoxyReturn}{Returns}
+the platform 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Platform_a1c2fb1f9dfcd3e516098572a31d0f000}\label{classGame__Repr_1_1Platform_a1c2fb1f9dfcd3e516098572a31d0f000} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCoordinates}{Coordinates}} \& Game\+\_\+\+Repr\+::\+Platform\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Function to get the position of the platform. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classCoordinates}{Coordinates}, which are the position of the platform 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Platform_a39dee4be83f942c6a7873702e6073d2a}\label{classGame__Repr_1_1Platform_a39dee4be83f942c6a7873702e6073d2a} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Platform\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to get the type of the platform. 
+
+\begin{DoxyReturn}{Returns}
+Platform\+Type, which is the type of the platform 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classEntity__View_a438aca6eca6afa1c4285522f18b513b2}{Entity\+\_\+\+View}}.
+
+\Hypertarget{classGame__Repr_1_1Platform_a65a58e46c97b3007223059aab872dd13}\label{classGame__Repr_1_1Platform_a65a58e46c97b3007223059aab872dd13} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!setBonus@{setBonus}}
+\index{setBonus@{setBonus}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{setBonus()}{setBonus()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Platform\+::set\+Bonus (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1Bonus}{Bonus}} $>$ \&}]{n\+\_\+bonus }\end{DoxyParamCaption})}
+
+
+
+Function to set the bonus of the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bonus} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGame__Repr_1_1Platform_af6b7bce52d4f61bacaa45f74d334864e}\label{classGame__Repr_1_1Platform_af6b7bce52d4f61bacaa45f74d334864e} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!setMPlatform@{setMPlatform}}
+\index{setMPlatform@{setMPlatform}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{setMPlatform()}{setMPlatform()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Platform\+::set\+MPlatform (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ sf\+::\+Rectangle\+Shape $>$ \&}]{n\+\_\+m\+Platform }\end{DoxyParamCaption})}
+
+
+
+Function to set the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+m\+Platform} & std\+::shared\+\_\+ptr$<$sf\+::\+Rectangle\+Shape$>$, which is the new platform \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGame__Repr_1_1Platform_a1dab68a5dba82acc49ae5c83db3f4802}\label{classGame__Repr_1_1Platform_a1dab68a5dba82acc49ae5c83db3f4802} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!setPlatformPos@{setPlatformPos}}
+\index{setPlatformPos@{setPlatformPos}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{setPlatformPos()}{setPlatformPos()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Platform\+::set\+Platform\+Pos (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Function to get the type of the platform. 
+
+\begin{DoxyReturn}{Returns}
+Platform\+Type, which is the type of the platform 
+\end{DoxyReturn}
+\Hypertarget{classGame__Repr_1_1Platform_a1b7ed0ddd7a9d8e86b6bbd19e08f2d02}\label{classGame__Repr_1_1Platform_a1b7ed0ddd7a9d8e86b6bbd19e08f2d02} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Platform\+::set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{n\+\_\+position }\end{DoxyParamCaption})}
+
+
+
+Function to set the position of the platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+position} & \doxylink{classCoordinates}{Coordinates}, which are the new position of the platform \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGame__Repr_1_1Platform_a83bc1d7a4d9fd7d428926e31d9063a6a}\label{classGame__Repr_1_1Platform_a83bc1d7a4d9fd7d428926e31d9063a6a} 
+\index{Game\_Repr::Platform@{Game\_Repr::Platform}!update@{update}}
+\index{update@{update}!Game\_Repr::Platform@{Game\_Repr::Platform}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+\_\+\+Repr\+::\+Platform\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to update the platform. 
+
+
+
+Implements \mbox{\hyperlink{classEntity__View_a4137c102f447c4672c5fa85274363566}{Entity\+\_\+\+View}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/view/\+Platform/Platform.\+h\item 
+src/view/\+Platform/Platform.\+cpp\end{DoxyCompactItemize}

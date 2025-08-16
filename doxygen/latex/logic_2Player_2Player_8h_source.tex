@@ -1,0 +1,86 @@
+\doxysection{Player.\+h}
+\hypertarget{logic_2Player_2Player_8h_source}{}\label{logic_2Player_2Player_8h_source}\index{src/logic/Player/Player.h@{src/logic/Player/Player.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ s0230501\ on\ 14/11/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLAYER\_LOGIC\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLAYER\_LOGIC\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Config.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../../view/Player/Player.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../Entity\_Model/Entity\_Model.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLogic__Library}{Logic\_Library}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogic__Library_1_1Player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classLogic__Library_1_1Entity__Model}{Entity\_Model}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ std::shared\_ptr<Game\_Repr::Player>\ observer;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ horizontalSpeed\ =\ \mbox{\hyperlink{classConfig_aea0340e81872b3ca8495623e01e1e4b6}{Config::horizontalSpeed}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ verticalSpeed\ =\ 0.f;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ gravity\ =\ \mbox{\hyperlink{classConfig_a47f6aba1722d9e8900107af8e7212eb6}{Config::gravity}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::shared\_ptr<Logic\_Library::Player>\ mPlayer;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ jumpForce\ =\ \mbox{\hyperlink{classConfig_a78e5af3c4d56154ee960013d2f5306d8}{Config::jumpForce}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ mJetpackActive\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ mJetpackFrameCount\ =\ 0;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ JETPACK\_FRAMES\ =\ \mbox{\hyperlink{classConfig_afca64e00377ff4a3351122208b852ab4}{Config::jetPackFrameDuration}};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ JETPACK\_FORCE\ =\ \mbox{\hyperlink{classConfig_ace692a986aa0bb8262bff6a3c2480408}{Config::jetpackForce}};\ \textcolor{comment}{//\ Upward\ force,\ negative\ because\ y-\/axis\ is\ inverted}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classLogic__Library_1_1Player_a1c431f5885472f72c804eaf4a6978f48}{Player}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classLogic__Library_1_1Player_a1675f62a80e1fafd8c8cbbda369bdc33}{\string~Player}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_afe004832e11ebcbe6fadd4d4098c3c23}{moveLeft}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_ad34e317c25a5eb41ffa80db4827c4caf}{moveRight}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a859724990948a0d74cc731bc139aef6a}{teleportPlayer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ coordinate);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogic__Library_1_1Player_ac2cdaf7c46c45d2cebe6fedea261012a}{checkOutOfBounds}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ coordinates);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a299848d58ef824ebaa9430d0a82db5c7}{jump}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a5c4e3b6856ddd7293797a73c2953e001}{applyGravity}}();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_ac9b80d44f082e1f6760cfffad3fcaf23}{activateJetpack}}();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a7f394710553a980abece7c1685bb7102}{updateJetpack}}();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogic__Library_1_1Player_aa19686a87210b80d16c7d4673ff4c24b}{isJetpackActive}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mJetpackActive;\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_aecfa24c7635326f8d9066a50cfb73f06}{assignObserver}}(std::shared\_ptr<Game\_Repr::Player>\ newObserver);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_abb569c5ef80d4b940e56f35e65936eab}{deleteObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_ae2f4b8cc9dfbe8e39a7a4546d80dcaf4}{notifyObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a0261509fa5854cfce9435053056fe35c}{notifyPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ coordinates)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00137\ \ \ \ \ std::shared\_ptr<Game\_Repr::Player>\ \mbox{\hyperlink{classLogic__Library_1_1Player_a83e73949dbcee8199b844ec5e0b98c81}{getObserver}}();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classLogic__Library_1_1Player_ab119e4e7d3079318d90f80a4f8229c16}{getVerticalSpeed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a45d182511f902dae59afd53b2d649458}{getJumpForce}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a12b0d13bdf1b3dfd2859cb5eff93cd7a}{setVerticalSpeed}}(\textcolor{keywordtype}{float}\ n\_verticalSpeed);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a9c3aa0ff2677125074d7c2be0de77897}{setJumpForce}}(\textcolor{keywordtype}{float}\ n\_jumpForce);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a055e6d068901c8e77ac4654270c5db26}{getHorizontalSpeed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Player_a996a1ae8172d0af271ccefdde24acd21}{setHorizontalSpeed}}(\textcolor{keywordtype}{float}\ n\_horizontalSpeed);}
+\DoxyCodeLine{00174\ \};}
+\DoxyCodeLine{00175\ \}\ \textcolor{comment}{//\ namespace\ Logic\_Library}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLAYER\_LOGIC\_H}}
+
+\end{DoxyCode}

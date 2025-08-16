@@ -1,0 +1,40 @@
+\doxysection{Stopwatch.\+h}
+\hypertarget{Stopwatch_8h_source}{}\label{Stopwatch_8h_source}\index{src/Utilities/Stopwatch/Stopwatch.h@{src/Utilities/Stopwatch/Stopwatch.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 14/11/24\ at\ 15:21.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_STOPWATCH\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_STOPWATCH\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classStopwatch}{Stopwatch}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ std::chrono::time\_point<std::chrono::high\_resolution\_clock>\ startTime;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00017\ \ \ \ \ std::chrono::time\_point<std::chrono::high\_resolution\_clock>\ stopTime;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ /***}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Default\ constructor\ for\ Stopwatch\ class}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classStopwatch}{Stopwatch}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classStopwatch}{Stopwatch}}\&\ \mbox{\hyperlink{classStopwatch_ae8cfd6ad5161541a7dc62fe3b3e1ca6b}{getInstance}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classStopwatch_a6d01ecc80c92f1d5210cd9c3eb72883d}{start}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classStopwatch_aa0266311b7392b948061bb985b49cff4}{stop}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{\ \ \ \ /***}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Destructor\ for\ Stopwatch\ class}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classStopwatch}{\string~Stopwatch}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classStopwatch_ae095049063daf3545700784598eb2ecd}{getElapsedTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_STOPWATCH\_H}}
+
+\end{DoxyCode}

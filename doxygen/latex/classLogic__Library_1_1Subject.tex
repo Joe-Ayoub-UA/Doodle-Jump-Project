@@ -1,0 +1,89 @@
+\doxysection{Logic\+\_\+\+Library\+::Subject Class Reference}
+\hypertarget{classLogic__Library_1_1Subject}{}\label{classLogic__Library_1_1Subject}\index{Logic\_Library::Subject@{Logic\_Library::Subject}}
+
+
+Class that is responsible for the subject.  
+
+
+
+
+{\ttfamily \#include $<$Subject.\+h$>$}
+
+
+
+Inheritance diagram for Logic\+\_\+\+Library\+::Subject\+:
+% FIG 0
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLogic__Library_1_1Subject_a6cdbb18784ea3112c1db97baf33a8af1}\label{classLogic__Library_1_1Subject_a6cdbb18784ea3112c1db97baf33a8af1} 
+{\bfseries Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classLogic__Library_1_1Subject_a6e2b59fc27fc1fdc2e3d513e0107816b}{delete\+Observer}} ()=0
+\begin{DoxyCompactList}\small\item\em Function to delete the observer of the subject. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classLogic__Library_1_1Subject_a3f9af7bd2251e9269360f1d351600e78}{notify\+Observer}} ()
+\begin{DoxyCompactList}\small\item\em Function to notify the observer of the subject. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classLogic__Library_1_1Subject_a02a4bceee37afc3a8464049f4700b06d}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates)=0
+\begin{DoxyCompactList}\small\item\em Function to notify the position of the subject. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1Subject_a419c2cf024507e70df5eae3a3534f66c}\label{classLogic__Library_1_1Subject_a419c2cf024507e70df5eae3a3534f66c} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that is responsible for the subject. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLogic__Library_1_1Subject_a6e2b59fc27fc1fdc2e3d513e0107816b}\label{classLogic__Library_1_1Subject_a6e2b59fc27fc1fdc2e3d513e0107816b} 
+\index{Logic\_Library::Subject@{Logic\_Library::Subject}!deleteObserver@{deleteObserver}}
+\index{deleteObserver@{deleteObserver}!Logic\_Library::Subject@{Logic\_Library::Subject}}
+\doxysubsubsection{\texorpdfstring{deleteObserver()}{deleteObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Subject\+::delete\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function to delete the observer of the subject. 
+
+
+
+Implemented in \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_a52ef11310011c50c45380ccf5ae861be}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}}, \mbox{\hyperlink{classLogic__Library_1_1Bonus_a4c1c2c49298180e05284a94ada1a58e5}{Logic\+\_\+\+Library\+::\+Bonus}}, \mbox{\hyperlink{classLogic__Library_1_1Platform_a79f1eb76cd74ac8ac778f08322eaa4a4}{Logic\+\_\+\+Library\+::\+Platform}}, \mbox{\hyperlink{classLogic__Library_1_1Player_abb569c5ef80d4b940e56f35e65936eab}{Logic\+\_\+\+Library\+::\+Player}}, and \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a56fb751d461e4d9825ecec059f380879}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Subject_a3f9af7bd2251e9269360f1d351600e78}\label{classLogic__Library_1_1Subject_a3f9af7bd2251e9269360f1d351600e78} 
+\index{Logic\_Library::Subject@{Logic\_Library::Subject}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Logic\_Library::Subject@{Logic\_Library::Subject}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+Subject\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function to notify the observer of the subject. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_abe7d29f41c81e2016b15fcee27503530}{Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile}}, \mbox{\hyperlink{classLogic__Library_1_1Bonus_a4ef0f7b7456f3d846cf700443c548535}{Logic\+\_\+\+Library\+::\+Bonus}}, \mbox{\hyperlink{classLogic__Library_1_1Platform_af94057e180d66a274ea4deae2a346ae6}{Logic\+\_\+\+Library\+::\+Platform}}, \mbox{\hyperlink{classLogic__Library_1_1Player_ae2f4b8cc9dfbe8e39a7a4546d80dcaf4}{Logic\+\_\+\+Library\+::\+Player}}, and \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a9d8bd1ecef74b4a4eb18009a261e9dc0}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1Subject_a02a4bceee37afc3a8464049f4700b06d}\label{classLogic__Library_1_1Subject_a02a4bceee37afc3a8464049f4700b06d} 
+\index{Logic\_Library::Subject@{Logic\_Library::Subject}!notifyPosition@{notifyPosition}}
+\index{notifyPosition@{notifyPosition}!Logic\_Library::Subject@{Logic\_Library::Subject}}
+\doxysubsubsection{\texorpdfstring{notifyPosition()}{notifyPosition()}}
+{\footnotesize\ttfamily virtual void Logic\+\_\+\+Library\+::\+Subject\+::notify\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function to notify the position of the subject. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \doxylink{classCoordinates}{Coordinates}, which are the new coordinates of the subject \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classLogic__Library_1_1Bonus_a387c8446f202fe99e881c6da9d88fef3}{Logic\+\_\+\+Library\+::\+Bonus}}, \mbox{\hyperlink{classLogic__Library_1_1Platform_a6684b860a7ba9bdeaf4af0118a6d13f9}{Logic\+\_\+\+Library\+::\+Platform}}, \mbox{\hyperlink{classLogic__Library_1_1Player_a0261509fa5854cfce9435053056fe35c}{Logic\+\_\+\+Library\+::\+Player}}, and \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a8eaae590e06b70348dbf2d216ba206e8}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/logic/\+Subject/Subject.\+h\item 
+src/logic/\+Subject/Subject.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,62 @@
+\doxysection{Platform.\+h}
+\hypertarget{view_2Platform_2Platform_8h_source}{}\label{view_2Platform_2Platform_8h_source}\index{src/view/Platform/Platform.h@{src/view/Platform/Platform.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 16/11/24\ at\ 19:17.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLATFORM\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLATFORM\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../../Config.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Enums/Enums.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../../view/Bonus/Bonus.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../Entity\_View/Entity\_View.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceGame__Repr}{Game\_Repr}}\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGame__Repr_1_1Platform}{Platform}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classEntity__View}{Entity\_View}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ std::shared\_ptr<sf::RectangleShape>\ mPlatform;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ position;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums::PlatformType}}\ type;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00036\ \ \ \ \ std::shared\_ptr<Game\_Repr::Bonus>\ bonus;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classGame__Repr_1_1Platform_a051482a4717fd5a5949741950284c3fd}{Platform}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Platform_a83bc1d7a4d9fd7d428926e31d9063a6a}{update}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<sf::RectangleShape>\&\ \mbox{\hyperlink{classGame__Repr_1_1Platform_aa3cd27c45f5441af1ad856bac33d2381}{getMPlatform}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Platform_af6b7bce52d4f61bacaa45f74d334864e}{setMPlatform}}(\textcolor{keyword}{const}\ std::shared\_ptr<sf::RectangleShape>\&\ n\_mPlatform);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ \mbox{\hyperlink{classGame__Repr_1_1Platform_a1c2fb1f9dfcd3e516098572a31d0f000}{getPosition}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Platform_a1b7ed0ddd7a9d8e86b6bbd19e08f2d02}{setPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ n\_position);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Platform_a1dab68a5dba82acc49ae5c83db3f4802}{setPlatformPos}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Bonus>\&\ \mbox{\hyperlink{classGame__Repr_1_1Platform_acc1bbc12df8b925c302031f06dac358f}{getBonus}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Platform_a65a58e46c97b3007223059aab872dd13}{setBonus}}(\textcolor{keyword}{const}\ std::shared\_ptr<Bonus>\&\ n\_bonus);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGame__Repr_1_1Platform_a39dee4be83f942c6a7873702e6073d2a}{notifyPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ coordinates)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ sf::FloatRect\ \mbox{\hyperlink{classGame__Repr_1_1Platform_a2b14519650e53cea360594d0df510161}{getGlobalBounds}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ mPlatform-\/>getGlobalBounds();\ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classGame__Repr_1_1Platform_a290712026302c39d4b70d50c91f1dc62}{\string~Platform}}();}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \}\ \textcolor{comment}{//\ namespace\ Game\_Repr}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLATFORM\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,42 @@
+\doxysection{BG\+\_\+\+Tile.\+h}
+\hypertarget{view_2BG__Tile_2BG__Tile_8h_source}{}\label{view_2BG__Tile_2BG__Tile_8h_source}\index{src/view/BG\_Tile/BG\_Tile.h@{src/view/BG\_Tile/BG\_Tile.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 16/11/24\ at\ 19:19.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_BG\_TILE\_VIEW\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_BG\_TILE\_VIEW\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../../Config.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Coordinates/Coordinates.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceGame__Repr}{Game\_Repr}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGame__Repr_1_1BG__Tile}{BG\_Tile}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ std::unique\_ptr<BG\_Tile>\ tile;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ sf::Texture\ mTexture;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ sf::Sprite\ mTileSprite;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ sf::Vector2<float>\ mDimensions\ =\ \{100.f,\ 100.f\};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classCoordinates}{Coordinates}}\ position;\ \textcolor{comment}{//\ Position\ of\ the\ background\ tile}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classGame__Repr_1_1BG__Tile_ac18e7650f81e949db4c7186839fb36f9}{BG\_Tile}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ sf::Sprite\&\ \mbox{\hyperlink{classGame__Repr_1_1BG__Tile_aa47daf58fb55244887bc66b90dbdff79}{getMTileSprite}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTileSprite;\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ getPosition()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ setPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ position);}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \}\ \textcolor{comment}{//\ namespace\ Game\_Repr}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_BG\_TILE\_VIEW\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,103 @@
+\doxysection{Platform.\+h}
+\hypertarget{logic_2Platform_2Platform_8h_source}{}\label{logic_2Platform_2Platform_8h_source}\index{src/logic/Platform/Platform.h@{src/logic/Platform/Platform.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ s0230501\ on\ 14/11/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLATFORM\_LOGIC\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLATFORM\_LOGIC\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Enums/Enums.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../../Utilities/Random/Random.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../../logic/Bonus/Bonus.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../../view/Platform/Platform.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../Entity\_Model/Entity\_Model.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLogic__Library}{Logic\_Library}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogic__Library_1_1Platform}{Platform}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classLogic__Library_1_1Entity__Model}{Entity\_Model}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums::PlatformType}}\ pType\{\};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::shared\_ptr<Game\_Repr::Platform>\ observer;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{float}\ horizontalSpeed\ =\ \mbox{\hyperlink{classConfig_ad98b5f33662854d0721104f469ab41d7}{Config::platformHorizontalSpeed}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ verticalSpeed\ =\ \mbox{\hyperlink{classConfig_ad1b46ea657036253df0ccb5f7ddcc5a8}{Config::platformVerticalSpeed}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ goingLeft\{\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ goingUp\{\};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasBonus\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00049\ \ \ \ \ std::shared\_ptr<Logic\_Library::Bonus>\ bonus;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{float}\ mVerticalMin;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ mVerticalMax;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{float}\ mInitialY;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ createPlatform();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a40d7154681415ad7fc52e1d803917bc3}{Platform}}()\ :\ goingLeft(false),\ goingUp(false)\ \{\ createPlatform();\ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums::PlatformType}}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_ab8afc4a403229de17a926619fef6a40e}{getPType}}()\ \{\ \textcolor{keywordflow}{return}\ pType;\ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_aabe32d613c562bdc24b554ec0f785f0f}{setPType}}(\mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums::PlatformType}}\ newType)\ \{\ pType\ =\ newType;\ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_aa830dbd6a1fde3d8a4b9598293307f0e}{getHorizontalSpeed}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ horizontalSpeed;\ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a8b95d033eb6dae86a8be3f59e5910f26}{setHorizontalSpeed}}(\textcolor{keywordtype}{float}\ n\_horizontalSpeed)\ \{\ horizontalSpeed\ =\ n\_horizontalSpeed;\ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a2cd8d70e2437b61ae63425632edf8223}{getVerticalSpeed}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ verticalSpeed;\ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a3d0519a4600eef19c19f37d458ce2863}{setVerticalSpeed}}(\textcolor{keywordtype}{float}\ n\_verticalSpeed)\ \{\ verticalSpeed\ =\ n\_verticalSpeed;\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_aeeb01ab6a9952f65a8012226999fab2f}{setVerticalLimits}}(\textcolor{keywordtype}{float}\ range)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ mInitialY\ =\ observer-\/>getPosition().getY();}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ mVerticalMin\ =\ mInitialY\ -\/\ range;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ mVerticalMax\ =\ mInitialY\ +\ range;}
+\DoxyCodeLine{00109\ \ \ \ \ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_ae91e3a9087fce0e73b7b318bd04c5643}{getVerticalMin}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mVerticalMin;\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a017fdb6c39591b8cf69ef2e30a62c6a5}{getVerticalMax}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mVerticalMax;\ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a5a93a8e53ff97ffde280d3d577a1a56d}{isGoingLeft}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_aeb65160925bb95e068b437ebd5a3455a}{setGoingLeft}}(\textcolor{keywordtype}{bool}\ n\_goingLeft);}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a7b9d6a711b9fa47ce897a1b9845694dd}{isGoingUp}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_aead43e1f017aab760b648cffe1bcd958}{setGoingUp}}(\textcolor{keywordtype}{bool}\ n\_goingUp);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a9bb2a53d0efeed57de0e4e6a051b29b1}{getHasBonus}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_accd9f35314ffc4a266c3cc7c14cf7edb}{setHasBonus}}(\textcolor{keywordtype}{bool}\ n\_hasBonus);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00160\ \ \ \ \ std::shared\_ptr<Logic\_Library::Bonus>\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a540f3a2d7dfbb1762be8d42416e25fe4}{getBonus}}()\ \{\ \textcolor{keywordflow}{return}\ bonus;\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_ae1a86d6c3fa883f7f5389e1ab60999b7}{setBonus}}(std::shared\_ptr<Logic\_Library::Bonus>\ newBonus)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newBonus\ ==\ \textcolor{keyword}{nullptr}\ \&\&\ observer)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ observer-\/>setBonus(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ bonus\ =\ std::move(newBonus);}
+\DoxyCodeLine{00171\ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a3d7763adf91bb73a7df78553e6e7e0f7}{moveUp}}();}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a6c5a287d24d2e1a1967d3999869110d4}{moveDown}}();}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a7042cf83faf74cf231674850da7e21e9}{moveLeft}}();}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_ab51f09c9ba27a1975c93354a931a5bad}{moveRight}}();}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a3513bcc5abccfea21864c6add09e096d}{fixTooHigh}}(\textcolor{keywordtype}{float}\ moveDownDistance);}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_ab23c8fc4d6bd450d5c5b86b8997ef8fa}{assignObserver}}(std::shared\_ptr<Game\_Repr::Platform>\ newObserver);}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a79f1eb76cd74ac8ac778f08322eaa4a4}{deleteObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_af94057e180d66a274ea4deae2a346ae6}{notifyObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00212\ \ \ \ \ std::shared\_ptr<Game\_Repr::Platform>\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a5d39d8a5fd19086f1096f632abb61456}{getObserver}}()\ \{\ \textcolor{keywordflow}{return}\ observer;\ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_a6684b860a7ba9bdeaf4af0118a6d13f9}{notifyPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classCoordinates}{Coordinates}}\&\ coordinates)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classLogic__Library_1_1Platform_aa4a94d7ace1fe5df7fd05ee25a342d6a}{\string~Platform}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00223\ \};}
+\DoxyCodeLine{00224\ \}\ \textcolor{comment}{//\ namespace\ Logic\_Library}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_PLATFORM\_LOGIC\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\doxysection{BG\+\_\+\+Tile.\+h}
+\hypertarget{logic_2BG__Tile_2BG__Tile_8h_source}{}\label{logic_2BG__Tile_2BG__Tile_8h_source}\index{src/logic/BG\_Tile/BG\_Tile.h@{src/logic/BG\_Tile/BG\_Tile.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 14/11/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_BG\_TILE\_LOGIC\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_BG\_TILE\_LOGIC\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../view/BG\_Tile/BG\_Tile.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../Entity\_Model/Entity\_Model.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLogic__Library}{Logic\_Library}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogic__Library_1_1BG__Tile}{BG\_Tile}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classLogic__Library_1_1Entity__Model}{Entity\_Model}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ std::shared\_ptr<Game\_Repr::BG\_Tile>\ observer;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_a3116e026b8902ad7ef9e105fab731d9a}{BG\_Tile}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_a05c9e60ad90c68f99a05e248f85d7c5e}{assignObserver}}(std::shared\_ptr<Game\_Repr::BG\_Tile>\ newObserver);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_a52ef11310011c50c45380ccf5ae861be}{deleteObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_abe7d29f41c81e2016b15fcee27503530}{notifyObserver}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_a5a219c11767e2f13b8c3f5ef09a648ee}{\string~BG\_Tile}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ \}\ \textcolor{comment}{//\ namespace\ Logic\_Library}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_BG\_TILE\_LOGIC\_H}}
+
+\end{DoxyCode}

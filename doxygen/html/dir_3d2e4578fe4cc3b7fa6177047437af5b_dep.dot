@@ -1,0 +1,26 @@
+digraph "src/logic"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_68267d1309a1af8e8297ef4c3efbcdba {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="src", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_68267d1309a1af8e8297ef4c3efbcdba.html",tooltip=""]
+  subgraph clusterdir_3d2e4578fe4cc3b7fa6177047437af5b {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_3d2e4578fe4cc3b7fa6177047437af5b.html",tooltip=""]
+    dir_3d2e4578fe4cc3b7fa6177047437af5b [shape=plaintext, label="logic"];
+  dir_13e0d02947aeaad66fec5f624e0ae1fb [label="_World", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_13e0d02947aeaad66fec5f624e0ae1fb.html",tooltip=""];
+  dir_3f4c68559e8c7dddcb6eb5d7ceb2f1e2 [label="Abstract_Factory", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_3f4c68559e8c7dddcb6eb5d7ceb2f1e2.html",tooltip=""];
+  dir_ef972015bad06cb87808000865523e29 [label="BG_Tile", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_ef972015bad06cb87808000865523e29.html",tooltip=""];
+  dir_f527d1f919bc34ebb032e64bb1004bef [label="Bonus", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_f527d1f919bc34ebb032e64bb1004bef.html",tooltip=""];
+  dir_34b9253f7bf2fc313534e5a9fc4af60b [label="Camera", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_34b9253f7bf2fc313534e5a9fc4af60b.html",tooltip=""];
+  dir_e901cd893f6d99e6d822c5cfff88fd6c [label="Entity_Model", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_e901cd893f6d99e6d822c5cfff88fd6c.html",tooltip=""];
+  dir_489e8f9bfa232a2c3d82b57323e1a5b7 [label="Observer", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_489e8f9bfa232a2c3d82b57323e1a5b7.html",tooltip=""];
+  dir_0e5ef0a6021b4dfa64605c1f3211caa0 [label="Platform", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_0e5ef0a6021b4dfa64605c1f3211caa0.html",tooltip=""];
+  dir_47cc08bb9a27eab3f8b4fd2a4d7e4982 [label="Player", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_47cc08bb9a27eab3f8b4fd2a4d7e4982.html",tooltip=""];
+  dir_25241ba72befb93631627a456a3f58d1 [label="Score", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_25241ba72befb93631627a456a3f58d1.html",tooltip=""];
+  dir_9e9c790db869ef1b311273f095f44e4f [label="Subject", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_9e9c790db869ef1b311273f095f44e4f.html",tooltip=""];
+  }
+  }
+}

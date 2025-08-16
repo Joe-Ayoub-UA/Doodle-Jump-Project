@@ -1,0 +1,102 @@
+\doxysection{Logic\+\_\+\+Library\+::BG\+\_\+\+Tile Class Reference}
+\hypertarget{classLogic__Library_1_1BG__Tile}{}\label{classLogic__Library_1_1BG__Tile}\index{Logic\_Library::BG\_Tile@{Logic\_Library::BG\_Tile}}
+
+
+Class that is responsible for the logic of the background tile.  
+
+
+
+
+{\ttfamily \#include $<$BG\+\_\+\+Tile.\+h$>$}
+
+
+
+Inheritance diagram for Logic\+\_\+\+Library\+::BG\+\_\+\+Tile\+:
+% FIG 0
+
+
+Collaboration diagram for Logic\+\_\+\+Library\+::BG\+\_\+\+Tile\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classLogic__Library_1_1BG__Tile_a3116e026b8902ad7ef9e105fab731d9a}\label{classLogic__Library_1_1BG__Tile_a3116e026b8902ad7ef9e105fab731d9a} 
+{\bfseries BG\+\_\+\+Tile} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1BG__Tile}{BG\+\_\+\+Tile} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_a05c9e60ad90c68f99a05e248f85d7c5e}{assign\+Observer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1BG__Tile}{Game\+\_\+\+Repr\+::\+BG\+\_\+\+Tile}} $>$ new\+Observer)
+\begin{DoxyCompactList}\small\item\em Function to assign an observer to the background tile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_a52ef11310011c50c45380ccf5ae861be}{delete\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Function to delete the observer of the background tile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1BG__Tile_abe7d29f41c81e2016b15fcee27503530}{notify\+Observer}} () override
+\begin{DoxyCompactList}\small\item\em Function to notify the observer of the background tile. \end{DoxyCompactList}\item 
+\Hypertarget{classLogic__Library_1_1BG__Tile_a5a219c11767e2f13b8c3f5ef09a648ee}\label{classLogic__Library_1_1BG__Tile_a5a219c11767e2f13b8c3f5ef09a648ee} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+BG\+\_\+\+Tile} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{classLogic__Library_1_1BG__Tile}{BG\+\_\+\+Tile} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classLogic__Library_1_1Entity__Model}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Entity\+\_\+\+Model} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Entity__Model}{Entity\+\_\+\+Model} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a8eaae590e06b70348dbf2d216ba206e8}{notify\+Position}} (const \mbox{\hyperlink{classCoordinates}{Coordinates}} \&coordinates) override=0
+\begin{DoxyCompactList}\small\item\em Function to notify the position of the subject. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classLogic__Library_1_1Subject}{Logic\+\_\+\+Library\+::\+Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Subject} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classLogic__Library_1_1Subject}{Subject} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that is responsible for the logic of the background tile. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLogic__Library_1_1BG__Tile_a05c9e60ad90c68f99a05e248f85d7c5e}\label{classLogic__Library_1_1BG__Tile_a05c9e60ad90c68f99a05e248f85d7c5e} 
+\index{Logic\_Library::BG\_Tile@{Logic\_Library::BG\_Tile}!assignObserver@{assignObserver}}
+\index{assignObserver@{assignObserver}!Logic\_Library::BG\_Tile@{Logic\_Library::BG\_Tile}}
+\doxysubsubsection{\texorpdfstring{assignObserver()}{assignObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile\+::assign\+Observer (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Repr_1_1BG__Tile}{Game\+\_\+\+Repr\+::\+BG\+\_\+\+Tile}} $>$}]{new\+Observer }\end{DoxyParamCaption})}
+
+
+
+Function to assign an observer to the background tile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Observer} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classLogic__Library_1_1BG__Tile_a52ef11310011c50c45380ccf5ae861be}\label{classLogic__Library_1_1BG__Tile_a52ef11310011c50c45380ccf5ae861be} 
+\index{Logic\_Library::BG\_Tile@{Logic\_Library::BG\_Tile}!deleteObserver@{deleteObserver}}
+\index{deleteObserver@{deleteObserver}!Logic\_Library::BG\_Tile@{Logic\_Library::BG\_Tile}}
+\doxysubsubsection{\texorpdfstring{deleteObserver()}{deleteObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile\+::delete\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to delete the observer of the background tile. 
+
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a56fb751d461e4d9825ecec059f380879}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+\Hypertarget{classLogic__Library_1_1BG__Tile_abe7d29f41c81e2016b15fcee27503530}\label{classLogic__Library_1_1BG__Tile_abe7d29f41c81e2016b15fcee27503530} 
+\index{Logic\_Library::BG\_Tile@{Logic\_Library::BG\_Tile}!notifyObserver@{notifyObserver}}
+\index{notifyObserver@{notifyObserver}!Logic\_Library::BG\_Tile@{Logic\_Library::BG\_Tile}}
+\doxysubsubsection{\texorpdfstring{notifyObserver()}{notifyObserver()}}
+{\footnotesize\ttfamily void Logic\+\_\+\+Library\+::\+BG\+\_\+\+Tile\+::notify\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function to notify the observer of the background tile. 
+
+
+
+Implements \mbox{\hyperlink{classLogic__Library_1_1Entity__Model_a9d8bd1ecef74b4a4eb18009a261e9dc0}{Logic\+\_\+\+Library\+::\+Entity\+\_\+\+Model}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/logic/\+BG\+\_\+\+Tile/BG\+\_\+\+Tile.\+h\end{DoxyCompactItemize}

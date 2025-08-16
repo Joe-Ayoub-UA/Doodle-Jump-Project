@@ -1,0 +1,100 @@
+\doxysection{Config.\+h}
+\hypertarget{Config_8h_source}{}\label{Config_8h_source}\index{src/Config.h@{src/Config.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Joe\ Ayoub\ on\ 19/12/24\ at\ 22:30.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_CONFIG\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_CONFIG\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Utilities/Enums/Enums.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classConfig}{Config}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ Window}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ ====================================================Window=======================================================}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classConfig_a4a81139e8c7ead369c4db02134aa95ca}{windowWidth}}\ =\ 600;\ \textcolor{comment}{//\ Width\ of\ the\ window}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classConfig_ab1cedd71af41ccfbdcbe516ea552875b}{windowHeight}}\ =\ 800;\ \textcolor{comment}{//\ Height\ of\ the\ window}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ =================================================================================================================}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Player}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ ==================================================Player=========================================================}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_aea0340e81872b3ca8495623e01e1e4b6}{horizontalSpeed}}\ =\ 500.f;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ \ \ \ static\ constexpr\ float\ gravity\ =\ 9.81;}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ \ \ \ static\ constexpr\ float\ gravity\ =\ 90.8f;}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ \ \ \ static\ constexpr\ float\ gravity\ =\ 350.f;}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_a47f6aba1722d9e8900107af8e7212eb6}{gravity}}\ =\ 550.f;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ \ \ \ static\ constexpr\ float\ gravity\ =\ 0.028f;}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ \ \ \ static\ constexpr\ float\ jumpForce\ =\ 350.f;}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ \ \ \ static\ constexpr\ float\ jumpForce\ =\ 350.f;}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_a78e5af3c4d56154ee960013d2f5306d8}{jumpForce}}\ =\ 450.f;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ \ \ \ static\ constexpr\ float\ jumpForce\ =\ 30.f;}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_a91a585d22be3f471e08898a7bdb5cfa7}{maxJumpHeight}}\ =\ ((\mbox{\hyperlink{classConfig_a78e5af3c4d56154ee960013d2f5306d8}{Config::jumpForce}}\ *\ \mbox{\hyperlink{classConfig_a78e5af3c4d56154ee960013d2f5306d8}{Config::jumpForce}})\ /\ (2.f\ *\ \mbox{\hyperlink{classConfig_a47f6aba1722d9e8900107af8e7212eb6}{Config::gravity}}))\ -\/\ 40.f;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ =================================================================================================================}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Frame}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_acf276d307c02d01911e4a69198a55e33}{frameDuration}}\ =\ 1.f\ /\ 60.f;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_ae7a0b4f3ff52a9b20e45ce8e4fdd4897}{radiusMultiplier}}\ =\ -\/2.f;\ \textcolor{comment}{//\ Multiplier\ for\ player's\ radius}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_abeefbbf1476b0071ad0e7611f9e3eb0a}{sizeOffset}}\ =\ 1.f;\ \textcolor{comment}{//\ Offset\ for\ window\ size}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Platform}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ ==================================================PLATFORM=======================================================}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ \ \ \ static\ constexpr\ float\ platformWidth\ =\ 150.f;}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_abe9b8543c9bd7466c29f46a349f170cd}{platformWidth}}\ =\ 100.f;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_a7c89473d02d2860be05685f968b7afdb}{platformHeight}}\ =\ 20.f;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_ad98b5f33662854d0721104f469ab41d7}{platformHorizontalSpeed}}\ =\ 50.f;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_ad1b46ea657036253df0ccb5f7ddcc5a8}{platformVerticalSpeed}}\ =\ 30.f;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_a9dd80c204c0a3de64eb73f768c516815}{platformMinVerticalRange}}\ =\ 50.f;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_aea5f2e3ae2793d1e0cd5584a25793a5c}{platformMaxVerticalRange}}\ =\ 120.f;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classConfig_a679ad40935c37b9bd69d5d7d34df68ed}{amountOfPlatforms}};}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{static}\ std::pair<float,\ float>\ \mbox{\hyperlink{classConfig_a179779d75e8899cab0a0b2bf101b42e3}{getMinPlatformDistance}}()\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ xDistance\ =\ 75.f\ +\ (15\ -\/\ \mbox{\hyperlink{classConfig_a679ad40935c37b9bd69d5d7d34df68ed}{amountOfPlatforms}})\ *\ 1.5;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ yDistance\ =\ 125.f\ +\ (15\ -\/\ \mbox{\hyperlink{classConfig_a679ad40935c37b9bd69d5d7d34df68ed}{amountOfPlatforms}})\ *\ 2.5;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(xDistance,\ yDistance);}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{static}\ std::pair<float,\ float>\ \mbox{\hyperlink{classConfig_ae9d10e7fdd9c1bb954eb6d90b34b2baf}{getMaxPlatformDistance}}()\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ xDistance\ =\ 100.f\ +\ (15\ -\/\ \mbox{\hyperlink{classConfig_a679ad40935c37b9bd69d5d7d34df68ed}{amountOfPlatforms}})\ *\ 2;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ yDistance\ =\ 150.f\ +\ (15\ -\/\ \mbox{\hyperlink{classConfig_a679ad40935c37b9bd69d5d7d34df68ed}{amountOfPlatforms}})\ *\ 3;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_pair(xDistance,\ yDistance);}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ \ \ \ static\ constexpr\ int\ amountOfPlatforms\ =\ 15;}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::pair<float,\ float>\ \mbox{\hyperlink{classConfig_aa5209cce6a5e0ec295c4b969639b7734}{minPlatformDistance}};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::pair<float,\ float>\ \mbox{\hyperlink{classConfig_ad6c18440cfe6c27547b5865d700a27cf}{maxPlatformDistance}};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::map<Enums::PlatformType,\ std::string>\ \mbox{\hyperlink{classConfig_a774a694deed9aec232794130d94d7c6a}{platformColor}};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_a34ec8083330a7b7d90ea5df32c5cfc4b}{platformPositionOffset}}\ =\ 100.f;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ =================================================================================================================}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ ==================================================BONUS==========================================================}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::map<Enums::BonusType,\ std::string>\ \mbox{\hyperlink{classConfig_a99b0714ea71e49a99540d728bcf6775f}{bonusTexture}};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_afca64e00377ff4a3351122208b852ab4}{jetPackFrameDuration}}\ =\ 180;\ \textcolor{comment}{//\ Duration\ of\ the\ jetpack\ bonus\ in\ frames\ (3s)}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classConfig_ace692a986aa0bb8262bff6a3c2480408}{jetpackForce}}\ =\ -\/800.f;\ \textcolor{comment}{//\ Force\ of\ the\ jetpack\ bonus}}
+\DoxyCodeLine{00173\ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INC\_2024\_PROJECT\_JOE\_AYOUB\_UA\_CONFIG\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,12 @@
+digraph "Logic_Library::Player"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="Logic_Library::Player",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Class that is responsible for the logic of the player."];
+  Node2 -> Node1 [id="edge3_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Logic_Library::Entity\l_Model",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classLogic__Library_1_1Entity__Model.html",tooltip="Class that is responsible for the model of the entity."];
+  Node3 -> Node2 [id="edge4_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Logic_Library::Subject",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classLogic__Library_1_1Subject.html",tooltip="Class that is responsible for the subject."];
+}

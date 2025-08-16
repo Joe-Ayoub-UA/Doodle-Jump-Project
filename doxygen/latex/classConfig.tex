@@ -1,0 +1,166 @@
+\doxysection{Config Class Reference}
+\hypertarget{classConfig}{}\label{classConfig}\index{Config@{Config}}
+
+
+\doxylink{classConfig}{Config} class\+: has all the parameters that are used in the game, in one file so they are easier to change.  
+
+
+
+
+{\ttfamily \#include $<$Config.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classConfig_a179779d75e8899cab0a0b2bf101b42e3}{get\+Min\+Platform\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the minimum distance range between platforms based on the amount of platforms. \end{DoxyCompactList}\item 
+static std\+::pair$<$ float, float $>$ \mbox{\hyperlink{classConfig_ae9d10e7fdd9c1bb954eb6d90b34b2baf}{get\+Max\+Platform\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the maximum distance range between platforms based on the amount of platforms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classConfig_a4a81139e8c7ead369c4db02134aa95ca}\label{classConfig_a4a81139e8c7ead369c4db02134aa95ca} 
+static constexpr int {\bfseries window\+Width} = 600
+\begin{DoxyCompactList}\small\item\em Width of the window. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_ab1cedd71af41ccfbdcbe516ea552875b}\label{classConfig_ab1cedd71af41ccfbdcbe516ea552875b} 
+static constexpr int {\bfseries window\+Height} = 800
+\begin{DoxyCompactList}\small\item\em Height of the window. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_aea0340e81872b3ca8495623e01e1e4b6}\label{classConfig_aea0340e81872b3ca8495623e01e1e4b6} 
+static constexpr float {\bfseries horizontal\+Speed} = 500.f
+\begin{DoxyCompactList}\small\item\em Horizontal speed of the player. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_a47f6aba1722d9e8900107af8e7212eb6}\label{classConfig_a47f6aba1722d9e8900107af8e7212eb6} 
+static constexpr float {\bfseries gravity} = 550.f
+\begin{DoxyCompactList}\small\item\em Gravity of the game. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_a78e5af3c4d56154ee960013d2f5306d8}\label{classConfig_a78e5af3c4d56154ee960013d2f5306d8} 
+static constexpr float {\bfseries jump\+Force} = 450.f
+\begin{DoxyCompactList}\small\item\em Jump force of the player. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_a91a585d22be3f471e08898a7bdb5cfa7}\label{classConfig_a91a585d22be3f471e08898a7bdb5cfa7} 
+static constexpr float {\bfseries max\+Jump\+Height} = ((\mbox{\hyperlink{classConfig_a78e5af3c4d56154ee960013d2f5306d8}{Config\+::jump\+Force}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classConfig_a78e5af3c4d56154ee960013d2f5306d8}{Config\+::jump\+Force}}) / (2.f \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classConfig_a47f6aba1722d9e8900107af8e7212eb6}{Config\+::gravity}})) -\/ 40.f
+\begin{DoxyCompactList}\small\item\em Max jump height of the player. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_acf276d307c02d01911e4a69198a55e33}\label{classConfig_acf276d307c02d01911e4a69198a55e33} 
+static constexpr float {\bfseries frame\+Duration} = 1.f / 60.f
+\begin{DoxyCompactList}\small\item\em Duration of a frame. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_ae7a0b4f3ff52a9b20e45ce8e4fdd4897}\label{classConfig_ae7a0b4f3ff52a9b20e45ce8e4fdd4897} 
+static constexpr float {\bfseries radius\+Multiplier} = -\/2.f
+\begin{DoxyCompactList}\small\item\em Multiplier for player\textquotesingle{}s radius. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_abeefbbf1476b0071ad0e7611f9e3eb0a}\label{classConfig_abeefbbf1476b0071ad0e7611f9e3eb0a} 
+static constexpr float {\bfseries size\+Offset} = 1.f
+\begin{DoxyCompactList}\small\item\em Offset for window size. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_abe9b8543c9bd7466c29f46a349f170cd}\label{classConfig_abe9b8543c9bd7466c29f46a349f170cd} 
+static constexpr float {\bfseries platform\+Width} = 100.f
+\begin{DoxyCompactList}\small\item\em Platform\textquotesingle{}s width. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_a7c89473d02d2860be05685f968b7afdb}\label{classConfig_a7c89473d02d2860be05685f968b7afdb} 
+static constexpr float {\bfseries platform\+Height} = 20.f
+\begin{DoxyCompactList}\small\item\em Platform\textquotesingle{}s height. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_ad98b5f33662854d0721104f469ab41d7}\label{classConfig_ad98b5f33662854d0721104f469ab41d7} 
+static constexpr float {\bfseries platform\+Horizontal\+Speed} = 50.f
+\begin{DoxyCompactList}\small\item\em Platform\textquotesingle{}s horizontal speed. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_ad1b46ea657036253df0ccb5f7ddcc5a8}\label{classConfig_ad1b46ea657036253df0ccb5f7ddcc5a8} 
+static constexpr float {\bfseries platform\+Vertical\+Speed} = 30.f
+\begin{DoxyCompactList}\small\item\em Platform\textquotesingle{}s vertical speed. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_a9dd80c204c0a3de64eb73f768c516815}\label{classConfig_a9dd80c204c0a3de64eb73f768c516815} 
+static constexpr float {\bfseries platform\+Min\+Vertical\+Range} = 50.f
+\begin{DoxyCompactList}\small\item\em Minimum vertical range of a platform. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_aea5f2e3ae2793d1e0cd5584a25793a5c}\label{classConfig_aea5f2e3ae2793d1e0cd5584a25793a5c} 
+static constexpr float {\bfseries platform\+Max\+Vertical\+Range} = 120.f
+\begin{DoxyCompactList}\small\item\em Maximum vertical range of a platform. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_a679ad40935c37b9bd69d5d7d34df68ed}\label{classConfig_a679ad40935c37b9bd69d5d7d34df68ed} 
+static int {\bfseries amount\+Of\+Platforms} = 15
+\begin{DoxyCompactList}\small\item\em Amount of platforms. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_aa5209cce6a5e0ec295c4b969639b7734}\label{classConfig_aa5209cce6a5e0ec295c4b969639b7734} 
+static const std\+::pair$<$ float, float $>$ {\bfseries min\+Platform\+Distance} = \mbox{\hyperlink{classConfig_a179779d75e8899cab0a0b2bf101b42e3}{get\+Min\+Platform\+Distance}}()
+\begin{DoxyCompactList}\small\item\em Minimum distance range between platforms. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_ad6c18440cfe6c27547b5865d700a27cf}\label{classConfig_ad6c18440cfe6c27547b5865d700a27cf} 
+static const std\+::pair$<$ float, float $>$ {\bfseries max\+Platform\+Distance} = \mbox{\hyperlink{classConfig_ae9d10e7fdd9c1bb954eb6d90b34b2baf}{get\+Max\+Platform\+Distance}}()
+\begin{DoxyCompactList}\small\item\em Maximum distance range between platforms. \end{DoxyCompactList}\item 
+static const std\+::map$<$ \mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums\+::\+Platform\+Type}}, std\+::string $>$ \mbox{\hyperlink{classConfig_a774a694deed9aec232794130d94d7c6a}{platform\+Color}}
+\begin{DoxyCompactList}\small\item\em Map of platform types and their respective colors. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_a34ec8083330a7b7d90ea5df32c5cfc4b}\label{classConfig_a34ec8083330a7b7d90ea5df32c5cfc4b} 
+static constexpr float {\bfseries platform\+Position\+Offset} = 100.f
+\begin{DoxyCompactList}\small\item\em The offset of the platform\textquotesingle{}s position, if needed. \end{DoxyCompactList}\item 
+static const std\+::map$<$ \mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums\+::\+Bonus\+Type}}, std\+::string $>$ \mbox{\hyperlink{classConfig_a99b0714ea71e49a99540d728bcf6775f}{bonus\+Texture}}
+\begin{DoxyCompactList}\small\item\em Way to know which texture to use for each bonus. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_afca64e00377ff4a3351122208b852ab4}\label{classConfig_afca64e00377ff4a3351122208b852ab4} 
+static constexpr float {\bfseries jet\+Pack\+Frame\+Duration} = 180
+\begin{DoxyCompactList}\small\item\em Duration of the jetpack bonus in frames. \end{DoxyCompactList}\item 
+\Hypertarget{classConfig_ace692a986aa0bb8262bff6a3c2480408}\label{classConfig_ace692a986aa0bb8262bff6a3c2480408} 
+static constexpr float {\bfseries jetpack\+Force} = -\/800.f
+\begin{DoxyCompactList}\small\item\em Force of the jetpack bonus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classConfig}{Config} class\+: has all the parameters that are used in the game, in one file so they are easier to change. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classConfig_ae9d10e7fdd9c1bb954eb6d90b34b2baf}\label{classConfig_ae9d10e7fdd9c1bb954eb6d90b34b2baf} 
+\index{Config@{Config}!getMaxPlatformDistance@{getMaxPlatformDistance}}
+\index{getMaxPlatformDistance@{getMaxPlatformDistance}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{getMaxPlatformDistance()}{getMaxPlatformDistance()}}
+{\footnotesize\ttfamily static std\+::pair$<$ float, float $>$ Config\+::get\+Max\+Platform\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets the maximum distance range between platforms based on the amount of platforms. 
+
+\begin{DoxyReturn}{Returns}
+A pair representing the maximum distance range 
+\end{DoxyReturn}
+\Hypertarget{classConfig_a179779d75e8899cab0a0b2bf101b42e3}\label{classConfig_a179779d75e8899cab0a0b2bf101b42e3} 
+\index{Config@{Config}!getMinPlatformDistance@{getMinPlatformDistance}}
+\index{getMinPlatformDistance@{getMinPlatformDistance}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{getMinPlatformDistance()}{getMinPlatformDistance()}}
+{\footnotesize\ttfamily static std\+::pair$<$ float, float $>$ Config\+::get\+Min\+Platform\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets the minimum distance range between platforms based on the amount of platforms. 
+
+\begin{DoxyReturn}{Returns}
+A pair representing the minimum distance range 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classConfig_a99b0714ea71e49a99540d728bcf6775f}\label{classConfig_a99b0714ea71e49a99540d728bcf6775f} 
+\index{Config@{Config}!bonusTexture@{bonusTexture}}
+\index{bonusTexture@{bonusTexture}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{bonusTexture}{bonusTexture}}
+{\footnotesize\ttfamily const std\+::map$<$ \mbox{\hyperlink{classEnums_a5b43fb8ebe9ed3ec6c4674105ffe8ec5}{Enums\+::\+Bonus\+Type}}, std\+::string $>$ Config\+::bonus\+Texture\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{Enums::BonusType::JETPACK,\ \textcolor{stringliteral}{"{}Red"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{Enums::BonusType::SPRING,\ \textcolor{stringliteral}{"{}Blue"{}}\}\}}
+
+\end{DoxyCode}
+
+
+Way to know which texture to use for each bonus. 
+
+\Hypertarget{classConfig_a774a694deed9aec232794130d94d7c6a}\label{classConfig_a774a694deed9aec232794130d94d7c6a} 
+\index{Config@{Config}!platformColor@{platformColor}}
+\index{platformColor@{platformColor}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{platformColor}{platformColor}}
+{\footnotesize\ttfamily const std\+::map$<$ \mbox{\hyperlink{classEnums_a2fb6ce345d3b64c5b2ea893c7e46f84e}{Enums\+::\+Platform\+Type}}, std\+::string $>$ Config\+::platform\+Color\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{\{Enums::PlatformType::STATIC,\ \textcolor{stringliteral}{"{}Green"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{Enums::PlatformType::HORIZONTAL,\ \textcolor{stringliteral}{"{}Blue"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{Enums::PlatformType::VERTICAL,\ \textcolor{stringliteral}{"{}Yellow"{}}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{Enums::PlatformType::TEMPORARY,\ \textcolor{stringliteral}{"{}White"{}}\}\}}
+
+\end{DoxyCode}
+
+
+Map of platform types and their respective colors. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Config.\+h\item 
+src/Config.\+cpp\end{DoxyCompactItemize}
