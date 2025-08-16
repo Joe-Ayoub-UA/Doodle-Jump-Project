@@ -42,6 +42,11 @@ namespace Logic_Library{
          */
         virtual void notifyPosition(const Coordinates& coordinates)=0;
 
+        /**
+         * @brief Destructor for the Subject class
+         */
+        virtual ~Subject() = default;
+
     };
 }
 

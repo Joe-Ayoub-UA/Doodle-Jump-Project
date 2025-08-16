@@ -6,6 +6,7 @@
 #define INC_2024_PROJECT_JOE_AYOUB_UA_ENTITY_VIEW_H
 
 #include "../../Logic Library/Observer/Observer.h"
+#include "../SFML/Graphics.hpp"
 
 /**
  * @brief Class that is responsible for the view of the entity

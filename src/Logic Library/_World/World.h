@@ -214,7 +214,7 @@ public:
      * @param platform
      * @return shared pointer to the platform
      */
-    std::shared_ptr<Logic_Library::Platform> getMPlatform(std::shared_ptr<Logic_Library::Platform>& platform);
+    std::shared_ptr<Logic_Library::Platform> getMPlatform(const std::shared_ptr<Logic_Library::Platform>& platform);
 
     /**
      * @brief Function to get the background tiles

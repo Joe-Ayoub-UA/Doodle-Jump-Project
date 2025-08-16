@@ -86,7 +86,7 @@ std::shared_ptr<Logic_Library::Bonus> Concrete_Factory::createBonus() {return nu
 
 
 std::shared_ptr<World> Concrete_Factory::createWorld() {
-    std::shared_ptr<World> world(new World());
+    auto world = std::make_shared<World>();
     return world;
 }
 

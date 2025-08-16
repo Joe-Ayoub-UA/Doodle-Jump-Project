@@ -22,17 +22,6 @@ void Score::updateHighScore(int newScore) {
         highScore = newScore;
         saveHighScore();
     }
-    // Read the highscore from the file
-//    std::ifstream fileIn("highscore.txt");
-//    int highScore;
-//    fileIn >> highScore;
-//    fileIn.close();
-//    // Update the highscore if the new score is higher
-//    if (newScore > highScore) {
-//        std::ofstream file("highscore.txt");
-//        file << newScore;
-//        file.close();
-//    }
 }
 
 int Score::getMScore() const {
@@ -56,6 +45,10 @@ void Score::saveHighScore() {
 
 void Score::loadHighScore() {
     std::ifstream fileIn("../src/Logic Library/Score/highscore.txt");
+    if (!fileIn) {
+        std::cerr << "Unable to open file for reading high score." << std::endl;
+        return;
+    }
     if (fileIn.is_open()) {
         fileIn >> highScore;
         fileIn.close();
@@ -67,11 +60,6 @@ void Score::loadHighScore() {
 
 int Score::getHighScore() {
     return highScore;
-//    std::ifstream fileIn("highscore.txt");
-//    int highScore;
-//    fileIn >> highScore;
-//    fileIn.close();
-//    return highScore;
 }
 
 void Score::notifyPosition(const Coordinates &coordinates) {}

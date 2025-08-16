@@ -25,7 +25,7 @@ const std::vector<std::shared_ptr<Logic_Library::Platform>> &World::getMPlatform
     return mPlatforms;
 }
 
-std::shared_ptr<Logic_Library::Platform> World::getMPlatform(std::shared_ptr<Logic_Library::Platform> &platform) {
+std::shared_ptr<Logic_Library::Platform> World::getMPlatform(const std::shared_ptr<Logic_Library::Platform> &platform) {
     for (const auto &i:mPlatforms) {
         if (platform == i) {
             return i;

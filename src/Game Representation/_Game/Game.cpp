@@ -22,17 +22,17 @@ void Game::gameInit() {
 
     // Generating the text for the score
     if (!mFont.loadFromFile("../textures/Fonts/Arial.ttf")) {
-        std::cout << "Score font not loaded" << std::endl;
+        throw std::runtime_error("Font not loaded");
     }
     mText.setFont(mFont);
     mText.setString("Score: ");
     mText.setCharacterSize(24);
     mText.setFillColor(sf::Color::White);
     mText.setStyle(sf::Text::Bold);
-    mText.setColor(sf::Color::Black);
+    mText.setFillColor(sf::Color::Black);
 
     if (!mHighScoreFont.loadFromFile("../textures/Fonts/Arial.ttf")) {
-        std::cout << "Highscore font not loaded" << std::endl;
+        throw std::runtime_error("Highscore font not loaded");
     }
     mHighScoreText.setFont(mHighScoreFont);
     mHighScoreText.setString("Highscore: ");
@@ -40,7 +40,7 @@ void Game::gameInit() {
     mHighScoreText.setFillColor(sf::Color::White);
     mHighScoreText.setStyle(sf::Text::Bold);
     mHighScoreText.setPosition(0, 30);
-    mHighScoreText.setColor(sf::Color::Black);
+    mHighScoreText.setFillColor(sf::Color::Black);
 
     mController->jumpPlayer();
     mController->jumpPlayer();
@@ -96,7 +96,7 @@ void Game::update() {
     if (mController->checkEndGame()) {
         mController->freezeWorld();
         if (!mGameOverFont.loadFromFile("../textures/Fonts/Arial.ttf")) {
-            std::cout << "Game over font not loaded" << std::endl;
+            throw std::runtime_error("Game Over font not loaded");
         }
         mGameOverText.setFont(mGameOverFont);
         mGameOverText.setString("Game Over! Your score: " + std::to_string(Score::getInstance().getMScore()) + "\n Highscore: " + std::to_string(Score::getInstance().getHighScore()));
@@ -105,7 +105,7 @@ void Game::update() {
         mGameOverText.setStyle(sf::Text::Bold);
         mGameOverText.setOrigin(mGameOverText.getLocalBounds().width / 2, mGameOverText.getLocalBounds().height / 2);
         mGameOverText.setPosition((float)Config::windowWidth / 2, (float)Config::windowHeight / 2);
-        mGameOverText.setColor(sf::Color::Black);
+        mGameOverText.setFillColor(sf::Color::Black);
     }
     else {
         if (mKeyStates[sf::Keyboard::D] || mKeyStates[sf::Keyboard::Right]) {

@@ -20,13 +20,13 @@ namespace Game_Repr {
         switch (bonusType) {
             case Enums::BonusType::JETPACK:
                 if (!mBonusTexture->loadFromFile("../textures/Bonuses/Jetpack.png")) {
-                    std::cerr << "Error loading jetpack texture" << std::endl;
+                    throw std::runtime_error("Error loading jetpack texture");
                 }
                 mBonusSprite->setTexture(*mBonusTexture);
                 break;
             case Enums::BonusType::SPRING:
                 if (!mBonusTexture->loadFromFile("../textures/Bonuses/Spring.png")) {
-                    std::cerr << "Error loading spring texture" << std::endl;
+                    throw std::runtime_error("Error loading spring texture");
                 }
                 mBonusSprite->setTexture(*mBonusTexture);
                 break;

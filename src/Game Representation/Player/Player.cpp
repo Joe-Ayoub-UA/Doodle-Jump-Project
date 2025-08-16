@@ -8,7 +8,7 @@ namespace Game_Repr {
         auto posX = static_cast<float>((float)Config::windowWidth/2);
         auto posY = static_cast<float>((float)Config::windowHeight);
         if (!mTexture.loadFromFile("../textures/Doodle/NinjaDoodle.png")) {
-            std::cout << "Texture not loaded" << std::endl;
+            throw std::runtime_error("Error loading player texture");
         }
         else {
             // Get the size of the texture

@@ -22,19 +22,19 @@ void Controller::applyGravity() {
     world->getMPlayer()->applyGravity();
 }
 
-void Controller::movePlatformRight(std::shared_ptr<Logic_Library::Platform>& platform) {
+void Controller::movePlatformRight(const std::shared_ptr<Logic_Library::Platform>& platform) {
     world->getMPlatform(platform)->moveRight();
 }
 
-void Controller::movePlatformLeft(std::shared_ptr<Logic_Library::Platform>& platform) {
+void Controller::movePlatformLeft(const std::shared_ptr<Logic_Library::Platform>& platform) {
     world->getMPlatform(platform)->moveLeft();
 }
 
-void Controller::movePlatformUp(std::shared_ptr<Logic_Library::Platform>& platform) {
+void Controller::movePlatformUp(const std::shared_ptr<Logic_Library::Platform>& platform) {
     world->getMPlatform(platform)->moveUp();
 }
 
-void Controller::movePlatformDown(std::shared_ptr<Logic_Library::Platform>& platform) {
+void Controller::movePlatformDown(const std::shared_ptr<Logic_Library::Platform>& platform) {
     world->getMPlatform(platform)->moveDown();
 }
 

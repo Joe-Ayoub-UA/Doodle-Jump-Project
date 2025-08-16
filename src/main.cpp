@@ -12,6 +12,16 @@
 int main()
 {
     Game game{};
-    game.run();
-    return 0;
+    try {
+        game.run();
+    }
+    catch (const std::exception &e) {
+        std::cerr << "An error occurred: " << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+    catch (...) {
+        std::cerr << "An unknown error occurred." << std::endl;
+        return EXIT_FAILURE;
+    }
+    return EXIT_SUCCESS;
 }

@@ -115,16 +115,3 @@ void Random::setYRange(const std::pair<int, int> &yRange) {
 Random::Random(const std::pair<int, int> &xRange, const std::pair<int, int> &yRange) : x_range(xRange),
                                                                                        y_range(yRange) {}
 
-int mains() {
-    std::shared_ptr<Random> random = std::make_shared<Random>();
-    random->setXRange(std::make_pair(0, 600));
-    random->setYRange(std::make_pair(0, 800));
-    for (int i=0;i<10;i++) {
-        std::cout << random->randomInt(random->getXRange().first,random->getXRange().second) << ", " << random->randomInt(random->getYRange().first,random->getYRange().second) << std::endl;
-    }
-
-//    for (int i=0;i<10;i++) {
-//        std::cout << 1 + random->generateCoor().first << ", " << 1 + random->generateCoor().second << std::endl;
-//    }
-    return 0;
-}

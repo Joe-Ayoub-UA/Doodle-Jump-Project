@@ -8,7 +8,7 @@ const char* bonusTypeToString(Enums::BonusType type) {
     switch(type) {
         case Enums::BonusType::JETPACK: return "JETPACK";
         case Enums::BonusType::SPRING: return "SPRING";
-        case Enums::BonusType::NONE: return "NONE";
+        default: return "NONE";
     }
 }
 

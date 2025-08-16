@@ -69,25 +69,25 @@ public:
      * @brief Function to move the platform to the right
      * @param platform
      */
-    void movePlatformRight(std::shared_ptr<Logic_Library::Platform>& platform);
+    void movePlatformRight(const std::shared_ptr<Logic_Library::Platform>& platform);
 
     /**
      * @brief Function to move the platform to the left
      * @param platform
      */
-    void movePlatformLeft(std::shared_ptr<Logic_Library::Platform>& platform);
+    void movePlatformLeft(const std::shared_ptr<Logic_Library::Platform>& platform);
 
     /**
      * @brief Function to move the platform up
      * @param platform
      */
-    void movePlatformUp(std::shared_ptr<Logic_Library::Platform>& platform);
+    void movePlatformUp(const std::shared_ptr<Logic_Library::Platform>& platform);
 
     /**
      * @brief Function to move the platform down
      * @param platform
      */
-    void movePlatformDown(std::shared_ptr<Logic_Library::Platform>& platform);
+    void movePlatformDown(const std::shared_ptr<Logic_Library::Platform>& platform);
 
     /**
      * @brief Function to move the background tile up

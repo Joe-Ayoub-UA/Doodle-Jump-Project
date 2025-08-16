@@ -6,9 +6,9 @@
 #define INC_2024_PROJECT_JOE_AYOUB_UA_BONUS_H
 #include <iostream>
 #include <memory>
-#include "../SFML/Graphics.hpp"
 #include "../../Utilities/Coordinates/Coordinates.h"
 #include "../../Utilities/Enums/Enums.h"
+#include "../Entity View/Entity_View.h"
 
 /**
  * @brief Namespace Game_Repr: Contains the classes that are responsible for the game representation.
@@ -17,7 +17,7 @@ namespace Game_Repr {
     /**
      * @brief Class to represent the bonus
      */
-    class Bonus {
+    class Bonus : public Entity_View {
     private:
         /// @brief Dimensions of the bonus
         sf::Vector2<float> mDimensions = {20.f, 50.f};
