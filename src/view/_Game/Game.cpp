@@ -64,7 +64,7 @@ void Game::render() {
         }
     }
     // For debugging, draw the debug hitbox of the player
-    mWindow->draw(*mPlayer->getMHitboxDebug());
+    /*mWindow->draw(*mPlayer->getMHitboxDebug());*/
     mWindow->draw(*mPlayer->getMPlayer());
     mWindow->draw(mText);
     mWindow->draw(mHighScoreText);
@@ -92,7 +92,6 @@ void Game::processEvents() {
 }
 
 void Game::update() {
-    // Update jetpack with delta time
     mController->getWorld()->getMPlayer()->updateJetpack();
     if (mController->checkEndGame()) {
         mController->freezeWorld();

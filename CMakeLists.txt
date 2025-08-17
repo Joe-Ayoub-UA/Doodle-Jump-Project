@@ -17,7 +17,6 @@ SET(SRC src/main.cpp
         "src/logic/Platform/Platform.cpp"
         "src/logic/BG_Tile/BG_Tile.cpp"
         "src/logic/Bonus/Bonus.cpp"
-        "src/logic/Camera/Camera.cpp"
         "src/Utilities/Random/Random.cpp"
         "src/Utilities/Stopwatch/Stopwatch.cpp"
         "src/logic/_World/World.cpp"

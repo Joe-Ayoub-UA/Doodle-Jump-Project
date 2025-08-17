@@ -38,24 +38,17 @@ public:
     /**
      * @brief Gravity of the game
      */
-    //    static constexpr float gravity = 9.81;
-    //    static constexpr float gravity = 90.8f;
-    //    static constexpr float gravity = 350.f;
     static constexpr float gravity = 550.f;
-    //    static constexpr float gravity = 0.028f;
 
     /**
      * @brief Jump force of the player
      */
-    //    static constexpr float jumpForce = 350.f;
-    //    static constexpr float jumpForce = 350.f;
     static constexpr float jumpForce = 450.f;
-    //    static constexpr float jumpForce = 30.f;
 
     /**
      * @brief Max jump height of the player
      */
-    static constexpr float maxJumpHeight = ((Config::jumpForce * Config::jumpForce) / (2.f * Config::gravity)) - 40.f;
+    static constexpr float maxJumpHeight = ((Config::jumpForce * Config::jumpForce) / (2.f * Config::gravity)) - 20.f;
     // =================================================================================================================
 
     // Frame
