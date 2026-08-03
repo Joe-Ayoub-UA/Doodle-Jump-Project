@@ -30,10 +30,10 @@ This project was built strictly using modern C++ features, specifically utilizin
 *   **Abstract Factory:** Allows the logic layer to spawn new platforms and bonuses without ever referencing SFML types.
 *   **Singleton:** Guarantees a single consistent time base (`Stopwatch` using `std::chrono`) and reproducible world generation (`Random`).
 
-## 💻 Tech Stack
+## Tech Stack
 *   **Language:** C++ 
 *   **Graphics Library:** SFML 2.6.1
-*   **Build System:** CMake (3.28.3)
+*   **Build System:** CMake (3.5 or higher)
 *   **CI/CD:** CircleCI
 
 ## How to Build and Run
@@ -58,9 +58,6 @@ make
 # Run the game
 ./doodle_jump
 ```
-
-## Documentation
-For a deeper dive into the architectural choices, class hierarchies, and logic separation, please see the [Project Report](./Report.pdf)
 
 Acknowledgments:
 Project developed for the Advanced Programming course at the University of Antwerp.
