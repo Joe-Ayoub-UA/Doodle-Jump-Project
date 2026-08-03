@@ -5,7 +5,7 @@
 #ifndef INC_2024_PROJECT_JOE_AYOUB_UA_CONTROLLER_H
 #define INC_2024_PROJECT_JOE_AYOUB_UA_CONTROLLER_H
 #include "../logic/_World/World.h"
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <memory>
 
