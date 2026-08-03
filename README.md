@@ -4,7 +4,7 @@ An infinite-scrolling platformer game inspired by Doodle Jump. This project was 
 
 The primary focus of this project is software architecture. It demonstrates a clear separation between core game logic and graphical representation by compiling the logic into a standalone library. 
 
-![Gameplay Screenshot](./path_to_your_screenshot.png) *(Note: Replace this with an actual screenshot or GIF of your game!)*
+![Gameplay Screenshot](./readme_files/screenshot.png)
 
 ## Gameplay Features
 The player constantly jumps and must navigate upwards by landing on generated platforms without falling off the screen. As the player jumps higher, the world shifts downwards to keep them in view, creating an effectively infinite vertical world.
